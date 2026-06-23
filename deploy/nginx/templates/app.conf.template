@@ -20,10 +20,9 @@ server {
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Proto $scheme;
         proxy_set_header X-Forwarded-Prefix /api;
-        # Rewrite only same-origin API redirects (slash fixes). Do NOT rewrite OAuth (vk/google/yandex).
-        proxy_redirect http://api:8000/ /api/;
-        proxy_redirect https://${DOMAIN}/ /api/;
-        proxy_redirect http://${DOMAIN}/ /api/;
+        # Fix same-origin redirects missing /api (FastAPI). Do not rewrite external OAuth hosts.
+        proxy_redirect ~^https?://$host/(?!api/)(.*)$ /api/$1;
+        proxy_redirect ~^/(?!api/)(.*)$ /api/$1;
         proxy_read_timeout 120s;
     }
 
