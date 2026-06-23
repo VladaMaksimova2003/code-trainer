@@ -243,6 +243,7 @@ class ContentAccessService:
                 .all()
             )
         student_groups = self.student_group_ids(user_id)
+        teacher_ids = self.student_teacher_ids(user_id)
         clauses = [Collection.visibility == AssignmentSetVisibility.PUBLIC]
         if student_groups:
             clauses.append(Collection.group_id.in_(student_groups))
@@ -252,7 +253,6 @@ class ContentAccessService:
         )
         rows = list(self._session.execute(stmt).scalars().all())
         extra: list[Collection] = []
-        teacher_ids = self.student_teacher_ids(user_id)
         if teacher_ids:
             teacher_sets = self._session.execute(
                 select(Collection).where(
