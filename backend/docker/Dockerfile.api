@@ -28,6 +28,7 @@ COPY resources ./resources
 COPY main.py ./main.py
 COPY alembic ./alembic
 COPY alembic.ini ./alembic.ini
+COPY algo_syntax_course.json ./algo_syntax_course.json
 COPY scripts ./scripts
 
 RUN useradd --create-home --uid 10001 appuser \

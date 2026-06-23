@@ -37,6 +37,7 @@ COPY worker ./worker
 COPY languages ./languages
 COPY resources ./resources
 COPY main.py ./main.py
+COPY algo_syntax_course.json ./algo_syntax_course.json
 COPY scripts ./scripts
 
 CMD ["python", "-m", "worker.execution_worker"]
