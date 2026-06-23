@@ -1,0 +1,8 @@
+﻿BAD id=158 ped=lop_07 tracks=['pascal'] pas_slug=lop_07 py_slug=None expected_py=pyl_05
+BAD id=159 ped=lop_09 tracks=['pascal', 'python'] pas_slug=lop_08 py_slug=lop_09 expected_py=pyl_08
+BAD id=210 ped=pit_03 tracks=['pascal', 'python'] pas_slug=str_03 py_slug=pit_03 expected_py=pypit_03
+BAD id=163 ped=pit_04 tracks=['pascal', 'python'] pas_slug=lop_14 py_slug=pit_04 expected_py=pypit_04
+MISSING ped=pit_12 expected_py=pypit_12
+BAD id=276 ped=pit_13 tracks=['pascal'] pas_slug=pit_13 py_slug=None expected_py=pypit_13
+BAD id=206 ped=pit_18 tracks=['pascal', 'python'] pas_slug=dyn_10 py_slug=pit_18 expected_py=pypit_18
+BAD id=205 ped=pit_22 tracks=['pascal', 'python'] pas_slug=dyn_09 py_slug=pit_22 expected_py=pypit_22

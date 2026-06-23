@@ -1,0 +1,590 @@
+[
+  {
+    "slot": "pas_001",
+    "pattern": "task_002",
+    "source_language": "python",
+    "target_language": "pascal",
+    "action": "assemble",
+    "chapter_key": "algo_basics",
+    "pitfall_id": "index_1based",
+    "expected_concept_ids": [
+      "program_entry",
+      "typed_declaration",
+      "assignment",
+      "stdin_read",
+      "counted_loop",
+      "simple_branch"
+    ],
+    "banner": "В Pascal первый элемент — a[1], не a[0].",
+    "chip_hints": [
+      [
+        "program_entry",
+        "Перенос Python → Pascal: program Name; begin … end."
+      ],
+      [
+        "typed_declaration",
+        "Перенос Python → Pascal: var x: integer; в секции var"
+      ],
+      [
+        "assignment",
+        "Перенос Python → Pascal: x := 1; (= только сравнение)"
+      ],
+      [
+        "stdin_read",
+        "Перенос Python → Pascal: readln(x);"
+      ],
+      [
+        "counted_loop",
+        "Перенос Python → Pascal: for i := 1 to n do"
+      ],
+      [
+        "simple_branch",
+        "Перенос Python → Pascal: if cond then … else …"
+      ]
+    ],
+    "transfer_meta_keys": [
+      "transfer_type",
+      "slot_pattern_id",
+      "pitfall_id",
+      "hint_ru",
+      "contrast_note_ru",
+      "reference_warning_ru",
+      "feedback_ru",
+      "detector",
+      "pedagogy_note_ru",
+      "contrast_test_indices"
+    ]
+  },
+  {
+    "slot": "pas_002",
+    "pattern": "task_001",
+    "source_language": "pascal",
+    "target_language": "python",
+    "action": "assemble",
+    "chapter_key": "algo_basics",
+    "pitfall_id": null,
+    "expected_concept_ids": [
+      "program_entry",
+      "assignment",
+      "stdin_read",
+      "indexed_sequence",
+      "collection_iteration",
+      "simple_branch"
+    ],
+    "banner": "Глава 1 · ввод: input() или map(int, input().split()), не readln как в Pascal.",
+    "chip_hints": [
+      [
+        "program_entry",
+        "Перенос Pascal → Python: скрипт или def main() без program/begin/end"
+      ],
+      [
+        "assignment",
+        "Перенос Pascal → Python: x = 1"
+      ],
+      [
+        "stdin_read",
+        "Перенос Pascal → Python: x = int(input())"
+      ],
+      [
+        "indexed_sequence",
+        "Перенос Pascal → Python: a[0] при list"
+      ],
+      [
+        "collection_iteration",
+        "Перенос Pascal → Python: for x in items: или for i in range(len(a))"
+      ],
+      [
+        "simple_branch",
+        "Перенос Pascal → Python: if cond: … elif … else:"
+      ]
+    ],
+    "transfer_meta_keys": [
+      "transfer_type",
+      "reference_warning_ru"
+    ]
+  },
+  {
+    "slot": "pas_007",
+    "pattern": "task_003",
+    "source_language": "cpp",
+    "target_language": "java",
+    "action": "implement",
+    "chapter_key": "algo_basics",
+    "pitfall_id": "input_line_model",
+    "expected_concept_ids": [
+      "program_entry",
+      "import_dependency",
+      "typed_declaration",
+      "assignment",
+      "stdin_read",
+      "dynamic_array",
+      "counted_loop",
+      "collection_iteration",
+      "simple_branch"
+    ],
+    "banner": "cin >> x — по токенам; для строки в Java — Scanner.nextLine().",
+    "chip_hints": [
+      [
+        "program_entry",
+        "Перенос C++ → Java: public class App { public static void main(String[] args) { … } }"
+      ],
+      [
+        "import_dependency",
+        "Перенос C++ → Java: import …;"
+      ],
+      [
+        "typed_declaration",
+        "Перенос C++ → Java: int x;"
+      ],
+      [
+        "assignment",
+        "Перенос C++ → Java: x = 1;"
+      ],
+      [
+        "stdin_read",
+        "Перенос C++ → Java: Scanner.nextInt()"
+      ],
+      [
+        "dynamic_array",
+        "Перенос C++ → Java: arr[i]"
+      ],
+      [
+        "counted_loop",
+        "Перенос C++ → Java: for (int i = 0; i < n; i++)"
+      ],
+      [
+        "collection_iteration",
+        "Перенос C++ → Java: for (T x : arr)"
+      ],
+      [
+        "simple_branch",
+        "Перенос C++ → Java: if (cond) { … }"
+      ]
+    ],
+    "transfer_meta_keys": [
+      "transfer_type",
+      "slot_pattern_id",
+      "pitfall_id",
+      "hint_ru",
+      "contrast_note_ru",
+      "reference_warning_ru",
+      "feedback_ru",
+      "detector",
+      "contrast_test_indices",
+      "pedagogy_note_ru"
+    ]
+  },
+  {
+    "slot": "pas_004",
+    "pattern": "task_006",
+    "source_language": "cpp",
+    "target_language": "python",
+    "action": "assemble",
+    "chapter_key": "algo_basics",
+    "pitfall_id": "integer_division",
+    "expected_concept_ids": [
+      "program_entry",
+      "assignment",
+      "stdin_read",
+      "collection_iteration",
+      "arithmetic_ops"
+    ],
+    "banner": "В Python целое частное — //, не / (обычный / даёт float).",
+    "chip_hints": [
+      [
+        "program_entry",
+        "Перенос C++ → Python: if __name__ == '__main__':"
+      ],
+      [
+        "assignment",
+        "Перенос C++ → Python: x = 1"
+      ],
+      [
+        "stdin_read",
+        "Перенос C++ → Python: int(input()) или map(int, input().split())"
+      ],
+      [
+        "collection_iteration",
+        "Перенос C++ → Python: for x in items:"
+      ],
+      [
+        "arithmetic_ops",
+        "В Python целое частное — //, не / (обычный / даёт float)."
+      ]
+    ],
+    "transfer_meta_keys": [
+      "transfer_type",
+      "slot_pattern_id",
+      "pitfall_id",
+      "hint_ru",
+      "contrast_note_ru",
+      "reference_warning_ru",
+      "feedback_ru",
+      "detector",
+      "pedagogy_note_ru",
+      "contrast_test_indices"
+    ]
+  },
+  {
+    "slot": "pas_003",
+    "pattern": "task_005",
+    "source_language": "python",
+    "target_language": "java",
+    "action": "assemble",
+    "chapter_key": "algo_basics",
+    "pitfall_id": null,
+    "expected_concept_ids": [
+      "program_entry",
+      "import_dependency",
+      "typed_declaration",
+      "assignment",
+      "stdin_read",
+      "dynamic_array",
+      "counted_loop",
+      "collection_iteration",
+      "arithmetic_ops",
+      "fold_aggregate"
+    ],
+    "banner": "Глава 1 · ввод: в Java Scanner/nextInt или readLine, не input().split().",
+    "chip_hints": [
+      [
+        "program_entry",
+        "Перенос Python → Java: public class Main { public static void main(String[] args) { … } }"
+      ],
+      [
+        "import_dependency",
+        "Перенос Python → Java: import package.Class;"
+      ],
+      [
+        "typed_declaration",
+        "Перенос Python → Java: int x;"
+      ],
+      [
+        "assignment",
+        "Перенос Python → Java: x = 1;"
+      ],
+      [
+        "stdin_read",
+        "Перенос Python → Java: Scanner.nextInt()"
+      ],
+      [
+        "dynamic_array",
+        "Перенос Python → Java: a[i] с нуля"
+      ],
+      [
+        "counted_loop",
+        "Перенос Python → Java: for (int i = 0; i < n; i++)"
+      ],
+      [
+        "collection_iteration",
+        "Перенос Python → Java: for (T x : arr)"
+      ],
+      [
+        "arithmetic_ops",
+        "Перенос Python → Java: целое частное — //"
+      ],
+      [
+        "fold_aggregate",
+        "Перенос Python → Java: int sum = 0; for (int x : arr) sum += x;"
+      ]
+    ],
+    "transfer_meta_keys": [
+      "transfer_type",
+      "reference_warning_ru"
+    ]
+  },
+  {
+    "slot": "pas_005",
+    "pattern": "task_004",
+    "source_language": "cpp",
+    "target_language": "java",
+    "action": "debug",
+    "chapter_key": "algo_basics",
+    "pitfall_id": "filter_positive",
+    "expected_concept_ids": [
+      "program_entry",
+      "import_dependency",
+      "typed_declaration",
+      "assignment",
+      "stdin_read",
+      "counted_loop",
+      "simple_branch",
+      "arithmetic_ops"
+    ],
+    "banner": "Условие x > 0: ноль и отрицательные не считаются.",
+    "chip_hints": [
+      [
+        "program_entry",
+        "Перенос C++ → Java: public class App { public static void main(String[] args) { … } }"
+      ],
+      [
+        "import_dependency",
+        "Перенос C++ → Java: import …;"
+      ],
+      [
+        "typed_declaration",
+        "Перенос C++ → Java: int x;"
+      ],
+      [
+        "assignment",
+        "Перенос C++ → Java: x = 1;"
+      ],
+      [
+        "stdin_read",
+        "Перенос C++ → Java: Scanner.nextInt()"
+      ],
+      [
+        "counted_loop",
+        "Перенос C++ → Java: for (int i = 0; i < n; i++)"
+      ],
+      [
+        "simple_branch",
+        "Перенос C++ → Java: if (cond) { … }"
+      ],
+      [
+        "arithmetic_ops",
+        "Условие x > 0: ноль и отрицательные не считаются."
+      ]
+    ],
+    "transfer_meta_keys": [
+      "transfer_type",
+      "slot_pattern_id",
+      "pitfall_id",
+      "hint_ru",
+      "feedback_ru",
+      "detector",
+      "contrast_note_ru",
+      "reference_warning_ru",
+      "pedagogy_note_ru",
+      "contrast_test_indices"
+    ]
+  },
+  {
+    "slot": "pas_006",
+    "pattern": "task_007",
+    "source_language": "java",
+    "target_language": "python",
+    "action": "debug",
+    "chapter_key": "algo_basics",
+    "pitfall_id": "threshold_count",
+    "expected_concept_ids": [
+      "program_entry",
+      "assignment",
+      "stdin_read",
+      "counted_loop",
+      "simple_branch"
+    ],
+    "banner": "Сравнивайте каждое значение с порогом в цикле, не только последнее.",
+    "chip_hints": [
+      [
+        "program_entry",
+        "Перенос Java → Python: if __name__ == '__main__':"
+      ],
+      [
+        "assignment",
+        "Перенос Java → Python: x = 1"
+      ],
+      [
+        "stdin_read",
+        "Перенос Java → Python: int(input())"
+      ],
+      [
+        "counted_loop",
+        "Перенос Java → Python: for i in range(n):"
+      ],
+      [
+        "simple_branch",
+        "Перенос Java → Python: if cond: … else:"
+      ]
+    ],
+    "transfer_meta_keys": [
+      "transfer_type",
+      "slot_pattern_id",
+      "pitfall_id",
+      "hint_ru",
+      "feedback_ru",
+      "detector",
+      "contrast_note_ru",
+      "reference_warning_ru",
+      "pedagogy_note_ru",
+      "contrast_test_indices"
+    ]
+  },
+  {
+    "slot": "pas_008",
+    "pattern": "task_008",
+    "source_language": "python",
+    "target_language": "pascal",
+    "action": "implement",
+    "chapter_key": "algo_basics",
+    "pitfall_id": "round_semantics",
+    "expected_concept_ids": [
+      "program_entry",
+      "typed_declaration",
+      "assignment",
+      "stdin_read",
+      "counted_loop",
+      "simple_branch"
+    ],
+    "banner": "round(2.5) в Python и Round(2.5) в Pascal дают разный результат.",
+    "chip_hints": [
+      [
+        "program_entry",
+        "Перенос Python → Pascal: program Name; begin … end."
+      ],
+      [
+        "typed_declaration",
+        "Перенос Python → Pascal: var x: integer; в секции var"
+      ],
+      [
+        "assignment",
+        "Перенос Python → Pascal: x := 1; (= только сравнение)"
+      ],
+      [
+        "stdin_read",
+        "Перенос Python → Pascal: readln(x);"
+      ],
+      [
+        "counted_loop",
+        "Перенос Python → Pascal: for i := 1 to n do"
+      ],
+      [
+        "simple_branch",
+        "Перенос Python → Pascal: if cond then … else …"
+      ]
+    ],
+    "transfer_meta_keys": [
+      "transfer_type",
+      "slot_pattern_id",
+      "pitfall_id",
+      "hint_ru",
+      "contrast_note_ru",
+      "reference_warning_ru",
+      "feedback_ru",
+      "detector",
+      "contrast_test_indices",
+      "pedagogy_note_ru"
+    ]
+  },
+  {
+    "slot": "pas_002",
+    "pattern": "task_001",
+    "source_language": "csharp",
+    "target_language": "java",
+    "action": "assemble",
+    "chapter_key": "algo_basics",
+    "pitfall_id": null,
+    "expected_concept_ids": [
+      "program_entry",
+      "import_dependency",
+      "typed_declaration",
+      "assignment",
+      "stdin_read",
+      "dynamic_array",
+      "counted_loop",
+      "collection_iteration",
+      "simple_branch"
+    ],
+    "banner": "(none)",
+    "chip_hints": [
+      [
+        "program_entry",
+        "Перенос C# → Java: public class Main { public static void main(String[] args) { … } }"
+      ],
+      [
+        "import_dependency",
+        "Перенос C# → Java: import …;"
+      ],
+      [
+        "typed_declaration",
+        "Перенос C# → Java: int x;"
+      ],
+      [
+        "assignment",
+        "Перенос C# → Java: x = 1;"
+      ],
+      [
+        "stdin_read",
+        "Перенос C# → Java: Scanner.nextInt()"
+      ],
+      [
+        "dynamic_array",
+        "Перенос C# → Java: arr[i]"
+      ],
+      [
+        "counted_loop",
+        "Перенос C# → Java: for (int i = 0; i < n; i++)"
+      ],
+      [
+        "collection_iteration",
+        "Перенос C# → Java: for (T x : arr)"
+      ],
+      [
+        "simple_branch",
+        "Перенос C# → Java: if (cond) { … }"
+      ]
+    ],
+    "transfer_meta_keys": []
+  },
+  {
+    "slot": "pas_001",
+    "pattern": "task_002",
+    "source_language": "java",
+    "target_language": "cpp",
+    "action": "assemble",
+    "chapter_key": "algo_basics",
+    "pitfall_id": "index_1based",
+    "expected_concept_ids": [
+      "program_entry",
+      "import_dependency",
+      "typed_declaration",
+      "assignment",
+      "stdin_read",
+      "counted_loop",
+      "simple_branch"
+    ],
+    "banner": "Перенос Java → C++: v[i]",
+    "chip_hints": [
+      [
+        "program_entry",
+        "Перенос Java → C++: int main() { … return 0; }"
+      ],
+      [
+        "import_dependency",
+        "Перенос Java → C++: #include …"
+      ],
+      [
+        "typed_declaration",
+        "Перенос Java → C++: int x;"
+      ],
+      [
+        "assignment",
+        "Перенос Java → C++: x = 1;"
+      ],
+      [
+        "stdin_read",
+        "Перенос Java → C++: std::cin >> x;"
+      ],
+      [
+        "counted_loop",
+        "Перенос Java → C++: for (int i = 0; i < n; ++i)"
+      ],
+      [
+        "simple_branch",
+        "Перенос Java → C++: if (cond) { … }"
+      ]
+    ],
+    "transfer_meta_keys": [
+      "transfer_type",
+      "slot_pattern_id",
+      "pitfall_id",
+      "hint_ru",
+      "contrast_note_ru",
+      "reference_warning_ru",
+      "feedback_ru",
+      "detector",
+      "pedagogy_note_ru",
+      "contrast_test_indices"
+    ]
+  }
+]

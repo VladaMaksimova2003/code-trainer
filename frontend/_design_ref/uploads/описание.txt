@@ -1,0 +1,342 @@
+Аудит фронтенда code_trainer
+Стек: React 18 + Vite, react-router-dom v7, TanStack Query (только task-editor), Tailwind.
+Точка входа: frontend/index.html → frontend/src/main.jsx → frontend/src/app/App.jsx → frontend/src/app/router.jsx.
+HTML-страниц: одна (index.html); всё остальное — SPA-компоненты.
+
+Карта маршрутов
+Путь	Компонент	Роли	Редиректы
+/login
+LoginPage
+публичный
+—
+/register
+RegisterPage
+публичный
+—
+/reset-password
+ResetPasswordPage
+публичный
+—
+/
+TasksPage
+auth
+—
+/tasks/:id
+TaskPage
+auth
+—
+/tasks
+—
+—
+→ /
+/signin
+—
+—
+→ /login
+/admin/*
+AdminShell + nested
+ADMIN
+layout
+/teacher/profile
+TeacherProfilePage
+TEACHER
+—
+/teacher/tasks
+TeacherTasksPage
+TEACHER, ADMIN
+—
+/teacher/catalogs
+TeacherCatalogPage
+TEACHER, ADMIN
+без :id → profile ?tab=catalogs
+/teacher/catalogs/:catalogId
+TeacherCatalogPage
+TEACHER, ADMIN
+—
+/teacher/create-task
+TaskEditorPage
+TEACHER, ADMIN
+—
+/teacher/task-editor
+TaskEditorPage
+TEACHER, ADMIN
+дубликат create
+/teacher/tasks/:id/edit
+TaskEditorPage
+TEACHER, ADMIN
+edit
+/teacher/assignments/:id/edit
+TaskEditorPage
+TEACHER, ADMIN
+дубликат edit
+/teacher/code-assembly/:taskId/edit
+TeacherEditCodeAssemblyPage
+TEACHER, ADMIN
+—
+/student/profile
+StudentProfilePage
+STUDENT
+—
+/student/groups/:groupId
+StudentGroupDetailPage
+STUDENT
+—
+/student/groups
+—
+—
+→ /student/profile state.tab=groups
+/settings/*
+SettingsPage
+auth
+index → profile
+*
+—
+—
+→ /
+Вложенные (/settings): profile, security, learning, teacher (только TEACHER/ADMIN).
+
+Вложенные (/admin): index, users, users/:userId, teacher-requests, assignments, statistics, create-teacher.
+
+1. Публичные страницы
+/login — LoginPage
+UI: split-layout (brand-panel + form), logo «Grid Bench», badges, поля email/password, checkbox «Запомнить», ссылка на reset, ошибка, CTA.
+Логика: login() → JWT (setAuthTokens), remember-me (localStorage), onAuthSuccess → getMe, редирект ADMIN→/admin, иначе safeFrom или /tasks.
+События: onSubmit, onChange полей, Link → register/reset, auto-redirect если уже auth.
+Замечание: после логина цель /tasks, но маршрут /tasks редиректит на / (работает, но путь лишний).
+
+/register — RegisterPage
+UI: центрированная форма (имя, email, пароль, инвайт-код опционально), валидация inline, CTA, ссылка на login.
+Логика: register() → auto-login; опционально joinGroupByCode() → /student/groups/:id или profile с ошибкой; иначе /.
+События: onSubmit, onChange, onBlur пароля, Link.
+
+/reset-password — ResetPasswordPage
+UI: иконка, email input, success-state, back link.
+Логика: requestPasswordReset(email) — только запрос письма (нет UI смены пароля по токену).
+События: onSubmit, Link → login.
+
+2. Студент / общий каталог
+/ — TasksPage
+UI: TasksHeader, TasksFilters (типы + LanguageFilters), TasksTable, боковая AssignmentSetsPanel.
+Логика:
+
+загрузка: getTasks, getTaskTypes, listAccessibleAssignmentSets
+фильтры client-side: тип, search, status (solved/todo/attempted), difficulty, patterns (any/all)
+langFrom/langTo не участвуют в filteredTasks — только UI-state
+«Продолжить обучение»: getNextRecommendation() → navigate adaptive
+stats: solved/total
+События: click row → /tasks/:id, continue learning, sign out, nav profile/admin, swap langs, apply/reset advanced filters.
+
+Подкомпоненты: TasksHeader, TypeButtons, LanguageFilters, TasksTable, AssignmentSetsPanel.
+
+/tasks/:id — TaskPage + useTaskSolver
+UI: TaskHeader, banner teacher-review, TaskLeftPanel, TaskRightPanel, FAB Run (Play), TestPanel, swap-langs (не blocks/algorithm).
+Режимы редактора (по task.type):
+
+blocks → BlockEditor (flowchart)
+block_reorder / code_assembly / task_build_from_blocks → BlockAssemblyEditor
+иначе → CodeEditorBoard (Monaco)
+Логика:
+
+load task, drafts localStorage, navigation context (sessionStorage: adaptive | manual + collectionId)
+submit: createSubmission, submitBlockReorderSolution, checkFlow, lintSolution
+teacher review: location.state.teacherReview → read-only, load submission
+adaptive next: getNextRecommendation; manual: getCatalogNavigation
+language swap, tab switching (task/examples/flow, tests/result/errors)
+События: run code, prev/next task, back to /, tab clicks, language selects, block placement changes.
+
+Подкомпоненты: TaskHeader, TaskLeftPanel, TaskRightPanel, TestPanel.
+
+/student/profile — StudentProfilePage
+UI: header (back, logout), sidebar (UserAvatar, stats Card), GithubContributionGraph, tabs: Прогресс / Мои решения / Группы.
+Логика: getStudentProfile, getStudentAnalytics (tab progress), panels по табам.
+События: tab switch, location.state.tab/error (после register).
+
+Feature panels: StudentProgressPanel, StudentSolutionsPanel, StudentProfileGroupsTab.
+
+/student/groups/:groupId — StudentGroupDetailPage
+UI: header, Card преподавателя, StudentGroupCatalogsView.
+Логика: getMyGroupWorkspace(groupId).
+События: Link back, open tasks from catalogs (внутри feature).
+
+3. Преподаватель
+/teacher/profile — TeacherProfilePage (+ useTeacherProfile)
+UI: header, sidebar profile, activity graph, tabs: tasks | solutions | analytics | catalogs | groups | settings.
+Логика: CRUD каталогов/групп, инвайты, analytics, список своих задач, modals.
+Query tab: ?tab= через useSearchParams (VALID_TABS).
+
+Вкладки:
+
+Tab	UI	API / действия
+tasks
+search + list + Open/Edit
+navigate /tasks/:id, /teacher/tasks/:id/edit
+solutions
+TeacherSolutionsPanel
+review submissions
+analytics
+TeacherAnalyticsPanel
+getTeacherAnalytics
+catalogs
+list + create form + assign/delete
+catalogs API, modal AssignCatalogToGroupModal
+groups
+list + create + invite + TeacherGroupDetailPanel
+groups API
+settings
+встроенные ProfileTab + SecurityTab
+дубль /settings
+События: tab click, list item click, forms submit, confirm delete catalog, copy invite.
+
+/teacher/tasks — TeacherTasksPage
+UI: header, filter chips (all/assigned/unassigned), table, CreateTaskModal, assign-to-catalog inline.
+Логика: listCatalogTasks, listMyCatalogs, delete, assign.
+Дублирует: вкладку «Мои задачи» в profile (отдельный full-page UX).
+
+/teacher/catalogs/:catalogId — TeacherCatalogPage
+UI: tasks in catalog, candidate search, multi-select add, remove.
+Логика: getCatalog, getTasksByCatalog, bulk assignTaskToCatalog / removeTaskFromCatalog.
+Без id: redirect /teacher/profile?tab=catalogs.
+
+/teacher/create-task | /teacher/task-editor | .../edit — TaskEditorPage
+UI: header, AssignmentConfigPanel, AssignmentExecutionPanel.
+Логика: Zustand draft + autosave, React Query (patterns, types, edit load), saveMutation, catalog assign (edit only), navigate profile after save.
+Дублирует: 2 URL на create и 2 URL на edit.
+
+/teacher/code-assembly/:taskId/edit — TeacherEditCodeAssemblyPage
+UI: простая форма (title, description, language, эталонный код).
+Логика: getCodeAssemblyAuthorTask / updateCodeAssemblyTask; при смене кода сбрасывает blocks/template server-side (null).
+Не дублирует полный TaskEditorPage — узкий legacy-редактор.
+
+4. Админ (AdminLayout sidebar)
+Общий shell: sidebar NavLink, email, «← К задачам».
+
+/admin — AdminOverviewPage
+UI: PageHeader, 3× StatCard, 2 breakdown sections, quick links.
+Логика: getAdminStatistics, listTeacherRoleRequests("pending").
+
+/admin/users — AdminUsersPage
+UI: search, role/status selects, checkbox deleted, DataTable, Pagination.
+Логика: listAdminUsers, client filter, row → detail.
+CRUD: read list; update через detail.
+
+/admin/users/:userId — AdminUserDetailPage
+UI: profile DL, progress DL, actions (block/unblock/delete), role assign/remove, ConfirmDialog.
+Логика: getAdminUser, setAdminUserBlocked, deleteAdminUser, assignAdminUserRole, removeAdminUserRole.
+
+/admin/teacher-requests — AdminTeacherRequestsPage
+UI: status filter, table, approve/reject per row, confirm.
+Логика: listTeacherRoleRequests, approve/reject API.
+
+/admin/assignments — AdminAssignmentsPage
+UI: search, status filter, table inline workflow select, versions Modal, archive confirm.
+Логика: list, setAssignmentWorkflowStatus, archiveAdminAssignment, version snapshot/activate.
+
+/admin/statistics — AdminStatisticsPage
+UI: расширенные StatCards + breakdowns.
+Дублирует: данные overview (те же getAdminStatistics).
+
+/admin/create-teacher — AdminCreateTeacherPage
+UI: form name/email/password.
+Логика: createTeacher().
+
+5. Настройки /settings/*
+Layout: SettingsLayout — header, tabs NavLink, back link (teacher → profile?tab=settings).
+
+Путь	Компонент	UI	Логика
+/settings/profile
+ProfileTab
+form name/email/about, roles readonly
+getAccountSettings / updateAccountSettings
+/settings/security
+SecurityTab
+change password, logout, logout all
+changePassword, logoutSession, logoutAllSessions
+/settings/learning
+LearningTab
+language chips, difficulty select, topic chips
+getLearningPreferences / updateLearningPreferences
+/settings/teacher
+TeacherTab
+teacher profile form, overview cards
+getTeacherSettings / updateTeacherSettings, overview
+Незавершённые / заглушки
+Что	Деталь
+Фильтр языков на /
+langFrom/langTo в state и UI, не фильтруют filteredTasks
+Заявка на роль преподавателя (студент)
+API requestTeacherRole в api.js, нет UI; только админ-страница
+Сброс пароля
+только «отправить ссылку»; нет страницы установки нового пароля по токену
+TeacherTab аватар
+account state никогда не заполняется → UserAvatar user={account} всегда пустой
+TeacherEditCodeAssemblyPage
+нет визуального редактора blocks/order — только текст original_code; blocks обнуляются при изменении кода
+Брендинг
+Login/Register: «Grid Bench»; app title/admin: «Toxic Pulse» — несогласованность, не функциональный баг
+Login redirect
+navigate("/tasks") при рабочем alias на /
+Явных TODO/FIXME в frontend/src не найдено.
+
+Дублирующиеся страницы / UX
+Пара	Суть дубля
+/admin ↔ /admin/statistics
+одни метрики, разная детализация
+TeacherProfilePage tasks ↔ /teacher/tasks
+список/поиск/CRUD задач преподавателя
+TeacherProfilePage catalogs ↔ /teacher/catalogs/:id
+управление каталогом (list vs detail page)
+TeacherProfilePage settings tab ↔ /settings/*
+Profile + Security встроены в profile
+/teacher/create-task ↔ /teacher/task-editor
+один TaskEditorPage
+/teacher/tasks/:id/edit ↔ /teacher/assignments/:id/edit
+один TaskEditorPage
+TasksPage ↔ TaskPage
+каталог vs решение (нормально, не дубль)
+Повторяющиеся компоненты (cross-cutting)
+Admin UI (features/admin/ui/)
+PageHeader, DataTable, StatCard, StatusBadge, RoleChips, AlertBanner, LoadingState, ConfirmDialog, Modal, Pagination, AdminLayout — везде в admin + частично в settings.
+
+Shared UI (shared/ui/)
+Button, Badge, Card, Chip, Input, Select, Progress, Form — tasks, student, teacher catalog.
+
+Профильные паттерны (копипаста layout)
+Header back + logout: TasksHeader, StudentProfilePage, TeacherProfilePage, TeacherTasksPage, TaskEditorPage, SettingsLayout
+Sidebar + tabs + GithubContributionGraph + UserAvatar: StudentProfilePage ≈ TeacherProfilePage
+Список сущностей (search + bordered list + Open/Edit): teacher tasks, catalogs, groups
+Settings forms
+ProfileTab, SecurityTab, FormField, inputClass, AlertBanner, chip-toggle pattern (LearningTab ≈ TeacherTab).
+
+Task solving widgets
+CodeEditorBoard, BlockEditor, BlockAssemblyEditor, AnswerFlowPreview — task page + task-editor execution panel.
+
+Analytics / groups features
+TeacherSolutionsPanel, TeacherAnalyticsPanel, StudentProgressPanel, StudentSolutionsPanel, TeacherGroupDetailPanel, AssignCatalogToGroupModal, StudentGroupCatalogsView.
+
+Auth / guard
+ProtectedRoute — все protected routes; userHasRole / userHasAnyRole — header buttons, settings teacher tab.
+
+Утилиты
+formatTaskTypeLabel, getErrorMessage, useAsync, useLanguages, usePagination.
+
+Сводка по ролям
+Public
+Authenticated
+STUDENT
+TEACHER
+ADMIN
+ADMIN
+/login
+/register
+/reset-password
+/
+/tasks/:id
+/settings/*
+/student/profile
+/student/groups/:id
+/teacher/profile
+/teacher/tasks
+/teacher/catalogs/:id
+TaskEditorPage
+Итого уникальных экранов (без редиректов): ~22.
+Технический долг UI: неподключённый языковой фильтр, отсутствие student teacher-request flow, неполный password reset flow, дубли маршрутов редактора и двойные настройки преподавателя.

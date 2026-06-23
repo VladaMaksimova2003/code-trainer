@@ -1,0 +1,177 @@
+multi count 129
+task_001 explicit=None pitfalls=['index_1based', 'for_range_off_by_one', 'assignment_vs_compare', 'filter_positive', 'threshold_count', 'branch_logic', 'string_index', 'input_line_model', 'chain_comparison', 'and_or_keywords', 'bool_literals', 'list_vs_static_array', 'overflow_fixed_int'] types=['AFCC', 'FCC']
+task_002 explicit=index_1based pitfalls=['index_1based', 'for_range_off_by_one', 'assignment_vs_compare', 'filter_positive', 'threshold_count', 'branch_logic', 'string_index', 'input_line_model', 'chain_comparison', 'and_or_keywords', 'bool_literals'] types=['AFCC', 'FCC']
+task_003 explicit=input_line_model pitfalls=['index_1based', 'for_range_off_by_one', 'assignment_vs_compare', 'filter_positive', 'threshold_count', 'branch_logic', 'string_index', 'input_line_model', 'chain_comparison', 'and_or_keywords', 'bool_literals', 'list_vs_static_array', 'overflow_fixed_int'] types=['AFCC', 'FCC']
+task_004 explicit=filter_positive pitfalls=['integer_division', 'index_1based', 'for_range_off_by_one', 'assignment_vs_compare', 'filter_positive', 'threshold_count', 'branch_logic', 'round_semantics', 'input_line_model', 'float_division_pascal', 'mod_negative', 'chain_comparison', 'and_or_keywords', 'bool_literals', 'overflow_fixed_int'] types=['AFCC', 'FCC']
+task_005 explicit=None pitfalls=['integer_division', 'index_1based', 'for_range_off_by_one', 'assignment_vs_compare', 'round_semantics', 'input_line_model', 'float_division_pascal', 'mod_negative', 'list_vs_static_array', 'overflow_fixed_int'] types=['AFCC', 'FCC']
+task_006 explicit=integer_division pitfalls=['integer_division', 'index_1based', 'for_range_off_by_one', 'assignment_vs_compare', 'round_semantics', 'input_line_model', 'float_division_pascal', 'mod_negative', 'list_vs_static_array', 'overflow_fixed_int'] types=['AFCC', 'FCC']
+task_007 explicit=threshold_count pitfalls=['index_1based', 'for_range_off_by_one', 'assignment_vs_compare', 'filter_positive', 'threshold_count', 'branch_logic', 'input_line_model', 'chain_comparison', 'and_or_keywords', 'bool_literals'] types=['AFCC', 'FCC']
+task_008 explicit=round_semantics pitfalls=['integer_division', 'index_1based', 'for_range_off_by_one', 'assignment_vs_compare', 'filter_positive', 'threshold_count', 'branch_logic', 'string_index', 'round_semantics', 'input_line_model', 'float_division_pascal', 'mod_negative', 'chain_comparison', 'and_or_keywords', 'bool_literals', 'list_vs_static_array', 'overflow_fixed_int'] types=['AFCC', 'FCC']
+task_009 explicit=None pitfalls=['assignment_vs_compare', 'filter_positive', 'threshold_count', 'branch_logic', 'input_line_model', 'chain_comparison', 'and_or_keywords', 'bool_literals'] types=['AFCC', 'FCC']
+task_010 explicit=None pitfalls=['assignment_vs_compare', 'filter_positive', 'threshold_count', 'branch_logic', 'multi_branch_discount', 'input_line_model', 'chain_comparison', 'and_or_keywords', 'bool_literals'] types=['AFCC', 'FCC']
+task_011 explicit=None pitfalls=['assignment_vs_compare', 'filter_positive', 'threshold_count', 'branch_logic', 'multi_branch_discount', 'input_line_model', 'chain_comparison', 'and_or_keywords', 'bool_literals'] types=['AFCC', 'FCC']
+task_012 explicit=branch_logic pitfalls=['assignment_vs_compare', 'filter_positive', 'threshold_count', 'branch_logic', 'input_line_model', 'chain_comparison', 'and_or_keywords', 'bool_literals'] types=['AFCC', 'FCC']
+task_013 explicit=None pitfalls=['assignment_vs_compare', 'filter_positive', 'threshold_count', 'branch_logic', 'multi_branch_discount', 'input_line_model', 'chain_comparison', 'and_or_keywords', 'bool_literals'] types=['AFCC', 'FCC']
+task_014 explicit=None pitfalls=['assignment_vs_compare', 'filter_positive', 'threshold_count', 'branch_logic', 'input_line_model', 'chain_comparison', 'and_or_keywords', 'bool_literals', 'switch_fallthrough', 'switch_vs_match'] types=['AFCC', 'ATCC', 'FCC']
+task_015 explicit=multi_branch_discount pitfalls=['assignment_vs_compare', 'filter_positive', 'threshold_count', 'branch_logic', 'multi_branch_discount', 'input_line_model', 'chain_comparison', 'and_or_keywords', 'bool_literals'] types=['AFCC', 'FCC']
+task_016 explicit=None pitfalls=['assignment_vs_compare', 'filter_positive', 'threshold_count', 'branch_logic', 'multi_branch_discount', 'input_line_model', 'chain_comparison', 'and_or_keywords', 'bool_literals'] types=['AFCC', 'FCC']
+task_017 explicit=None pitfalls=['assignment_vs_compare', 'input_line_model'] types=['AFCC', 'FCC']
+task_018 explicit=None pitfalls=['index_1based', 'for_range_off_by_one', 'assignment_vs_compare', 'string_index', 'input_line_model'] types=['AFCC', 'FCC']
+task_019 explicit=None pitfalls=['index_1based', 'for_range_off_by_one', 'assignment_vs_compare', 'input_line_model'] types=['AFCC', 'FCC']
+task_020 explicit=for_range_off_by_one pitfalls=['index_1based', 'for_range_off_by_one', 'assignment_vs_compare', 'input_line_model'] types=['AFCC', 'FCC']
+task_021 explicit=None pitfalls=['index_1based', 'for_range_off_by_one', 'assignment_vs_compare', 'input_line_model'] types=['AFCC', 'FCC']
+task_022 explicit=None pitfalls=['index_1based', 'for_range_off_by_one', 'assignment_vs_compare', 'string_index', 'input_line_model'] types=['AFCC', 'FCC']
+task_023 explicit=None pitfalls=['integer_division', 'index_1based', 'for_range_off_by_one', 'assignment_vs_compare', 'round_semantics', 'input_line_model', 'float_division_pascal', 'mod_negative', 'overflow_fixed_int'] types=['AFCC', 'FCC']
+task_024 explicit=None pitfalls=['integer_division', 'index_1based', 'for_range_off_by_one', 'assignment_vs_compare', 'round_semantics', 'input_line_model', 'float_division_pascal', 'mod_negative', 'overflow_fixed_int'] types=['AFCC', 'FCC']
+task_025 explicit=None pitfalls=['index_1based', 'for_range_off_by_one', 'assignment_vs_compare', 'input_line_model', 'list_vs_static_array', 'overflow_fixed_int'] types=['AFCC', 'FCC']
+task_026 explicit=None pitfalls=['index_1based', 'for_range_off_by_one', 'assignment_vs_compare', 'input_line_model', 'list_vs_static_array', 'overflow_fixed_int'] types=['AFCC', 'FCC']
+task_027 explicit=list_vs_static_array pitfalls=['index_1based', 'for_range_off_by_one', 'assignment_vs_compare', 'input_line_model', 'list_vs_static_array', 'overflow_fixed_int'] types=['AFCC', 'FCC']
+task_028 explicit=index_1based pitfalls=['index_1based', 'for_range_off_by_one', 'assignment_vs_compare', 'input_line_model', 'list_vs_static_array', 'overflow_fixed_int'] types=['AFCC', 'FCC']
+task_029 explicit=None pitfalls=['index_1based', 'for_range_off_by_one', 'assignment_vs_compare', 'input_line_model', 'list_vs_static_array', 'overflow_fixed_int'] types=['AFCC', 'FCC']
+task_030 explicit=None pitfalls=['index_1based', 'for_range_off_by_one', 'assignment_vs_compare', 'string_index', 'input_line_model', 'list_vs_static_array', 'overflow_fixed_int'] types=['AFCC', 'FCC']
+task_031 explicit=None pitfalls=['index_1based', 'for_range_off_by_one', 'assignment_vs_compare', 'input_line_model', 'list_vs_static_array', 'overflow_fixed_int'] types=['AFCC', 'FCC']
+task_032 explicit=None pitfalls=['index_1based', 'for_range_off_by_one', 'assignment_vs_compare', 'input_line_model', 'list_vs_static_array', 'overflow_fixed_int'] types=['AFCC', 'FCC']
+task_033 explicit=None pitfalls=['assignment_vs_compare', 'string_index', 'input_line_model', 'string_immutable'] types=['AFCC', 'FCC']
+task_034 explicit=None pitfalls=['assignment_vs_compare', 'string_index', 'input_line_model', 'string_immutable'] types=['AFCC', 'FCC']
+task_035 explicit=None pitfalls=['assignment_vs_compare', 'string_index', 'input_line_model', 'string_immutable'] types=['AFCC', 'FCC']
+task_036 explicit=string_index pitfalls=['index_1based', 'for_range_off_by_one', 'assignment_vs_compare', 'string_index', 'input_line_model'] types=['AFCC', 'FCC']
+task_037 explicit=None pitfalls=['assignment_vs_compare', 'string_index', 'input_line_model', 'string_immutable'] types=['AFCC', 'FCC']
+task_038 explicit=None pitfalls=['assignment_vs_compare', 'string_index', 'input_line_model', 'string_immutable'] types=['AFCC', 'FCC']
+task_039 explicit=None pitfalls=['assignment_vs_compare', 'string_index', 'input_line_model', 'string_immutable'] types=['AFCC', 'FCC']
+task_040 explicit=None pitfalls=['assignment_vs_compare', 'string_index', 'input_line_model', 'string_immutable'] types=['AFCC', 'FCC']
+task_041 explicit=None pitfalls=['assignment_vs_compare', 'input_line_model', 'pass_by_value_ref', 'scope_block'] types=['AFCC', 'ATCC', 'FCC']
+task_042 explicit=None pitfalls=['assignment_vs_compare', 'input_line_model', 'pass_by_value_ref', 'scope_block'] types=['AFCC', 'ATCC', 'FCC']
+task_043 explicit=None pitfalls=['assignment_vs_compare', 'input_line_model', 'pass_by_value_ref', 'scope_block'] types=['AFCC', 'ATCC', 'FCC']
+task_044 explicit=None pitfalls=['assignment_vs_compare', 'input_line_model', 'pass_by_value_ref', 'scope_block'] types=['AFCC', 'ATCC', 'FCC']
+task_045 explicit=None pitfalls=['assignment_vs_compare', 'input_line_model', 'pass_by_value_ref', 'scope_block'] types=['AFCC', 'ATCC', 'FCC']
+task_046 explicit=None pitfalls=['assignment_vs_compare', 'input_line_model', 'pass_by_value_ref', 'scope_block'] types=['AFCC', 'ATCC', 'FCC']
+task_047 explicit=None pitfalls=['assignment_vs_compare', 'input_line_model', 'pass_by_value_ref', 'scope_block'] types=['AFCC', 'ATCC', 'FCC']
+task_048 explicit=None pitfalls=['assignment_vs_compare', 'input_line_model', 'pass_by_value_ref', 'scope_block'] types=['AFCC', 'ATCC', 'FCC']
+task_049 explicit=None pitfalls=['assignment_vs_compare', 'input_line_model', 'pass_by_value_ref', 'scope_block'] types=['AFCC', 'ATCC', 'FCC']
+task_050 explicit=None pitfalls=['assignment_vs_compare', 'input_line_model', 'pass_by_value_ref', 'scope_block'] types=['AFCC', 'ATCC', 'FCC']
+task_051 explicit=None pitfalls=['assignment_vs_compare', 'input_line_model', 'pass_by_value_ref', 'scope_block'] types=['AFCC', 'ATCC', 'FCC']
+task_052 explicit=None pitfalls=['assignment_vs_compare', 'input_line_model', 'pass_by_value_ref', 'scope_block'] types=['AFCC', 'ATCC', 'FCC']
+task_053 explicit=None pitfalls=['assignment_vs_compare', 'input_line_model', 'pass_by_value_ref', 'scope_block'] types=['AFCC', 'ATCC', 'FCC']
+task_054 explicit=None pitfalls=['assignment_vs_compare', 'input_line_model', 'pass_by_value_ref', 'scope_block'] types=['AFCC', 'ATCC', 'FCC']
+task_055 explicit=None pitfalls=['assignment_vs_compare', 'input_line_model', 'pass_by_value_ref', 'scope_block'] types=['AFCC', 'ATCC', 'FCC']
+task_056 explicit=None pitfalls=['assignment_vs_compare', 'input_line_model', 'pass_by_value_ref', 'scope_block'] types=['AFCC', 'ATCC', 'FCC']
+task_057 explicit=None pitfalls=['index_1based', 'for_range_off_by_one', 'assignment_vs_compare', 'string_index', 'input_line_model', 'list_vs_static_array', 'overflow_fixed_int'] types=['AFCC', 'FCC']
+task_058 explicit=None pitfalls=['index_1based', 'for_range_off_by_one', 'assignment_vs_compare', 'string_index', 'input_line_model', 'list_vs_static_array', 'overflow_fixed_int'] types=['AFCC', 'FCC']
+task_059 explicit=None pitfalls=['index_1based', 'for_range_off_by_one', 'assignment_vs_compare', 'input_line_model', 'list_vs_static_array', 'overflow_fixed_int'] types=['AFCC', 'FCC']
+task_060 explicit=None pitfalls=['index_1based', 'for_range_off_by_one', 'assignment_vs_compare', 'input_line_model', 'list_vs_static_array', 'overflow_fixed_int'] types=['AFCC', 'FCC']
+task_061 explicit=None pitfalls=['index_1based', 'for_range_off_by_one', 'assignment_vs_compare', 'input_line_model', 'list_vs_static_array', 'overflow_fixed_int'] types=['AFCC', 'FCC']
+task_062 explicit=None pitfalls=['index_1based', 'for_range_off_by_one', 'assignment_vs_compare', 'input_line_model', 'list_vs_static_array', 'overflow_fixed_int'] types=['AFCC', 'FCC']
+task_063 explicit=None pitfalls=['index_1based', 'for_range_off_by_one', 'assignment_vs_compare', 'input_line_model', 'list_vs_static_array', 'overflow_fixed_int'] types=['AFCC', 'FCC']
+task_064 explicit=None pitfalls=['index_1based', 'for_range_off_by_one', 'assignment_vs_compare', 'input_line_model', 'list_vs_static_array', 'overflow_fixed_int'] types=['AFCC', 'FCC']
+task_065 explicit=None pitfalls=['integer_division', 'index_1based', 'for_range_off_by_one', 'assignment_vs_compare', 'round_semantics', 'input_line_model', 'float_division_pascal', 'mod_negative', 'overflow_fixed_int'] types=['AFCC', 'FCC']
+task_066 explicit=None pitfalls=['integer_division', 'index_1based', 'for_range_off_by_one', 'assignment_vs_compare', 'round_semantics', 'input_line_model', 'float_division_pascal', 'mod_negative', 'overflow_fixed_int'] types=['AFCC', 'FCC']
+task_067 explicit=None pitfalls=['index_1based', 'for_range_off_by_one', 'assignment_vs_compare', 'filter_positive', 'threshold_count', 'input_line_model', 'list_vs_static_array', 'overflow_fixed_int'] types=['AFCC', 'FCC']
+task_068 explicit=None pitfalls=['index_1based', 'for_range_off_by_one', 'assignment_vs_compare', 'filter_positive', 'threshold_count', 'input_line_model', 'list_vs_static_array', 'overflow_fixed_int'] types=['AFCC', 'FCC']
+task_069 explicit=None pitfalls=['assignment_vs_compare', 'input_line_model', 'map_key_missing'] types=['AFCC', 'FCC']
+task_070 explicit=None pitfalls=['index_1based', 'for_range_off_by_one', 'assignment_vs_compare', 'input_line_model', 'list_vs_static_array', 'overflow_fixed_int'] types=['AFCC', 'FCC']
+task_071 explicit=None pitfalls=['assignment_vs_compare', 'input_line_model', 'map_key_missing'] types=['AFCC', 'FCC']
+task_072 explicit=None pitfalls=['integer_division', 'index_1based', 'for_range_off_by_one', 'assignment_vs_compare', 'round_semantics', 'input_line_model', 'float_division_pascal', 'mod_negative', 'overflow_fixed_int'] types=['AFCC', 'FCC']
+task_073 explicit=None pitfalls=['assignment_vs_compare', 'input_line_model', 'map_key_missing'] types=['AFCC', 'FCC']
+task_074 explicit=None pitfalls=['assignment_vs_compare', 'input_line_model', 'map_key_missing'] types=['AFCC', 'FCC']
+task_075 explicit=None pitfalls=['assignment_vs_compare', 'input_line_model', 'map_key_missing'] types=['AFCC', 'FCC']
+task_076 explicit=None pitfalls=['assignment_vs_compare', 'input_line_model', 'map_key_missing'] types=['AFCC', 'FCC']
+task_077 explicit=None pitfalls=['assignment_vs_compare', 'input_line_model', 'map_key_missing'] types=['AFCC', 'FCC']
+task_078 explicit=None pitfalls=['assignment_vs_compare', 'input_line_model', 'map_key_missing'] types=['AFCC', 'FCC']
+task_079 explicit=None pitfalls=['assignment_vs_compare', 'input_line_model', 'map_key_missing'] types=['AFCC', 'FCC']
+task_080 explicit=None pitfalls=['assignment_vs_compare', 'input_line_model', 'map_key_missing'] types=['AFCC', 'FCC']
+task_081 explicit=None pitfalls=['assignment_vs_compare', 'input_line_model', 'file_text_mode'] types=['AFCC', 'ATCC', 'FCC']
+task_082 explicit=None pitfalls=['assignment_vs_compare', 'input_line_model', 'file_text_mode'] types=['AFCC', 'ATCC', 'FCC']
+task_083 explicit=None pitfalls=['assignment_vs_compare', 'input_line_model', 'file_text_mode'] types=['AFCC', 'ATCC', 'FCC']
+task_084 explicit=None pitfalls=['assignment_vs_compare', 'input_line_model', 'file_text_mode'] types=['AFCC', 'ATCC', 'FCC']
+task_085 explicit=None pitfalls=['assignment_vs_compare', 'input_line_model', 'file_text_mode'] types=['AFCC', 'ATCC', 'FCC']
+task_086 explicit=None pitfalls=['assignment_vs_compare', 'input_line_model', 'file_text_mode'] types=['AFCC', 'ATCC', 'FCC']
+task_087 explicit=None pitfalls=['assignment_vs_compare', 'input_line_model', 'file_text_mode'] types=['AFCC', 'ATCC', 'FCC']
+task_088 explicit=None pitfalls=['assignment_vs_compare', 'input_line_model', 'file_text_mode'] types=['AFCC', 'ATCC', 'FCC']
+task_089 explicit=None pitfalls=['assignment_vs_compare', 'input_line_model'] types=['AFCC', 'FCC']
+task_090 explicit=None pitfalls=['assignment_vs_compare', 'input_line_model'] types=['AFCC', 'FCC']
+task_091 explicit=None pitfalls=['assignment_vs_compare', 'input_line_model'] types=['AFCC', 'FCC']
+task_092 explicit=None pitfalls=['assignment_vs_compare', 'input_line_model'] types=['AFCC', 'FCC']
+task_093 explicit=None pitfalls=['assignment_vs_compare', 'input_line_model'] types=['AFCC', 'FCC']
+task_094 explicit=None pitfalls=['assignment_vs_compare', 'input_line_model'] types=['AFCC', 'FCC']
+task_095 explicit=None pitfalls=['assignment_vs_compare', 'input_line_model'] types=['AFCC', 'FCC']
+task_096 explicit=None pitfalls=['assignment_vs_compare', 'input_line_model'] types=['AFCC', 'FCC']
+task_097 explicit=None pitfalls=['assignment_vs_compare', 'null_vs_nil'] types=['FCC']
+task_098 explicit=None pitfalls=['assignment_vs_compare', 'null_vs_nil'] types=['FCC']
+task_099 explicit=None pitfalls=['assignment_vs_compare', 'null_vs_nil'] types=['FCC']
+task_100 explicit=None pitfalls=['assignment_vs_compare', 'null_vs_nil'] types=['FCC']
+task_101 explicit=None pitfalls=['assignment_vs_compare', 'null_vs_nil'] types=['FCC']
+task_102 explicit=None pitfalls=['assignment_vs_compare', 'null_vs_nil'] types=['FCC']
+task_103 explicit=None pitfalls=['assignment_vs_compare', 'null_vs_nil'] types=['FCC']
+task_104 explicit=None pitfalls=['assignment_vs_compare', 'null_vs_nil'] types=['FCC']
+task_105 explicit=None pitfalls=['assignment_vs_compare', 'null_vs_nil'] types=['FCC']
+task_106 explicit=None pitfalls=['assignment_vs_compare', 'null_vs_nil'] types=['FCC']
+task_107 explicit=None pitfalls=['assignment_vs_compare', 'null_vs_nil'] types=['FCC']
+task_108 explicit=None pitfalls=['assignment_vs_compare', 'null_vs_nil'] types=['FCC']
+task_109 explicit=None pitfalls=['assignment_vs_compare', 'input_line_model', 'map_key_missing'] types=['AFCC', 'FCC']
+task_110 explicit=None pitfalls=['assignment_vs_compare', 'input_line_model', 'map_key_missing'] types=['AFCC', 'FCC']
+task_111 explicit=None pitfalls=['assignment_vs_compare', 'input_line_model', 'map_key_missing'] types=['AFCC', 'FCC']
+task_112 explicit=None pitfalls=['assignment_vs_compare', 'input_line_model', 'map_key_missing'] types=['AFCC', 'FCC']
+task_113 explicit=None pitfalls=['assignment_vs_compare', 'null_vs_nil'] types=['FCC']
+task_114 explicit=None pitfalls=['assignment_vs_compare', 'null_vs_nil'] types=['FCC']
+task_115 explicit=None pitfalls=['assignment_vs_compare', 'null_vs_nil'] types=['FCC']
+task_116 explicit=None pitfalls=['assignment_vs_compare', 'null_vs_nil'] types=['FCC']
+task_117 explicit=None pitfalls=['assignment_vs_compare', 'null_vs_nil'] types=['FCC']
+task_118 explicit=None pitfalls=['assignment_vs_compare', 'null_vs_nil'] types=['FCC']
+task_119 explicit=None pitfalls=['assignment_vs_compare', 'null_vs_nil'] types=['FCC']
+task_120 explicit=None pitfalls=['assignment_vs_compare', 'null_vs_nil'] types=['FCC']
+task_121 explicit=None pitfalls=['assignment_vs_compare', 'null_vs_nil'] types=['FCC']
+task_122 explicit=None pitfalls=['assignment_vs_compare', 'null_vs_nil'] types=['FCC']
+task_123 explicit=None pitfalls=['assignment_vs_compare', 'null_vs_nil'] types=['FCC']
+task_124 explicit=None pitfalls=['assignment_vs_compare', 'null_vs_nil'] types=['FCC']
+task_125 explicit=None pitfalls=['assignment_vs_compare', 'null_vs_nil'] types=['FCC']
+task_126 explicit=None pitfalls=['assignment_vs_compare', 'null_vs_nil'] types=['FCC']
+task_127 explicit=None pitfalls=['assignment_vs_compare', 'null_vs_nil'] types=['FCC']
+task_128 explicit=None pitfalls=['assignment_vs_compare', 'null_vs_nil'] types=['FCC']
+--- ATCC no pitfall ---
+task_011 Тип треугольника
+task_016 Итоговая: валидация заявки
+task_019 Проверка простого числа
+task_024 Итоговая: статистика последовательности
+task_032 Итоговая: анализ игровой карты
+task_035 Проверка палиндрома
+task_040 Итоговая: анализ текста
+task_043 Функция GCD
+task_048 Итоговая: библиотека алгоритмов
+task_051 Рекурсивная сумма массива
+task_056 Итоговая: рекурсивный обход каталога
+task_059 Selection Sort
+task_064 Итоговая: таблица лидеров
+task_067 Фильтр положительных чисел
+task_072 Итоговая: аналитика магазина
+task_075 Телефонная книга
+task_080 Итоговая: анализ текста через словарь
+task_083 Анализ CSV
+task_088 Итоговая: обработчик логов
+task_091 Очередь задач
+task_096 Итоговая: обработчик команд
+task_099 Добавление в конец
+task_104 Итоговая: плейлист
+task_107 BFS дерева
+task_112 Итоговая: поиск пути на карте
+task_115 Класс Product
+task_120 Итоговая: мини-CRM
+task_123 Сотрудники разных типов
+task_128 Финальная: система доставки
+task_132 Минимум из n чисел
+task_136 Корни квадратного уравнения
+task_140 Длина последовательности Collatz
+task_144 Префиксные суммы
+task_148 Самое длинное слово
+task_152 Массив отсортирован?
+task_156 Башни Ханоя — число ходов
+task_160 Слияние двух отсортированных массивов
+task_164 Элементы выше среднего
+task_168 Группировка анаграмм
+task_172 Фильтр чётных в output.txt
+task_176 BFS: кратчайший путь
+task_180 Сортировка списка вставками
+task_184 Компоненты связности
+task_188 Student: лучший средний балл
+task_192 Итог: система доставки
+ATCC no pitfall count: 45
+FCC no pitfall count: 29

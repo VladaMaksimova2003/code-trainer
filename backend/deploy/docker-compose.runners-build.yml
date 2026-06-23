@@ -1,0 +1,43 @@
+# Language runner images (build only — worker runs `docker run python_runner` etc.)
+services:
+  python_runner:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.python
+      args:
+        PYTHON_IMAGE: ${PYTHON_BASE_IMAGE:-python:3.12-slim}
+    image: python_runner
+    profiles: [runners]
+    command: ["sleep", "infinity"]
+
+  cpp_runner:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.cpp
+    image: cpp_runner
+    profiles: [runners]
+    command: ["sleep", "infinity"]
+
+  java_runner:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.java
+    image: java_runner
+    profiles: [runners]
+    command: ["sleep", "infinity"]
+
+  csharp_runner:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.csharp
+    image: csharp_runner
+    profiles: [runners]
+    command: ["sleep", "infinity"]
+
+  pascal_runner:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.pascal
+    image: pascal_runner
+    profiles: [runners]
+    command: ["sleep", "infinity"]

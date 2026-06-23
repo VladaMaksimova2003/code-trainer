@@ -1,0 +1,21 @@
+id: java
+label: Java
+file_extension: .java
+monaco_language: java
+features:
+  - lint
+  - compile
+  - test
+patterns:
+  normalization_key: java
+
+docker:
+  image: java_runner
+  lint: "bash -c 'cp {source} /tmp/home/Main.java && javac -Xlint:all /tmp/home/Main.java 2>&1 | grep -i error || true'"
+  compile: "bash -c 'cp {source} /tmp/home/Main.java && javac -d /tmp/home /tmp/home/Main.java 2>&1'"
+  run: "bash -c 'cp {source} /tmp/home/Main.java && javac -d /tmp/home /tmp/home/Main.java 2>&1 && java -cp /tmp/home Main'"
+
+test:
+  strategy: compile_and_run
+  timeout_seconds: 5
+  docker_one_shot: "bash -c 'cp {source} /tmp/home/Main.java && javac -d /tmp/home /tmp/home/Main.java 2>&1 && java -cp /tmp/home Main'"

@@ -1,0 +1,14 @@
+﻿poetry : Traceback (most recent call last):
+C:\Users\redmi\AppData\Local\Temp\ps-script-6462da18-01ce-4252-ac91-004fa8d929c9.ps1:89 знак:131
++ ... _map.py -q; poetry run python scripts/repair_universal_core_merges.py ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Traceback (most recent call last)::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  File "C:\Users\redmi\Desktop\temp\фшяыюь\code_trainer\backend\scripts\repair_universal_core_merges.py", line 292, in 
+<module>
+    main()
+  File "C:\Users\redmi\Desktop\temp\фшяыюь\code_trainer\backend\scripts\repair_universal_core_merges.py", line 262, in 
+main
+    all_actions.extend(restore_deleted_pascal_tasks(session, dry_run=args.dry_run))
+TypeError: 'NoneType' object is not iterable

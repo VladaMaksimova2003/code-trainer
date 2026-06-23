@@ -1,0 +1,146 @@
+{
+  "algo_basics": {
+    "total": 12,
+    "TCC": 5,
+    "ATCC": 0,
+    "FCC": 3,
+    "AFCC": 2,
+    "ALGORITHM": 2,
+    "title": "Базовый синтаксис через простые алгоритмы"
+  },
+  "branches": {
+    "total": 12,
+    "TCC": 9,
+    "ATCC": 0,
+    "FCC": 1,
+    "AFCC": 0,
+    "ALGORITHM": 2,
+    "title": "Ветвления"
+  },
+  "loops": {
+    "total": 12,
+    "TCC": 10,
+    "ATCC": 2,
+    "FCC": 0,
+    "AFCC": 0,
+    "ALGORITHM": 0,
+    "title": "Циклы"
+  },
+  "arrays_collections": {
+    "total": 12,
+    "TCC": 8,
+    "ATCC": 0,
+    "FCC": 2,
+    "AFCC": 1,
+    "ALGORITHM": 1,
+    "title": "Массивы и коллекции"
+  },
+  "strings": {
+    "total": 12,
+    "TCC": 10,
+    "ATCC": 0,
+    "FCC": 2,
+    "AFCC": 0,
+    "ALGORITHM": 0,
+    "title": "Строки"
+  },
+  "functions": {
+    "total": 12,
+    "TCC": 11,
+    "ATCC": 1,
+    "FCC": 0,
+    "AFCC": 0,
+    "ALGORITHM": 0,
+    "title": "Функции"
+  },
+  "recursion": {
+    "total": 12,
+    "TCC": 11,
+    "ATCC": 1,
+    "FCC": 0,
+    "AFCC": 0,
+    "ALGORITHM": 0,
+    "title": "Рекурсия"
+  },
+  "search_sort": {
+    "total": 12,
+    "TCC": 11,
+    "ATCC": 0,
+    "FCC": 1,
+    "AFCC": 0,
+    "ALGORITHM": 0,
+    "title": "Поиск и сортировки"
+  },
+  "aggregation": {
+    "total": 12,
+    "TCC": 11,
+    "ATCC": 0,
+    "FCC": 0,
+    "AFCC": 1,
+    "ALGORITHM": 0,
+    "title": "Агрегация и фильтрация данных"
+  },
+  "maps": {
+    "total": 12,
+    "TCC": 11,
+    "ATCC": 0,
+    "FCC": 0,
+    "AFCC": 0,
+    "ALGORITHM": 1,
+    "title": "Словари и key-value структуры"
+  },
+  "files_modules": {
+    "total": 12,
+    "TCC": 11,
+    "ATCC": 1,
+    "FCC": 0,
+    "AFCC": 0,
+    "ALGORITHM": 0,
+    "title": "Файлы и модули"
+  },
+  "stack_queue": {
+    "total": 12,
+    "TCC": 12,
+    "ATCC": 0,
+    "FCC": 0,
+    "AFCC": 0,
+    "ALGORITHM": 0,
+    "title": "Стек и очередь"
+  },
+  "linked_lists": {
+    "total": 12,
+    "TCC": 12,
+    "ATCC": 0,
+    "FCC": 0,
+    "AFCC": 0,
+    "ALGORITHM": 0,
+    "title": "Связные списки"
+  },
+  "trees_graphs": {
+    "total": 12,
+    "TCC": 11,
+    "ATCC": 0,
+    "FCC": 1,
+    "AFCC": 0,
+    "ALGORITHM": 0,
+    "title": "Деревья и графы"
+  },
+  "oop": {
+    "total": 12,
+    "TCC": 11,
+    "ATCC": 1,
+    "FCC": 0,
+    "AFCC": 0,
+    "ALGORITHM": 0,
+    "title": "ООП"
+  },
+  "inheritance_capstone": {
+    "total": 12,
+    "TCC": 12,
+    "ATCC": 0,
+    "FCC": 0,
+    "AFCC": 0,
+    "ALGORITHM": 0,
+    "title": "Наследование и итоговый проект"
+  }
+}

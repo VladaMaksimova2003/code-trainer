@@ -1,0 +1,202 @@
+# Production stack — internal services (no public ports except via Nginx in root compose).
+
+x-api-env: &api-env
+  AUTH__SECRET_KEY: ${AUTH__SECRET_KEY:?AUTH__SECRET_KEY is required}
+  DB__DIALECT: postgresql+psycopg2
+  DB__HOST: postgres
+  DB__PORT: 5432
+  DB__NAME: ${DB_NAME:-code_trainer}
+  DB__USER: ${DB_USER:?DB_USER is required}
+  DB__PASSWORD: ${DB_PASSWORD:?DB_PASSWORD is required}
+  REDIS_HOST: redis
+  REDIS_PORT: 6379
+  REDIS_DB: 0
+  SMTP__HOST: ${SMTP__HOST:?SMTP__HOST is required}
+  SMTP__PORT: ${SMTP__PORT:-587}
+  SMTP__USER: ${SMTP__USER:-}
+  SMTP__PASSWORD: ${SMTP__PASSWORD:-}
+  SMTP__USE_TLS: ${SMTP__USE_TLS:-true}
+  SMTP__FROM_EMAIL: ${SMTP__FROM_EMAIL:?SMTP__FROM_EMAIL is required}
+  OAUTH__FRONTEND_URL: ${OAUTH__FRONTEND_URL:?OAUTH__FRONTEND_URL is required}
+  OAUTH__REDIRECT_BASE: ${OAUTH__REDIRECT_BASE:?OAUTH__REDIRECT_BASE is required}
+  OAUTH__VK_CLIENT_ID: ${OAUTH__VK_CLIENT_ID:-}
+  OAUTH__GOOGLE_CLIENT_ID: ${OAUTH__GOOGLE_CLIENT_ID:-}
+  OAUTH__GOOGLE_CLIENT_SECRET: ${OAUTH__GOOGLE_CLIENT_SECRET:-}
+  OAUTH__YANDEX_CLIENT_ID: ${OAUTH__YANDEX_CLIENT_ID:-}
+  OAUTH__YANDEX_CLIENT_SECRET: ${OAUTH__YANDEX_CLIENT_SECRET:-}
+  SUBMISSION_QUEUE: "submissions:queue"
+  SUBMISSION_RESULT_PREFIX: "submissions:result:"
+  LINT_QUEUE: "lint:queue"
+  LINT_RESULT_PREFIX: "lint:result:"
+  RUNNING_IN_DOCKER: "1"
+  ROOT_PATH: /api
+  CORS_ORIGINS: ${CORS_ORIGINS:?CORS_ORIGINS is required}
+  ENABLE_OPENAPI_DOCS: ${ENABLE_OPENAPI_DOCS:-false}
+
+x-worker-env: &worker-env
+  AUTH__SECRET_KEY: ${AUTH__SECRET_KEY:?AUTH__SECRET_KEY is required}
+  DB__DIALECT: postgresql+psycopg2
+  DB__HOST: postgres
+  DB__PORT: 5432
+  DB__NAME: ${DB_NAME:-code_trainer}
+  DB__USER: ${DB_USER:?DB_USER is required}
+  DB__PASSWORD: ${DB_PASSWORD:?DB_PASSWORD is required}
+  REDIS_HOST: redis
+  REDIS_PORT: 6379
+  REDIS_DB: 0
+  SUBMISSION_QUEUE: "submissions:queue"
+  SUBMISSION_RESULT_PREFIX: "submissions:result:"
+  LINT_QUEUE: "lint:queue"
+  LINT_RESULT_PREFIX: "lint:result:"
+  WORKER_POLL_TIMEOUT_SECONDS: 5
+  EXECUTION_GLOBAL_MAX_QUEUE: ${EXECUTION_GLOBAL_MAX_QUEUE:-200}
+  EXECUTION_USER_MAX_PER_MINUTE: ${EXECUTION_USER_MAX_PER_MINUTE:-30}
+  EXECUTION_USER_MAX_CONCURRENT: ${EXECUTION_USER_MAX_CONCURRENT:-2}
+  RUNNING_IN_DOCKER: "1"
+
+services:
+  api:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.api
+      args:
+        PYTHON_IMAGE: ${PYTHON_BASE_IMAGE:-python:3.12-slim}
+    image: code_trainer/api:latest
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    environment:
+      <<: *api-env
+    expose:
+      - "8000"
+    networks:
+      - app_net
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://127.0.0.1:8000/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 10
+      start_period: 40s
+
+  worker:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.worker
+      args:
+        PYTHON_IMAGE: ${PYTHON_BASE_IMAGE:-python:3.12-slim}
+    image: code_trainer/worker:latest
+    command: python -m worker.execution_worker
+    restart: unless-stopped
+    depends_on:
+      redis:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+    environment:
+      <<: *worker-env
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      - app_net
+
+  lint_worker:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.worker
+      args:
+        PYTHON_IMAGE: ${PYTHON_BASE_IMAGE:-python:3.12-slim}
+    image: code_trainer/worker:latest
+    command: python -m worker.lint_main
+    restart: unless-stopped
+    depends_on:
+      redis:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+    environment:
+      <<: *worker-env
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      - app_net
+
+  frontend:
+    build:
+      context: ../../frontend
+      dockerfile: Dockerfile
+      args:
+        VITE_API_BASE_URL: ${VITE_API_BASE_URL:?VITE_API_BASE_URL is required}
+        VITE_USE_MOCK_API: "false"
+    image: code_trainer/frontend:latest
+    restart: unless-stopped
+    depends_on:
+      api:
+        condition: service_healthy
+    expose:
+      - "80"
+    networks:
+      - app_net
+
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    command: ["redis-server", "--appendonly", "yes"]
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    volumes:
+      - redis_data:/data
+    networks:
+      - app_net
+
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${DB_NAME:-code_trainer}
+      POSTGRES_USER: ${DB_USER:?DB_USER is required}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:?DB_PASSWORD is required}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:?DB_USER is required} -d ${DB_NAME:-code_trainer}"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+    networks:
+      - app_net
+
+  db_backup:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      PGHOST: postgres
+      PGPORT: 5432
+      PGUSER: ${DB_USER:?DB_USER is required}
+      PGPASSWORD: ${DB_PASSWORD:?DB_PASSWORD is required}
+      PGDATABASE: ${DB_NAME:-code_trainer}
+      BACKUP_INTERVAL_SECONDS: ${BACKUP_INTERVAL_SECONDS:-86400}
+      BACKUP_RETENTION_DAYS: ${BACKUP_RETENTION_DAYS:-21}
+      BACKUP_RETENTION_MAX_COUNT: ${BACKUP_RETENTION_MAX_COUNT:-30}
+    volumes:
+      - ../../backups/db:/backups
+      - ../../deploy/scripts/db-backup-loop.sh:/usr/local/bin/db-backup-loop.sh:ro
+    entrypoint: ["/bin/sh", "/usr/local/bin/db-backup-loop.sh"]
+    networks:
+      - app_net
+
+volumes:
+  postgres_data:
+  redis_data:
+
+networks:
+  app_net:
+    driver: bridge

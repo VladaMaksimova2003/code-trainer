@@ -1,0 +1,41 @@
+﻿=== Universal Core Report ===
+Active showcase tasks:     421
+Unified (pascal+python):   89
+Unique pedagogical_slot_id: 420
+Mirror pairs (expected):   154
+Unmerged pairs:            84
+Pascal-only tasks:         112
+Python-only tasks:         129
+Tracks pascal / python:    284 / 284
+
+Validation:
+  duplicate_pedagogical_slot_ids: FAIL (1)
+  mirror_pairs_not_merged: FAIL (3)
+  semantic_pairs_merged_as_strict: OK
+  group_c_incorrectly_merged: OK
+  forbidden_formats: OK
+  non_neutral_titles: OK
+
+Unmerged pairs (sample):
+  psk_09 <-> pyk_08
+  psk_12 <-> pyk_10
+  typ_06 <-> pyt_08
+  typ_09 <-> pyt_10
+  typ_10 <-> pyt_11
+  io_04 <-> pyi_03
+  io_05 <-> pyi_04
+  exp_02 <-> pye_01
+  exp_06 <-> pye_06
+  exp_08 <-> pye_08
+  lop_09 <-> pyl_08
+  fn_06 <-> pyf_08
+  exc_01 <-> pyx_01
+  exc_02 <-> pyx_02
+  exc_05 <-> pyx_07
+  arr_01 <-> pya_01
+  arr_03 <-> pya_03
+  arr_04 <-> pya_04
+  arr_05 <-> pya_05
+  arr_06 <-> pya_06
+
+Manual review: 8 tasks

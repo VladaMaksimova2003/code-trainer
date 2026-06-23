@@ -1,0 +1,17 @@
+﻿=== Universal Core Report ===
+Active showcase tasks:     355
+Unified (pascal+python):   141
+Unique pedagogical_slot_id: 355
+Mirror pairs (expected):   140
+Unmerged pairs:            0
+Pascal-only tasks:         110
+Python-only tasks:         104
+Tracks pascal / python:    251 / 245
+
+Validation:
+  duplicate_pedagogical_slot_ids: OK
+  mirror_pairs_not_merged: OK
+  semantic_pairs_merged_as_strict: OK
+  group_c_incorrectly_merged: OK
+  forbidden_formats: OK
+  non_neutral_titles: OK

@@ -1,0 +1,20 @@
+ARG PYTHON_IMAGE=python:3.12-slim
+FROM ${PYTHON_IMAGE}
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    && pip install --no-cache-dir poetry ruff \
+    && useradd --create-home --uid 1000 runner \
+    && mkdir -p /runner/work \
+    && chown -R runner:runner /runner \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /runner
+
+COPY languages/ruff-student.toml /runner/ruff-student.toml
+
+ENV PYTHONUNBUFFERED=1
+ENV PYTHONDONTWRITEBYTECODE=1
+
+USER runner
+CMD ["sleep", "infinity"]

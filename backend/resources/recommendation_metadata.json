@@ -1,0 +1,129 @@
+{
+  "topics": [
+    {
+      "id": 1,
+      "name": "Основы выражений",
+      "prerequisites": [],
+      "skills": ["assignment", "binary_expression"]
+    },
+    {
+      "id": 2,
+      "name": "Условные конструкции",
+      "prerequisites": [1],
+      "skills": ["if_statement"]
+    },
+    {
+      "id": 3,
+      "name": "Циклы — базовые",
+      "prerequisites": [1],
+      "skills": ["for_loop", "while_loop"]
+    },
+    {
+      "id": 4,
+      "name": "Циклы — продвинутые",
+      "prerequisites": [3],
+      "skills": ["foreach", "nested_loops"]
+    },
+    {
+      "id": 5,
+      "name": "Функции — базовые",
+      "prerequisites": [2, 3],
+      "skills": ["function_definition", "return_statement"]
+    },
+    {
+      "id": 6,
+      "name": "Вызовы функций",
+      "prerequisites": [5],
+      "skills": ["direct_call", "method_call"]
+    },
+    {
+      "id": 7,
+      "name": "Методы и классы",
+      "prerequisites": [5, 6],
+      "skills": ["method", "chained_call"]
+    },
+    {
+      "id": 8,
+      "name": "Функции высшего порядка",
+      "prerequisites": [5, 4],
+      "skills": ["lambda"]
+    }
+  ],
+  "skills": [
+    {"id": "assignment",          "name": "Присваивание",        "difficulty": 1},
+    {"id": "binary_expression",   "name": "Выражения",           "difficulty": 1},
+    {"id": "if_statement",        "name": "Условие (if)",        "difficulty": 1},
+    {"id": "for_loop",            "name": "Цикл for",            "difficulty": 1},
+    {"id": "while_loop",          "name": "Цикл while",          "difficulty": 1},
+    {"id": "function_definition", "name": "Определение функции", "difficulty": 1},
+    {"id": "return_statement",    "name": "Return",              "difficulty": 1},
+    {"id": "direct_call",         "name": "Вызов функции",       "difficulty": 1},
+    {"id": "foreach",             "name": "Цикл foreach/for-in", "difficulty": 2},
+    {"id": "method_call",         "name": "Вызов метода",        "difficulty": 2},
+    {"id": "method",              "name": "Метод класса",        "difficulty": 2},
+    {"id": "nested_loops",        "name": "Вложенные циклы",     "difficulty": 3},
+    {"id": "chained_call",        "name": "Цепочка вызовов",     "difficulty": 3},
+    {"id": "lambda",              "name": "Лямбда-функция",      "difficulty": 3}
+  ],
+  "task_types": [
+    {
+      "id": "algorithm",
+      "name": "Алгоритм",
+      "required_skills": ["for_loop", "binary_expression"],
+      "type_weight": 1.0
+    },
+    {
+      "id": "translation",
+      "name": "Перевод кода",
+      "required_skills": ["binary_expression"],
+      "type_weight": 0.8
+    },
+    {
+      "id": "block_reorder",
+      "name": "Сборка из блоков",
+      "required_skills": ["for_loop", "if_statement"],
+      "type_weight": 0.9
+    },
+    {
+      "id": "blocks",
+      "name": "Блок-схема",
+      "required_skills": ["if_statement"],
+      "type_weight": 0.7
+    },
+    {
+      "id": "diagram",
+      "name": "Блок-схема",
+      "required_skills": ["if_statement"],
+      "type_weight": 0.7
+    },
+    {
+      "id": "code_assembly",
+      "name": "Сборка кода",
+      "required_skills": ["for_loop", "if_statement"],
+      "type_weight": 0.9
+    },
+    {
+      "id": "task_build_from_blocks",
+      "name": "Сборка из блоков",
+      "required_skills": ["for_loop", "if_statement"],
+      "type_weight": 0.9
+    }
+  ],
+  "skill_to_topic": {
+    "assignment":          1,
+    "binary_expression":   1,
+    "if_statement":        2,
+    "for_loop":            3,
+    "while_loop":          3,
+    "foreach":             4,
+    "nested_loops":        4,
+    "nested_loop":         4,
+    "function_definition": 5,
+    "return_statement":    5,
+    "direct_call":         6,
+    "method_call":         6,
+    "method":              7,
+    "chained_call":        7,
+    "lambda":              8
+  }
+}

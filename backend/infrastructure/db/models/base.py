@@ -1,0 +1,8 @@
+from sqlalchemy import MetaData
+from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
+
+
+class Base(DeclarativeBase):
+    metadata = MetaData()
+
+    id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)

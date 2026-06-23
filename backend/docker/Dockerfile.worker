@@ -1,0 +1,42 @@
+ARG PYTHON_IMAGE=python:3.12-slim
+FROM ${PYTHON_IMAGE}
+
+ENV PYTHONUNBUFFERED=1 \
+    PYTHONDONTWRITEBYTECODE=1 \
+    PIP_NO_CACHE_DIR=1 \
+    POETRY_VIRTUALENVS_CREATE=false \
+    PYTHONPATH=/app
+
+# CLI only — worker talks to host docker.sock (DooD).
+# Prefer Debian docker-cli. Fallback: static binary from Docker if apt fails (e.g. low disk).
+ARG DOCKER_CLI_VERSION=26.1.4
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+        build-essential \
+        ca-certificates \
+        curl \
+    && (apt-get install -y --no-install-recommends docker-cli \
+        || (echo "apt docker-cli unavailable, fetching static CLI..." \
+            && curl -fsSL --retry 5 --retry-delay 3 \
+                "https://download.docker.com/linux/static/stable/x86_64/docker-${DOCKER_CLI_VERSION}.tgz" \
+            | tar xz -C /usr/local/bin --strip-components=1 docker/docker)) \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/* /var/cache/apt/archives/*
+
+WORKDIR /app
+
+COPY pyproject.toml poetry.lock ./
+RUN pip install poetry && poetry install --only main --no-root --no-interaction --no-ansi
+
+COPY api ./api
+COPY application ./application
+COPY domain ./domain
+COPY infrastructure ./infrastructure
+COPY shared ./shared
+COPY worker ./worker
+COPY languages ./languages
+COPY resources ./resources
+COPY main.py ./main.py
+COPY scripts ./scripts
+
+CMD ["python", "-m", "worker.execution_worker"]

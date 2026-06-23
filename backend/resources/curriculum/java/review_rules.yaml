@@ -1,0 +1,116 @@
+# Правила Review (spaced repetition) — Pascal track
+version: 1
+
+# --- Единица review ---
+review_unit:
+  key: [technical_concept_id, action]
+  not: task_id
+  description_ru: "Повторяем TC×action, задача и pattern каждый раз могут быть другими."
+
+# --- Forgetting score (0..1, выше = срочнее повторить) ---
+forgetting_model:
+  base_formula: |
+    days = days_since_last_success
+    half_life_days = base_half_life * success_rate_multiplier
+    forgetting_score = 1 - exp(-ln(2) * days / half_life_days)
+  parameters:
+    base_half_life_days: 7
+    success_rate_multiplier:
+      when_success_rate_gte_0.9: 1.4
+      when_success_rate_gte_0.7: 1.0
+      when_success_rate_lt_0.7: 0.6
+    fail_streak_penalty: 0.12
+    per_fail_streak: true
+  review_due_when:
+    forgetting_score_gte: 0.50
+  critical_review_when:
+    forgetting_score_gte: 0.75
+
+# --- Частота и объём ---
+daily_schedule:
+  new_learning_slots: 1
+  new_learning_slots_note: "1 новый TC×action или новая глава (learning path)."
+  review_slots: 3
+  review_slots_note: "До 3 review TC×action в день."
+  max_total_exercises_per_day: 6
+  min_review_before_new_when_backlog_gte: 2
+  min_review_before_new_note: |
+    Если ≥2 просроченных review — сначала review, потом новое.
+    Иначе: 1 новое + review по расписанию.
+
+weekly_schedule:
+  full_chapter_review_trigger_days: 14
+  description: "Раз в 2 недели — 1 review из каждой пройденной главы (rotation)."
+
+# --- Rotation Exercise Patterns ---
+pattern_rotation:
+  rule: never_repeat_last_pattern_if_alternative_exists
+  prefer:
+    - different_source_representation
+    - different_transfer_language
+  example:
+    technical_concept: counted_loop
+    action: translate
+    sequence:
+      - tr_python_to_pascal_code
+      - tr_flowchart_to_pascal_code
+      - tr_blocks_to_pascal_code
+      - tr_cpp_to_pascal_code
+  description_ru: |
+    Сегодня Python→Pascal, через неделю Flowchart→Blocks, тот же counted_loop+translate.
+
+# --- Новые главы без повторения старых ---
+new_chapter_with_stale_review:
+  allowed: true
+  conditions:
+    - stale_review_count_lte: 3
+    - stale_only_from_last_1_chapter: true
+  blocked_when:
+    - critical_review_count_gte: 2
+    - any_tc_action_forgetting_gte: 0.85
+  ui_message_ru: |
+    «Есть срочные повторения — рекомендуем сначала их (≈10 мин).»
+    Hard block только при critical_review ≥ 2.
+
+# --- Если ученик «забыл» концепт ---
+forgotten_concept_handling:
+  detect_when:
+    any_of:
+      - fail_streak_gte: 3
+      - score_drop_gte: 25
+        within_attempts: 5
+      - forgetting_score_gte: 0.85
+        and_last_attempt_failed: true
+  actions:
+    - decay_score_multiplier: 0.85
+      description: "score *= 0.85"
+    - force_review_pattern: easiest_in_action
+      recognize: rec_flowchart_to_text
+      assemble: asm_flowchart_to_blocks
+      translate: tr_flowchart_to_pascal_code
+      analyze: ana_flowchart_to_text
+      debug: dbg_pascal_logic_fix
+      implement: imp_text_spec_to_pascal
+    - temporarily_block_next_action_in_path: true
+      description: "Не открывать следующий action в learning path, пока score снова не ≥ порога - 10."
+    - notify_ui: concept_forgotten
+  recovery:
+    success_on_review_boost: 15
+    cap_at: action_threshold
+
+# --- Приоритет выбора review в очереди ---
+review_queue_priority:
+  sort:
+    - forgetting_score desc
+    - fail_streak desc
+    - days_since_last_seen desc
+  interleave_learning_concepts: true
+  interleave_learning_concepts_note: "Не три review подряд из одной главы."
+
+# --- Интеграция с mastery ---
+interaction_with_mastery:
+  review_success_counts_toward: min_successful_tasks
+  review_does_not_lower_score_on_fail: false
+  mastered_tc_still_reviewed: true
+  mastered_tc_interval_multiplier: 2.0
+  mastered_tc_note: "Освоенный TC повторяется реже (удвоенный half-life)."

@@ -1,0 +1,9 @@
+﻿restore:pypit_12:task-617
+restore:pypit_13:task-618
+merged:lop_07:158<-532
+merged:pit_04:268<-609
+merged:pit_12:275<-617
+merged:pit_13:276<-618
+semantic_pairs: 8
+strict_issues: 13
+semantic_merged: 0

@@ -1,0 +1,6315 @@
+{
+  "total_patterns": 192,
+  "explicit_pitfall_patterns": 13,
+  "no_pitfall_non_tcc_signals": [
+    {
+      "pattern": "task_001",
+      "title": "Поиск максимума в массиве",
+      "action": "assemble",
+      "action_default_tt": "TCC",
+      "chapter_hint_pairs": 8,
+      "sample_chapter_pairs": [
+        "python->pascal",
+        "python->cpp",
+        "python->java",
+        "pascal->python"
+      ],
+      "expected_concepts_count": 12
+    },
+    {
+      "pattern": "task_005",
+      "title": "Сумма элементов массива",
+      "action": "assemble",
+      "action_default_tt": "TCC",
+      "chapter_hint_pairs": 8,
+      "sample_chapter_pairs": [
+        "python->pascal",
+        "python->cpp",
+        "python->java",
+        "pascal->python"
+      ],
+      "expected_concepts_count": 12
+    },
+    {
+      "pattern": "task_009",
+      "title": "Максимум из трёх чисел",
+      "action": "assemble",
+      "action_default_tt": "TCC",
+      "chapter_hint_pairs": 3,
+      "sample_chapter_pairs": [
+        "python->pascal",
+        "python->cpp",
+        "python->java"
+      ],
+      "expected_concepts_count": 7
+    },
+    {
+      "pattern": "task_010",
+      "title": "Классификация температуры",
+      "action": "assemble",
+      "action_default_tt": "TCC",
+      "chapter_hint_pairs": 3,
+      "sample_chapter_pairs": [
+        "python->pascal",
+        "python->cpp",
+        "python->java"
+      ],
+      "expected_concepts_count": 8
+    },
+    {
+      "pattern": "task_011",
+      "title": "Тип треугольника",
+      "action": "implement",
+      "action_default_tt": "ATCC",
+      "chapter_hint_pairs": 3,
+      "sample_chapter_pairs": [
+        "python->pascal",
+        "python->cpp",
+        "python->java"
+      ],
+      "expected_concepts_count": 8
+    },
+    {
+      "pattern": "task_013",
+      "title": "Оценка по баллам",
+      "action": "assemble",
+      "action_default_tt": "TCC",
+      "chapter_hint_pairs": 3,
+      "sample_chapter_pairs": [
+        "python->pascal",
+        "python->cpp",
+        "python->java"
+      ],
+      "expected_concepts_count": 8
+    },
+    {
+      "pattern": "task_014",
+      "title": "Определение сезона",
+      "action": "assemble",
+      "action_default_tt": "TCC",
+      "chapter_hint_pairs": 3,
+      "sample_chapter_pairs": [
+        "python->pascal",
+        "python->cpp",
+        "python->java"
+      ],
+      "expected_concepts_count": 8
+    },
+    {
+      "pattern": "task_016",
+      "title": "Итоговая: валидация заявки",
+      "action": "implement",
+      "action_default_tt": "ATCC",
+      "chapter_hint_pairs": 3,
+      "sample_chapter_pairs": [
+        "python->pascal",
+        "python->cpp",
+        "python->java"
+      ],
+      "expected_concepts_count": 8
+    },
+    {
+      "pattern": "task_019",
+      "title": "Проверка простого числа",
+      "action": "implement",
+      "action_default_tt": "ATCC",
+      "chapter_hint_pairs": 0,
+      "sample_chapter_pairs": [],
+      "expected_concepts_count": 8
+    },
+    {
+      "pattern": "task_023",
+      "title": "Гистограмма частот",
+      "action": "debug",
+      "action_default_tt": "FCC",
+      "chapter_hint_pairs": 0,
+      "sample_chapter_pairs": [],
+      "expected_concepts_count": 10
+    },
+    {
+      "pattern": "task_024",
+      "title": "Итоговая: статистика последовательности",
+      "action": "implement",
+      "action_default_tt": "ATCC",
+      "chapter_hint_pairs": 0,
+      "sample_chapter_pairs": [],
+      "expected_concepts_count": 10
+    },
+    {
+      "pattern": "task_025",
+      "title": "Разворот массива",
+      "action": "assemble",
+      "action_default_tt": "TCC",
+      "chapter_hint_pairs": 2,
+      "sample_chapter_pairs": [
+        "python->pascal",
+        "pascal->python"
+      ],
+      "expected_concepts_count": 9
+    },
+    {
+      "pattern": "task_026",
+      "title": "Циклический сдвиг",
+      "action": "assemble",
+      "action_default_tt": "TCC",
+      "chapter_hint_pairs": 2,
+      "sample_chapter_pairs": [
+        "python->pascal",
+        "pascal->python"
+      ],
+      "expected_concepts_count": 9
+    },
+    {
+      "pattern": "task_029",
+      "title": "Объединение двух массивов",
+      "action": "assemble",
+      "action_default_tt": "TCC",
+      "chapter_hint_pairs": 2,
+      "sample_chapter_pairs": [
+        "python->pascal",
+        "pascal->python"
+      ],
+      "expected_concepts_count": 9
+    },
+    {
+      "pattern": "task_030",
+      "title": "Поиск дубликатов",
+      "action": "assemble",
+      "action_default_tt": "TCC",
+      "chapter_hint_pairs": 2,
+      "sample_chapter_pairs": [
+        "python->pascal",
+        "pascal->python"
+      ],
+      "expected_concepts_count": 10
+    },
+    {
+      "pattern": "task_031",
+      "title": "Максимум в матрице",
+      "action": "debug",
+      "action_default_tt": "FCC",
+      "chapter_hint_pairs": 2,
+      "sample_chapter_pairs": [
+        "python->pascal",
+        "pascal->python"
+      ],
+      "expected_concepts_count": 9
+    },
+    {
+      "pattern": "task_032",
+      "title": "Итоговая: анализ игровой карты",
+      "action": "implement",
+      "action_default_tt": "ATCC",
+      "chapter_hint_pairs": 2,
+      "sample_chapter_pairs": [
+        "python->pascal",
+        "pascal->python"
+      ],
+      "expected_concepts_count": 9
+    },
+    {
+      "pattern": "task_035",
+      "title": "Проверка палиндрома",
+      "action": "implement",
+      "action_default_tt": "ATCC",
+      "chapter_hint_pairs": 0,
+      "sample_chapter_pairs": [],
+      "expected_concepts_count": 8
+    },
+    {
+      "pattern": "task_039",
+      "title": "RLE-сжатие строки",
+      "action": "debug",
+      "action_default_tt": "FCC",
+      "chapter_hint_pairs": 0,
+      "sample_chapter_pairs": [],
+      "expected_concepts_count": 7
+    },
+    {
+      "pattern": "task_040",
+      "title": "Итоговая: анализ текста",
+      "action": "implement",
+      "action_default_tt": "ATCC",
+      "chapter_hint_pairs": 0,
+      "sample_chapter_pairs": [],
+      "expected_concepts_count": 7
+    },
+    {
+      "pattern": "task_043",
+      "title": "Функция GCD",
+      "action": "implement",
+      "action_default_tt": "ATCC",
+      "chapter_hint_pairs": 0,
+      "sample_chapter_pairs": [],
+      "expected_concepts_count": 10
+    },
+    {
+      "pattern": "task_044",
+      "title": "Функция нормализации строки",
+      "action": "debug",
+      "action_default_tt": "FCC",
+      "chapter_hint_pairs": 0,
+      "sample_chapter_pairs": [],
+      "expected_concepts_count": 10
+    },
+    {
+      "pattern": "task_047",
+      "title": "Передача массива в функцию",
+      "action": "debug",
+      "action_default_tt": "FCC",
+      "chapter_hint_pairs": 0,
+      "sample_chapter_pairs": [],
+      "expected_concepts_count": 10
+    },
+    {
+      "pattern": "task_048",
+      "title": "Итоговая: библиотека алгоритмов",
+      "action": "implement",
+      "action_default_tt": "ATCC",
+      "chapter_hint_pairs": 0,
+      "sample_chapter_pairs": [],
+      "expected_concepts_count": 10
+    },
+    {
+      "pattern": "task_051",
+      "title": "Рекурсивная сумма массива",
+      "action": "implement",
+      "action_default_tt": "ATCC",
+      "chapter_hint_pairs": 0,
+      "sample_chapter_pairs": [],
+      "expected_concepts_count": 11
+    },
+    {
+      "pattern": "task_052",
+      "title": "Быстрое возведение в степень",
+      "action": "debug",
+      "action_default_tt": "FCC",
+      "chapter_hint_pairs": 0,
+      "sample_chapter_pairs": [],
+      "expected_concepts_count": 11
+    },
+    {
+      "pattern": "task_055",
+      "title": "Quicksort",
+      "action": "debug",
+      "action_default_tt": "FCC",
+      "chapter_hint_pairs": 0,
+      "sample_chapter_pairs": [],
+      "expected_concepts_count": 11
+    },
+    {
+      "pattern": "task_056",
+      "title": "Итоговая: рекурсивный обход каталога",
+      "action": "implement",
+      "action_default_tt": "ATCC",
+      "chapter_hint_pairs": 0,
+      "sample_chapter_pairs": [],
+      "expected_concepts_count": 11
+    },
+    {
+      "pattern": "task_059",
+      "title": "Selection Sort",
+      "action": "implement",
+      "action_default_tt": "ATCC",
+      "chapter_hint_pairs": 0,
+      "sample_chapter_pairs": [],
+      "expected_concepts_count": 10
+    },
+    {
+      "pattern": "task_060",
+      "title": "Bubble Sort",
+      "action": "debug",
+      "action_default_tt": "FCC",
+      "chapter_hint_pairs": 0,
+      "sample_chapter_pairs": [],
+      "expected_concepts_count": 10
+    },
+    {
+      "pattern": "task_063",
+      "title": "Сортировка объектов/записей",
+      "action": "debug",
+      "action_default_tt": "FCC",
+      "chapter_hint_pairs": 0,
+      "sample_chapter_pairs": [],
+      "expected_concepts_count": 10
+    },
+    {
+      "pattern": "task_064",
+      "title": "Итоговая: таблица лидеров",
+      "action": "implement",
+      "action_default_tt": "ATCC",
+      "chapter_hint_pairs": 0,
+      "sample_chapter_pairs": [],
+      "expected_concepts_count": 10
+    },
+    {
+      "pattern": "task_067",
+      "title": "Фильтр положительных чисел",
+      "action": "implement",
+      "action_default_tt": "ATCC",
+      "chapter_hint_pairs": 0,
+      "sample_chapter_pairs": [],
+      "expected_concepts_count": 10
+    },
+    {
+      "pattern": "task_068",
+      "title": "Фильтр заказов по статусу",
+      "action": "debug",
+      "action_default_tt": "FCC",
+      "chapter_hint_pairs": 0,
+      "sample_chapter_pairs": [],
+      "expected_concepts_count": 10
+    },
+    {
+      "pattern": "task_071",
+      "title": "Группировка данных",
+      "action": "debug",
+      "action_default_tt": "FCC",
+      "chapter_hint_pairs": 0,
+      "sample_chapter_pairs": [],
+      "expected_concepts_count": 7
+    },
+    {
+      "pattern": "task_072",
+      "title": "Итоговая: аналитика магазина",
+      "action": "implement",
+      "action_default_tt": "ATCC",
+      "chapter_hint_pairs": 0,
+      "sample_chapter_pairs": [],
+      "expected_concepts_count": 10
+    },
+    {
+      "pattern": "task_075",
+      "title": "Телефонная книга",
+      "action": "implement",
+      "action_default_tt": "ATCC",
+      "chapter_hint_pairs": 0,
+      "sample_chapter_pairs": [],
+      "expected_concepts_count": 7
+    },
+    {
+      "pattern": "task_076",
+      "title": "Индекс студентов по ID",
+      "action": "debug",
+      "action_default_tt": "FCC",
+      "chapter_hint_pairs": 0,
+      "sample_chapter_pairs": [],
+      "expected_concepts_count": 7
+    },
+    {
+      "pattern": "task_079",
+      "title": "Объединение двух словарей",
+      "action": "debug",
+      "action_default_tt": "FCC",
+      "chapter_hint_pairs": 0,
+      "sample_chapter_pairs": [],
+      "expected_concepts_count": 7
+    },
+    {
+      "pattern": "task_080",
+      "title": "Итоговая: анализ текста через словарь",
+      "action": "implement",
+      "action_default_tt": "ATCC",
+      "chapter_hint_pairs": 0,
+      "sample_chapter_pairs": [],
+      "expected_concepts_count": 7
+    },
+    {
+      "pattern": "task_083",
+      "title": "Анализ CSV",
+      "action": "implement",
+      "action_default_tt": "ATCC",
+      "chapter_hint_pairs": 0,
+      "sample_chapter_pairs": [],
+      "expected_concepts_count": 8
+    },
+    {
+      "pattern": "task_084",
+      "title": "Запись отчёта",
+      "action": "debug",
+      "action_default_tt": "FCC",
+      "chapter_hint_pairs": 0,
+      "sample_chapter_pairs": [],
+      "expected_concepts_count": 8
+    },
+    {
+      "pattern": "task_087",
+      "title": "Конфликт имён в модулях",
+      "action": "debug",
+      "action_default_tt": "FCC",
+      "chapter_hint_pairs": 0,
+      "sample_chapter_pairs": [],
+      "expected_concepts_count": 8
+    },
+    {
+      "pattern": "task_088",
+      "title": "Итоговая: обработчик логов",
+      "action": "implement",
+      "action_default_tt": "ATCC",
+      "chapter_hint_pairs": 0,
+      "sample_chapter_pairs": [],
+      "expected_concepts_count": 8
+    },
+    {
+      "pattern": "task_091",
+      "title": "Очередь задач",
+      "action": "implement",
+      "action_default_tt": "ATCC",
+      "chapter_hint_pairs": 0,
+      "sample_chapter_pairs": [],
+      "expected_concepts_count": 7
+    },
+    {
+      "pattern": "task_092",
+      "title": "Отмена действий",
+      "action": "debug",
+      "action_default_tt": "FCC",
+      "chapter_hint_pairs": 0,
+      "sample_chapter_pairs": [],
+      "expected_concepts_count": 7
+    },
+    {
+      "pattern": "task_095",
+      "title": "Калькулятор выражений",
+      "action": "debug",
+      "action_default_tt": "FCC",
+      "chapter_hint_pairs": 0,
+      "sample_chapter_pairs": [],
+      "expected_concepts_count": 7
+    },
+    {
+      "pattern": "task_096",
+      "title": "Итоговая: обработчик команд",
+      "action": "implement",
+      "action_default_tt": "ATCC",
+      "chapter_hint_pairs": 0,
+      "sample_chapter_pairs": [],
+      "expected_concepts_count": 7
+    },
+    {
+      "pattern": "task_099",
+      "title": "Добавление в конец",
+      "action": "implement",
+      "action_default_tt": "ATCC",
+      "chapter_hint_pairs": 0,
+      "sample_chapter_pairs": [],
+      "expected_concepts_count": 8
+    },
+    {
+      "pattern": "task_100",
+      "title": "Поиск узла",
+      "action": "debug",
+      "action_default_tt": "FCC",
+      "chapter_hint_pairs": 0,
+      "sample_chapter_pairs": [],
+      "expected_concepts_count": 8
+    },
+    {
+      "pattern": "task_103",
+      "title": "Слияние двух списков",
+      "action": "debug",
+      "action_default_tt": "FCC",
+      "chapter_hint_pairs": 0,
+      "sample_chapter_pairs": [],
+      "expected_concepts_count": 8
+    },
+    {
+      "pattern": "task_104",
+      "title": "Итоговая: плейлист",
+      "action": "implement",
+      "action_default_tt": "ATCC",
+      "chapter_hint_pairs": 0,
+      "sample_chapter_pairs": [],
+      "expected_concepts_count": 8
+    },
+    {
+      "pattern": "task_107",
+      "title": "BFS дерева",
+      "action": "implement",
+      "action_default_tt": "ATCC",
+      "chapter_hint_pairs": 0,
+      "sample_chapter_pairs": [],
+      "expected_concepts_count": 8
+    },
+    {
+      "pattern": "task_108",
+      "title": "Поиск узла дерева",
+      "action": "debug",
+      "action_default_tt": "FCC",
+      "chapter_hint_pairs": 0,
+      "sample_chapter_pairs": [],
+      "expected_concepts_count": 8
+    },
+    {
+      "pattern": "task_111",
+      "title": "BFS графа",
+      "action": "debug",
+      "action_default_tt": "FCC",
+      "chapter_hint_pairs": 0,
+      "sample_chapter_pairs": [],
+      "expected_concepts_count": 8
+    },
+    {
+      "pattern": "task_112",
+      "title": "Итоговая: поиск пути на карте",
+      "action": "implement",
+      "action_default_tt": "ATCC",
+      "chapter_hint_pairs": 0,
+      "sample_chapter_pairs": [],
+      "expected_concepts_count": 8
+    },
+    {
+      "pattern": "task_115",
+      "title": "Класс Product",
+      "action": "implement",
+      "action_default_tt": "ATCC",
+      "chapter_hint_pairs": 0,
+      "sample_chapter_pairs": [],
+      "expected_concepts_count": 8
+    },
+    {
+      "pattern": "task_116",
+      "title": "Ошибка в методе объекта",
+      "action": "debug",
+      "action_default_tt": "FCC",
+      "chapter_hint_pairs": 0,
+      "sample_chapter_pairs": [],
+      "expected_concepts_count": 8
+    },
+    {
+      "pattern": "task_119",
+      "title": "Вызов методов объектов",
+      "action": "debug",
+      "action_default_tt": "FCC",
+      "chapter_hint_pairs": 0,
+      "sample_chapter_pairs": [],
+      "expected_concepts_count": 8
+    },
+    {
+      "pattern": "task_120",
+      "title": "Итоговая: мини-CRM",
+      "action": "implement",
+      "action_default_tt": "ATCC",
+      "chapter_hint_pairs": 0,
+      "sample_chapter_pairs": [],
+      "expected_concepts_count": 8
+    },
+    {
+      "pattern": "task_123",
+      "title": "Сотрудники разных типов",
+      "action": "implement",
+      "action_default_tt": "ATCC",
+      "chapter_hint_pairs": 0,
+      "sample_chapter_pairs": [],
+      "expected_concepts_count": 9
+    },
+    {
+      "pattern": "task_124",
+      "title": "Ошибка переопределения метода",
+      "action": "debug",
+      "action_default_tt": "FCC",
+      "chapter_hint_pairs": 0,
+      "sample_chapter_pairs": [],
+      "expected_concepts_count": 9
+    },
+    {
+      "pattern": "task_127",
+      "title": "Геометрические фигуры",
+      "action": "debug",
+      "action_default_tt": "FCC",
+      "chapter_hint_pairs": 0,
+      "sample_chapter_pairs": [],
+      "expected_concepts_count": 9
+    },
+    {
+      "pattern": "task_128",
+      "title": "Финальная: система доставки",
+      "action": "implement",
+      "action_default_tt": "ATCC",
+      "chapter_hint_pairs": 0,
+      "sample_chapter_pairs": [],
+      "expected_concepts_count": 9
+    },
+    {
+      "pattern": "task_129",
+      "title": "Сумма цифр числа",
+      "action": "assemble",
+      "action_default_tt": "TCC",
+      "chapter_hint_pairs": 8,
+      "sample_chapter_pairs": [
+        "python->pascal",
+        "python->cpp",
+        "python->java",
+        "pascal->python"
+      ],
+      "expected_concepts_count": 3
+    },
+    {
+      "pattern": "task_130",
+      "title": "Количество чётных чисел",
+      "action": "assemble",
+      "action_default_tt": "TCC",
+      "chapter_hint_pairs": 8,
+      "sample_chapter_pairs": [
+        "python->pascal",
+        "python->cpp",
+        "python->java",
+        "pascal->python"
+      ],
+      "expected_concepts_count": 3
+    },
+    {
+      "pattern": "task_132",
+      "title": "Минимум из n чисел",
+      "action": "implement",
+      "action_default_tt": "ATCC",
+      "chapter_hint_pairs": 8,
+      "sample_chapter_pairs": [
+        "python->pascal",
+        "python->cpp",
+        "python->java",
+        "pascal->python"
+      ],
+      "expected_concepts_count": 3
+    },
+    {
+      "pattern": "task_133",
+      "title": "Високосный год",
+      "action": "assemble",
+      "action_default_tt": "TCC",
+      "chapter_hint_pairs": 3,
+      "sample_chapter_pairs": [
+        "python->pascal",
+        "python->cpp",
+        "python->java"
+      ],
+      "expected_concepts_count": 3
+    },
+    {
+      "pattern": "task_134",
+      "title": "Категория BMI",
+      "action": "assemble",
+      "action_default_tt": "TCC",
+      "chapter_hint_pairs": 3,
+      "sample_chapter_pairs": [
+        "python->pascal",
+        "python->cpp",
+        "python->java"
+      ],
+      "expected_concepts_count": 3
+    },
+    {
+      "pattern": "task_136",
+      "title": "Корни квадратного уравнения",
+      "action": "implement",
+      "action_default_tt": "ATCC",
+      "chapter_hint_pairs": 3,
+      "sample_chapter_pairs": [
+        "python->pascal",
+        "python->cpp",
+        "python->java"
+      ],
+      "expected_concepts_count": 3
+    },
+    {
+      "pattern": "task_140",
+      "title": "Длина последовательности Collatz",
+      "action": "implement",
+      "action_default_tt": "ATCC",
+      "chapter_hint_pairs": 0,
+      "sample_chapter_pairs": [],
+      "expected_concepts_count": 3
+    },
+    {
+      "pattern": "task_141",
+      "title": "Второй максимум массива",
+      "action": "assemble",
+      "action_default_tt": "TCC",
+      "chapter_hint_pairs": 2,
+      "sample_chapter_pairs": [
+        "python->pascal",
+        "pascal->python"
+      ],
+      "expected_concepts_count": 3
+    },
+    {
+      "pattern": "task_142",
+      "title": "Сдвиг нулей в конец",
+      "action": "assemble",
+      "action_default_tt": "TCC",
+      "chapter_hint_pairs": 2,
+      "sample_chapter_pairs": [
+        "python->pascal",
+        "pascal->python"
+      ],
+      "expected_concepts_count": 3
+    },
+    {
+      "pattern": "task_144",
+      "title": "Префиксные суммы",
+      "action": "implement",
+      "action_default_tt": "ATCC",
+      "chapter_hint_pairs": 2,
+      "sample_chapter_pairs": [
+        "python->pascal",
+        "pascal->python"
+      ],
+      "expected_concepts_count": 3
+    },
+    {
+      "pattern": "task_148",
+      "title": "Самое длинное слово",
+      "action": "implement",
+      "action_default_tt": "ATCC",
+      "chapter_hint_pairs": 0,
+      "sample_chapter_pairs": [],
+      "expected_concepts_count": 3
+    },
+    {
+      "pattern": "task_152",
+      "title": "Массив отсортирован?",
+      "action": "implement",
+      "action_default_tt": "ATCC",
+      "chapter_hint_pairs": 0,
+      "sample_chapter_pairs": [],
+      "expected_concepts_count": 3
+    },
+    {
+      "pattern": "task_156",
+      "title": "Башни Ханоя — число ходов",
+      "action": "implement",
+      "action_default_tt": "ATCC",
+      "chapter_hint_pairs": 0,
+      "sample_chapter_pairs": [],
+      "expected_concepts_count": 3
+    },
+    {
+      "pattern": "task_160",
+      "title": "Слияние двух отсортированных массивов",
+      "action": "implement",
+      "action_default_tt": "ATCC",
+      "chapter_hint_pairs": 0,
+      "sample_chapter_pairs": [],
+      "expected_concepts_count": 3
+    },
+    {
+      "pattern": "task_164",
+      "title": "Элементы выше среднего",
+      "action": "implement",
+      "action_default_tt": "ATCC",
+      "chapter_hint_pairs": 0,
+      "sample_chapter_pairs": [],
+      "expected_concepts_count": 3
+    },
+    {
+      "pattern": "task_167",
+      "title": "Частота id (ключ)",
+      "action": "debug",
+      "action_default_tt": "FCC",
+      "chapter_hint_pairs": 0,
+      "sample_chapter_pairs": [],
+      "expected_concepts_count": 3
+    },
+    {
+      "pattern": "task_168",
+      "title": "Группировка анаграмм",
+      "action": "implement",
+      "action_default_tt": "ATCC",
+      "chapter_hint_pairs": 0,
+      "sample_chapter_pairs": [],
+      "expected_concepts_count": 3
+    },
+    {
+      "pattern": "task_172",
+      "title": "Фильтр чётных в output.txt",
+      "action": "implement",
+      "action_default_tt": "ATCC",
+      "chapter_hint_pairs": 0,
+      "sample_chapter_pairs": [],
+      "expected_concepts_count": 3
+    },
+    {
+      "pattern": "task_175",
+      "title": "Проверка скобок (пустой стек)",
+      "action": "debug",
+      "action_default_tt": "FCC",
+      "chapter_hint_pairs": 0,
+      "sample_chapter_pairs": [],
+      "expected_concepts_count": 3
+    },
+    {
+      "pattern": "task_176",
+      "title": "BFS: кратчайший путь",
+      "action": "implement",
+      "action_default_tt": "ATCC",
+      "chapter_hint_pairs": 0,
+      "sample_chapter_pairs": [],
+      "expected_concepts_count": 3
+    },
+    {
+      "pattern": "task_179",
+      "title": "Удаление по значению",
+      "action": "debug",
+      "action_default_tt": "FCC",
+      "chapter_hint_pairs": 0,
+      "sample_chapter_pairs": [],
+      "expected_concepts_count": 3
+    },
+    {
+      "pattern": "task_180",
+      "title": "Сортировка списка вставками",
+      "action": "implement",
+      "action_default_tt": "ATCC",
+      "chapter_hint_pairs": 0,
+      "sample_chapter_pairs": [],
+      "expected_concepts_count": 3
+    },
+    {
+      "pattern": "task_184",
+      "title": "Компоненты связности",
+      "action": "implement",
+      "action_default_tt": "ATCC",
+      "chapter_hint_pairs": 0,
+      "sample_chapter_pairs": [],
+      "expected_concepts_count": 3
+    },
+    {
+      "pattern": "task_188",
+      "title": "Student: лучший средний балл",
+      "action": "implement",
+      "action_default_tt": "ATCC",
+      "chapter_hint_pairs": 0,
+      "sample_chapter_pairs": [],
+      "expected_concepts_count": 3
+    },
+    {
+      "pattern": "task_191",
+      "title": "Полиморфизм speak (virtual)",
+      "action": "debug",
+      "action_default_tt": "FCC",
+      "chapter_hint_pairs": 0,
+      "sample_chapter_pairs": [],
+      "expected_concepts_count": 3
+    },
+    {
+      "pattern": "task_192",
+      "title": "Итог: система доставки",
+      "action": "implement",
+      "action_default_tt": "ATCC",
+      "chapter_hint_pairs": 0,
+      "sample_chapter_pairs": [],
+      "expected_concepts_count": 3
+    }
+  ],
+  "multi_pitfall_patterns": [
+    {
+      "pattern": "task_001",
+      "title": "Поиск максимума в массиве",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "index_1based",
+          "transfer_type": "FCC",
+          "overlap": [
+            "counted_loop",
+            "indexed_sequence"
+          ]
+        },
+        {
+          "pitfall_id": "for_range_off_by_one",
+          "transfer_type": "FCC",
+          "overlap": [
+            "counted_loop"
+          ]
+        },
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment",
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "filter_positive",
+          "transfer_type": "FCC",
+          "overlap": [
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "threshold_count",
+          "transfer_type": "FCC",
+          "overlap": [
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "branch_logic",
+          "transfer_type": "FCC",
+          "overlap": [
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "string_index",
+          "transfer_type": "FCC",
+          "overlap": [
+            "search_find"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "chain_comparison",
+          "transfer_type": "FCC",
+          "overlap": [
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "and_or_keywords",
+          "transfer_type": "FCC",
+          "overlap": [
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "bool_literals",
+          "transfer_type": "FCC",
+          "overlap": [
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "list_vs_static_array",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "dynamic_array",
+            "indexed_sequence"
+          ]
+        },
+        {
+          "pitfall_id": "overflow_fixed_int",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "indexed_sequence"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_002",
+      "title": "Линейный поиск элемента",
+      "explicit_pitfall": "index_1based",
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "index_1based",
+          "transfer_type": "FCC",
+          "overlap": [
+            "counted_loop"
+          ]
+        },
+        {
+          "pitfall_id": "for_range_off_by_one",
+          "transfer_type": "FCC",
+          "overlap": [
+            "counted_loop"
+          ]
+        },
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment",
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "filter_positive",
+          "transfer_type": "FCC",
+          "overlap": [
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "threshold_count",
+          "transfer_type": "FCC",
+          "overlap": [
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "branch_logic",
+          "transfer_type": "FCC",
+          "overlap": [
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "string_index",
+          "transfer_type": "FCC",
+          "overlap": [
+            "search_find"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "chain_comparison",
+          "transfer_type": "FCC",
+          "overlap": [
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "and_or_keywords",
+          "transfer_type": "FCC",
+          "overlap": [
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "bool_literals",
+          "transfer_type": "FCC",
+          "overlap": [
+            "simple_branch"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_003",
+      "title": "Поиск минимума",
+      "explicit_pitfall": "input_line_model",
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "index_1based",
+          "transfer_type": "FCC",
+          "overlap": [
+            "counted_loop",
+            "indexed_sequence"
+          ]
+        },
+        {
+          "pitfall_id": "for_range_off_by_one",
+          "transfer_type": "FCC",
+          "overlap": [
+            "counted_loop"
+          ]
+        },
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment",
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "filter_positive",
+          "transfer_type": "FCC",
+          "overlap": [
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "threshold_count",
+          "transfer_type": "FCC",
+          "overlap": [
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "branch_logic",
+          "transfer_type": "FCC",
+          "overlap": [
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "string_index",
+          "transfer_type": "FCC",
+          "overlap": [
+            "search_find"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "chain_comparison",
+          "transfer_type": "FCC",
+          "overlap": [
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "and_or_keywords",
+          "transfer_type": "FCC",
+          "overlap": [
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "bool_literals",
+          "transfer_type": "FCC",
+          "overlap": [
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "list_vs_static_array",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "dynamic_array",
+            "indexed_sequence"
+          ]
+        },
+        {
+          "pitfall_id": "overflow_fixed_int",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "indexed_sequence"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_004",
+      "title": "Подсчёт положительных чисел",
+      "explicit_pitfall": "filter_positive",
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "integer_division",
+          "transfer_type": "FCC",
+          "overlap": [
+            "arithmetic_ops"
+          ]
+        },
+        {
+          "pitfall_id": "index_1based",
+          "transfer_type": "FCC",
+          "overlap": [
+            "counted_loop"
+          ]
+        },
+        {
+          "pitfall_id": "for_range_off_by_one",
+          "transfer_type": "FCC",
+          "overlap": [
+            "counted_loop"
+          ]
+        },
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment",
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "filter_positive",
+          "transfer_type": "FCC",
+          "overlap": [
+            "filter_select",
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "threshold_count",
+          "transfer_type": "FCC",
+          "overlap": [
+            "filter_select",
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "branch_logic",
+          "transfer_type": "FCC",
+          "overlap": [
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "round_semantics",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "arithmetic_ops"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "float_division_pascal",
+          "transfer_type": "FCC",
+          "overlap": [
+            "arithmetic_ops"
+          ]
+        },
+        {
+          "pitfall_id": "mod_negative",
+          "transfer_type": "FCC",
+          "overlap": [
+            "arithmetic_ops"
+          ]
+        },
+        {
+          "pitfall_id": "chain_comparison",
+          "transfer_type": "FCC",
+          "overlap": [
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "and_or_keywords",
+          "transfer_type": "FCC",
+          "overlap": [
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "bool_literals",
+          "transfer_type": "FCC",
+          "overlap": [
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "overflow_fixed_int",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "arithmetic_ops"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_005",
+      "title": "Сумма элементов массива",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "integer_division",
+          "transfer_type": "FCC",
+          "overlap": [
+            "arithmetic_ops"
+          ]
+        },
+        {
+          "pitfall_id": "index_1based",
+          "transfer_type": "FCC",
+          "overlap": [
+            "counted_loop",
+            "indexed_sequence"
+          ]
+        },
+        {
+          "pitfall_id": "for_range_off_by_one",
+          "transfer_type": "FCC",
+          "overlap": [
+            "counted_loop"
+          ]
+        },
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "round_semantics",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "arithmetic_ops"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "float_division_pascal",
+          "transfer_type": "FCC",
+          "overlap": [
+            "arithmetic_ops"
+          ]
+        },
+        {
+          "pitfall_id": "mod_negative",
+          "transfer_type": "FCC",
+          "overlap": [
+            "arithmetic_ops"
+          ]
+        },
+        {
+          "pitfall_id": "list_vs_static_array",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "dynamic_array",
+            "indexed_sequence"
+          ]
+        },
+        {
+          "pitfall_id": "overflow_fixed_int",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "arithmetic_ops",
+            "indexed_sequence"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_006",
+      "title": "Среднее значение массива",
+      "explicit_pitfall": "integer_division",
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "integer_division",
+          "transfer_type": "FCC",
+          "overlap": [
+            "arithmetic_ops"
+          ]
+        },
+        {
+          "pitfall_id": "index_1based",
+          "transfer_type": "FCC",
+          "overlap": [
+            "counted_loop",
+            "indexed_sequence"
+          ]
+        },
+        {
+          "pitfall_id": "for_range_off_by_one",
+          "transfer_type": "FCC",
+          "overlap": [
+            "counted_loop"
+          ]
+        },
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "round_semantics",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "arithmetic_ops"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "float_division_pascal",
+          "transfer_type": "FCC",
+          "overlap": [
+            "arithmetic_ops"
+          ]
+        },
+        {
+          "pitfall_id": "mod_negative",
+          "transfer_type": "FCC",
+          "overlap": [
+            "arithmetic_ops"
+          ]
+        },
+        {
+          "pitfall_id": "list_vs_static_array",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "dynamic_array",
+            "indexed_sequence"
+          ]
+        },
+        {
+          "pitfall_id": "overflow_fixed_int",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "arithmetic_ops",
+            "indexed_sequence"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_007",
+      "title": "Ввод массива и вывод результата",
+      "explicit_pitfall": "threshold_count",
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "index_1based",
+          "transfer_type": "FCC",
+          "overlap": [
+            "counted_loop"
+          ]
+        },
+        {
+          "pitfall_id": "for_range_off_by_one",
+          "transfer_type": "FCC",
+          "overlap": [
+            "counted_loop"
+          ]
+        },
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment",
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "filter_positive",
+          "transfer_type": "FCC",
+          "overlap": [
+            "filter_select",
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "threshold_count",
+          "transfer_type": "FCC",
+          "overlap": [
+            "filter_select",
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "branch_logic",
+          "transfer_type": "FCC",
+          "overlap": [
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "chain_comparison",
+          "transfer_type": "FCC",
+          "overlap": [
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "and_or_keywords",
+          "transfer_type": "FCC",
+          "overlap": [
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "bool_literals",
+          "transfer_type": "FCC",
+          "overlap": [
+            "simple_branch"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_008",
+      "title": "Итоговая: анализ оценок студентов",
+      "explicit_pitfall": "round_semantics",
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "integer_division",
+          "transfer_type": "FCC",
+          "overlap": [
+            "arithmetic_ops"
+          ]
+        },
+        {
+          "pitfall_id": "index_1based",
+          "transfer_type": "FCC",
+          "overlap": [
+            "counted_loop",
+            "indexed_sequence"
+          ]
+        },
+        {
+          "pitfall_id": "for_range_off_by_one",
+          "transfer_type": "FCC",
+          "overlap": [
+            "counted_loop"
+          ]
+        },
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment",
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "filter_positive",
+          "transfer_type": "FCC",
+          "overlap": [
+            "filter_select",
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "threshold_count",
+          "transfer_type": "FCC",
+          "overlap": [
+            "filter_select",
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "branch_logic",
+          "transfer_type": "FCC",
+          "overlap": [
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "string_index",
+          "transfer_type": "FCC",
+          "overlap": [
+            "search_find"
+          ]
+        },
+        {
+          "pitfall_id": "round_semantics",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "arithmetic_ops"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "float_division_pascal",
+          "transfer_type": "FCC",
+          "overlap": [
+            "arithmetic_ops"
+          ]
+        },
+        {
+          "pitfall_id": "mod_negative",
+          "transfer_type": "FCC",
+          "overlap": [
+            "arithmetic_ops"
+          ]
+        },
+        {
+          "pitfall_id": "chain_comparison",
+          "transfer_type": "FCC",
+          "overlap": [
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "and_or_keywords",
+          "transfer_type": "FCC",
+          "overlap": [
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "bool_literals",
+          "transfer_type": "FCC",
+          "overlap": [
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "list_vs_static_array",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "dynamic_array",
+            "indexed_sequence"
+          ]
+        },
+        {
+          "pitfall_id": "overflow_fixed_int",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "arithmetic_ops",
+            "indexed_sequence"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_009",
+      "title": "Максимум из трёх чисел",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment",
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "filter_positive",
+          "transfer_type": "FCC",
+          "overlap": [
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "threshold_count",
+          "transfer_type": "FCC",
+          "overlap": [
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "branch_logic",
+          "transfer_type": "FCC",
+          "overlap": [
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "chain_comparison",
+          "transfer_type": "FCC",
+          "overlap": [
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "and_or_keywords",
+          "transfer_type": "FCC",
+          "overlap": [
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "bool_literals",
+          "transfer_type": "FCC",
+          "overlap": [
+            "simple_branch"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_010",
+      "title": "Классификация температуры",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment",
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "filter_positive",
+          "transfer_type": "FCC",
+          "overlap": [
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "threshold_count",
+          "transfer_type": "FCC",
+          "overlap": [
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "branch_logic",
+          "transfer_type": "FCC",
+          "overlap": [
+            "multi_branch",
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "multi_branch_discount",
+          "transfer_type": "FCC",
+          "overlap": [
+            "multi_branch"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "chain_comparison",
+          "transfer_type": "FCC",
+          "overlap": [
+            "multi_branch",
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "and_or_keywords",
+          "transfer_type": "FCC",
+          "overlap": [
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "bool_literals",
+          "transfer_type": "FCC",
+          "overlap": [
+            "simple_branch"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_011",
+      "title": "Тип треугольника",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment",
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "filter_positive",
+          "transfer_type": "FCC",
+          "overlap": [
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "threshold_count",
+          "transfer_type": "FCC",
+          "overlap": [
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "branch_logic",
+          "transfer_type": "FCC",
+          "overlap": [
+            "multi_branch",
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "multi_branch_discount",
+          "transfer_type": "FCC",
+          "overlap": [
+            "multi_branch"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "chain_comparison",
+          "transfer_type": "FCC",
+          "overlap": [
+            "multi_branch",
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "and_or_keywords",
+          "transfer_type": "FCC",
+          "overlap": [
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "bool_literals",
+          "transfer_type": "FCC",
+          "overlap": [
+            "simple_branch"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_012",
+      "title": "Проверка корректности даты",
+      "explicit_pitfall": "branch_logic",
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment",
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "filter_positive",
+          "transfer_type": "FCC",
+          "overlap": [
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "threshold_count",
+          "transfer_type": "FCC",
+          "overlap": [
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "branch_logic",
+          "transfer_type": "FCC",
+          "overlap": [
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "chain_comparison",
+          "transfer_type": "FCC",
+          "overlap": [
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "and_or_keywords",
+          "transfer_type": "FCC",
+          "overlap": [
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "bool_literals",
+          "transfer_type": "FCC",
+          "overlap": [
+            "simple_branch"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_013",
+      "title": "Оценка по баллам",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment",
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "filter_positive",
+          "transfer_type": "FCC",
+          "overlap": [
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "threshold_count",
+          "transfer_type": "FCC",
+          "overlap": [
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "branch_logic",
+          "transfer_type": "FCC",
+          "overlap": [
+            "multi_branch",
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "multi_branch_discount",
+          "transfer_type": "FCC",
+          "overlap": [
+            "multi_branch"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "chain_comparison",
+          "transfer_type": "FCC",
+          "overlap": [
+            "multi_branch",
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "and_or_keywords",
+          "transfer_type": "FCC",
+          "overlap": [
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "bool_literals",
+          "transfer_type": "FCC",
+          "overlap": [
+            "simple_branch"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_014",
+      "title": "Определение сезона",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment",
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "filter_positive",
+          "transfer_type": "FCC",
+          "overlap": [
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "threshold_count",
+          "transfer_type": "FCC",
+          "overlap": [
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "branch_logic",
+          "transfer_type": "FCC",
+          "overlap": [
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "chain_comparison",
+          "transfer_type": "FCC",
+          "overlap": [
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "and_or_keywords",
+          "transfer_type": "FCC",
+          "overlap": [
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "bool_literals",
+          "transfer_type": "FCC",
+          "overlap": [
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "switch_fallthrough",
+          "transfer_type": "FCC",
+          "overlap": [
+            "switch_selection"
+          ]
+        },
+        {
+          "pitfall_id": "switch_vs_match",
+          "transfer_type": "ATCC",
+          "overlap": [
+            "switch_selection"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_015",
+      "title": "Система скидок",
+      "explicit_pitfall": "multi_branch_discount",
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment",
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "filter_positive",
+          "transfer_type": "FCC",
+          "overlap": [
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "threshold_count",
+          "transfer_type": "FCC",
+          "overlap": [
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "branch_logic",
+          "transfer_type": "FCC",
+          "overlap": [
+            "multi_branch",
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "multi_branch_discount",
+          "transfer_type": "FCC",
+          "overlap": [
+            "multi_branch"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "chain_comparison",
+          "transfer_type": "FCC",
+          "overlap": [
+            "multi_branch",
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "and_or_keywords",
+          "transfer_type": "FCC",
+          "overlap": [
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "bool_literals",
+          "transfer_type": "FCC",
+          "overlap": [
+            "simple_branch"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_016",
+      "title": "Итоговая: валидация заявки",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment",
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "filter_positive",
+          "transfer_type": "FCC",
+          "overlap": [
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "threshold_count",
+          "transfer_type": "FCC",
+          "overlap": [
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "branch_logic",
+          "transfer_type": "FCC",
+          "overlap": [
+            "multi_branch",
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "multi_branch_discount",
+          "transfer_type": "FCC",
+          "overlap": [
+            "multi_branch"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "chain_comparison",
+          "transfer_type": "FCC",
+          "overlap": [
+            "multi_branch",
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "and_or_keywords",
+          "transfer_type": "FCC",
+          "overlap": [
+            "simple_branch"
+          ]
+        },
+        {
+          "pitfall_id": "bool_literals",
+          "transfer_type": "FCC",
+          "overlap": [
+            "simple_branch"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_017",
+      "title": "Сумма чисел до стоп-значения",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_018",
+      "title": "Поиск первого совпадения",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "index_1based",
+          "transfer_type": "FCC",
+          "overlap": [
+            "counted_loop"
+          ]
+        },
+        {
+          "pitfall_id": "for_range_off_by_one",
+          "transfer_type": "FCC",
+          "overlap": [
+            "counted_loop"
+          ]
+        },
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "string_index",
+          "transfer_type": "FCC",
+          "overlap": [
+            "search_find"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_019",
+      "title": "Проверка простого числа",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "index_1based",
+          "transfer_type": "FCC",
+          "overlap": [
+            "counted_loop"
+          ]
+        },
+        {
+          "pitfall_id": "for_range_off_by_one",
+          "transfer_type": "FCC",
+          "overlap": [
+            "counted_loop"
+          ]
+        },
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_020",
+      "title": "Пропуск отрицательных значений",
+      "explicit_pitfall": "for_range_off_by_one",
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "index_1based",
+          "transfer_type": "FCC",
+          "overlap": [
+            "counted_loop"
+          ]
+        },
+        {
+          "pitfall_id": "for_range_off_by_one",
+          "transfer_type": "FCC",
+          "overlap": [
+            "counted_loop"
+          ]
+        },
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_021",
+      "title": "Таблица умножения",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "index_1based",
+          "transfer_type": "FCC",
+          "overlap": [
+            "counted_loop"
+          ]
+        },
+        {
+          "pitfall_id": "for_range_off_by_one",
+          "transfer_type": "FCC",
+          "overlap": [
+            "counted_loop"
+          ]
+        },
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_022",
+      "title": "Поиск последнего совпадения",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "index_1based",
+          "transfer_type": "FCC",
+          "overlap": [
+            "counted_loop"
+          ]
+        },
+        {
+          "pitfall_id": "for_range_off_by_one",
+          "transfer_type": "FCC",
+          "overlap": [
+            "counted_loop"
+          ]
+        },
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "string_index",
+          "transfer_type": "FCC",
+          "overlap": [
+            "search_find"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_023",
+      "title": "Гистограмма частот",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "integer_division",
+          "transfer_type": "FCC",
+          "overlap": [
+            "arithmetic_ops"
+          ]
+        },
+        {
+          "pitfall_id": "index_1based",
+          "transfer_type": "FCC",
+          "overlap": [
+            "counted_loop"
+          ]
+        },
+        {
+          "pitfall_id": "for_range_off_by_one",
+          "transfer_type": "FCC",
+          "overlap": [
+            "counted_loop"
+          ]
+        },
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "round_semantics",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "arithmetic_ops"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "float_division_pascal",
+          "transfer_type": "FCC",
+          "overlap": [
+            "arithmetic_ops"
+          ]
+        },
+        {
+          "pitfall_id": "mod_negative",
+          "transfer_type": "FCC",
+          "overlap": [
+            "arithmetic_ops"
+          ]
+        },
+        {
+          "pitfall_id": "overflow_fixed_int",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "arithmetic_ops"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_024",
+      "title": "Итоговая: статистика последовательности",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "integer_division",
+          "transfer_type": "FCC",
+          "overlap": [
+            "arithmetic_ops"
+          ]
+        },
+        {
+          "pitfall_id": "index_1based",
+          "transfer_type": "FCC",
+          "overlap": [
+            "counted_loop"
+          ]
+        },
+        {
+          "pitfall_id": "for_range_off_by_one",
+          "transfer_type": "FCC",
+          "overlap": [
+            "counted_loop"
+          ]
+        },
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "round_semantics",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "arithmetic_ops"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "float_division_pascal",
+          "transfer_type": "FCC",
+          "overlap": [
+            "arithmetic_ops"
+          ]
+        },
+        {
+          "pitfall_id": "mod_negative",
+          "transfer_type": "FCC",
+          "overlap": [
+            "arithmetic_ops"
+          ]
+        },
+        {
+          "pitfall_id": "overflow_fixed_int",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "arithmetic_ops"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_025",
+      "title": "Разворот массива",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "index_1based",
+          "transfer_type": "FCC",
+          "overlap": [
+            "counted_loop",
+            "indexed_sequence"
+          ]
+        },
+        {
+          "pitfall_id": "for_range_off_by_one",
+          "transfer_type": "FCC",
+          "overlap": [
+            "counted_loop"
+          ]
+        },
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "list_vs_static_array",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "indexed_sequence"
+          ]
+        },
+        {
+          "pitfall_id": "overflow_fixed_int",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "indexed_sequence"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_026",
+      "title": "Циклический сдвиг",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "index_1based",
+          "transfer_type": "FCC",
+          "overlap": [
+            "counted_loop",
+            "indexed_sequence"
+          ]
+        },
+        {
+          "pitfall_id": "for_range_off_by_one",
+          "transfer_type": "FCC",
+          "overlap": [
+            "counted_loop"
+          ]
+        },
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "list_vs_static_array",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "indexed_sequence"
+          ]
+        },
+        {
+          "pitfall_id": "overflow_fixed_int",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "indexed_sequence"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_027",
+      "title": "Удаление элемента",
+      "explicit_pitfall": "list_vs_static_array",
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "index_1based",
+          "transfer_type": "FCC",
+          "overlap": [
+            "counted_loop",
+            "indexed_sequence"
+          ]
+        },
+        {
+          "pitfall_id": "for_range_off_by_one",
+          "transfer_type": "FCC",
+          "overlap": [
+            "counted_loop"
+          ]
+        },
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "list_vs_static_array",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "indexed_sequence"
+          ]
+        },
+        {
+          "pitfall_id": "overflow_fixed_int",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "indexed_sequence"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_028",
+      "title": "Вставка элемента",
+      "explicit_pitfall": "index_1based",
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "index_1based",
+          "transfer_type": "FCC",
+          "overlap": [
+            "counted_loop",
+            "indexed_sequence"
+          ]
+        },
+        {
+          "pitfall_id": "for_range_off_by_one",
+          "transfer_type": "FCC",
+          "overlap": [
+            "counted_loop"
+          ]
+        },
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "list_vs_static_array",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "indexed_sequence"
+          ]
+        },
+        {
+          "pitfall_id": "overflow_fixed_int",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "indexed_sequence"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_029",
+      "title": "Объединение двух массивов",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "index_1based",
+          "transfer_type": "FCC",
+          "overlap": [
+            "counted_loop",
+            "indexed_sequence"
+          ]
+        },
+        {
+          "pitfall_id": "for_range_off_by_one",
+          "transfer_type": "FCC",
+          "overlap": [
+            "counted_loop"
+          ]
+        },
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "list_vs_static_array",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "indexed_sequence"
+          ]
+        },
+        {
+          "pitfall_id": "overflow_fixed_int",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "indexed_sequence"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_030",
+      "title": "Поиск дубликатов",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "index_1based",
+          "transfer_type": "FCC",
+          "overlap": [
+            "counted_loop",
+            "indexed_sequence"
+          ]
+        },
+        {
+          "pitfall_id": "for_range_off_by_one",
+          "transfer_type": "FCC",
+          "overlap": [
+            "counted_loop"
+          ]
+        },
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "string_index",
+          "transfer_type": "FCC",
+          "overlap": [
+            "search_find"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "list_vs_static_array",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "indexed_sequence"
+          ]
+        },
+        {
+          "pitfall_id": "overflow_fixed_int",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "indexed_sequence"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_031",
+      "title": "Максимум в матрице",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "index_1based",
+          "transfer_type": "FCC",
+          "overlap": [
+            "counted_loop",
+            "indexed_sequence"
+          ]
+        },
+        {
+          "pitfall_id": "for_range_off_by_one",
+          "transfer_type": "FCC",
+          "overlap": [
+            "counted_loop"
+          ]
+        },
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "list_vs_static_array",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "indexed_sequence"
+          ]
+        },
+        {
+          "pitfall_id": "overflow_fixed_int",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "indexed_sequence"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_032",
+      "title": "Итоговая: анализ игровой карты",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "index_1based",
+          "transfer_type": "FCC",
+          "overlap": [
+            "counted_loop",
+            "indexed_sequence"
+          ]
+        },
+        {
+          "pitfall_id": "for_range_off_by_one",
+          "transfer_type": "FCC",
+          "overlap": [
+            "counted_loop"
+          ]
+        },
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "list_vs_static_array",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "indexed_sequence"
+          ]
+        },
+        {
+          "pitfall_id": "overflow_fixed_int",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "indexed_sequence"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_033",
+      "title": "Подсчёт символов",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "string_index",
+          "transfer_type": "FCC",
+          "overlap": [
+            "string_sequence"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "string_immutable",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "string_sequence"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_034",
+      "title": "Разворот строки",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "string_index",
+          "transfer_type": "FCC",
+          "overlap": [
+            "string_sequence"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "string_immutable",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "string_sequence"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_035",
+      "title": "Проверка палиндрома",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "string_index",
+          "transfer_type": "FCC",
+          "overlap": [
+            "search_find",
+            "string_sequence"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "string_immutable",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "string_sequence"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_036",
+      "title": "Поиск подстроки",
+      "explicit_pitfall": "string_index",
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "index_1based",
+          "transfer_type": "FCC",
+          "overlap": [
+            "counted_loop"
+          ]
+        },
+        {
+          "pitfall_id": "for_range_off_by_one",
+          "transfer_type": "FCC",
+          "overlap": [
+            "counted_loop"
+          ]
+        },
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "string_index",
+          "transfer_type": "FCC",
+          "overlap": [
+            "search_find"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_037",
+      "title": "Подсчёт слов",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "string_index",
+          "transfer_type": "FCC",
+          "overlap": [
+            "string_sequence"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "string_immutable",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "string_sequence"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_038",
+      "title": "Проверка анаграммы",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "string_index",
+          "transfer_type": "FCC",
+          "overlap": [
+            "string_sequence"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "string_immutable",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "string_sequence"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_039",
+      "title": "RLE-сжатие строки",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "string_index",
+          "transfer_type": "FCC",
+          "overlap": [
+            "string_sequence"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "string_immutable",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "string_sequence"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_040",
+      "title": "Итоговая: анализ текста",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "string_index",
+          "transfer_type": "FCC",
+          "overlap": [
+            "string_sequence"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "string_immutable",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "string_sequence"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_041",
+      "title": "Функция поиска максимума",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "pass_by_value_ref",
+          "transfer_type": "ATCC",
+          "overlap": [
+            "parameter_passing"
+          ]
+        },
+        {
+          "pitfall_id": "scope_block",
+          "transfer_type": "ATCC",
+          "overlap": [
+            "function_definition",
+            "return_flow"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_042",
+      "title": "Функция проверки простого числа",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "pass_by_value_ref",
+          "transfer_type": "ATCC",
+          "overlap": [
+            "parameter_passing"
+          ]
+        },
+        {
+          "pitfall_id": "scope_block",
+          "transfer_type": "ATCC",
+          "overlap": [
+            "function_definition",
+            "return_flow"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_043",
+      "title": "Функция GCD",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "pass_by_value_ref",
+          "transfer_type": "ATCC",
+          "overlap": [
+            "parameter_passing"
+          ]
+        },
+        {
+          "pitfall_id": "scope_block",
+          "transfer_type": "ATCC",
+          "overlap": [
+            "function_definition",
+            "return_flow"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_044",
+      "title": "Функция нормализации строки",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "pass_by_value_ref",
+          "transfer_type": "ATCC",
+          "overlap": [
+            "parameter_passing"
+          ]
+        },
+        {
+          "pitfall_id": "scope_block",
+          "transfer_type": "ATCC",
+          "overlap": [
+            "function_definition",
+            "return_flow"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_045",
+      "title": "Функция бинарного поиска",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "pass_by_value_ref",
+          "transfer_type": "ATCC",
+          "overlap": [
+            "parameter_passing"
+          ]
+        },
+        {
+          "pitfall_id": "scope_block",
+          "transfer_type": "ATCC",
+          "overlap": [
+            "function_definition",
+            "return_flow"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_046",
+      "title": "Функция проверки палиндрома",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "pass_by_value_ref",
+          "transfer_type": "ATCC",
+          "overlap": [
+            "parameter_passing"
+          ]
+        },
+        {
+          "pitfall_id": "scope_block",
+          "transfer_type": "ATCC",
+          "overlap": [
+            "function_definition",
+            "return_flow"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_047",
+      "title": "Передача массива в функцию",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "pass_by_value_ref",
+          "transfer_type": "ATCC",
+          "overlap": [
+            "parameter_passing"
+          ]
+        },
+        {
+          "pitfall_id": "scope_block",
+          "transfer_type": "ATCC",
+          "overlap": [
+            "function_definition",
+            "return_flow"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_048",
+      "title": "Итоговая: библиотека алгоритмов",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "pass_by_value_ref",
+          "transfer_type": "ATCC",
+          "overlap": [
+            "parameter_passing"
+          ]
+        },
+        {
+          "pitfall_id": "scope_block",
+          "transfer_type": "ATCC",
+          "overlap": [
+            "function_definition",
+            "return_flow"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_049",
+      "title": "Факториал",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "pass_by_value_ref",
+          "transfer_type": "ATCC",
+          "overlap": [
+            "parameter_passing"
+          ]
+        },
+        {
+          "pitfall_id": "scope_block",
+          "transfer_type": "ATCC",
+          "overlap": [
+            "function_definition",
+            "return_flow"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_050",
+      "title": "Fibonacci",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "pass_by_value_ref",
+          "transfer_type": "ATCC",
+          "overlap": [
+            "parameter_passing"
+          ]
+        },
+        {
+          "pitfall_id": "scope_block",
+          "transfer_type": "ATCC",
+          "overlap": [
+            "function_definition",
+            "return_flow"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_051",
+      "title": "Рекурсивная сумма массива",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "pass_by_value_ref",
+          "transfer_type": "ATCC",
+          "overlap": [
+            "parameter_passing"
+          ]
+        },
+        {
+          "pitfall_id": "scope_block",
+          "transfer_type": "ATCC",
+          "overlap": [
+            "function_definition",
+            "return_flow"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_052",
+      "title": "Быстрое возведение в степень",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "pass_by_value_ref",
+          "transfer_type": "ATCC",
+          "overlap": [
+            "parameter_passing"
+          ]
+        },
+        {
+          "pitfall_id": "scope_block",
+          "transfer_type": "ATCC",
+          "overlap": [
+            "function_definition",
+            "return_flow"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_053",
+      "title": "Рекурсивный разворот строки",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "pass_by_value_ref",
+          "transfer_type": "ATCC",
+          "overlap": [
+            "parameter_passing"
+          ]
+        },
+        {
+          "pitfall_id": "scope_block",
+          "transfer_type": "ATCC",
+          "overlap": [
+            "function_definition",
+            "return_flow"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_054",
+      "title": "Бинарный поиск рекурсией",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "pass_by_value_ref",
+          "transfer_type": "ATCC",
+          "overlap": [
+            "parameter_passing"
+          ]
+        },
+        {
+          "pitfall_id": "scope_block",
+          "transfer_type": "ATCC",
+          "overlap": [
+            "function_definition",
+            "return_flow"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_055",
+      "title": "Quicksort",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "pass_by_value_ref",
+          "transfer_type": "ATCC",
+          "overlap": [
+            "parameter_passing"
+          ]
+        },
+        {
+          "pitfall_id": "scope_block",
+          "transfer_type": "ATCC",
+          "overlap": [
+            "function_definition",
+            "return_flow"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_056",
+      "title": "Итоговая: рекурсивный обход каталога",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "pass_by_value_ref",
+          "transfer_type": "ATCC",
+          "overlap": [
+            "parameter_passing"
+          ]
+        },
+        {
+          "pitfall_id": "scope_block",
+          "transfer_type": "ATCC",
+          "overlap": [
+            "function_definition",
+            "return_flow"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_057",
+      "title": "Линейный поиск",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "index_1based",
+          "transfer_type": "FCC",
+          "overlap": [
+            "counted_loop",
+            "indexed_sequence"
+          ]
+        },
+        {
+          "pitfall_id": "for_range_off_by_one",
+          "transfer_type": "FCC",
+          "overlap": [
+            "counted_loop"
+          ]
+        },
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "string_index",
+          "transfer_type": "FCC",
+          "overlap": [
+            "search_find"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "list_vs_static_array",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "indexed_sequence"
+          ]
+        },
+        {
+          "pitfall_id": "overflow_fixed_int",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "indexed_sequence"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_058",
+      "title": "Бинарный поиск",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "index_1based",
+          "transfer_type": "FCC",
+          "overlap": [
+            "counted_loop",
+            "indexed_sequence"
+          ]
+        },
+        {
+          "pitfall_id": "for_range_off_by_one",
+          "transfer_type": "FCC",
+          "overlap": [
+            "counted_loop"
+          ]
+        },
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "string_index",
+          "transfer_type": "FCC",
+          "overlap": [
+            "search_find"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "list_vs_static_array",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "indexed_sequence"
+          ]
+        },
+        {
+          "pitfall_id": "overflow_fixed_int",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "indexed_sequence"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_059",
+      "title": "Selection Sort",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "index_1based",
+          "transfer_type": "FCC",
+          "overlap": [
+            "counted_loop",
+            "indexed_sequence"
+          ]
+        },
+        {
+          "pitfall_id": "for_range_off_by_one",
+          "transfer_type": "FCC",
+          "overlap": [
+            "counted_loop"
+          ]
+        },
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "list_vs_static_array",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "indexed_sequence"
+          ]
+        },
+        {
+          "pitfall_id": "overflow_fixed_int",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "indexed_sequence"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_060",
+      "title": "Bubble Sort",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "index_1based",
+          "transfer_type": "FCC",
+          "overlap": [
+            "counted_loop",
+            "indexed_sequence"
+          ]
+        },
+        {
+          "pitfall_id": "for_range_off_by_one",
+          "transfer_type": "FCC",
+          "overlap": [
+            "counted_loop"
+          ]
+        },
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "list_vs_static_array",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "indexed_sequence"
+          ]
+        },
+        {
+          "pitfall_id": "overflow_fixed_int",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "indexed_sequence"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_061",
+      "title": "Insertion Sort",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "index_1based",
+          "transfer_type": "FCC",
+          "overlap": [
+            "counted_loop",
+            "indexed_sequence"
+          ]
+        },
+        {
+          "pitfall_id": "for_range_off_by_one",
+          "transfer_type": "FCC",
+          "overlap": [
+            "counted_loop"
+          ]
+        },
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "list_vs_static_array",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "indexed_sequence"
+          ]
+        },
+        {
+          "pitfall_id": "overflow_fixed_int",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "indexed_sequence"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_062",
+      "title": "Сортировка строк",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "index_1based",
+          "transfer_type": "FCC",
+          "overlap": [
+            "counted_loop",
+            "indexed_sequence"
+          ]
+        },
+        {
+          "pitfall_id": "for_range_off_by_one",
+          "transfer_type": "FCC",
+          "overlap": [
+            "counted_loop"
+          ]
+        },
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "list_vs_static_array",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "indexed_sequence"
+          ]
+        },
+        {
+          "pitfall_id": "overflow_fixed_int",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "indexed_sequence"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_063",
+      "title": "Сортировка объектов/записей",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "index_1based",
+          "transfer_type": "FCC",
+          "overlap": [
+            "counted_loop",
+            "indexed_sequence"
+          ]
+        },
+        {
+          "pitfall_id": "for_range_off_by_one",
+          "transfer_type": "FCC",
+          "overlap": [
+            "counted_loop"
+          ]
+        },
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "list_vs_static_array",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "indexed_sequence"
+          ]
+        },
+        {
+          "pitfall_id": "overflow_fixed_int",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "indexed_sequence"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_064",
+      "title": "Итоговая: таблица лидеров",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "index_1based",
+          "transfer_type": "FCC",
+          "overlap": [
+            "counted_loop",
+            "indexed_sequence"
+          ]
+        },
+        {
+          "pitfall_id": "for_range_off_by_one",
+          "transfer_type": "FCC",
+          "overlap": [
+            "counted_loop"
+          ]
+        },
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "list_vs_static_array",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "indexed_sequence"
+          ]
+        },
+        {
+          "pitfall_id": "overflow_fixed_int",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "indexed_sequence"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_065",
+      "title": "Сумма продаж",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "integer_division",
+          "transfer_type": "FCC",
+          "overlap": [
+            "arithmetic_ops"
+          ]
+        },
+        {
+          "pitfall_id": "index_1based",
+          "transfer_type": "FCC",
+          "overlap": [
+            "counted_loop"
+          ]
+        },
+        {
+          "pitfall_id": "for_range_off_by_one",
+          "transfer_type": "FCC",
+          "overlap": [
+            "counted_loop"
+          ]
+        },
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "round_semantics",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "arithmetic_ops"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "float_division_pascal",
+          "transfer_type": "FCC",
+          "overlap": [
+            "arithmetic_ops"
+          ]
+        },
+        {
+          "pitfall_id": "mod_negative",
+          "transfer_type": "FCC",
+          "overlap": [
+            "arithmetic_ops"
+          ]
+        },
+        {
+          "pitfall_id": "overflow_fixed_int",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "arithmetic_ops"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_066",
+      "title": "Среднее значение",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "integer_division",
+          "transfer_type": "FCC",
+          "overlap": [
+            "arithmetic_ops"
+          ]
+        },
+        {
+          "pitfall_id": "index_1based",
+          "transfer_type": "FCC",
+          "overlap": [
+            "counted_loop"
+          ]
+        },
+        {
+          "pitfall_id": "for_range_off_by_one",
+          "transfer_type": "FCC",
+          "overlap": [
+            "counted_loop"
+          ]
+        },
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "round_semantics",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "arithmetic_ops"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "float_division_pascal",
+          "transfer_type": "FCC",
+          "overlap": [
+            "arithmetic_ops"
+          ]
+        },
+        {
+          "pitfall_id": "mod_negative",
+          "transfer_type": "FCC",
+          "overlap": [
+            "arithmetic_ops"
+          ]
+        },
+        {
+          "pitfall_id": "overflow_fixed_int",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "arithmetic_ops"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_067",
+      "title": "Фильтр положительных чисел",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "index_1based",
+          "transfer_type": "FCC",
+          "overlap": [
+            "counted_loop",
+            "indexed_sequence"
+          ]
+        },
+        {
+          "pitfall_id": "for_range_off_by_one",
+          "transfer_type": "FCC",
+          "overlap": [
+            "counted_loop"
+          ]
+        },
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "filter_positive",
+          "transfer_type": "FCC",
+          "overlap": [
+            "filter_select"
+          ]
+        },
+        {
+          "pitfall_id": "threshold_count",
+          "transfer_type": "FCC",
+          "overlap": [
+            "filter_select"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "list_vs_static_array",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "indexed_sequence"
+          ]
+        },
+        {
+          "pitfall_id": "overflow_fixed_int",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "indexed_sequence"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_068",
+      "title": "Фильтр заказов по статусу",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "index_1based",
+          "transfer_type": "FCC",
+          "overlap": [
+            "counted_loop",
+            "indexed_sequence"
+          ]
+        },
+        {
+          "pitfall_id": "for_range_off_by_one",
+          "transfer_type": "FCC",
+          "overlap": [
+            "counted_loop"
+          ]
+        },
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "filter_positive",
+          "transfer_type": "FCC",
+          "overlap": [
+            "filter_select"
+          ]
+        },
+        {
+          "pitfall_id": "threshold_count",
+          "transfer_type": "FCC",
+          "overlap": [
+            "filter_select"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "list_vs_static_array",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "indexed_sequence"
+          ]
+        },
+        {
+          "pitfall_id": "overflow_fixed_int",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "indexed_sequence"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_069",
+      "title": "Подсчёт голосов",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "map_key_missing",
+          "transfer_type": "FCC",
+          "overlap": [
+            "key_value_map"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_070",
+      "title": "Топ N элементов",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "index_1based",
+          "transfer_type": "FCC",
+          "overlap": [
+            "counted_loop",
+            "indexed_sequence"
+          ]
+        },
+        {
+          "pitfall_id": "for_range_off_by_one",
+          "transfer_type": "FCC",
+          "overlap": [
+            "counted_loop"
+          ]
+        },
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "list_vs_static_array",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "indexed_sequence"
+          ]
+        },
+        {
+          "pitfall_id": "overflow_fixed_int",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "indexed_sequence"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_071",
+      "title": "Группировка данных",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "map_key_missing",
+          "transfer_type": "FCC",
+          "overlap": [
+            "key_value_map"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_072",
+      "title": "Итоговая: аналитика магазина",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "integer_division",
+          "transfer_type": "FCC",
+          "overlap": [
+            "arithmetic_ops"
+          ]
+        },
+        {
+          "pitfall_id": "index_1based",
+          "transfer_type": "FCC",
+          "overlap": [
+            "counted_loop"
+          ]
+        },
+        {
+          "pitfall_id": "for_range_off_by_one",
+          "transfer_type": "FCC",
+          "overlap": [
+            "counted_loop"
+          ]
+        },
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "round_semantics",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "arithmetic_ops"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "float_division_pascal",
+          "transfer_type": "FCC",
+          "overlap": [
+            "arithmetic_ops"
+          ]
+        },
+        {
+          "pitfall_id": "mod_negative",
+          "transfer_type": "FCC",
+          "overlap": [
+            "arithmetic_ops"
+          ]
+        },
+        {
+          "pitfall_id": "overflow_fixed_int",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "arithmetic_ops"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_073",
+      "title": "Частотный словарь символов",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "map_key_missing",
+          "transfer_type": "FCC",
+          "overlap": [
+            "key_value_map"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_074",
+      "title": "Подсчёт слов",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "map_key_missing",
+          "transfer_type": "FCC",
+          "overlap": [
+            "key_value_map"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_075",
+      "title": "Телефонная книга",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "map_key_missing",
+          "transfer_type": "FCC",
+          "overlap": [
+            "key_value_map"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_076",
+      "title": "Индекс студентов по ID",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "map_key_missing",
+          "transfer_type": "FCC",
+          "overlap": [
+            "key_value_map"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_077",
+      "title": "Кэш запросов",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "map_key_missing",
+          "transfer_type": "FCC",
+          "overlap": [
+            "key_value_map"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_078",
+      "title": "Группировка товаров по категории",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "map_key_missing",
+          "transfer_type": "FCC",
+          "overlap": [
+            "key_value_map"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_079",
+      "title": "Объединение двух словарей",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "map_key_missing",
+          "transfer_type": "FCC",
+          "overlap": [
+            "key_value_map"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_080",
+      "title": "Итоговая: анализ текста через словарь",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "map_key_missing",
+          "transfer_type": "FCC",
+          "overlap": [
+            "key_value_map"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_081",
+      "title": "Чтение чисел из файла",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "file_text_mode",
+          "transfer_type": "ATCC",
+          "overlap": [
+            "file_read",
+            "file_write"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_082",
+      "title": "Подсчёт строк файла",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "file_text_mode",
+          "transfer_type": "ATCC",
+          "overlap": [
+            "file_read",
+            "file_write"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_083",
+      "title": "Анализ CSV",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "file_text_mode",
+          "transfer_type": "ATCC",
+          "overlap": [
+            "file_read",
+            "file_write"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_084",
+      "title": "Запись отчёта",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "file_text_mode",
+          "transfer_type": "ATCC",
+          "overlap": [
+            "file_read",
+            "file_write"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_085",
+      "title": "Логирование событий",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "file_text_mode",
+          "transfer_type": "ATCC",
+          "overlap": [
+            "file_read",
+            "file_write"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_086",
+      "title": "Модуль сортировок",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "file_text_mode",
+          "transfer_type": "ATCC",
+          "overlap": [
+            "file_read",
+            "file_write"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_087",
+      "title": "Конфликт имён в модулях",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "file_text_mode",
+          "transfer_type": "ATCC",
+          "overlap": [
+            "file_read",
+            "file_write"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_088",
+      "title": "Итоговая: обработчик логов",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "file_text_mode",
+          "transfer_type": "ATCC",
+          "overlap": [
+            "file_read",
+            "file_write"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_089",
+      "title": "Проверка скобок",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_090",
+      "title": "История браузера",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_091",
+      "title": "Очередь задач",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_092",
+      "title": "Отмена действий",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_093",
+      "title": "Очередь печати",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_094",
+      "title": "BFS через очередь",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_095",
+      "title": "Калькулятор выражений",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_096",
+      "title": "Итоговая: обработчик команд",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_097",
+      "title": "Создание узла",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "null_vs_nil",
+          "transfer_type": "FCC",
+          "overlap": [
+            "object_instance"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_098",
+      "title": "Добавление в начало",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "null_vs_nil",
+          "transfer_type": "FCC",
+          "overlap": [
+            "object_instance"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_099",
+      "title": "Добавление в конец",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "null_vs_nil",
+          "transfer_type": "FCC",
+          "overlap": [
+            "object_instance"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_100",
+      "title": "Поиск узла",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "null_vs_nil",
+          "transfer_type": "FCC",
+          "overlap": [
+            "object_instance"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_101",
+      "title": "Удаление узла",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "null_vs_nil",
+          "transfer_type": "FCC",
+          "overlap": [
+            "object_instance"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_102",
+      "title": "Разворот списка",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "null_vs_nil",
+          "transfer_type": "FCC",
+          "overlap": [
+            "object_instance"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_103",
+      "title": "Слияние двух списков",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "null_vs_nil",
+          "transfer_type": "FCC",
+          "overlap": [
+            "object_instance"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_104",
+      "title": "Итоговая: плейлист",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "null_vs_nil",
+          "transfer_type": "FCC",
+          "overlap": [
+            "object_instance"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_105",
+      "title": "Создание дерева",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "null_vs_nil",
+          "transfer_type": "FCC",
+          "overlap": [
+            "object_instance"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_106",
+      "title": "DFS дерева",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "null_vs_nil",
+          "transfer_type": "FCC",
+          "overlap": [
+            "object_instance"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_107",
+      "title": "BFS дерева",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "null_vs_nil",
+          "transfer_type": "FCC",
+          "overlap": [
+            "object_instance"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_108",
+      "title": "Поиск узла дерева",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "null_vs_nil",
+          "transfer_type": "FCC",
+          "overlap": [
+            "object_instance"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_109",
+      "title": "Представление графа",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "map_key_missing",
+          "transfer_type": "FCC",
+          "overlap": [
+            "key_value_map"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_110",
+      "title": "DFS графа",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "map_key_missing",
+          "transfer_type": "FCC",
+          "overlap": [
+            "key_value_map"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_111",
+      "title": "BFS графа",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "map_key_missing",
+          "transfer_type": "FCC",
+          "overlap": [
+            "key_value_map"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_112",
+      "title": "Итоговая: поиск пути на карте",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        },
+        {
+          "pitfall_id": "map_key_missing",
+          "transfer_type": "FCC",
+          "overlap": [
+            "key_value_map"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_113",
+      "title": "Класс User",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "null_vs_nil",
+          "transfer_type": "FCC",
+          "overlap": [
+            "object_instance"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_114",
+      "title": "Банковский счёт",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "null_vs_nil",
+          "transfer_type": "FCC",
+          "overlap": [
+            "object_instance"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_115",
+      "title": "Класс Product",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "null_vs_nil",
+          "transfer_type": "FCC",
+          "overlap": [
+            "object_instance"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_116",
+      "title": "Ошибка в методе объекта",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "null_vs_nil",
+          "transfer_type": "FCC",
+          "overlap": [
+            "object_instance"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_117",
+      "title": "Каталог книг",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "null_vs_nil",
+          "transfer_type": "FCC",
+          "overlap": [
+            "object_instance"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_118",
+      "title": "Заказ и список товаров",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "null_vs_nil",
+          "transfer_type": "FCC",
+          "overlap": [
+            "object_instance"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_119",
+      "title": "Вызов методов объектов",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "null_vs_nil",
+          "transfer_type": "FCC",
+          "overlap": [
+            "object_instance"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_120",
+      "title": "Итоговая: мини-CRM",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "null_vs_nil",
+          "transfer_type": "FCC",
+          "overlap": [
+            "object_instance"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_121",
+      "title": "Базовый класс Animal",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "null_vs_nil",
+          "transfer_type": "FCC",
+          "overlap": [
+            "object_instance"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_122",
+      "title": "Иерархия транспорта",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "null_vs_nil",
+          "transfer_type": "FCC",
+          "overlap": [
+            "object_instance"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_123",
+      "title": "Сотрудники разных типов",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "null_vs_nil",
+          "transfer_type": "FCC",
+          "overlap": [
+            "object_instance"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_124",
+      "title": "Ошибка переопределения метода",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "null_vs_nil",
+          "transfer_type": "FCC",
+          "overlap": [
+            "object_instance"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_125",
+      "title": "Полиморфный список объектов",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "null_vs_nil",
+          "transfer_type": "FCC",
+          "overlap": [
+            "object_instance"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_126",
+      "title": "Интерфейс/абстрактный тип",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "null_vs_nil",
+          "transfer_type": "FCC",
+          "overlap": [
+            "object_instance"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_127",
+      "title": "Геометрические фигуры",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "null_vs_nil",
+          "transfer_type": "FCC",
+          "overlap": [
+            "object_instance"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_128",
+      "title": "Финальная: система доставки",
+      "explicit_pitfall": null,
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "assignment_vs_compare",
+          "transfer_type": "FCC",
+          "overlap": [
+            "assignment"
+          ]
+        },
+        {
+          "pitfall_id": "null_vs_nil",
+          "transfer_type": "FCC",
+          "overlap": [
+            "object_instance"
+          ]
+        }
+      ]
+    },
+    {
+      "pattern": "task_187",
+      "title": "BankAccount: withdraw",
+      "explicit_pitfall": "exception_model",
+      "matching_pitfalls": [
+        {
+          "pitfall_id": "input_line_model",
+          "transfer_type": "AFCC",
+          "overlap": [
+            "stdin_read"
+          ]
+        }
+      ],
+      "note": "explicit + concept overlap"
+    }
+  ],
+  "slot_examples": [
+    {
+      "slot": "pas_001",
+      "pattern": "task_002",
+      "mapped_pattern": "task_002",
+      "pitfall_id": "index_1based",
+      "transfer_type": "FCC",
+      "action": "assemble"
+    },
+    {
+      "slot": "pas_002",
+      "pattern": "task_001",
+      "mapped_pattern": "task_001",
+      "pitfall_id": null,
+      "transfer_type": "TCC",
+      "action": "assemble"
+    },
+    {
+      "slot": "pas_003",
+      "pattern": "task_005",
+      "mapped_pattern": "task_005",
+      "pitfall_id": null,
+      "transfer_type": "TCC",
+      "action": "assemble"
+    },
+    {
+      "slot": "pas_004",
+      "pattern": "task_006",
+      "mapped_pattern": "task_006",
+      "pitfall_id": "integer_division",
+      "transfer_type": "FCC",
+      "action": "assemble"
+    },
+    {
+      "slot": "pas_005",
+      "pattern": "task_004",
+      "mapped_pattern": "task_004",
+      "pitfall_id": "filter_positive",
+      "transfer_type": "FCC",
+      "action": "debug"
+    },
+    {
+      "slot": "pas_006",
+      "pattern": "task_007",
+      "mapped_pattern": "task_007",
+      "pitfall_id": "threshold_count",
+      "transfer_type": "FCC",
+      "action": "debug"
+    },
+    {
+      "slot": "pas_007",
+      "pattern": "task_003",
+      "mapped_pattern": "task_003",
+      "pitfall_id": "input_line_model",
+      "transfer_type": "AFCC",
+      "action": "implement"
+    },
+    {
+      "slot": "pas_008",
+      "pattern": "task_008",
+      "mapped_pattern": "task_008",
+      "pitfall_id": "round_semantics",
+      "transfer_type": "AFCC",
+      "action": "implement"
+    },
+    {
+      "slot": "pas_009",
+      "pattern": "task_009",
+      "mapped_pattern": "task_009",
+      "pitfall_id": null,
+      "transfer_type": "TCC",
+      "action": "assemble"
+    },
+    {
+      "slot": "pas_010",
+      "pattern": "task_010",
+      "mapped_pattern": "task_010",
+      "pitfall_id": null,
+      "transfer_type": "TCC",
+      "action": "assemble"
+    },
+    {
+      "slot": "pas_011",
+      "pattern": "task_011",
+      "mapped_pattern": "task_011",
+      "pitfall_id": null,
+      "transfer_type": "ATCC",
+      "action": "implement"
+    },
+    {
+      "slot": "pas_012",
+      "pattern": "task_012",
+      "mapped_pattern": "task_012",
+      "pitfall_id": "branch_logic",
+      "transfer_type": "FCC",
+      "action": "debug"
+    },
+    {
+      "slot": "pas_013",
+      "pattern": "task_013",
+      "mapped_pattern": "task_013",
+      "pitfall_id": null,
+      "transfer_type": "TCC",
+      "action": "assemble"
+    },
+    {
+      "slot": "pas_014",
+      "pattern": "task_014",
+      "mapped_pattern": "task_014",
+      "pitfall_id": null,
+      "transfer_type": "TCC",
+      "action": "assemble"
+    },
+    {
+      "slot": "pas_015",
+      "pattern": "task_015",
+      "mapped_pattern": "task_015",
+      "pitfall_id": "multi_branch_discount",
+      "transfer_type": "FCC",
+      "action": "debug"
+    }
+  ],
+  "concepts_with_multiple_transfer_types": {
+    "arithmetic_ops": [
+      {
+        "pitfall_id": "integer_division",
+        "transfer_type": "FCC"
+      },
+      {
+        "pitfall_id": "round_semantics",
+        "transfer_type": "AFCC"
+      },
+      {
+        "pitfall_id": "float_division_pascal",
+        "transfer_type": "FCC"
+      },
+      {
+        "pitfall_id": "mod_negative",
+        "transfer_type": "FCC"
+      },
+      {
+        "pitfall_id": "overflow_fixed_int",
+        "transfer_type": "AFCC"
+      }
+    ],
+    "indexed_sequence": [
+      {
+        "pitfall_id": "index_1based",
+        "transfer_type": "FCC"
+      },
+      {
+        "pitfall_id": "list_vs_static_array",
+        "transfer_type": "AFCC"
+      },
+      {
+        "pitfall_id": "overflow_fixed_int",
+        "transfer_type": "AFCC"
+      }
+    ],
+    "string_sequence": [
+      {
+        "pitfall_id": "string_index",
+        "transfer_type": "FCC"
+      },
+      {
+        "pitfall_id": "string_immutable",
+        "transfer_type": "AFCC"
+      }
+    ],
+    "switch_selection": [
+      {
+        "pitfall_id": "switch_fallthrough",
+        "transfer_type": "FCC"
+      },
+      {
+        "pitfall_id": "switch_vs_match",
+        "transfer_type": "ATCC"
+      }
+    ]
+  },
+  "sample_concepts": {
+    "stdin_read": [
+      {
+        "pitfall_id": "input_line_model",
+        "transfer_type": "AFCC"
+      }
+    ],
+    "exception_handling": [
+      {
+        "pitfall_id": "exception_model",
+        "transfer_type": "ATCC"
+      }
+    ],
+    "dynamic_array": [
+      {
+        "pitfall_id": "list_vs_static_array",
+        "transfer_type": "AFCC"
+      }
+    ],
+    "indexed_sequence": [
+      {
+        "pitfall_id": "index_1based",
+        "transfer_type": "FCC"
+      },
+      {
+        "pitfall_id": "list_vs_static_array",
+        "transfer_type": "AFCC"
+      },
+      {
+        "pitfall_id": "overflow_fixed_int",
+        "transfer_type": "AFCC"
+      }
+    ],
+    "arithmetic_ops": [
+      {
+        "pitfall_id": "integer_division",
+        "transfer_type": "FCC"
+      },
+      {
+        "pitfall_id": "round_semantics",
+        "transfer_type": "AFCC"
+      },
+      {
+        "pitfall_id": "float_division_pascal",
+        "transfer_type": "FCC"
+      },
+      {
+        "pitfall_id": "mod_negative",
+        "transfer_type": "FCC"
+      },
+      {
+        "pitfall_id": "overflow_fixed_int",
+        "transfer_type": "AFCC"
+      }
+    ],
+    "filter_select": [
+      {
+        "pitfall_id": "filter_positive",
+        "transfer_type": "FCC"
+      },
+      {
+        "pitfall_id": "threshold_count",
+        "transfer_type": "FCC"
+      }
+    ]
+  }
+}

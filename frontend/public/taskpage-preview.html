@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TaskPage — Redesign Preview</title>
+<style>
+:root{
+  --lime:#8eff01;--lime-600:#7ee000;--lime-soft:rgba(142,255,1,.14);--lime-glow:rgba(142,255,1,.45);
+  --purple:#8b53fe;--purple-soft:rgba(139,83,254,.16);--purple-glow:rgba(139,83,254,.45);
+  --bg:#0a0e15;--bg-2:#0e131c;--surface:#141a24;--surface-2:#1d2331;--surface-3:#262e3e;
+  --border:#262e3c;--border-2:#333d4f;
+  --text:#eef2f7;--text-2:#9aa6b6;--text-3:#626d7e;
+  --danger:#ff4d6a;--danger-soft:rgba(255,77,106,.14);
+  --warning:#ffb43d;--warning-soft:rgba(255,180,61,.14);
+  --r-sm:8px;--r-md:12px;--r-lg:16px;--r-pill:999px;
+  --shadow-card:0 1px 0 rgba(255,255,255,.03) inset, 0 18px 40px -24px rgba(0,0,0,.8);
+  --glow-lime:0 0 0 1px rgba(142,255,1,.5), 0 8px 30px -8px var(--lime-glow);
+  --font:'Inter',system-ui,sans-serif;--mono:'JetBrains Mono',monospace;--serif:'Instrument Serif',Georgia,serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font);background:var(--bg);color:var(--text);height:100vh;overflow:hidden;
+  background-image:radial-gradient(900px 500px at 12% -5%,rgba(142,255,1,.06),transparent 60%),
+    radial-gradient(900px 600px at 100% 0%,rgba(139,83,254,.08),transparent 55%);
+  -webkit-font-smoothing:antialiased;line-height:1.5;}
+*{scrollbar-color:var(--surface-2) var(--bg);scrollbar-width:thin}
+::-webkit-scrollbar{width:8px;height:8px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--surface-2);border-radius:8px}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:42px;padding:0 18px;
+  border-radius:var(--r-md);font:600 14px/1 var(--font);border:1px solid transparent;cursor:pointer;
+  transition:.18s ease;white-space:nowrap;color:inherit;background:transparent}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.btn-primary{background:var(--lime);color:#0a0e15;box-shadow:0 6px 22px -10px var(--lime-glow)}
+.btn-primary:hover:not(:disabled){background:var(--lime-600);box-shadow:var(--glow-lime);transform:translateY(-1px)}
+.btn-ghost{color:var(--text-2);border-color:var(--border-2)}
+.btn-ghost:hover{color:var(--text);border-color:var(--lime);background:var(--surface)}
+.btn-sm{height:34px;padding:0 13px;font-size:13px}
+.btn-xs{height:28px;padding:0 10px;font-size:12px;border-radius:8px}
+.btn-icon{width:42px;padding:0}.btn-icon.btn-sm{width:34px}.btn-icon.btn-xs{width:28px}
+
+/* badges */
+.badge{display:inline-flex;align-items:center;gap:5px;height:22px;padding:0 9px;
+  border-radius:var(--r-pill);font:600 11px/1 var(--font);white-space:nowrap}
+.badge-lime{background:var(--lime-soft);color:var(--lime);border:1px solid rgba(142,255,1,.3)}
+.badge-purple{background:var(--purple-soft);color:#b89bff;border:1px solid rgba(139,83,254,.35)}
+.badge-muted{background:var(--surface-3);color:var(--text-2);border:1px solid var(--border-2)}
+.badge-danger{background:var(--danger-soft);color:#ff8198;border:1px solid rgba(255,77,106,.35)}
+.badge-warn{background:var(--warning-soft);color:var(--warning);border:1px solid rgba(255,180,61,.35)}
+.dotb{width:6px;height:6px;border-radius:50%;background:currentColor;flex:none}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text-3)}
+
+/* layout */
+.page{height:100vh;display:flex;flex-direction:column;overflow:hidden}
+
+/* header */
+.tp-header{display:flex;align-items:center;justify-content:space-between;padding:0 16px;height:52px;
+  flex-shrink:0;border-bottom:1px solid var(--border);background:var(--surface)}
+.tp-header-left{display:flex;align-items:center;gap:10px}
+.tp-header-right{display:flex;align-items:center;gap:6px}
+.brand-name{font-weight:700;font-size:15px;letter-spacing:-0.3px;color:var(--text);display:flex;align-items:center;gap:8px}
+.brand-logo{width:24px;height:24px;flex:none;display:block}
+.brand-serif{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--purple)}
+.divider{width:1px;height:16px;background:var(--border-2);flex-shrink:0;display:inline-block}
+
+/* main split */
+.tp-split{flex:1;display:grid;grid-template-columns:minmax(300px,1fr) 1.15fr;overflow:hidden;min-height:0}
+
+/* panels */
+.tp-left{display:flex;flex-direction:column;overflow:hidden;border-right:1px solid var(--border)}
+.tp-right{display:flex;flex-direction:column;overflow:hidden;background:#1f2937}
+
+/* tab bars */
+.tabrow{display:flex;align-items:center;flex-shrink:0;border-bottom:1px solid var(--border);padding:0 4px;overflow-x:auto}
+.tabrow::-webkit-scrollbar{display:none}
+.tab-btn{padding:10px 12px;font-size:13px;font-weight:600;background:none;border:none;cursor:pointer;
+  white-space:nowrap;transition:color .12s;border-bottom:2px solid transparent;
+  color:var(--text-2);display:flex;align-items:center;gap:6px;font-family:var(--font)}
+.tab-btn.on{color:var(--lime);border-bottom-color:var(--lime)}
+.tab-btn.on-purple{color:#b89bff;border-bottom-color:var(--purple)}
+.tab-btn.on-danger{color:#ff8198;border-bottom-color:var(--danger)}
+.tab-btn.on-warn{color:var(--warning);border-bottom-color:var(--warning)}
+.tab-btn-danger{color:var(--danger)}
+.tab-btn-warn{color:var(--warning)}
+
+/* panel content */
+.panel-content{flex:1;overflow-y:auto;padding:20px}
+
+/* monaco-style editor panel */
+.editor-toolbar{display:flex;align-items:center;gap:8px;padding:8px 16px 12px;
+  border-bottom:1px solid #374151;flex-shrink:0;background:#1f2937}
+.editor-select{background:#1f2937;border:1px solid #374151;border-radius:8px;
+  color:#e5e7eb;font:500 13px var(--font);padding:0 10px;height:36px;
+  min-width:9rem;cursor:pointer;appearance:none;-webkit-appearance:none}
+.editor-select:focus{outline:none;border-color:#4b5563}
+.editor-mock{flex:1;background:#1f2937;font-family:var(--mono);font-size:13px;
+  color:#9ca3af;padding:16px 20px;overflow:auto;display:flex;flex-direction:column}
+.editor-lines{flex:1;line-height:1.9}
+.ln{color:#4b5563;user-select:none;margin-right:20px;min-width:24px;display:inline-block;text-align:right}
+.kw{color:#60a5fa}.fn{color:#34d399}.str{color:#fbbf24}.cm{color:#6b7280}
+.type{color:#a78bfa}
+
+/* bottom panel */
+.tp-bottom{flex-shrink:0;border-top:1px solid var(--border);background:var(--surface);
+  height:220px;display:flex;flex-direction:column}
+.bottom-tabrow{display:flex;align-items:center;border-bottom:1px solid var(--border);
+  padding:0 4px;flex-shrink:0}
+.bottom-tab-btn{padding:8px 12px;font-size:12.5px;font-weight:600;background:none;border:none;
+  cursor:pointer;white-space:nowrap;transition:color .12s;border-bottom:2px solid transparent;
+  color:var(--text-2);font-family:var(--font)}
+.bottom-tab-btn.on{color:var(--lime);border-bottom-color:var(--lime)}
+.summary-badges{margin-left:auto;display:flex;gap:6px;align-items:center;padding-right:12px}
+.bottom-content{flex:1;overflow-y:auto;padding:10px 16px}
+
+/* result rows */
+.result-row{display:flex;align-items:flex-start;gap:10px;padding:5px 0;border-bottom:1px solid var(--border)}
+.result-detail{flex:1;font-size:12px;font-family:var(--mono);color:var(--text-2);line-height:1.6}
+.case-num{color:var(--text-3);margin-right:8px}
+.exp{color:var(--lime)}
+.got{color:var(--danger)}
+.inp-val{color:var(--text)}
+
+/* task content */
+.task-desc{font-size:14px;line-height:1.75;color:var(--text);white-space:pre-line}
+.hint-box{background:var(--surface-2);border:1px solid var(--border);border-radius:10px;padding:12px 14px;margin-top:12px}
+.constructions{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.c-chip{padding:4px 10px;border-radius:8px;font-size:12px;background:var(--surface-2);
+  border:1px solid var(--border-2);color:var(--text);font-family:var(--font)}
+
+/* preview tab */
+.preview-card{background:var(--surface-2);border:1px solid var(--border);border-radius:12px;
+  padding:14px 16px;display:flex;flex-direction:column;gap:10px}
+.preview-title{font-weight:700;font-size:14px;color:var(--text)}
+.preview-desc{font-size:12px;color:var(--text-2);line-height:1.65;max-height:80px;overflow:hidden;
+  -webkit-mask-image:linear-gradient(to bottom,black 55%,transparent)}
+.tc-row{display:flex;gap:10px;align-items:center;background:var(--surface-2);border:1px solid var(--border);
+  border-radius:8px;padding:6px 10px;font-family:var(--mono);font-size:12px;color:var(--text-2)}
+.tc-num{color:var(--text-3);width:22px;flex-shrink:0}
+.tc-exp{color:var(--lime)}
+.tc-in{color:var(--text)}
+
+/* select */
+select{background:var(--bg-2);border:1px solid var(--border-2);border-radius:var(--r-md);
+  color:var(--text);font:500 12px var(--font);padding:2px 8px;height:28px;width:96px;cursor:pointer}
+
+/* active tab highlight for demo */
+#tab-task{display:block}#tab-code{display:none}#tab-preview{display:none}
+#btab-tests{display:block}#btab-result{display:none}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ═══ HEADER ═══════════════════════════════════════════════════ -->
+  <header class="tp-header">
+    <div class="tp-header-left">
+      <button class="btn btn-ghost btn-xs btn-icon" title="К задачам">←</button>
+      <span class="brand-name">
+        <svg class="brand-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" aria-hidden="true">
+          <defs>
+            <linearGradient id="tp-lc" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#a8ff3a"/>
+              <stop offset="1" stop-color="#8eff01"/>
+            </linearGradient>
+            <filter id="tp-gc" x="-40%" y="-40%" width="180%" height="180%">
+              <feGaussianBlur stdDeviation="7" result="b"/>
+              <feMerge>
+                <feMergeNode in="b"/>
+                <feMergeNode in="SourceGraphic"/>
+              </feMerge>
+            </filter>
+          </defs>
+          <rect x="150" y="150" width="196" height="196" rx="52" fill="none" stroke="#8b53fe" stroke-width="26" opacity="0.85"/>
+          <g filter="url(#tp-gc)">
+            <rect x="196" y="196" width="196" height="196" rx="52" fill="none" stroke="url(#tp-lc)" stroke-width="30"/>
+          </g>
+        </svg>
+        Code <span class="brand-serif">Trainer</span>
+      </span>
+      <span class="divider"></span>
+      <span class="badge badge-muted">Алгоритм</span>
+      <span class="badge badge-warn">medium</span>
+      <span class="badge badge-lime"><span class="dotb"></span> адаптив</span>
+    </div>
+    <div class="tp-header-right">
+      <button class="btn btn-ghost btn-xs btn-icon" disabled title="Предыдущая">←</button>
+      <button class="btn btn-ghost btn-xs btn-icon" title="Следующая">→</button>
+      <button class="btn btn-primary btn-sm" style="margin-left:4px;min-width:120px">▶&nbsp; Запустить</button>
+    </div>
+  </header>
+
+  <!-- ═══ MAIN SPLIT ════════════════════════════════════════════════ -->
+  <div class="tp-split">
+
+    <!-- LEFT PANEL -->
+    <div class="tp-left">
+      <div class="tabrow">
+        <button class="tab-btn on" onclick="showTab('task',this)">
+          Задание <span class="badge badge-warn" style="font-size:10px;height:18px">medium</span>
+        </button>
+        <button class="tab-btn" onclick="showTab('code',this)">Код</button>
+        <button class="tab-btn" onclick="showTab('preview',this)">Превью</button>
+        <div style="margin-left:auto;padding-right:8px">
+          <select><option>PYTHON</option><option>CPP</option></select>
+        </div>
+      </div>
+
+      <div class="panel-content">
+
+        <!-- TAB: ЗАДАНИЕ -->
+        <div id="tab-task">
+          <div class="task-desc">Напишите функцию <code style="color:var(--lime);background:var(--surface-2);padding:2px 6px;border-radius:4px">sum_digits(n)</code>, которая принимает целое число n и возвращает сумму его цифр.
+
+Например:
+  sum_digits(123) → 6
+  sum_digits(0)   → 0
+  sum_digits(99)  → 18</div>
+
+          <div class="hint-box">
+            <div class="eyebrow" style="margin-bottom:6px">Как решить</div>
+            <div style="font-size:13px;color:var(--text-2);line-height:1.6">Преобразуй число в строку, пройдись по каждому символу и суммируй int() от каждой цифры.</div>
+          </div>
+
+          <div style="margin-top:16px">
+            <div class="eyebrow" style="margin-bottom:8px">Конструкции</div>
+            <div class="constructions">
+              <span class="c-chip">Function</span>
+              <span class="c-chip">Loop</span>
+              <span class="c-chip">Return</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB: КОД -->
+        <div id="tab-code" style="display:none">
+          <pre style="background:var(--bg-2);border:1px solid var(--border);border-radius:10px;padding:16px;font-size:13px;font-family:var(--mono);color:var(--text);overflow:auto;margin:0"><span class="kw">def</span> <span class="fn">sum_digits</span>(n):
+    <span class="cm"># преобразуем в строку</span>
+    <span class="kw">return</span> sum(<span class="fn">int</span>(d) <span class="kw">for</span> d <span class="kw">in</span> <span class="fn">str</span>(<span class="fn">abs</span>(n)))</pre>
+        </div>
+
+        <!-- TAB: ПРЕВЬЮ -->
+        <div id="tab-preview" style="display:none">
+          <div class="preview-card" style="margin-bottom:12px">
+            <div style="display:flex;flex-wrap:wrap;gap:6px">
+              <span class="badge badge-muted">Алгоритм</span>
+              <span class="badge badge-warn">medium</span>
+              <span class="badge badge-muted">5 тестов</span>
+              <span class="badge badge-purple">PYTHON</span>
+            </div>
+            <div class="preview-title">Сумма цифр числа</div>
+            <div class="preview-desc">Напишите функцию sum_digits(n), которая принимает целое число n и возвращает сумму его цифр.</div>
+          </div>
+          <div class="eyebrow" style="margin-bottom:8px">Тест-кейсы</div>
+          <div style="display:flex;flex-direction:column;gap:5px">
+            <div class="tc-row"><span class="tc-num">#1</span><span>in: <code class="tc-in">123</code></span><span style="margin-left:6px">→ <code class="tc-exp">6</code></span></div>
+            <div class="tc-row"><span class="tc-num">#2</span><span>in: <code class="tc-in">0</code></span><span style="margin-left:6px">→ <code class="tc-exp">0</code></span></div>
+            <div class="tc-row"><span class="tc-num">#3</span><span>in: <code class="tc-in">99</code></span><span style="margin-left:6px">→ <code class="tc-exp">18</code></span></div>
+            <div class="tc-row"><span class="tc-num">#4</span><span>in: <code class="tc-in">-456</code></span><span style="margin-left:6px">→ <code class="tc-exp">15</code></span></div>
+            <div class="tc-row"><span class="tc-num">#5</span><span>in: <code class="tc-in">1000</code></span><span style="margin-left:6px">→ <code class="tc-exp">1</code></span></div>
+          </div>
+          <div style="margin-top:14px">
+            <div class="eyebrow" style="margin-bottom:8px">Ожидаемые конструкции</div>
+            <div style="display:flex;flex-wrap:wrap;gap:6px">
+              <span class="badge badge-purple">Function</span>
+              <span class="badge badge-purple">Loop</span>
+              <span class="badge badge-purple">Return</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- RIGHT PANEL (Monaco editor) -->
+    <div class="tp-right">
+      <div class="editor-toolbar">
+        <select class="editor-select">
+          <option>Python 3</option>
+          <option>C++17</option>
+          <option>JavaScript</option>
+        </select>
+        <select class="editor-select" style="min-width:7.5rem">
+          <option>Easy</option>
+          <option selected>Medium</option>
+          <option>Hard</option>
+        </select>
+        <div style="margin-left:auto;display:flex;align-items:center;gap:10px">
+          <span style="font-size:11px;color:#6b7280;font-family:var(--mono)">solution.py</span>
+        </div>
+      </div>
+      <div class="editor-mock">
+        <div class="editor-lines">
+          <div><span class="ln">1</span><span class="kw">def</span> <span class="fn">sum_digits</span>(<span class="type">n</span>: <span class="type">int</span>) -&gt; <span class="type">int</span>:</div>
+          <div><span class="ln">2</span>    <span class="cm"># ваш код здесь</span></div>
+          <div><span class="ln">3</span>    <span class="kw">pass</span></div>
+          <div><span class="ln">4</span></div>
+          <div><span class="ln">5</span></div>
+          <div><span class="ln">6</span></div>
+          <div><span class="ln">7</span></div>
+          <div><span class="ln">8</span></div>
+          <div><span class="ln">9</span></div>
+          <div><span class="ln">10</span></div>
+        </div>
+        <div style="margin-top:auto;padding-top:12px;border-top:1px solid #374151;font-size:11px;color:#4b5563;display:flex;gap:16px">
+          <span>Python 3</span><span>UTF-8</span><span>Ln 3, Col 5</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ═══ BOTTOM PANEL ══════════════════════════════════════════════ -->
+  <div class="tp-bottom">
+    <div class="bottom-tabrow">
+      <button class="bottom-tab-btn on" onclick="showBTab('tests',this)">Тесты</button>
+      <button class="bottom-tab-btn" onclick="showBTab('result',this)">Результат</button>
+      <button class="bottom-tab-btn tab-btn-danger" onclick="showBTab('compiler',this)">Compiler (1)</button>
+      <!-- result summary badges — shown after run -->
+      <div class="summary-badges">
+        <span class="badge badge-lime" style="font-size:11px;height:20px">✓ 3</span>
+        <span class="badge badge-danger" style="font-size:11px;height:20px">✗ 2</span>
+      </div>
+    </div>
+
+    <div class="bottom-content">
+
+      <!-- ТЕСТЫ tab -->
+      <div id="btab-tests">
+        <div style="display:flex;flex-direction:column;gap:5px;font-size:12px;font-family:var(--mono);color:var(--text-2)">
+          <div style="display:flex;gap:10px"><span style="color:var(--text-3);width:52px;flex-shrink:0">Case 1:</span><span>in: <b style="color:var(--text);font-weight:400">123</b></span><span style="margin-left:6px">exp: <b style="color:var(--lime);font-weight:400">6</b></span></div>
+          <div style="display:flex;gap:10px"><span style="color:var(--text-3);width:52px;flex-shrink:0">Case 2:</span><span>in: <b style="color:var(--text);font-weight:400">0</b></span><span style="margin-left:6px">exp: <b style="color:var(--lime);font-weight:400">0</b></span></div>
+          <div style="display:flex;gap:10px"><span style="color:var(--text-3);width:52px;flex-shrink:0">Case 3:</span><span>in: <b style="color:var(--text);font-weight:400">99</b></span><span style="margin-left:6px">exp: <b style="color:var(--lime);font-weight:400">18</b></span></div>
+          <div style="display:flex;gap:10px"><span style="color:var(--text-3);width:52px;flex-shrink:0">Case 4:</span><span>in: <b style="color:var(--text);font-weight:400">-456</b></span><span style="margin-left:6px">exp: <b style="color:var(--lime);font-weight:400">15</b></span></div>
+          <div style="display:flex;gap:10px"><span style="color:var(--text-3);width:52px;flex-shrink:0">Case 5:</span><span>in: <b style="color:var(--text);font-weight:400">1000</b></span><span style="margin-left:6px">exp: <b style="color:var(--lime);font-weight:400">1</b></span></div>
+        </div>
+      </div>
+
+      <!-- РЕЗУЛЬТАТ tab -->
+      <div id="btab-result" style="display:none">
+        <div style="display:flex;flex-direction:column;gap:3px">
+          <div class="result-row">
+            <span class="badge badge-lime" style="font-size:10px;height:20px;flex-shrink:0">PASSED</span>
+            <div class="result-detail"><span class="case-num">#1</span>in: <code class="inp-val">123</code>&nbsp; exp: <code class="exp">6</code></div>
+          </div>
+          <div class="result-row">
+            <span class="badge badge-lime" style="font-size:10px;height:20px;flex-shrink:0">PASSED</span>
+            <div class="result-detail"><span class="case-num">#2</span>in: <code class="inp-val">0</code>&nbsp; exp: <code class="exp">0</code></div>
+          </div>
+          <div class="result-row">
+            <span class="badge badge-lime" style="font-size:10px;height:20px;flex-shrink:0">PASSED</span>
+            <div class="result-detail"><span class="case-num">#3</span>in: <code class="inp-val">99</code>&nbsp; exp: <code class="exp">18</code></div>
+          </div>
+          <div class="result-row">
+            <span class="badge badge-danger" style="font-size:10px;height:20px;flex-shrink:0">FAILED</span>
+            <div class="result-detail"><span class="case-num">#4</span>in: <code class="inp-val">-456</code>&nbsp; exp: <code class="exp">15</code>&nbsp; got: <code class="got">None</code></div>
+          </div>
+          <div class="result-row">
+            <span class="badge badge-danger" style="font-size:10px;height:20px;flex-shrink:0">FAILED</span>
+            <div class="result-detail"><span class="case-num">#5</span>in: <code class="inp-val">1000</code>&nbsp; exp: <code class="exp">1</code>&nbsp; got: <code class="got">None</code></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- COMPILER tab -->
+      <div id="btab-compiler" style="display:none">
+        <div style="font-size:12px;font-family:var(--mono);color:var(--danger)">
+          <span style="color:var(--text-3);margin-right:8px">[SyntaxError]</span>unexpected indent (line 3)
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<script>
+function showTab(id, btn) {
+  ['task','code','preview'].forEach(t => {
+    document.getElementById('tab-'+t).style.display = t === id ? 'block' : 'none'
+  })
+  document.querySelectorAll('.tabrow .tab-btn').forEach(b => b.classList.remove('on'))
+  btn.classList.add('on')
+}
+function showBTab(id, btn) {
+  ['tests','result','compiler'].forEach(t => {
+    const el = document.getElementById('btab-'+t)
+    if (el) el.style.display = t === id ? 'block' : 'none'
+  })
+  document.querySelectorAll('.bottom-tabrow .bottom-tab-btn').forEach(b => b.classList.remove('on'))
+  btn.classList.add('on')
+}
+</script>
+</body>
+</html>

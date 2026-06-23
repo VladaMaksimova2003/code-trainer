@@ -1,0 +1,99 @@
+# Правила Mastery — Pascal track
+version: 1
+
+# --- Порог score (0..100) по action для Technical Concept ---
+action_thresholds:
+  recognize: 80
+  assemble: 75
+  translate: 75
+  analyze: 70
+  debug: 65
+  implement: 70
+
+# --- Минимум успешных задач на action (на один TC) ---
+min_successful_tasks_per_action:
+  recognize: 3
+  assemble: 4
+  translate: 4
+  analyze: 3
+  debug: 4
+  implement: 3
+
+# --- Как считается score одного action ---
+score_model:
+  algorithm: ema
+  alpha: 0.35
+  initial: 0
+  on_success: 100
+  on_partial: 50
+  on_fail: 0
+  description_ru: |
+    score = EMA по последним попыткам. Успех = тесты пройдены / quiz верный.
+    Частичный = structural OK без тестов.
+
+# --- Technical Concept считается ОСВОЕЕННЫМ (mastered) когда ---
+technical_concept_mastered:
+  all_of:
+    - rule: each_required_action_score_gte_threshold
+      description: |
+        Порог и минимум задач считаются только по required_actions конкретного TC
+        (см. action mask в pascal_tc_action_matrix.yaml / tier defaults).
+        disabled_actions не участвуют в mastery.
+    - rule: each_required_action_min_tasks_completed
+    - rule: review_not_due
+      max_forgetting_score: 0.55
+  optional_skip:
+    - when: technical_concept_id in [lambda_abstraction]
+      note: "Пропуск допустим в базовом Pascal-треке."
+  description_ru: |
+    TC mastered = все required_actions ≥ порога + минимум задач по каждому required action
+    + нет «горящего» review. optional_actions и disabled_actions не блокируют mastery.
+
+# --- Learning Concept (глава) считается ОСВОЕЕННОЙ когда ---
+learning_concept_mastered:
+  rule: weighted_tc_mastery
+  weights:
+    required_tc: 1.0
+    optional_tc: 0.0
+  threshold_percent: 100
+  alternative:
+    name: strict_all_tc
+    description: "Все TC главы mastered."
+  aggregate_for_dashboard:
+    formula: min_tc_action_score_per_chapter
+    display_ru: "Прогресс главы = минимум score среди TC×action."
+
+# --- Открытие следующей Learning Concept (главы) ---
+next_chapter_unlock:
+  all_of:
+    - previous_learning_concept_mastered: true
+    - previous_chapter_review_queue_max: 2
+    - previous_chapter_review_queue_note: "Не более 2 просроченных review по прошлой главе."
+    - student_known_language_set: true
+  soft_unlock:
+    enabled: true
+    condition:
+      previous_chapter_avg_score_gte: 65
+    description: |
+      Мягкий режим: можно открыть следующую главу при avg ≥ 65%,
+      но review по старой главе остаётся обязательным (блокирует только сертификат).
+
+# --- Обязательность action по tier TC ---
+required_actions_by_tier:
+  beginner:
+    required: [recognize, assemble, translate, analyze, debug, implement]
+  intermediate:
+    required: [recognize, assemble, translate, analyze, debug, implement]
+  advanced:
+    required: [recognize, translate, analyze, debug, implement]
+    optional: [assemble]
+    note: "assemble для advanced может заменяться analyze+implement."
+
+# --- Сертификат «Pascal transfer complete» ---
+track_certificate:
+  requires:
+    - all_beginner_lc_mastered: true
+    - all_intermediate_lc_mastered: true
+    - advanced_lc_mastered_count_gte: 2
+      lc_ids: [oop, algorithms]
+  description_ru: "Beginner+Intermediate полностью + минимум 2 advanced главы."

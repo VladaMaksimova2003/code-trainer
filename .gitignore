@@ -1,0 +1,56 @@
+# Environment files
+.env
+.env.*
+!.env.*.example
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+dist/
+build/
+venv/
+.venv/
+
+# Node / frontend
+node_modules/
+dist/
+dist-ssr/
+*.local
+*.log
+
+# Editor
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+
+# Claude Code
+.claude/
+
+# Generated output
+openapi_dump.json
+*.pptx
+
+# Database backups (pg_dump, not committed)
+backups/
+
+# Dev debug dumps under backend/ (run deploy/scripts/cleanup-dev-artifacts.ps1)
+backend/_*.txt
+backend/_*.json
+backend/_diag*
+backend/_dump*
+backend/_patch_*.py
+backend/_inspect_*.py
+
+# OS
+Thumbs.db
+
+# Debug / temporary scripts
+backend/scripts/ops/find_tech_comments.py
+backend/scripts/ops/inspect_task.py

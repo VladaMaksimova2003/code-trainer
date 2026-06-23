@@ -1,0 +1,36 @@
+id: csharp
+label: C#
+file_extension: .cs
+monaco_language: csharp
+features:
+  - lint
+  - compile
+  - test
+patterns:
+  normalization_key: csharp
+
+docker:
+  image: csharp_runner
+  lint: >-
+    ws="$CT_WORKSPACE" && rm -rf "$ws/app" && cp -a /runner/template/. "$ws/app/" &&
+    cp {source} "$ws/app/Program.cs" && cd "$ws/app" &&
+    DOTNET_NOLOGO=1 dotnet build --no-restore -v q 2>&1 || true
+  compile: >-
+    ws="$CT_WORKSPACE" && rm -rf "$ws/app" && cp -a /runner/template/. "$ws/app/" &&
+    cp {source} "$ws/app/Program.cs" && cd "$ws/app" &&
+    DOTNET_NOLOGO=1 dotnet build --no-restore -v q 2>&1
+  run: >-
+    ws="$CT_WORKSPACE" && rm -rf "$ws/app" && cp -a /runner/template/. "$ws/app/" &&
+    cp {source} "$ws/app/Program.cs" && cd "$ws/app" &&
+    DOTNET_NOLOGO=1 dotnet build --no-restore -v q >/dev/null 2>&1 &&
+    DOTNET_NOLOGO=1 dotnet run --no-build -v q --no-launch-profile
+
+test:
+  strategy: compile_and_run
+  batch_one_shot: true
+  timeout_seconds: 15
+  docker_one_shot: >-
+    ws="$CT_WORKSPACE" && rm -rf "$ws/app" && cp -a /runner/template/. "$ws/app/" &&
+    cp {source} "$ws/app/Program.cs" && cd "$ws/app" &&
+    DOTNET_NOLOGO=1 dotnet build --no-restore -v q >/dev/null 2>&1 &&
+    DOTNET_NOLOGO=1 dotnet run --no-build -v q --no-launch-profile

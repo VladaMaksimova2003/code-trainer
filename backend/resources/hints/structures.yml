@@ -1,0 +1,116 @@
+# Admin-editable structure hints (does NOT affect PASS/FAIL grading).
+function:
+  function:
+    difficulty: 1
+    title: "Function"
+    explanation: "Обычная именованная функция, объявленная на уровне модуля или блока."
+    examples:
+      python: "def greet(name):\n    return name"
+      javascript: "function greet(name) {\n  return name;\n}"
+      java: "void greet(String name) { }"
+  method:
+    difficulty: 2
+    title: "Method"
+    explanation: "Функция, объявленная внутри класса или объекта."
+    examples:
+      python: "class A:\n    def run(self):\n        pass"
+      javascript: "class A {\n  run() {}\n}"
+      java: "class A { void run() {} }"
+  lambda:
+    difficulty: 3
+    title: "Function (Lambda)"
+    explanation: "Анонимная функция, используемая в выражении."
+    examples:
+      python: "lambda x: x * 2"
+      javascript: "x => x * 2"
+      java: "(x) -> x * 2"
+
+loop:
+  for_loop:
+    difficulty: 1
+    title: "For loop"
+    explanation: "Цикл с явным счётчиком или условием итерации (классический for)."
+    examples:
+      python: "for i in range(10):\n    pass"
+      javascript: "for (let i = 0; i < 10; i++) {}"
+      java: "for (int i = 0; i < 10; i++) { }"
+  while_loop:
+    difficulty: 1
+    title: "While loop"
+    explanation: "Цикл, повторяющий тело, пока условие истинно."
+    examples:
+      python: "while n > 0:\n    n -= 1"
+      javascript: "while (n > 0) { n--; }"
+      java: "while (n > 0) { n--; }"
+  foreach:
+    difficulty: 2
+    title: "Foreach / for-in"
+    explanation: "Перебор элементов коллекции или итерируемого объекта."
+    examples:
+      python: "for item in items:\n    print(item)"
+      javascript: "for (const item of items) { }"
+      java: "for (String item : items) { }"
+  nested_loop:
+    difficulty: 3
+    title: "Nested loop"
+    explanation: "Один цикл расположен внутри другого — вложенная итерация."
+    examples:
+      python: "for i in range(3):\n    for j in range(3):\n        pass"
+      javascript: "for (let i = 0; i < 3; i++) {\n  for (let j = 0; j < 3; j++) {}\n}"
+      java: "for (int i = 0; i < 3; i++) {\n  for (int j = 0; j < 3; j++) {}\n}"
+
+call:
+  direct_call:
+    difficulty: 1
+    title: "Direct call"
+    explanation: "Вызов функции по имени без цепочки объектов."
+    examples:
+      python: "print(42)"
+      javascript: "console.log(42)"
+      java: "System.out.println(42);"
+  method_call:
+    difficulty: 2
+    title: "Method call"
+    explanation: "Вызов метода у объекта или через точку."
+    examples:
+      python: "obj.run()"
+      javascript: "obj.run()"
+      java: "obj.run();"
+  chained_call:
+    difficulty: 3
+    title: "Chained call"
+    explanation: "Несколько вызовов подряд в одной цепочке (fluent style)."
+    examples:
+      python: "obj.a().b()"
+      javascript: "obj.a().b()"
+      java: "obj.a().b();"
+
+condition:
+  if:
+    difficulty: 1
+    title: "Condition (if)"
+    explanation: "Ветвление по условию — if / else."
+    examples:
+      python: "if x > 0:\n    pass"
+      javascript: "if (x > 0) { }"
+      java: "if (x > 0) { }"
+
+return:
+  return:
+    difficulty: 1
+    title: "Return"
+    explanation: "Возврат значения или выход из функции."
+    examples:
+      python: "return 1"
+      javascript: "return 1;"
+      java: "return 1;"
+
+assignment:
+  assignment:
+    difficulty: 1
+    title: "Assignment"
+    explanation: "Присваивание значения переменной."
+    examples:
+      python: "x = 1"
+      javascript: "let x = 1"
+      java: "int x = 1;"

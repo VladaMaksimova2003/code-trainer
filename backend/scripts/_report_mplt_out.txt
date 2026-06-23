@@ -1,0 +1,17 @@
+﻿---
+slot=pas_001 pattern=task_002 python->pascal action=assemble chapter=algo_basics pitfall=index_1based
+BANNER: ┬ Pascal яхЁт√щ ¤ыхьхэЄ Ч a[1], эх a[0].
+poetry : Traceback (most recent call last):
+C:\Users\redmi\AppData\Local\Temp\ps-script-f6ed8b9b-d1f5-4a58-838a-ff13fac014a2.ps1:95 знак:73
++ ... r\backend"; poetry run python scripts/_report_mplt_examples.py 2>&1 | ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Traceback (most recent call last)::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  File "C:\Users\redmi\Desktop\temp\фшяыюь\code_trainer\backend\scripts\_report_mplt_examples.py", line 74, in <module>
+    print("CHIP_HINTS:", hints)
+  File "C:\Users\redmi\AppData\Local\Programs\Python\Python312\Lib\encodings\cp1251.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2192' in position 35: character maps to <undefined>
+CHIP_HINTS: 

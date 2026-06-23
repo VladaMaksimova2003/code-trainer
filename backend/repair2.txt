@@ -1,0 +1,37 @@
+﻿split-semantic:lop_11<->pys_06:task-213
+split-pascal:lop_11:task-213
+split-python-created:pys_06:task-639
+split-wrong-ped:pit_04:task-163:got-lop_14+pit_04
+split-pascal:lop_14:task-163
+split-python-created:pit_04:task-640
+split-wrong-ped:lop_09:task-159:got-lop_08+lop_09
+split-pascal:lop_08:task-159
+split-python-created:lop_09:task-641
+split-wrong-ped:pit_22:task-205:got-dyn_09+pit_22
+split-pascal:dyn_09:task-205
+split-python-created:pit_22:task-642
+split-wrong-ped:pit_18:task-206:got-dyn_10+pit_18
+split-pascal:dyn_10:task-206
+split-python-created:pit_18:task-643
+split-wrong-ped:pit_03:task-210:got-str_03+pit_03
+split-pascal:str_03:task-210
+split-python-created:pit_03:task-644
+restore:pyl_05:task-532
+restore:pyl_08:task-160
+restore:pypit_13:task-618
+delete-bogus-python:pit_04:task-640
+delete-bogus-python:lop_09:task-641
+delete-bogus-python:pit_22:task-642
+delete-bogus-python:pit_18:task-643
+delete-bogus-python:pit_03:task-644
+merged:lop_07:158<-532
+skip:lop_09:missing
+skip:pit_03:missing
+skip:pit_04:missing
+skip:pit_12:missing
+skip:pit_13:missing
+skip:pit_18:missing
+skip:pit_22:missing
+semantic_pairs: 8
+strict_issues: 15
+semantic_merged: 1

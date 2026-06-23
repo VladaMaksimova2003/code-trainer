@@ -1,0 +1,175 @@
+﻿skip:arr_01:already-unified
+skip:arr_03:already-unified
+skip:arr_04:already-unified
+skip:arr_05:already-unified
+skip:arr_06:already-unified
+skip:arr_07:already-unified
+skip:arr_08:already-unified
+skip:arr_09:already-unified
+skip:cdg_01:already-unified
+skip:cdg_02:already-unified
+skip:cdg_03:already-unified
+skip:cdg_04:already-unified
+skip:cdg_05:already-unified
+skip:cdg_06:already-unified
+skip:cdg_07:already-unified
+skip:cdg_09:already-unified
+skip:cdg_13:already-unified
+skip:cdg_14:already-unified
+skip:cdg_15:already-unified
+skip:cnd_01:already-unified
+skip:cnd_02:already-unified
+skip:cnd_03:already-unified
+skip:cnd_05:already-unified
+skip:cnd_06:already-unified
+skip:cnd_07:already-unified
+skip:cnd_08:already-unified
+skip:cnd_11:already-unified
+skip:cnd_12:already-unified
+skip:cnd_13:already-unified
+skip:cnd_14:already-unified
+skip:dyn_01:already-unified
+skip:dyn_02:already-unified
+skip:dyn_04:already-unified
+skip:dyn_05:already-unified
+skip:dyn_06:already-unified
+skip:dyn_11:already-unified
+skip:exp_02:already-unified
+skip:exp_06:already-unified
+skip:exp_08:already-unified
+skip:fil_01:already-unified
+skip:fil_02:already-unified
+skip:fil_03:already-unified
+skip:fil_04:already-unified
+skip:fil_07:already-unified
+skip:fil_08:already-unified
+skip:fn_01:already-unified
+skip:fn_02:already-unified
+skip:fn_03:already-unified
+skip:fn_06:already-unified
+skip:fn_08:already-unified
+skip:io_01:already-unified
+skip:io_02:already-unified
+skip:io_04:already-unified
+skip:io_05:already-unified
+skip:io_06:already-unified
+skip:io_07:already-unified
+skip:lop_01:already-unified
+skip:lop_02:already-unified
+skip:lop_03:already-unified
+skip:lop_04:already-unified
+merged:lop_07:158<-532
+skip:lop_09:already-unified
+skip:lop_12:already-unified
+skip:oop_01:already-unified
+skip:oop_02:already-unified
+skip:oop_03:already-unified
+skip:oop_04:already-unified
+skip:oop_05:already-unified
+skip:oop_06:already-unified
+skip:oop_07:already-unified
+skip:oop_08:already-unified
+skip:oop_09:already-unified
+skip:oop_11:already-unified
+skip:oop_13:already-unified
+skip:oop_14:already-unified
+skip:pit_01:already-unified
+skip:pit_02:already-unified
+skip:pit_03:already-unified
+merged:pit_04:268<-609
+skip:pit_07:already-unified
+skip:pit_08:already-unified
+skip:pit_10:already-unified
+merged:pit_12:275<-617
+skip:pit_13:missing
+skip:pit_14:already-unified
+skip:pit_15:already-unified
+skip:pit_16:already-unified
+skip:pit_17:already-unified
+skip:pit_18:already-unified
+skip:pit_19:already-unified
+skip:pit_21:already-unified
+skip:pit_22:already-unified
+skip:prc_01:already-unified
+skip:prc_02:already-unified
+skip:prc_03:already-unified
+skip:prc_06:already-unified
+skip:prc_07:already-unified
+skip:prc_09:already-unified
+skip:prc_10:already-unified
+skip:prc_12:already-unified
+skip:prc_13:already-unified
+skip:psk_01:already-unified
+skip:psk_02:already-unified
+skip:psk_03:already-unified
+skip:psk_04:already-unified
+skip:psk_05:already-unified
+skip:psk_06:already-unified
+skip:psk_09:already-unified
+skip:psk_11:already-unified
+skip:psk_12:already-unified
+skip:rcu_01:already-unified
+skip:rcu_02:already-unified
+skip:rcu_04:already-unified
+skip:rcu_06:already-unified
+skip:rcu_07:already-unified
+skip:rec_01:already-unified
+skip:rec_02:already-unified
+skip:rec_03:already-unified
+skip:rec_05:already-unified
+skip:rec_07:already-unified
+skip:rec_10:already-unified
+skip:rec_11:already-unified
+skip:str_01:already-unified
+skip:str_04:already-unified
+skip:str_05:already-unified
+skip:str_07:already-unified
+skip:str_09:already-unified
+skip:typ_01:already-unified
+skip:typ_02:already-unified
+skip:typ_03:already-unified
+skip:typ_04:already-unified
+skip:typ_06:already-unified
+skip:typ_07:already-unified
+skip:typ_09:already-unified
+skip:typ_10:already-unified
+skip:unt_01:already-unified
+skip:unt_04:already-unified
+skip:unt_06:already-unified
+skip:unt_09:already-unified
+skip:unt_13:already-unified
+processed: 140 merged_or_normalized: 3
+validation:duplicate_pedagogical_slot_ids:3
+  - duplicate pedagogical_slot_id=lop_11 task_ids=[213, 640]
+  - duplicate pedagogical_slot_id=pit_01 task_ids=[265, 644]
+  - duplicate pedagogical_slot_id=pit_04 task_ids=[268, 645]
+validation:mirror_pairs_not_merged:13
+  - pair lop_07<->pyl_05 missing tracks: ['pascal']
+  - lop_07: expected python slug pyl_05, got None
+  - pair pit_01<->pypit_01 missing tracks: ['python']
+  - pit_01: expected pascal slug pit_01, got None
+  - pit_01: expected python slug pypit_01, got None
+  - pair pit_04<->pypit_04 missing tracks: ['python']
+  - pit_04: expected pascal slug pit_04, got None
+  - pit_04: expected python slug pypit_04, got None
+  - pair pit_12<->pypit_12 missing tracks: ['pascal']
+  - pit_12: expected pascal slug pit_12, got None
+  - pit_12: expected python slug pypit_12, got None
+  - pair pit_13<->pypit_13 missing tracks: ['pascal']
+  - pit_13: expected python slug pypit_13, got None
+validation:semantic_pairs_merged_as_strict:0
+validation:group_c_incorrectly_merged:0
+validation:forbidden_formats:0
+validation:non_neutral_titles:0
+--- report ---
+before_active: 358
+after_active: 357
+unified_tasks: 137
+both_tracks: 137
+pascal_only: 114
+python_only: 106
+unmerged_pairs: 4
+  unmerged: {'pascal': 'lop_07', 'python': 'pyl_05'}
+  unmerged: {'pascal': 'pit_04', 'python': 'pypit_04'}
+  unmerged: {'pascal': 'pit_12', 'python': 'pypit_12'}
+  unmerged: {'pascal': 'pit_13', 'python': 'pypit_13'}

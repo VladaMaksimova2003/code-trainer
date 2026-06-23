@@ -1,0 +1,54 @@
+# Устарело: используйте корневой docker-compose.yml или deploy/docker-compose.dev.yml.
+#
+# Этот файл оставлен только для быстрой сборки language runner-образов
+# (worker запускает `docker run python_runner` и т.д. по имени образа).
+#
+# Полный dev-стек:
+#   cd .. && docker compose --env-file backend/deploy/.env.dev up -d --build
+
+services:
+  python_runner:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.python
+    image: python_runner
+    command: ["sleep", "infinity"]
+
+  cpp_runner:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.cpp
+    image: cpp_runner
+    command: ["sleep", "infinity"]
+
+  java_runner:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.java
+    image: java_runner
+    command: ["sleep", "infinity"]
+
+  csharp_runner:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.csharp
+    image: csharp_runner
+    command: ["sleep", "infinity"]
+
+  pascal_runner:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.pascal
+    image: pascal_runner
+    command: ["sleep", "infinity"]
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+
+  mailpit:
+    image: axllent/mailpit:latest
+    ports:
+      - "1025:1025"
+      - "8025:8025"

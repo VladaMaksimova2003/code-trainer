@@ -1,0 +1,335 @@
+﻿{
+  "catalog": [
+    {
+      "name": "pascal",
+      "catalog_tasks": 283,
+      "expected_tasks": 283,
+      "chapters_registry": 19,
+      "chapters_summary": 19,
+      "validate_errors": [],
+      "forbidden_format_slots": [],
+      "forbidden_action_slots": [],
+      "unknown_format_slots": [],
+      "unknown_format_count": 0,
+      "formats": {
+        "╨┐╨╡╤А╨╡╨▓╨╛╨┤_╨┐╤А╨╛╨│╤А╨░╨╝╨╝╤Л": 55,
+        "╨╕╤Б╨┐╤А╨░╨▓╨╗╨╡╨╜╨╕╨╡": 87,
+        "╤Б╨▒╨╛╤А╨║╨░_╨┐╤А╨╛╨│╤А╨░╨╝╨╝╤Л": 14,
+        "╨║╨╛╨┤_╨┐╨╛_╨▒╨╗╨╛╨║-╤Б╤Е╨╡╨╝╨╡": 10,
+        "╨▒╨╗╨╛╨║-╤Б╤Е╨╡╨╝╨░_╨┐╨╛_╨║╨╛╨┤╤Г": 3,
+        "╨┐╨╡╤А╨╡╨▓╨╛╨┤_╤Д╤А╨░╨│╨╝╨╡╨╜╤В╨░": 48,
+        "╤Б╨▒╨╛╤А╨║╨░_╤Д╤А╨░╨│╨╝╨╡╨╜╤В╨░": 40,
+        "╨┐╨╛╨╕╤Б╨║_╨╛╤И╨╕╨▒╨║╨╕": 26
+      },
+      "actions": {
+        "translate": 103,
+        "debug": 113,
+        "assemble": 54,
+        "implement": 13
+      }
+    },
+    {
+      "name": "python",
+      "catalog_tasks": 282,
+      "expected_tasks": 282,
+      "chapters_registry": 24,
+      "chapters_summary": 24,
+      "validate_errors": [],
+      "forbidden_format_slots": [],
+      "forbidden_action_slots": [],
+      "unknown_format_slots": [],
+      "unknown_format_count": 0,
+      "formats": {
+        "╨┐╨╡╤А╨╡╨▓╨╛╨┤_╨┐╤А╨╛╨│╤А╨░╨╝╨╝╤Л": 7,
+        "╨╕╤Б╨┐╤А╨░╨▓╨╗╨╡╨╜╨╕╨╡": 87,
+        "╤Б╨▒╨╛╤А╨║╨░_╨┐╤А╨╛╨│╤А╨░╨╝╨╝╤Л": 16,
+        "╨║╨╛╨┤_╨┐╨╛_╨▒╨╗╨╛╨║-╤Б╤Е╨╡╨╝╨╡": 6,
+        "╨▒╨╗╨╛╨║-╤Б╤Е╨╡╨╝╨░_╨┐╨╛_╨║╨╛╨┤╤Г": 2,
+        "╨┐╨╡╤А╨╡╨▓╨╛╨┤_╤Д╤А╨░╨│╨╝╨╡╨╜╤В╨░": 70,
+        "╤Б╨▒╨╛╤А╨║╨░_╤Д╤А╨░╨│╨╝╨╡╨╜╤В╨░": 41,
+        "╨▓╤Л╨▒╨╛╤А_╤Д╤А╨░╨│╨╝╨╡╨╜╤В╨░": 25,
+        "╨┐╨╛╨╕╤Б╨║_╨╛╤И╨╕╨▒╨║╨╕": 28
+      },
+      "actions": {
+        "translate": 77,
+        "debug": 115,
+        "assemble": 57,
+        "implement": 33
+      }
+    },
+    {
+      "name": "cpp",
+      "catalog_tasks": 237,
+      "expected_tasks": 237,
+      "chapters_registry": 26,
+      "chapters_summary": 26,
+      "validate_errors": [],
+      "forbidden_format_slots": [],
+      "forbidden_action_slots": [],
+      "unknown_format_slots": [],
+      "unknown_format_count": 0,
+      "formats": {
+        "╨┐╨╡╤А╨╡╨▓╨╛╨┤_╨┐╤А╨╛╨│╤А╨░╨╝╨╝╤Л": 4,
+        "╨╕╤Б╨┐╤А╨░╨▓╨╗╨╡╨╜╨╕╨╡": 88,
+        "╤Б╨▒╨╛╤А╨║╨░_╨┐╤А╨╛╨│╤А╨░╨╝╨╝╤Л": 15,
+        "╨║╨╛╨┤_╨┐╨╛_╨▒╨╗╨╛╨║-╤Б╤Е╨╡╨╝╨╡": 5,
+        "╨▒╨╗╨╛╨║-╤Б╤Е╨╡╨╝╨░_╨┐╨╛_╨║╨╛╨┤╤Г": 1,
+        "╨┐╨╡╤А╨╡╨▓╨╛╨┤_╤Д╤А╨░╨│╨╝╨╡╨╜╤В╨░": 55,
+        "╤Б╨▒╨╛╤А╨║╨░_╤Д╤А╨░╨│╨╝╨╡╨╜╤В╨░": 34,
+        "╨▓╤Л╨▒╨╛╤А_╤Д╤А╨░╨│╨╝╨╡╨╜╤В╨░": 24,
+        "╨┐╨╛╨╕╤Б╨║_╨╛╤И╨╕╨▒╨║╨╕": 11
+      },
+      "actions": {
+        "translate": 59,
+        "debug": 123,
+        "assemble": 49,
+        "implement": 6
+      }
+    }
+  ],
+  "constants": {
+    "pascal_total_constant": 283,
+    "python_total_constant": 282
+  },
+  "duplicate_pedagogical_slot_ids": [],
+  "home_languages": [
+    {
+      "language": "python",
+      "label": "Python",
+      "available_flag": true
+    },
+    {
+      "language": "cpp",
+      "label": "C++",
+      "available_flag": true
+    },
+    {
+      "language": "csharp",
+      "label": "C#",
+      "available_flag": true
+    },
+    {
+      "language": "java",
+      "label": "Java",
+      "available_flag": true
+    },
+    {
+      "language": "pascal",
+      "label": "Pascal",
+      "available_flag": true
+    }
+  ],
+  "registry_collection_counts": {
+    "pascal": 19,
+    "python": 24,
+    "cpp": 26
+  },
+  "collections_view_counts": {
+    "python": 24,
+    "cpp": 26,
+    "csharp": 0,
+    "java": 0,
+    "pascal": 19
+  },
+  "db_mismatches": {
+    "pascal": [
+      {
+        "chapter": "program_skeleton",
+        "expected": 13,
+        "db_count": 0,
+        "duplicate_slugs": [],
+        "duplicate_task_ids": []
+      },
+      {
+        "chapter": "typed_variables",
+        "expected": 12,
+        "db_count": 11,
+        "duplicate_slugs": [],
+        "duplicate_task_ids": []
+      },
+      {
+        "chapter": "io",
+        "expected": 11,
+        "db_count": 8,
+        "duplicate_slugs": [],
+        "duplicate_task_ids": []
+      },
+      {
+        "chapter": "expressions",
+        "expected": 12,
+        "db_count": 8,
+        "duplicate_slugs": [],
+        "duplicate_task_ids": []
+      },
+      {
+        "chapter": "conditions",
+        "expected": 18,
+        "db_count": 13,
+        "duplicate_slugs": [],
+        "duplicate_task_ids": []
+      },
+      {
+        "chapter": "loops",
+        "expected": 17,
+        "db_count": 13,
+        "duplicate_slugs": [],
+        "duplicate_task_ids": []
+      },
+      {
+        "chapter": "functions",
+        "expected": 15,
+        "db_count": 11,
+        "duplicate_slugs": [],
+        "duplicate_task_ids": []
+      },
+      {
+        "chapter": "procedures",
+        "expected": 16,
+        "db_count": 0,
+        "duplicate_slugs": [],
+        "duplicate_task_ids": []
+      },
+      {
+        "chapter": "static_arrays",
+        "expected": 12,
+        "db_count": 0,
+        "duplicate_slugs": [],
+        "duplicate_task_ids": []
+      },
+      {
+        "chapter": "dynamic_arrays",
+        "expected": 15,
+        "db_count": 0,
+        "duplicate_slugs": [],
+        "duplicate_task_ids": []
+      },
+      {
+        "chapter": "strings",
+        "expected": 11,
+        "db_count": 8,
+        "duplicate_slugs": [],
+        "duplicate_task_ids": []
+      },
+      {
+        "chapter": "records",
+        "expected": 14,
+        "db_count": 0,
+        "duplicate_slugs": [],
+        "duplicate_task_ids": []
+      },
+      {
+        "chapter": "files",
+        "expected": 11,
+        "db_count": 7,
+        "duplicate_slugs": [],
+        "duplicate_task_ids": []
+      },
+      {
+        "chapter": "units",
+        "expected": 16,
+        "db_count": 0,
+        "duplicate_slugs": [],
+        "duplicate_task_ids": []
+      },
+      {
+        "chapter": "recursion",
+        "expected": 10,
+        "db_count": 6,
+        "duplicate_slugs": [],
+        "duplicate_task_ids": []
+      },
+      {
+        "chapter": "oop",
+        "expected": 23,
+        "db_count": 19,
+        "duplicate_slugs": [],
+        "duplicate_task_ids": []
+      },
+      {
+        "chapter": "error_handling",
+        "expected": 12,
+        "db_count": 0,
+        "duplicate_slugs": [],
+        "duplicate_task_ids": []
+      },
+      {
+        "chapter": "pascal_pitfalls",
+        "expected": 26,
+        "db_count": 0,
+        "duplicate_slugs": [],
+        "duplicate_task_ids": []
+      },
+      {
+        "chapter": "compiler_diagnostics",
+        "expected": 19,
+        "db_count": 0,
+        "duplicate_slugs": [],
+        "duplicate_task_ids": []
+      }
+    ],
+    "python": [],
+    "cpp": [
+      {
+        "chapter": "cpp_loops",
+        "expected": 10,
+        "db_count": 9,
+        "duplicate_slugs": [],
+        "duplicate_task_ids": []
+      },
+      {
+        "chapter": "cpp_headers",
+        "expected": 10,
+        "db_count": 8,
+        "duplicate_slugs": [],
+        "duplicate_task_ids": []
+      },
+      {
+        "chapter": "cpp_pitfalls",
+        "expected": 12,
+        "db_count": 8,
+        "duplicate_slugs": [],
+        "duplicate_task_ids": []
+      },
+      {
+        "chapter": "cpp_diagnostics",
+        "expected": 9,
+        "db_count": 4,
+        "duplicate_slugs": [],
+        "duplicate_task_ids": []
+      },
+      {
+        "chapter": "cpp_exceptions",
+        "expected": 8,
+        "db_count": 1,
+        "duplicate_slugs": [],
+        "duplicate_task_ids": []
+      }
+    ]
+  },
+  "issues": [
+    "pascal/program_skeleton: db tasks 0 != expected 13",
+    "pascal/typed_variables: db tasks 11 != expected 12",
+    "pascal/io: db tasks 8 != expected 11",
+    "pascal/expressions: db tasks 8 != expected 12",
+    "pascal/conditions: db tasks 13 != expected 18",
+    "pascal/loops: db tasks 13 != expected 17",
+    "pascal/functions: db tasks 11 != expected 15",
+    "pascal/procedures: db tasks 0 != expected 16",
+    "pascal/static_arrays: db tasks 0 != expected 12",
+    "pascal/dynamic_arrays: db tasks 0 != expected 15",
+    "pascal/strings: db tasks 8 != expected 11",
+    "pascal/records: db tasks 0 != expected 14",
+    "pascal/files: db tasks 7 != expected 11",
+    "pascal/units: db tasks 0 != expected 16",
+    "pascal/recursion: db tasks 6 != expected 10",
+    "pascal/oop: db tasks 19 != expected 23",
+    "pascal/error_handling: db tasks 0 != expected 12",
+    "pascal/pascal_pitfalls: db tasks 0 != expected 26",
+    "pascal/compiler_diagnostics: db tasks 0 != expected 19",
+    "cpp/cpp_loops: db tasks 9 != expected 10",
+    "cpp/cpp_headers: db tasks 8 != expected 10",
+    "cpp/cpp_pitfalls: db tasks 8 != expected 12",
+    "cpp/cpp_diagnostics: db tasks 4 != expected 9",
+    "cpp/cpp_exceptions: db tasks 1 != expected 8"
+  ]
+}

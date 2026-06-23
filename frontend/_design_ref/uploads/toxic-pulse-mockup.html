@@ -1,0 +1,1483 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Toxic Pulse · UI Kit & Screens — платформа обучения программированию</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+<style>
+/* ============================================================
+   TOXIC PULSE — DESIGN TOKENS
+   Палитра: lime #8eff01 (primary) · purple #8b53fe (secondary) · #1d2331 (surface)
+   ============================================================ */
+:root{
+  /* Brand */
+  --lime:#8eff01;
+  --lime-600:#7ee000;
+  --lime-700:#69bd00;
+  --lime-soft:rgba(142,255,1,.14);
+  --lime-glow:rgba(142,255,1,.45);
+  --purple:#8b53fe;
+  --purple-600:#7a3ff0;
+  --purple-700:#6730d6;
+  --purple-soft:rgba(139,83,254,.16);
+  --purple-glow:rgba(139,83,254,.45);
+
+  /* Neutrals — deep dark, не чисто чёрный */
+  --bg:#0a0e15;
+  --bg-2:#0e131c;
+  --surface:#141a24;
+  --surface-2:#1d2331;   /* из палитры */
+  --surface-3:#262e3e;
+  --border:#262e3c;
+  --border-2:#333d4f;
+  --line:rgba(255,255,255,.06);
+
+  /* Text */
+  --text:#eef2f7;
+  --text-2:#9aa6b6;
+  --text-3:#626d7e;
+
+  /* Semantic / функциональные (вне бренд-палитры — нужны для статусов) */
+  --success:var(--lime);
+  --danger:#ff4d6a;
+  --danger-soft:rgba(255,77,106,.14);
+  --warning:#ffb43d;
+  --warning-soft:rgba(255,180,61,.14);
+  --info:var(--purple);
+
+  /* Radius */
+  --r-sm:8px; --r-md:12px; --r-lg:16px; --r-xl:22px; --r-pill:999px;
+
+  /* Shadow / glow */
+  --shadow-card:0 1px 0 rgba(255,255,255,.03) inset, 0 18px 40px -24px rgba(0,0,0,.8);
+  --glow-lime:0 0 0 1px rgba(142,255,1,.5), 0 8px 30px -8px var(--lime-glow);
+  --glow-purple:0 0 0 1px rgba(139,83,254,.5), 0 8px 30px -8px var(--purple-glow);
+
+  /* Type */
+  --font:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+  --serif:'Instrument Serif',Georgia,serif;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;font-family:var(--font);background:var(--bg);color:var(--text);
+  -webkit-font-smoothing:antialiased;line-height:1.5;
+  background-image:
+    radial-gradient(900px 500px at 12% -5%, rgba(142,255,1,.06), transparent 60%),
+    radial-gradient(900px 600px at 100% 0%, rgba(139,83,254,.08), transparent 55%);
+  background-attachment:fixed;
+}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--lime);color:#0a0e15}
+
+/* ===== App shell of the kit (sidebar + content) ===== */
+.kit{display:grid;grid-template-columns:268px 1fr;min-height:100vh}
+.kit-nav{
+  position:sticky;top:0;align-self:start;height:100vh;overflow:auto;
+  background:linear-gradient(180deg,#0c111a,#0a0e15);border-right:1px solid var(--border);
+  padding:24px 18px;
+}
+.brand{display:flex;align-items:center;gap:11px;margin:4px 6px 22px}
+.brand .dot{width:30px;height:30px;border-radius:9px;background:var(--lime);
+  box-shadow:var(--glow-lime);position:relative;flex:none}
+.brand .dot::after{content:"";position:absolute;inset:8px;border-radius:4px;background:#0a0e15}
+.brand b{font-size:17px;letter-spacing:-.3px}
+.brand .pulse{font-family:var(--serif);font-style:italic;color:var(--purple);font-weight:400}
+.nav-group{margin:18px 0 6px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-3);padding:0 8px}
+.nav a{display:flex;align-items:center;gap:9px;padding:8px 10px;border-radius:9px;color:var(--text-2);font-size:13.5px;font-weight:500}
+.nav a:hover{background:var(--surface);color:var(--text)}
+.nav a .i{width:7px;height:7px;border-radius:50%;background:var(--border-2);flex:none}
+.nav a:hover .i{background:var(--lime)}
+
+.kit-main{padding:46px 56px 120px;max-width:1280px}
+.kit-head{margin-bottom:8px}
+.kit-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--lime);
+  background:var(--lime-soft);border:1px solid rgba(142,255,1,.25);padding:5px 12px;border-radius:var(--r-pill)}
+.kit-title{font-size:44px;font-weight:800;letter-spacing:-1.4px;margin:18px 0 6px;line-height:1.05}
+.kit-title em{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--purple)}
+.kit-sub{color:var(--text-2);font-size:16px;max-width:720px}
+
+.section{margin-top:64px;scroll-margin-top:24px}
+.section > h2{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--text-3);
+  border-bottom:1px solid var(--border);padding-bottom:12px;margin:0 0 26px;font-weight:700}
+.s-title{font-size:22px;font-weight:700;letter-spacing:-.4px;margin:0 0 4px}
+.s-desc{color:var(--text-2);font-size:14px;margin:0 0 20px}
+
+/* ===== Generic reusable components (mirror of the real UI kit) ===== */
+.btn{display:inline-flex;align-items:center;gap:8px;height:42px;padding:0 18px;border-radius:var(--r-md);
+  font:600 14px/1 var(--font);border:1px solid transparent;cursor:pointer;transition:.18s ease;white-space:nowrap}
+.btn-primary{background:var(--lime);color:#0a0e15;box-shadow:0 6px 22px -10px var(--lime-glow)}
+.btn-primary:hover{background:var(--lime-600);box-shadow:var(--glow-lime);transform:translateY(-1px)}
+.btn-secondary{background:var(--purple-soft);color:#cbb6ff;border-color:rgba(139,83,254,.4)}
+.btn-secondary:hover{background:var(--purple);color:#fff;box-shadow:var(--glow-purple)}
+.btn-ghost{background:transparent;color:var(--text-2);border-color:var(--border-2)}
+.btn-ghost:hover{color:var(--text);border-color:var(--lime);background:var(--surface)}
+.btn-danger{background:var(--danger-soft);color:#ff8198;border-color:rgba(255,77,106,.4)}
+.btn-danger:hover{background:var(--danger);color:#fff}
+.btn-sm{height:34px;padding:0 13px;font-size:13px}
+.btn-icon{width:42px;padding:0;justify-content:center}
+
+.badge{display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 10px;border-radius:var(--r-pill);
+  font:600 12px/1 var(--font)}
+.badge-lime{background:var(--lime-soft);color:var(--lime);border:1px solid rgba(142,255,1,.3)}
+.badge-purple{background:var(--purple-soft);color:#b89bff;border:1px solid rgba(139,83,254,.35)}
+.badge-muted{background:var(--surface-3);color:var(--text-2);border:1px solid var(--border-2)}
+.badge-danger{background:var(--danger-soft);color:#ff8198;border:1px solid rgba(255,77,106,.35)}
+.badge-warn{background:var(--warning-soft);color:var(--warning);border:1px solid rgba(255,180,61,.35)}
+.dotb{width:6px;height:6px;border-radius:50%;background:currentColor}
+
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);box-shadow:var(--shadow-card)}
+.card-pad{padding:22px}
+
+.input,.select,.textarea{width:100%;background:var(--bg-2);border:1px solid var(--border-2);border-radius:var(--r-md);
+  color:var(--text);font:500 14px var(--font);padding:11px 13px;transition:.16s}
+.input::placeholder,.textarea::placeholder{color:var(--text-3)}
+.input:focus,.select:focus,.textarea:focus{outline:none;border-color:var(--lime);box-shadow:0 0 0 3px var(--lime-soft)}
+.textarea{min-height:96px;resize:vertical;font-family:var(--mono);font-size:13px}
+.field{margin-bottom:16px}
+.label{display:block;font-size:13px;font-weight:600;color:var(--text-2);margin-bottom:7px}
+.select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--text-3) 50%),linear-gradient(135deg,var(--text-3) 50%,transparent 50%);
+  background-position:calc(100% - 18px) 19px,calc(100% - 13px) 19px;background-size:5px 5px,5px 5px;background-repeat:no-repeat}
+
+.chip{display:inline-flex;align-items:center;gap:7px;height:32px;padding:0 13px;border-radius:var(--r-pill);
+  font:500 13px var(--font);background:var(--surface-2);border:1px solid var(--border-2);color:var(--text-2);cursor:pointer;transition:.15s}
+.chip:hover{border-color:var(--border-2);color:var(--text)}
+.chip.on{background:var(--lime-soft);border-color:rgba(142,255,1,.45);color:var(--lime)}
+.chip.on.pp{background:var(--purple-soft);border-color:rgba(139,83,254,.45);color:#b89bff}
+
+.table{width:100%;border-collapse:separate;border-spacing:0;font-size:14px}
+.table th{text-align:left;font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--text-3);font-weight:600;
+  padding:0 14px 11px}
+.table td{padding:13px 14px;border-top:1px solid var(--border)}
+.table tbody tr{transition:.12s}
+.table tbody tr:hover{background:var(--surface-2)}
+.t-name{font-weight:600}
+
+.progress{height:8px;background:var(--surface-3);border-radius:var(--r-pill);overflow:hidden}
+.progress > i{display:block;height:100%;border-radius:var(--r-pill);background:linear-gradient(90deg,var(--lime),var(--lime-600))}
+.progress.pp > i{background:linear-gradient(90deg,var(--purple),#a877ff)}
+
+.pagination{display:flex;gap:6px;align-items:center}
+.pagination a{min-width:36px;height:36px;display:inline-flex;align-items:center;justify-content:center;border-radius:9px;
+  border:1px solid var(--border-2);font-size:13.5px;font-weight:600;color:var(--text-2)}
+.pagination a:hover{border-color:var(--lime);color:var(--text)}
+.pagination a.on{background:var(--lime);border-color:var(--lime);color:#0a0e15}
+
+.avatar{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font-weight:700;color:#0a0e15;
+  background:linear-gradient(135deg,var(--lime),var(--lime-600));flex:none}
+.avatar.pp{background:linear-gradient(135deg,var(--purple),#a877ff);color:#fff}
+.avatar.lg{width:64px;height:64px;font-size:22px;border-radius:18px}
+
+/* ===== Browser frame for screen mockups ===== */
+.screen{margin-top:30px}
+.screen-meta{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:10px}
+.screen-meta .role{font-size:11.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:3px 9px;border-radius:6px}
+.role.student{background:var(--lime-soft);color:var(--lime)}
+.role.teacher{background:var(--purple-soft);color:#b89bff}
+.role.admin{background:var(--purple-soft);color:#cbb6ff}
+.role.public{background:var(--surface-3);color:var(--text-2)}
+.screen-meta .url{font-family:var(--mono);font-size:12.5px;color:var(--text-3)}
+.screen-meta .nm{font-weight:700;font-size:15px}
+
+.frame{border:1px solid var(--border-2);border-radius:14px;overflow:hidden;background:var(--bg);box-shadow:0 30px 80px -40px rgba(0,0,0,.9)}
+.frame-bar{display:flex;align-items:center;gap:8px;padding:11px 14px;background:#0c111a;border-bottom:1px solid var(--border)}
+.frame-bar .dots{display:flex;gap:6px}
+.frame-bar .dots i{width:11px;height:11px;border-radius:50%;background:var(--border-2)}
+.frame-bar .addr{flex:1;margin-left:8px;background:var(--bg);border:1px solid var(--border);border-radius:7px;
+  font-family:var(--mono);font-size:12px;color:var(--text-2);padding:6px 12px}
+.viewport{background:var(--bg);position:relative;
+  background-image:radial-gradient(700px 360px at 100% 0%, rgba(139,83,254,.05), transparent 60%)}
+.frame.mobile{max-width:390px}
+.frame.mobile .viewport{min-height:560px}
+
+/* ===== In-app layout primitives used inside frames ===== */
+.app{display:grid;grid-template-columns:230px 1fr}
+.sb{background:#0c111a;border-right:1px solid var(--border);padding:18px 14px;min-height:540px}
+.sb .b{display:flex;align-items:center;gap:9px;padding:4px 6px 18px;font-weight:700}
+.sb .b .dot{width:24px;height:24px;border-radius:7px;background:var(--lime);position:relative}
+.sb .b .dot::after{content:"";position:absolute;inset:6px;border-radius:3px;background:#0c111a}
+.sb a{display:flex;align-items:center;gap:10px;padding:9px 11px;border-radius:9px;color:var(--text-2);font-size:13.5px;font-weight:500;margin-bottom:2px}
+.sb a .ic{width:16px;height:16px;border-radius:5px;border:1.6px solid currentColor;opacity:.7;flex:none}
+.sb a:hover{background:var(--surface);color:var(--text)}
+.sb a.active{background:var(--lime-soft);color:var(--lime)}
+.sb a.active.pp{background:var(--purple-soft);color:#b89bff}
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;border-bottom:1px solid var(--border);background:rgba(12,17,26,.6)}
+.topbar .crumb{font-size:13px;color:var(--text-2)}
+.topbar .crumb b{color:var(--text)}
+.topbar .right{display:flex;align-items:center;gap:12px}
+.icon-btn{width:36px;height:36px;border-radius:9px;border:1px solid var(--border-2);display:grid;place-items:center;color:var(--text-2);cursor:pointer}
+.icon-btn:hover{border-color:var(--lime);color:var(--text)}
+.content{padding:26px 28px}
+.page-h{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:22px;flex-wrap:wrap}
+.page-h h1{font-size:26px;font-weight:800;letter-spacing:-.6px;margin:0 0 4px}
+.page-h p{color:var(--text-2);font-size:14px;margin:0}
+
+.grid{display:grid;gap:16px}
+.muted{color:var(--text-2)}
+.mut3{color:var(--text-3)}
+.mono{font-family:var(--mono)}
+.row{display:flex;align-items:center;gap:12px}
+.between{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.wrap{display:flex;flex-wrap:wrap;gap:10px}
+.stat{font-size:30px;font-weight:800;letter-spacing:-.5px}
+.tabbar{display:flex;gap:4px;border-bottom:1px solid var(--border);margin-bottom:20px}
+.tabbar a{padding:11px 14px;font-size:13.5px;font-weight:600;color:var(--text-2);border-bottom:2px solid transparent;margin-bottom:-1px}
+.tabbar a.on{color:var(--lime);border-color:var(--lime)}
+.tabbar a.on.pp{color:#b89bff;border-color:var(--purple)}
+
+/* swatches */
+.swatches{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px}
+.sw{border:1px solid var(--border);border-radius:var(--r-md);overflow:hidden;background:var(--surface)}
+.sw .c{height:78px}
+.sw .meta{padding:10px 12px}
+.sw .meta b{font-size:13px}
+.sw .meta span{display:block;font-family:var(--mono);font-size:11.5px;color:var(--text-3);margin-top:2px}
+
+.type-row{display:flex;align-items:baseline;gap:18px;padding:14px 0;border-top:1px solid var(--border)}
+.type-row:first-of-type{border-top:0}
+.type-row .tag{font-family:var(--mono);font-size:12px;color:var(--text-3);width:130px;flex:none}
+
+.cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.cards2{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.demo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px}
+
+.course-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:18px;transition:.18s;cursor:pointer}
+.course-card:hover{border-color:rgba(142,255,1,.4);transform:translateY(-3px);box-shadow:0 18px 40px -28px var(--lime-glow)}
+.course-card .ico{width:44px;height:44px;border-radius:12px;background:var(--lime-soft);color:var(--lime);display:grid;place-items:center;font-weight:800;margin-bottom:14px}
+.course-card.pp .ico{background:var(--purple-soft);color:#b89bff}
+
+.toast{display:flex;gap:12px;align-items:flex-start;background:var(--surface-2);border:1px solid var(--border-2);
+  border-left:3px solid var(--lime);border-radius:var(--r-md);padding:13px 15px;box-shadow:var(--shadow-card);max-width:380px}
+.toast .tt{font-weight:600;font-size:14px}
+.toast .tx{font-size:13px;color:var(--text-2)}
+.toast.err{border-left-color:var(--danger)}
+.toast.warn{border-left-color:var(--warning)}
+.toast.info{border-left-color:var(--purple)}
+
+.modal-demo{background:var(--bg-2);border-radius:var(--r-lg);padding:34px;border:1px solid var(--border);position:relative;overflow:hidden}
+.modal-demo::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(45deg,rgba(255,255,255,.015) 0 12px,transparent 12px 24px)}
+.modal{position:relative;max-width:440px;margin:0 auto;background:var(--surface);border:1px solid var(--border-2);border-radius:var(--r-lg);
+  box-shadow:0 40px 90px -30px #000,var(--glow-purple);overflow:hidden}
+.modal .mh{padding:20px 22px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+.modal .mb{padding:22px}
+.modal .mf{padding:16px 22px;border-top:1px solid var(--border);display:flex;justify-content:flex-end;gap:10px}
+
+.empty{text-align:center;padding:48px 20px}
+.empty .ill{width:88px;height:88px;border-radius:24px;margin:0 auto 18px;display:grid;place-items:center;
+  background:var(--surface-2);border:1px solid var(--border-2);color:var(--text-3)}
+.skel{background:linear-gradient(90deg,var(--surface) 25%,var(--surface-3) 37%,var(--surface) 63%);
+  background-size:400% 100%;animation:sk 1.4s ease infinite;border-radius:8px}
+@keyframes sk{0%{background-position:100% 0}100%{background-position:-100% 0}}
+.spinner{width:34px;height:34px;border-radius:50%;border:3px solid var(--surface-3);border-top-color:var(--lime);animation:sp 1s linear infinite;margin:0 auto}
+@keyframes sp{to{transform:rotate(360deg)}}
+
+/* code editor mock */
+.editor{background:#0b0f17;border:1px solid var(--border);border-radius:var(--r-md);font-family:var(--mono);font-size:13px;overflow:hidden}
+.editor .eh{display:flex;gap:6px;padding:9px 13px;border-bottom:1px solid var(--border);align-items:center}
+.editor .eh .t{font-size:12px;color:var(--text-2);padding:4px 10px;border-radius:6px;background:var(--surface-2)}
+.editor .body{padding:14px 0;line-height:1.7}
+.editor .ln{display:flex;padding:0 16px}
+.editor .ln .n{width:26px;color:var(--text-3);user-select:none}
+.kw{color:var(--purple)}.fn{color:var(--lime)}.st{color:#ffd479}.cm{color:var(--text-3)}.nm2{color:#79d0ff}
+
+.note{background:var(--purple-soft);border:1px solid rgba(139,83,254,.3);border-radius:var(--r-md);padding:14px 16px;font-size:13.5px;color:#cbb6ff}
+.note b{color:#e3d6ff}
+
+.legend{display:flex;flex-wrap:wrap;gap:10px;margin:-6px 0 18px}
+.legend span{font-size:12.5px;color:var(--text-2);display:inline-flex;align-items:center;gap:7px}
+.legend i{width:11px;height:11px;border-radius:3px}
+
+@media(max-width:1080px){
+  .kit{grid-template-columns:1fr}
+  .kit-nav{display:none}
+  .kit-main{padding:30px 20px 90px}
+  .cards3,.app{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div class="kit">
+  <!-- ============ NAV ============ -->
+  <aside class="kit-nav">
+    <div class="brand"><span class="dot"></span><b>Toxic<span class="pulse"> Pulse</span></b></div>
+    <div class="nav">
+      <div class="nav-group">Дизайн-система</div>
+      <a href="#colors"><span class="i"></span>Цвета и токены</a>
+      <a href="#type"><span class="i"></span>Типографика</a>
+      <a href="#components"><span class="i"></span>Компоненты</a>
+      <a href="#states"><span class="i"></span>Состояния и фидбэк</a>
+
+      <div class="nav-group">Гость</div>
+      <a href="#login"><span class="i"></span>Вход</a>
+      <a href="#register"><span class="i"></span>Регистрация</a>
+      <a href="#reset"><span class="i"></span>Сброс пароля</a>
+
+      <div class="nav-group">Студент</div>
+      <a href="#tasks"><span class="i"></span>Главная · список задач</a>
+      <a href="#task"><span class="i"></span>Страница задачи</a>
+      <a href="#profile"><span class="i"></span>Профиль · Прогресс</a>
+      <a href="#solutions"><span class="i"></span>Профиль · Решения</a>
+      <a href="#groups"><span class="i"></span>Профиль · Группы</a>
+      <a href="#group"><span class="i"></span>Страница группы</a>
+      <a href="#settings"><span class="i"></span>Настройки</a>
+
+      <div class="nav-group">Преподаватель</div>
+      <a href="#teacher"><span class="i"></span>Профиль · hub</a>
+      <a href="#editor"><span class="i"></span>Редактор задачи</a>
+      <a href="#teacher-catalogs"><span class="i"></span>Каталоги</a>
+      <a href="#teacher-groups"><span class="i"></span>Группы · прогресс</a>
+      <a href="#code-assembly"><span class="i"></span>Редактор code-assembly</a>
+
+      <div class="nav-group">Админ</div>
+      <a href="#admin"><span class="i"></span>Обзор</a>
+      <a href="#admin-users"><span class="i"></span>Пользователи</a>
+      <a href="#admin-user"><span class="i"></span>Карточка пользователя</a>
+
+      <div class="nav-group">Системные</div>
+      <a href="#mobile"><span class="i"></span>Мобильный адаптив</a>
+      <a href="#system"><span class="i"></span>404 и пустые состояния</a>
+    </div>
+  </aside>
+
+  <!-- ============ MAIN ============ -->
+  <main class="kit-main">
+    <header class="kit-head">
+      <span class="kit-eyebrow"><span class="dotb"></span>UI Kit · v1 · Dark</span>
+      <h1 class="kit-title">Toxic <em>Pulse</em> — макет платформы</h1>
+      <p class="kit-sub">Единая тёмная дизайн-система для платформы обучения программированию. Лайм <b style="color:var(--lime)">#8eff01</b> — основной акцент, фиолетовый <b style="color:#b89bff">#8b53fe</b> — вторичный, поверхности на базе <b>#1d2331</b>. React + Vite + Tailwind. Этот файл — визуальный референс для Cursor AI; токены и карта экранов в сопроводительной спецификации.</p>
+    </header>
+
+    <!-- ============ COLORS ============ -->
+    <section class="section" id="colors">
+      <h2>01 · Цвета и токены</h2>
+      <h3 class="s-title">Бренд-палитра</h3>
+      <p class="s-desc">Только эти три цвета — источник всех акцентов, кнопок, hover и выделений.</p>
+      <div class="swatches" style="margin-bottom:26px">
+        <div class="sw"><div class="c" style="background:var(--lime)"></div><div class="meta"><b>Lime / Primary</b><span>#8eff01 · accent-500</span></div></div>
+        <div class="sw"><div class="c" style="background:var(--purple)"></div><div class="meta"><b>Purple / Secondary</b><span>#8b53fe · accent-2</span></div></div>
+        <div class="sw"><div class="c" style="background:var(--surface-2)"></div><div class="meta"><b>Surface</b><span>#1d2331</span></div></div>
+      </div>
+
+      <h3 class="s-title">Нейтральная шкала (deep dark)</h3>
+      <p class="s-desc">Фон — глубокий тёмный, не чисто чёрный. Поверхности строятся слоями.</p>
+      <div class="swatches" style="margin-bottom:26px">
+        <div class="sw"><div class="c" style="background:var(--bg)"></div><div class="meta"><b>bg</b><span>#0a0e15</span></div></div>
+        <div class="sw"><div class="c" style="background:var(--bg-2)"></div><div class="meta"><b>bg-2</b><span>#0e131c</span></div></div>
+        <div class="sw"><div class="c" style="background:var(--surface)"></div><div class="meta"><b>surface</b><span>#141a24</span></div></div>
+        <div class="sw"><div class="c" style="background:var(--surface-2)"></div><div class="meta"><b>surface-2</b><span>#1d2331</span></div></div>
+        <div class="sw"><div class="c" style="background:var(--surface-3)"></div><div class="meta"><b>surface-3</b><span>#262e3e</span></div></div>
+        <div class="sw"><div class="c" style="background:var(--border-2)"></div><div class="meta"><b>border</b><span>#333d4f</span></div></div>
+        <div class="sw"><div class="c" style="background:var(--text-2)"></div><div class="meta"><b>text-2</b><span>#9aa6b6</span></div></div>
+        <div class="sw"><div class="c" style="background:var(--text)"></div><div class="meta"><b>text</b><span>#eef2f7</span></div></div>
+      </div>
+
+      <h3 class="s-title">Семантические цвета</h3>
+      <p class="s-desc">Success и info берутся из бренд-палитры. Danger и warning — функциональные цвета вне палитры: без красного нельзя корректно показать ошибки и удаление.</p>
+      <div class="swatches">
+        <div class="sw"><div class="c" style="background:var(--lime)"></div><div class="meta"><b>success</b><span>= lime #8eff01</span></div></div>
+        <div class="sw"><div class="c" style="background:var(--purple)"></div><div class="meta"><b>info</b><span>= purple #8b53fe</span></div></div>
+        <div class="sw"><div class="c" style="background:var(--danger)"></div><div class="meta"><b>danger</b><span>#ff4d6a · функц.</span></div></div>
+        <div class="sw"><div class="c" style="background:var(--warning)"></div><div class="meta"><b>warning</b><span>#ffb43d · функц.</span></div></div>
+      </div>
+      <div class="note" style="margin-top:18px"><b>Цвета ролей:</b> студент — лайм (основной), преподаватель и админ — фиолетовый (вторичный). Различие тонкое: один и тот же UI, меняется только цвет активного акцента сайдбара и бейджа роли.</div>
+    </section>
+
+    <!-- ============ TYPOGRAPHY ============ -->
+    <section class="section" id="type">
+      <h2>02 · Типографика</h2>
+      <h3 class="s-title">Шрифты</h3>
+      <p class="s-desc"><b>Inter</b> — весь интерфейс. <b>JetBrains Mono</b> — код, метрики, ID. <b>Instrument Serif</b> (italic) — только бренд-акценты и hero-заголовки.</p>
+      <div class="card card-pad">
+        <div class="type-row"><span class="tag">Display · 44/800</span><div style="font-size:44px;font-weight:800;letter-spacing:-1.4px">Учись писать <em style="font-family:var(--serif);font-style:italic;font-weight:400;color:var(--purple)">код</em></div></div>
+        <div class="type-row"><span class="tag">H1 · 26/800</span><div style="font-size:26px;font-weight:800;letter-spacing:-.6px">Список задач</div></div>
+        <div class="type-row"><span class="tag">H2 · 22/700</span><div style="font-size:22px;font-weight:700;letter-spacing:-.4px">Структура курса</div></div>
+        <div class="type-row"><span class="tag">H3 · 18/600</span><div style="font-size:18px;font-weight:600">Двоичный поиск</div></div>
+        <div class="type-row"><span class="tag">Body · 14/400</span><div style="font-size:14px;color:var(--text-2)">Решите задачу и запустите тесты. Все примеры приведены ниже в условии.</div></div>
+        <div class="type-row"><span class="tag">Caption · 12/600</span><div style="font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--text-3)">Сложность · Средняя</div></div>
+        <div class="type-row"><span class="tag">Mono · 13</span><div class="mono" style="font-size:13px;color:var(--lime)">def binary_search(arr, x):</div></div>
+      </div>
+    </section>
+
+    <!-- ============ COMPONENTS ============ -->
+    <section class="section" id="components">
+      <h2>03 · Компоненты</h2>
+
+      <h3 class="s-title">Кнопки</h3>
+      <p class="s-desc">Primary — лайм (главное действие, одно на экран). Secondary — фиолетовый. Ghost — нейтральная. Danger — деструктив.</p>
+      <div class="card card-pad" style="margin-bottom:26px">
+        <div class="wrap" style="align-items:center">
+          <button class="btn btn-primary">Продолжить обучение</button>
+          <button class="btn btn-secondary">Профиль ученика</button>
+          <button class="btn btn-ghost">Отмена</button>
+          <button class="btn btn-danger">Удалить</button>
+          <button class="btn btn-primary btn-sm">Запуск</button>
+          <button class="btn btn-ghost btn-icon">+</button>
+        </div>
+      </div>
+
+      <h3 class="s-title">Бейджи и статусы</h3>
+      <div class="card card-pad" style="margin-bottom:26px">
+        <div class="wrap">
+          <span class="badge badge-lime"><span class="dotb"></span>Решено</span>
+          <span class="badge badge-purple"><span class="dotb"></span>В процессе</span>
+          <span class="badge badge-muted"><span class="dotb"></span>Не начато</span>
+          <span class="badge badge-danger"><span class="dotb"></span>Ошибка тестов</span>
+          <span class="badge badge-warn"><span class="dotb"></span>На проверке</span>
+          <span class="badge badge-purple">Python</span>
+          <span class="badge badge-muted">Лёгкая</span>
+        </div>
+      </div>
+
+      <h3 class="s-title">Формы</h3>
+      <div class="cards2" style="margin-bottom:26px">
+        <div class="card card-pad">
+          <div class="field"><label class="label">Email</label><input class="input" placeholder="you@example.com" value="vlada@code.dev"></div>
+          <div class="field"><label class="label">Язык</label><select class="select"><option>Python</option><option>JavaScript</option><option>C++</option></select></div>
+          <div class="field" style="margin:0"><label class="label">Заметка к решению</label><textarea class="textarea">// разбор сложности O(log n)</textarea></div>
+        </div>
+        <div class="card card-pad">
+          <label class="label">Фильтр по сложности (chips)</label>
+          <div class="wrap" style="margin-bottom:18px"><span class="chip on">Все</span><span class="chip">Лёгкая</span><span class="chip on pp">Средняя</span><span class="chip">Сложная</span></div>
+          <label class="label">Паттерны</label>
+          <div class="wrap"><span class="chip">Two pointers</span><span class="chip on">Бинарный поиск</span><span class="chip">DP</span><span class="chip">Графы</span></div>
+          <label class="label" style="margin-top:18px">Поиск</label>
+          <input class="input" placeholder="Найти задачу…">
+        </div>
+      </div>
+
+      <h3 class="s-title">Карточки</h3>
+      <div class="demo-grid" style="margin-bottom:26px">
+        <div class="course-card"><div class="ico">Py</div><b>Основы Python</b><p class="muted" style="font-size:13px;margin:6px 0 14px">24 урока · 60 задач</p><div class="progress"><i style="width:65%"></i></div><p class="mut3" style="font-size:12px;margin:8px 0 0">65% пройдено</p></div>
+        <div class="course-card pp"><div class="ico">JS</div><b>Алгоритмы на JS</b><p class="muted" style="font-size:13px;margin:6px 0 14px">18 уроков · 42 задачи</p><div class="progress pp"><i style="width:30%"></i></div><p class="mut3" style="font-size:12px;margin:8px 0 0">30% пройдено</p></div>
+        <div class="course-card"><div class="ico">DS</div><b>Структуры данных</b><p class="muted" style="font-size:13px;margin:6px 0 14px">30 уроков · 88 задач</p><div class="progress"><i style="width:12%"></i></div><p class="mut3" style="font-size:12px;margin:8px 0 0">12% пройдено</p></div>
+      </div>
+
+      <h3 class="s-title">Таблица и пагинация</h3>
+      <div class="card card-pad">
+        <table class="table">
+          <thead><tr><th>Задача</th><th>Тип</th><th>Язык</th><th>Сложность</th><th>Статус</th></tr></thead>
+          <tbody>
+            <tr><td class="t-name">Двоичный поиск</td><td class="muted">Алгоритм</td><td class="muted">Python</td><td><span class="badge badge-muted">Лёгкая</span></td><td><span class="badge badge-lime"><span class="dotb"></span>Решено</span></td></tr>
+            <tr><td class="t-name">Сумма двух чисел</td><td class="muted">Алгоритм</td><td class="muted">JS</td><td><span class="badge badge-muted">Лёгкая</span></td><td><span class="badge badge-purple"><span class="dotb"></span>В процессе</span></td></tr>
+            <tr><td class="t-name">Перевод в двоичную</td><td class="muted">Translation</td><td class="muted">C++</td><td><span class="badge badge-warn">Средняя</span></td><td><span class="badge badge-muted"><span class="dotb"></span>Не начато</span></td></tr>
+          </tbody>
+        </table>
+        <div class="between" style="margin-top:18px">
+          <span class="mut3" style="font-size:13px">1–3 из 128</span>
+          <div class="pagination"><a>‹</a><a class="on">1</a><a>2</a><a>3</a><a>…</a><a>9</a><a>›</a></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ STATES ============ -->
+    <section class="section" id="states">
+      <h2>04 · Состояния и фидбэк</h2>
+      <div class="cards2">
+        <div>
+          <h3 class="s-title">Toast / уведомления</h3>
+          <div class="grid" style="gap:12px">
+            <div class="toast"><span class="badge badge-lime btn-icon" style="height:26px;width:26px;padding:0;justify-content:center">✓</span><div><div class="tt">Решение принято</div><div class="tx">Все 12 тестов пройдены.</div></div></div>
+            <div class="toast err"><span style="color:var(--danger);font-weight:800">!</span><div><div class="tt">Тест №4 не пройден</div><div class="tx">Ожидалось 8, получено 6.</div></div></div>
+            <div class="toast info"><span style="color:var(--purple);font-weight:800">i</span><div><div class="tt">Назначен новый сборник</div><div class="tx">Преподаватель добавил 5 задач.</div></div></div>
+          </div>
+        </div>
+        <div>
+          <h3 class="s-title">Загрузка</h3>
+          <div class="card card-pad" style="margin-bottom:16px">
+            <div class="skel" style="height:14px;width:60%;margin-bottom:10px"></div>
+            <div class="skel" style="height:14px;width:90%;margin-bottom:10px"></div>
+            <div class="skel" style="height:14px;width:75%"></div>
+          </div>
+          <div class="card card-pad" style="display:grid;place-items:center;gap:12px"><div class="spinner"></div><span class="muted" style="font-size:13px">Запуск тестов…</span></div>
+        </div>
+      </div>
+
+      <div class="cards2" style="margin-top:20px">
+        <div>
+          <h3 class="s-title">Пустое состояние</h3>
+          <div class="card">
+            <div class="empty">
+              <div class="ill" style="font-size:30px">∅</div>
+              <b style="font-size:16px">Пока нет решённых задач</b>
+              <p class="muted" style="font-size:13.5px;margin:8px auto 18px;max-width:280px">Начните с лёгкой задачи — прогресс появится здесь автоматически.</p>
+              <button class="btn btn-primary">К списку задач</button>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h3 class="s-title">Модальное окно</h3>
+          <div class="modal-demo">
+            <div class="modal">
+              <div class="mh"><b style="font-size:16px">Удалить каталог?</b><span class="icon-btn">✕</span></div>
+              <div class="mb"><p class="muted" style="margin:0;font-size:14px">Каталог «Алгоритмы · весна» и связи с группами будут удалены. Задачи останутся в общем списке.</p></div>
+              <div class="mf"><button class="btn btn-ghost btn-sm">Отмена</button><button class="btn btn-danger btn-sm">Удалить</button></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ AUTH ============ -->
+    <section class="section" id="login">
+      <h2>05 · Гость — аутентификация</h2>
+
+      <div class="screen">
+        <div class="screen-meta"><span class="role public">Public</span><span class="nm">Вход</span><span class="url">/login</span></div>
+        <div class="frame">
+          <div class="frame-bar"><div class="dots"><i></i><i></i><i></i></div><div class="addr">toxicpulse.dev/login</div></div>
+          <div class="viewport" style="display:grid;grid-template-columns:1.05fr .95fr;min-height:520px">
+            <!-- left brand -->
+            <div style="padding:48px;display:flex;flex-direction:column;justify-content:space-between;border-right:1px solid var(--border);
+              background:radial-gradient(500px 300px at 0% 0%,rgba(142,255,1,.1),transparent 60%),radial-gradient(500px 360px at 100% 100%,rgba(139,83,254,.12),transparent 60%)">
+              <div class="brand"><span class="dot"></span><b>Toxic<span class="pulse"> Pulse</span></b></div>
+              <div>
+                <div style="font-size:34px;font-weight:800;letter-spacing:-1px;line-height:1.1">Тренажёр, который<br>учит писать <em style="font-family:var(--serif);font-style:italic;font-weight:400;color:var(--lime)">код</em></div>
+                <p class="muted" style="margin-top:14px;max-width:340px;font-size:14px">Задачи, автоматические тесты и прогресс — в одном тёмном минималистичном интерфейсе.</p>
+                <div class="wrap" style="margin-top:22px"><span class="badge badge-lime">600+ задач</span><span class="badge badge-purple">3 языка</span><span class="badge badge-muted">Авто-проверка</span></div>
+              </div>
+              <span class="mut3" style="font-size:12px">© 2026 Toxic Pulse</span>
+            </div>
+            <!-- right form -->
+            <div style="padding:48px;display:flex;align-items:center">
+              <div style="width:100%;max-width:340px;margin:0 auto">
+                <h1 style="font-size:24px;font-weight:800;margin:0 0 6px">С возвращением</h1>
+                <p class="muted" style="font-size:14px;margin:0 0 24px">Войдите, чтобы продолжить обучение.</p>
+                <div class="field"><label class="label">Email</label><input class="input" placeholder="you@example.com"></div>
+                <div class="field"><label class="label">Пароль</label><input class="input" type="password" placeholder="••••••••"></div>
+                <div class="between" style="margin:4px 0 20px"><label class="row" style="font-size:13px;color:var(--text-2);gap:8px"><span style="width:16px;height:16px;border-radius:5px;border:1.6px solid var(--border-2);display:inline-block"></span>Запомнить меня</label><a href="#reset" style="font-size:13px;color:var(--lime);font-weight:600">Забыли пароль?</a></div>
+                <button class="btn btn-primary" style="width:100%;justify-content:center">Войти</button>
+                <p class="muted" style="text-align:center;font-size:13.5px;margin-top:20px">Нет аккаунта? <a href="#register" style="color:#b89bff;font-weight:600">Зарегистрироваться</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="screen" id="register">
+        <div class="screen-meta"><span class="role public">Public</span><span class="nm">Регистрация студента</span><span class="url">/register</span></div>
+        <div class="frame">
+          <div class="frame-bar"><div class="dots"><i></i><i></i><i></i></div><div class="addr">toxicpulse.dev/register</div></div>
+          <div class="viewport" style="display:grid;place-items:center;padding:46px">
+            <div style="width:100%;max-width:380px">
+              <div class="brand" style="justify-content:center;margin-bottom:18px"><span class="dot"></span><b>Toxic<span class="pulse"> Pulse</span></b></div>
+              <h1 style="font-size:24px;font-weight:800;text-align:center;margin:0 0 6px">Создать аккаунт</h1>
+              <p class="muted" style="font-size:14px;text-align:center;margin:0 0 24px">Бесплатно. Старт за минуту.</p>
+              <div class="field"><label class="label">Имя</label><input class="input" placeholder="Влада"></div>
+              <div class="field"><label class="label">Email</label><input class="input" placeholder="you@example.com"></div>
+              <div class="field"><label class="label">Пароль</label><input class="input" type="password" placeholder="Минимум 8 символов"></div>
+              <div class="field"><label class="label">Инвайт-код группы <span class="mut3">(необязательно)</span></label><input class="input mono" placeholder="GRP-7K2A"></div>
+              <button class="btn btn-primary" style="width:100%;justify-content:center;margin-top:6px">Зарегистрироваться</button>
+              <p class="mut3" style="font-size:12px;text-align:center;margin:14px 0 0">Регистрируясь, вы принимаете условия использования</p>
+              <p class="muted" style="text-align:center;font-size:13.5px;margin-top:18px">Уже есть аккаунт? <a href="#login" style="color:var(--lime);font-weight:600">Войти</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="screen" id="reset">
+        <div class="screen-meta"><span class="role public">Public</span><span class="nm">Восстановление пароля</span><span class="url">/reset-password</span></div>
+        <div class="frame">
+          <div class="frame-bar"><div class="dots"><i></i><i></i><i></i></div><div class="addr">toxicpulse.dev/reset-password</div></div>
+          <div class="viewport" style="display:grid;place-items:center;padding:46px;min-height:380px">
+            <div style="width:100%;max-width:360px;text-align:center">
+              <div class="ill" style="width:64px;height:64px;border-radius:18px;margin:0 auto 18px;background:var(--lime-soft);border:1px solid rgba(142,255,1,.3);color:var(--lime);display:grid;place-items:center;font-size:26px">↻</div>
+              <h1 style="font-size:22px;font-weight:800;margin:0 0 6px">Сброс пароля</h1>
+              <p class="muted" style="font-size:14px;margin:0 0 22px">Введите email — пришлём ссылку для восстановления.</p>
+              <div class="field" style="text-align:left"><label class="label">Email</label><input class="input" placeholder="you@example.com"></div>
+              <button class="btn btn-primary" style="width:100%;justify-content:center">Отправить ссылку</button>
+              <a href="#login" style="display:inline-block;margin-top:18px;font-size:13.5px;color:var(--text-2)">← Назад ко входу</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ STUDENT — TASKS HOME ============ -->
+    <section class="section" id="tasks">
+      <h2>06 · Студент — главная (список задач)</h2>
+      <p class="s-desc">Шапка «Тренажёр / Список задач», кнопки «Продолжить обучение» и «Профиль ученика», фильтры (тип, язык, сложность, паттерны), таблица задач и панель сборников (AssignmentSetsPanel) справа.</p>
+      <div class="screen">
+        <div class="screen-meta"><span class="role student">Student</span><span class="nm">Список задач</span><span class="url">/</span></div>
+        <div class="frame">
+          <div class="frame-bar"><div class="dots"><i></i><i></i><i></i></div><div class="addr">toxicpulse.dev/</div></div>
+          <div class="viewport">
+            <div class="app">
+              <!-- sidebar -->
+              <nav class="sb">
+                <div class="b"><span class="dot"></span>Toxic Pulse</div>
+                <a class="active"><span class="ic"></span>Список задач</a>
+                <a><span class="ic"></span>Профиль</a>
+                <a><span class="ic"></span>Мои группы</a>
+                <a><span class="ic"></span>Прогресс</a>
+                <a><span class="ic"></span>Настройки</a>
+                <div style="margin-top:auto;padding-top:24px"></div>
+                <div class="card card-pad" style="padding:14px;margin-top:24px">
+                  <div class="mono" style="font-size:11px;color:var(--text-3)">Серия дней</div>
+                  <div class="row" style="margin-top:4px"><span class="stat" style="font-size:22px;color:var(--lime)">7</span><span class="muted" style="font-size:12px">🔥 дней подряд</span></div>
+                </div>
+              </nav>
+              <!-- main -->
+              <div>
+                <div class="topbar">
+                  <div class="crumb">Тренажёр / <b>Список задач</b></div>
+                  <div class="right">
+                    <input class="input" style="width:220px;height:36px;padding:7px 12px" placeholder="Поиск задачи…">
+                    <span class="icon-btn">🔔</span>
+                    <span class="avatar" style="width:36px;height:36px;font-size:14px">В</span>
+                  </div>
+                </div>
+                <div class="content">
+                  <div class="page-h">
+                    <div><h1>Список задач</h1><p>Решено 128 из 600 · средняя сложность растёт</p></div>
+                    <div class="wrap"><button class="btn btn-secondary btn-sm">Профиль ученика</button><button class="btn btn-primary btn-sm">▸ Продолжить обучение</button></div>
+                  </div>
+
+                  <!-- filters -->
+                  <div class="card card-pad" style="padding:16px;margin-bottom:18px">
+                    <div class="wrap" style="gap:8px">
+                      <span class="chip on">Все типы</span><span class="chip">Алгоритм</span><span class="chip">Translation</span><span class="chip">Diagram</span><span class="chip">Block</span>
+                      <span style="width:1px;background:var(--border);margin:0 4px"></span>
+                      <span class="chip on pp">Python</span><span class="chip">JS</span><span class="chip">C++</span>
+                      <span style="width:1px;background:var(--border);margin:0 4px"></span>
+                      <span class="chip">Лёгкая</span><span class="chip on">Средняя</span><span class="chip">Сложная</span>
+                    </div>
+                  </div>
+
+                  <div style="display:grid;grid-template-columns:1fr 290px;gap:18px;align-items:start">
+                    <!-- task table -->
+                    <div class="card card-pad">
+                      <table class="table">
+                        <thead><tr><th style="width:34px"></th><th>Задача</th><th>Тип</th><th>Сложность</th><th>Статус</th></tr></thead>
+                        <tbody>
+                          <tr><td><span class="badge badge-lime btn-icon" style="width:24px;height:24px;padding:0;justify-content:center">✓</span></td><td class="t-name">Двоичный поиск</td><td class="muted">Алгоритм</td><td><span class="badge badge-muted">Лёгкая</span></td><td><span class="badge badge-lime"><span class="dotb"></span>Решено</span></td></tr>
+                          <tr><td><span style="width:24px;height:24px;border-radius:50%;border:2px solid var(--purple);display:inline-block"></span></td><td class="t-name">Сумма двух чисел</td><td class="muted">Алгоритм</td><td><span class="badge badge-warn">Средняя</span></td><td><span class="badge badge-purple"><span class="dotb"></span>В процессе</span></td></tr>
+                          <tr><td><span style="width:24px;height:24px;border-radius:50%;border:2px dashed var(--border-2);display:inline-block"></span></td><td class="t-name">Перевод в двоичную систему</td><td class="muted">Translation</td><td><span class="badge badge-warn">Средняя</span></td><td><span class="badge badge-muted"><span class="dotb"></span>Не начато</span></td></tr>
+                          <tr><td><span style="width:24px;height:24px;border-radius:50%;border:2px dashed var(--border-2);display:inline-block"></span></td><td class="t-name">Сортировка слиянием</td><td class="muted">Block</td><td><span class="badge badge-danger">Сложная</span></td><td><span class="badge badge-muted"><span class="dotb"></span>Не начато</span></td></tr>
+                          <tr><td><span class="badge badge-lime btn-icon" style="width:24px;height:24px;padding:0;justify-content:center">✓</span></td><td class="t-name">Блок-схема цикла</td><td class="muted">Diagram</td><td><span class="badge badge-muted">Лёгкая</span></td><td><span class="badge badge-lime"><span class="dotb"></span>Решено</span></td></tr>
+                        </tbody>
+                      </table>
+                      <div class="between" style="margin-top:16px"><span class="mut3" style="font-size:13px">1–5 из 128</span><div class="pagination"><a>‹</a><a class="on">1</a><a>2</a><a>3</a><a>›</a></div></div>
+                    </div>
+                    <!-- AssignmentSetsPanel -->
+                    <aside class="card card-pad">
+                      <div class="between" style="margin-bottom:14px"><b style="font-size:15px">Сборники</b><span class="badge badge-purple">3</span></div>
+                      <div class="grid" style="gap:10px">
+                        <div style="border:1px solid var(--border);border-radius:12px;padding:13px">
+                          <div class="row" style="justify-content:space-between"><b style="font-size:13.5px">Алгоритмы · весна</b><span class="badge badge-lime">8/12</span></div>
+                          <div class="progress" style="margin-top:10px"><i style="width:66%"></i></div>
+                        </div>
+                        <div style="border:1px solid var(--border);border-radius:12px;padding:13px">
+                          <div class="row" style="justify-content:space-between"><b style="font-size:13.5px">Строки и массивы</b><span class="badge badge-purple">2/9</span></div>
+                          <div class="progress pp" style="margin-top:10px"><i style="width:22%"></i></div>
+                        </div>
+                        <div style="border:1px dashed var(--border-2);border-radius:12px;padding:13px;text-align:center">
+                          <span class="muted" style="font-size:13px">+ Ввести инвайт-код</span>
+                        </div>
+                      </div>
+                    </aside>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ STUDENT — TASK PAGE (split view) ============ -->
+    <section class="section" id="task">
+      <h2>07 · Студент — страница задачи (самый сложный экран)</h2>
+      <p class="s-desc">Split-view: шапка с навигацией (← каталог, → следующая), слева условие/примеры, справа редактор (Monaco), по центру кнопка «Запуск», снизу панель тестов (TestPanel).</p>
+      <div class="screen">
+        <div class="screen-meta"><span class="role student">Student</span><span class="nm">Решение задачи</span><span class="url">/tasks/:id</span></div>
+        <div class="frame">
+          <div class="frame-bar"><div class="dots"><i></i><i></i><i></i></div><div class="addr">toxicpulse.dev/tasks/42</div></div>
+          <div class="viewport">
+            <!-- TaskHeader -->
+            <div class="topbar" style="padding:12px 20px">
+              <div class="row"><button class="btn btn-ghost btn-sm">← Каталог</button><div class="crumb">Алгоритмы / <b>Двоичный поиск</b></div><span class="badge badge-warn">Средняя</span><span class="badge badge-purple">Python</span></div>
+              <div class="row"><span class="muted" style="font-size:13px">Задача 12 из 60</span><button class="btn btn-ghost btn-sm">Следующая →</button></div>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1.15fr;min-height:470px">
+              <!-- TaskLeftPanel -->
+              <div style="padding:24px 26px;border-right:1px solid var(--border);overflow:auto">
+                <h2 style="font-size:20px;font-weight:800;margin:0 0 12px">Двоичный поиск</h2>
+                <p class="muted" style="font-size:14px;margin:0 0 16px">Дан отсортированный массив целых чисел <span class="mono" style="color:var(--lime)">arr</span> и число <span class="mono" style="color:var(--lime)">x</span>. Верните индекс <span class="mono">x</span> или −1, если элемента нет. Сложность — <b style="color:var(--text)">O(log n)</b>.</p>
+                <div style="font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--text-3);margin:18px 0 8px">Пример 1</div>
+                <div class="editor"><div class="body">
+                  <div class="ln"><span class="n">›</span><span class="cm">Вход:&nbsp;</span><span class="nm2">&nbsp;arr=[1,3,5,7,9], x=5</span></div>
+                  <div class="ln"><span class="n">›</span><span class="cm">Выход:</span><span class="fn">&nbsp;2</span></div>
+                </div></div>
+                <div style="font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--text-3);margin:18px 0 8px">Ограничения</div>
+                <ul class="muted" style="font-size:13.5px;margin:0;padding-left:18px;line-height:1.9"><li>1 ≤ n ≤ 10⁵</li><li>массив отсортирован по возрастанию</li><li>−10⁹ ≤ arr[i] ≤ 10⁹</li></ul>
+              </div>
+              <!-- TaskRightPanel -->
+              <div style="display:flex;flex-direction:column">
+                <!-- editor type tabs -->
+                <div class="row" style="gap:6px;padding:12px 16px;border-bottom:1px solid var(--border)">
+                  <span class="chip on" style="height:28px">Код (Monaco)</span><span class="chip" style="height:28px">Блоки</span><span class="chip" style="height:28px">Блок-схема</span>
+                  <select class="select" style="margin-left:auto;width:120px;height:30px;padding:4px 12px;font-size:12.5px"><option>Python 3</option></select>
+                </div>
+                <div class="editor" style="border:0;border-radius:0;flex:1"><div class="body">
+                  <div class="ln"><span class="n">1</span><span class="kw">def</span>&nbsp;<span class="fn">binary_search</span>(arr, x):</div>
+                  <div class="ln"><span class="n">2</span>&nbsp;&nbsp;&nbsp;&nbsp;lo, hi = <span class="nm2">0</span>, <span class="fn">len</span>(arr) - <span class="nm2">1</span></div>
+                  <div class="ln"><span class="n">3</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">while</span>&nbsp;lo &lt;= hi:</div>
+                  <div class="ln"><span class="n">4</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mid = (lo + hi) // <span class="nm2">2</span></div>
+                  <div class="ln"><span class="n">5</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">if</span>&nbsp;arr[mid] == x: <span class="kw">return</span>&nbsp;mid</div>
+                  <div class="ln"><span class="n">6</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">elif</span>&nbsp;arr[mid] &lt; x: lo = mid + <span class="nm2">1</span></div>
+                  <div class="ln"><span class="n">7</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">else</span>: hi = mid - <span class="nm2">1</span></div>
+                  <div class="ln"><span class="n">8</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="kw">return</span>&nbsp;-<span class="nm2">1</span></div>
+                </div></div>
+                <!-- run bar -->
+                <div class="between" style="padding:12px 16px;border-top:1px solid var(--border);background:#0c111a">
+                  <span class="muted" style="font-size:13px">Автосохранение · 11:42</span>
+                  <div class="row"><button class="btn btn-ghost btn-sm">Сбросить</button><button class="btn btn-primary">▸ Запуск</button></div>
+                </div>
+                <!-- TestPanel -->
+                <div style="padding:14px 16px;border-top:1px solid var(--border);background:var(--surface)">
+                  <div class="between" style="margin-bottom:10px"><b style="font-size:13.5px">Тесты</b><span class="badge badge-lime"><span class="dotb"></span>11 / 12 пройдено</span></div>
+                  <div class="wrap" style="gap:6px">
+                    <span class="badge badge-lime btn-icon" style="width:26px;height:26px;padding:0;justify-content:center">1</span>
+                    <span class="badge badge-lime btn-icon" style="width:26px;height:26px;padding:0;justify-content:center">2</span>
+                    <span class="badge badge-lime btn-icon" style="width:26px;height:26px;padding:0;justify-content:center">3</span>
+                    <span class="badge badge-danger btn-icon" style="width:26px;height:26px;padding:0;justify-content:center">4</span>
+                    <span class="badge badge-lime btn-icon" style="width:26px;height:26px;padding:0;justify-content:center">5</span>
+                    <span class="badge badge-muted btn-icon" style="width:26px;height:26px;padding:0;justify-content:center">…</span>
+                  </div>
+                  <div class="toast err" style="margin-top:12px;max-width:none"><span style="color:var(--danger);font-weight:800">!</span><div><div class="tt" style="font-size:13px">Тест №4 не пройден</div><div class="tx" style="font-size:12.5px">arr=[2,4,6,8], x=8 → ожидалось 3, получено −1</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ STUDENT — PROFILE ============ -->
+    <section class="section" id="profile">
+      <h2>08 · Студент — профиль (Прогресс / Решения / Группы)</h2>
+      <p class="s-desc">Одна страница с тремя вкладками. Слева — карточка с аватаром и статистикой, справа — график активности и контент активной вкладки.</p>
+      <div class="screen">
+        <div class="screen-meta"><span class="role student">Student</span><span class="nm">Профиль · вкладка «Прогресс»</span><span class="url">/student/profile</span></div>
+        <div class="frame">
+          <div class="frame-bar"><div class="dots"><i></i><i></i><i></i></div><div class="addr">toxicpulse.dev/student/profile</div></div>
+          <div class="viewport">
+            <div class="app">
+              <nav class="sb">
+                <div class="b"><span class="dot"></span>Toxic Pulse</div>
+                <a><span class="ic"></span>Список задач</a>
+                <a class="active"><span class="ic"></span>Профиль</a>
+                <a><span class="ic"></span>Мои группы</a>
+                <a><span class="ic"></span>Прогресс</a>
+                <a><span class="ic"></span>Настройки</a>
+              </nav>
+              <div>
+                <div class="topbar"><div class="crumb">Тренажёр / <b>Профиль</b></div><div class="right"><span class="icon-btn">🔔</span><span class="avatar" style="width:36px;height:36px;font-size:14px">В</span></div></div>
+                <div class="content">
+                  <div style="display:grid;grid-template-columns:260px 1fr;gap:20px;align-items:start">
+                    <!-- stats sidebar -->
+                    <aside class="card card-pad" style="text-align:center">
+                      <div class="avatar lg" style="margin:0 auto 12px">В</div>
+                      <b style="font-size:17px">Влада Максимова</b>
+                      <p class="mut3" style="font-size:13px;margin:4px 0 14px">@vlada · Студент</p>
+                      <span class="badge badge-lime" style="margin-bottom:18px">Уровень 6 · Junior</span>
+                      <div class="grid" style="gap:0;text-align:left;margin-top:8px">
+                        <div class="between" style="padding:11px 0;border-top:1px solid var(--border)"><span class="muted" style="font-size:13px">Решено задач</span><b>128</b></div>
+                        <div class="between" style="padding:11px 0;border-top:1px solid var(--border)"><span class="muted" style="font-size:13px">Серия дней</span><b style="color:var(--lime)">7 🔥</b></div>
+                        <div class="between" style="padding:11px 0;border-top:1px solid var(--border)"><span class="muted" style="font-size:13px">Точность</span><b>82%</b></div>
+                        <div class="between" style="padding:11px 0;border-top:1px solid var(--border)"><span class="muted" style="font-size:13px">Групп</span><b>2</b></div>
+                      </div>
+                    </aside>
+                    <!-- main -->
+                    <div>
+                      <!-- activity chart -->
+                      <div class="card card-pad" style="margin-bottom:18px">
+                        <div class="between" style="margin-bottom:16px"><b style="font-size:15px">Активность за 12 недель</b><span class="badge badge-purple">+18% к прошлому месяцу</span></div>
+                        <div style="display:flex;align-items:flex-end;gap:6px;height:96px">
+                          <div style="flex:1;background:var(--lime);height:40%;border-radius:5px"></div>
+                          <div style="flex:1;background:var(--lime);height:55%;border-radius:5px"></div>
+                          <div style="flex:1;background:var(--surface-3);height:25%;border-radius:5px"></div>
+                          <div style="flex:1;background:var(--lime);height:70%;border-radius:5px"></div>
+                          <div style="flex:1;background:var(--lime);height:90%;border-radius:5px"></div>
+                          <div style="flex:1;background:var(--purple);height:60%;border-radius:5px"></div>
+                          <div style="flex:1;background:var(--lime);height:48%;border-radius:5px"></div>
+                          <div style="flex:1;background:var(--surface-3);height:18%;border-radius:5px"></div>
+                          <div style="flex:1;background:var(--lime);height:80%;border-radius:5px"></div>
+                          <div style="flex:1;background:var(--lime);height:100%;border-radius:5px"></div>
+                          <div style="flex:1;background:var(--purple);height:52%;border-radius:5px"></div>
+                          <div style="flex:1;background:var(--lime);height:66%;border-radius:5px"></div>
+                        </div>
+                      </div>
+                      <!-- tabs -->
+                      <div class="tabbar"><a class="on">Прогресс</a><a>Мои решения</a><a>Группы</a></div>
+                      <!-- StudentProgressPanel -->
+                      <div class="cards2" style="margin-bottom:16px">
+                        <div class="card card-pad">
+                          <b style="font-size:14px">Навыки</b>
+                          <div style="margin-top:14px">
+                            <div class="between" style="font-size:13px;margin-bottom:6px"><span class="muted">Алгоритмы</span><span class="mono" style="color:var(--lime)">78%</span></div>
+                            <div class="progress" style="margin-bottom:14px"><i style="width:78%"></i></div>
+                            <div class="between" style="font-size:13px;margin-bottom:6px"><span class="muted">Структуры данных</span><span class="mono" style="color:#b89bff">54%</span></div>
+                            <div class="progress pp" style="margin-bottom:14px"><i style="width:54%"></i></div>
+                            <div class="between" style="font-size:13px;margin-bottom:6px"><span class="muted">Строки</span><span class="mono" style="color:var(--lime)">91%</span></div>
+                            <div class="progress"><i style="width:91%"></i></div>
+                          </div>
+                        </div>
+                        <div class="card card-pad">
+                          <b style="font-size:14px">Рекомендации</b>
+                          <div class="grid" style="gap:10px;margin-top:14px">
+                            <div class="row" style="gap:10px"><span class="badge badge-purple btn-icon" style="width:26px;height:26px;padding:0;justify-content:center">→</span><span style="font-size:13.5px">Подтяните <b>динамическое программирование</b></span></div>
+                            <div class="row" style="gap:10px"><span class="badge badge-purple btn-icon" style="width:26px;height:26px;padding:0;justify-content:center">→</span><span style="font-size:13.5px">5 задач по графам ждут решения</span></div>
+                            <div class="row" style="gap:10px"><span class="badge badge-lime btn-icon" style="width:26px;height:26px;padding:0;justify-content:center">✓</span><span style="font-size:13.5px">Бинарный поиск освоен — отлично!</span></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Solutions tab -->
+      <div class="screen" id="solutions">
+        <div class="screen-meta"><span class="role student">Student</span><span class="nm">Профиль · вкладка «Мои решения» (StudentSolutionsPanel)</span><span class="url">/student/profile</span></div>
+        <div class="frame">
+          <div class="frame-bar"><div class="dots"><i></i><i></i><i></i></div><div class="addr">toxicpulse.dev/student/profile · tab=solutions</div></div>
+          <div class="viewport" style="padding:24px 26px">
+            <div class="tabbar"><a>Прогресс</a><a class="on">Мои решения</a><a>Группы</a></div>
+            <div class="between" style="margin-bottom:16px">
+              <input class="input" style="width:280px;height:38px" placeholder="Поиск по решениям…">
+              <div class="wrap"><select class="select" style="width:150px;height:38px;padding:8px 12px;font-size:13px"><option>Все статусы</option></select><select class="select" style="width:160px;height:38px;padding:8px 12px;font-size:13px"><option>Сначала новые</option></select></div>
+            </div>
+            <div class="card card-pad">
+              <table class="table">
+                <thead><tr><th>Задача</th><th>Язык</th><th>Попытка</th><th>Статус</th><th>Дата</th></tr></thead>
+                <tbody>
+                  <tr><td class="t-name">Двоичный поиск</td><td class="muted">Python</td><td class="mono mut3">#3</td><td><span class="badge badge-lime"><span class="dotb"></span>Принято</span></td><td class="muted">21 мая, 11:42</td></tr>
+                  <tr><td class="t-name">Сумма двух чисел</td><td class="muted">JS</td><td class="mono mut3">#1</td><td><span class="badge badge-danger"><span class="dotb"></span>Ошибка тестов</span></td><td class="muted">20 мая, 18:05</td></tr>
+                  <tr><td class="t-name">Блок-схема цикла</td><td class="muted">—</td><td class="mono mut3">#2</td><td><span class="badge badge-lime"><span class="dotb"></span>Принято</span></td><td class="muted">19 мая, 09:30</td></tr>
+                  <tr><td class="t-name">Перевод в двоичную</td><td class="muted">C++</td><td class="mono mut3">#1</td><td><span class="badge badge-warn"><span class="dotb"></span>На проверке</span></td><td class="muted">18 мая, 22:14</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Groups tab -->
+      <div class="screen" id="groups">
+        <div class="screen-meta"><span class="role student">Student</span><span class="nm">Профиль · вкладка «Группы» (StudentProfileGroupsTab)</span><span class="url">/student/profile</span></div>
+        <div class="frame">
+          <div class="frame-bar"><div class="dots"><i></i><i></i><i></i></div><div class="addr">toxicpulse.dev/student/profile · tab=groups</div></div>
+          <div class="viewport" style="padding:24px 26px">
+            <div class="tabbar"><a>Прогресс</a><a>Мои решения</a><a class="on">Группы</a></div>
+            <div class="between" style="margin-bottom:16px">
+              <b style="font-size:15px">Мои группы</b>
+              <div class="row"><input class="input mono" style="width:160px;height:38px" placeholder="GRP-XXXX"><button class="btn btn-primary btn-sm">Вступить по коду</button></div>
+            </div>
+            <div class="cards2">
+              <div class="course-card"><div class="between"><b style="font-size:15px">Группа ИВТ-301</b><span class="badge badge-lime">Активна</span></div><p class="muted" style="font-size:13px;margin:8px 0 14px">Преподаватель: А. Петров · 24 студента</p><div class="progress"><i style="width:48%"></i></div><p class="mut3" style="font-size:12px;margin:8px 0 0">Решено 23 из 48 задач курса</p></div>
+              <div class="course-card pp"><div class="between"><b style="font-size:15px">Алгоритмы · спецкурс</b><span class="badge badge-purple">Активна</span></div><p class="muted" style="font-size:13px;margin:8px 0 14px">Преподаватель: И. Смирнова · 12 студентов</p><div class="progress pp"><i style="width:30%"></i></div><p class="mut3" style="font-size:12px;margin:8px 0 0">Решено 9 из 30 задач курса</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ STUDENT — GROUP DETAIL ============ -->
+    <section class="section" id="group">
+      <h2>09 · Студент — страница группы</h2>
+      <p class="s-desc">Преподаватель, каталоги, список задач со статусами, переход к задаче в manual-режиме.</p>
+      <div class="screen">
+        <div class="screen-meta"><span class="role student">Student</span><span class="nm">Страница группы</span><span class="url">/student/groups/:groupId</span></div>
+        <div class="frame">
+          <div class="frame-bar"><div class="dots"><i></i><i></i><i></i></div><div class="addr">toxicpulse.dev/student/groups/ivt-301</div></div>
+          <div class="viewport">
+            <div class="app">
+              <nav class="sb">
+                <div class="b"><span class="dot"></span>Toxic Pulse</div>
+                <a><span class="ic"></span>Список задач</a>
+                <a><span class="ic"></span>Профиль</a>
+                <a class="active"><span class="ic"></span>Мои группы</a>
+                <a><span class="ic"></span>Прогресс</a>
+                <a><span class="ic"></span>Настройки</a>
+              </nav>
+              <div>
+                <div class="topbar"><div class="crumb">Группы / <b>ИВТ-301</b></div><div class="right"><span class="avatar" style="width:36px;height:36px;font-size:14px">В</span></div></div>
+                <div class="content">
+                  <div class="page-h">
+                    <div><h1>Группа ИВТ-301</h1><p>Преподаватель: Алексей Петров · 24 студента</p></div>
+                    <span class="badge badge-lime">Решено 23 / 48</span>
+                  </div>
+                  <div style="display:grid;grid-template-columns:230px 1fr;gap:18px;align-items:start">
+                    <aside class="card card-pad">
+                      <b style="font-size:14px">Каталоги</b>
+                      <div class="grid" style="gap:6px;margin-top:12px">
+                        <a class="sb" style="all:unset;cursor:pointer"><span class="chip on" style="width:100%;justify-content:flex-start">Алгоритмы · базовый</span></a>
+                        <span class="chip" style="width:100%;justify-content:flex-start">Строки</span>
+                        <span class="chip" style="width:100%;justify-content:flex-start">Рекурсия</span>
+                      </div>
+                    </aside>
+                    <div class="card card-pad">
+                      <table class="table">
+                        <thead><tr><th>Задача</th><th>Сложность</th><th>Статус</th><th></th></tr></thead>
+                        <tbody>
+                          <tr><td class="t-name">Линейный поиск</td><td><span class="badge badge-muted">Лёгкая</span></td><td><span class="badge badge-lime"><span class="dotb"></span>Решено</span></td><td style="text-align:right"><button class="btn btn-ghost btn-sm">Открыть</button></td></tr>
+                          <tr><td class="t-name">Двоичный поиск</td><td><span class="badge badge-warn">Средняя</span></td><td><span class="badge badge-purple"><span class="dotb"></span>В процессе</span></td><td style="text-align:right"><button class="btn btn-primary btn-sm">Продолжить</button></td></tr>
+                          <tr><td class="t-name">Быстрая сортировка</td><td><span class="badge badge-danger">Сложная</span></td><td><span class="badge badge-muted"><span class="dotb"></span>Не начато</span></td><td style="text-align:right"><button class="btn btn-ghost btn-sm">Начать</button></td></tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SETTINGS ============ -->
+    <section class="section" id="settings">
+      <h2>10 · Настройки (все роли)</h2>
+      <p class="s-desc">SettingsLayout: шапка + табы (Профиль, Безопасность, Обучение, Преподаватель). Доступен всем авторизованным.</p>
+      <div class="screen">
+        <div class="screen-meta"><span class="role student">All roles</span><span class="nm">Настройки · Обучение</span><span class="url">/settings/learning</span></div>
+        <div class="frame">
+          <div class="frame-bar"><div class="dots"><i></i><i></i><i></i></div><div class="addr">toxicpulse.dev/settings/learning</div></div>
+          <div class="viewport">
+            <div class="app">
+              <nav class="sb">
+                <div class="b"><span class="dot"></span>Toxic Pulse</div>
+                <a><span class="ic"></span>Список задач</a>
+                <a><span class="ic"></span>Профиль</a>
+                <a><span class="ic"></span>Мои группы</a>
+                <a class="active"><span class="ic"></span>Настройки</a>
+              </nav>
+              <div>
+                <div class="topbar"><div class="crumb">Тренажёр / <b>Настройки</b></div><div class="right"><span class="avatar" style="width:36px;height:36px;font-size:14px">В</span></div></div>
+                <div class="content">
+                  <div class="page-h"><div><h1>Настройки</h1><p>Управляйте профилем, безопасностью и предпочтениями обучения</p></div></div>
+                  <div class="tabbar"><a>Профиль</a><a>Безопасность</a><a class="on">Обучение</a><a>Преподаватель</a></div>
+                  <div style="max-width:620px">
+                    <div class="card card-pad" style="margin-bottom:16px">
+                      <label class="label">Предпочитаемые языки</label>
+                      <div class="wrap" style="margin-bottom:20px"><span class="chip on">Python</span><span class="chip on pp">JavaScript</span><span class="chip">C++</span><span class="chip">Java</span><span class="chip">Go</span></div>
+                      <label class="label">Стартовая сложность</label>
+                      <div class="wrap" style="margin-bottom:20px"><span class="chip">Лёгкая</span><span class="chip on">Средняя</span><span class="chip">Сложная</span></div>
+                      <label class="label">Интересные темы</label>
+                      <div class="wrap"><span class="chip on">Алгоритмы</span><span class="chip">Базы данных</span><span class="chip on pp">Структуры данных</span><span class="chip">Сети</span></div>
+                    </div>
+                    <div class="row" style="justify-content:flex-end;gap:10px"><button class="btn btn-ghost">Отмена</button><button class="btn btn-primary">Сохранить</button></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TEACHER — PROFILE HUB ============ -->
+    <section class="section" id="teacher">
+      <h2>11 · Преподаватель — профиль (hub с 5 вкладками)</h2>
+      <p class="s-desc">Главный кабинет преподавателя. Вкладки: Мои задачи · Решения · Аналитика · Каталоги · Группы · Настройки. Акцент роли — фиолетовый, основной CTA остаётся лаймовым.</p>
+      <div class="screen">
+        <div class="screen-meta"><span class="role teacher">Teacher</span><span class="nm">Кабинет преподавателя · Аналитика</span><span class="url">/teacher/profile</span></div>
+        <div class="frame">
+          <div class="frame-bar"><div class="dots"><i></i><i></i><i></i></div><div class="addr">toxicpulse.dev/teacher/profile</div></div>
+          <div class="viewport">
+            <div class="app">
+              <nav class="sb">
+                <div class="b"><span class="dot" style="background:var(--purple)"></span>Toxic Pulse</div>
+                <a class="active pp"><span class="ic"></span>Кабинет</a>
+                <a><span class="ic"></span>Задачи</a>
+                <a><span class="ic"></span>Каталоги</a>
+                <a><span class="ic"></span>Группы</a>
+                <a><span class="ic"></span>Настройки</a>
+              </nav>
+              <div>
+                <div class="topbar"><div class="crumb">Преподаватель / <b>Кабинет</b></div><div class="right"><span class="badge badge-purple">Преподаватель</span><span class="avatar pp" style="width:36px;height:36px;font-size:14px">А</span></div></div>
+                <div class="content">
+                  <div class="page-h"><div><h1>Кабинет преподавателя</h1><p>Алексей Петров · спецификация «Алгоритмы и структуры данных»</p></div><button class="btn btn-primary btn-sm">+ Создать задачу</button></div>
+                  <div class="tabbar"><a>Мои задачи</a><a>Решения</a><a class="on pp">Аналитика</a><a>Каталоги</a><a>Группы</a><a>Настройки</a></div>
+                  <!-- TeacherAnalyticsPanel -->
+                  <div class="cards3" style="margin-bottom:18px">
+                    <div class="card card-pad"><div class="mut3" style="font-size:12px;text-transform:uppercase;letter-spacing:.06em">Студентов</div><div class="stat" style="margin-top:6px">36</div><span class="badge badge-lime" style="margin-top:8px">+4 за неделю</span></div>
+                    <div class="card card-pad"><div class="mut3" style="font-size:12px;text-transform:uppercase;letter-spacing:.06em">Активных задач</div><div class="stat" style="margin-top:6px">42</div><span class="badge badge-purple" style="margin-top:8px">в 4 каталогах</span></div>
+                    <div class="card card-pad"><div class="mut3" style="font-size:12px;text-transform:uppercase;letter-spacing:.06em">Средняя сдача</div><div class="stat" style="margin-top:6px">71%</div><span class="badge badge-warn" style="margin-top:8px">−3% к месяцу</span></div>
+                  </div>
+                  <div class="card card-pad">
+                    <div class="between" style="margin-bottom:16px"><b style="font-size:15px">Решения по дням</b><select class="select" style="width:140px;height:34px;padding:6px 12px;font-size:13px"><option>30 дней</option></select></div>
+                    <div style="display:flex;align-items:flex-end;gap:5px;height:110px">
+                      <div style="flex:1;background:var(--purple);height:50%;border-radius:4px"></div><div style="flex:1;background:var(--purple);height:72%;border-radius:4px"></div>
+                      <div style="flex:1;background:var(--surface-3);height:30%;border-radius:4px"></div><div style="flex:1;background:var(--purple);height:88%;border-radius:4px"></div>
+                      <div style="flex:1;background:var(--lime);height:100%;border-radius:4px"></div><div style="flex:1;background:var(--purple);height:64%;border-radius:4px"></div>
+                      <div style="flex:1;background:var(--purple);height:46%;border-radius:4px"></div><div style="flex:1;background:var(--surface-3);height:22%;border-radius:4px"></div>
+                      <div style="flex:1;background:var(--purple);height:78%;border-radius:4px"></div><div style="flex:1;background:var(--purple);height:58%;border-radius:4px"></div>
+                      <div style="flex:1;background:var(--lime);height:92%;border-radius:4px"></div><div style="flex:1;background:var(--purple);height:40%;border-radius:4px"></div>
+                    </div>
+                    <div class="legend" style="margin:14px 0 0"><span><i style="background:var(--purple)"></i>Принятые решения</span><span><i style="background:var(--lime)"></i>Пики активности</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TEACHER — TASK EDITOR ============ -->
+    <section class="section" id="editor">
+      <h2>12 · Преподаватель — редактор задачи (TaskEditorPage)</h2>
+      <p class="s-desc">Двухколоночный экран: слева конфиг задания (AssignmentConfigPanel), справа панель выполнения/превью (AssignmentExecutionPanel). Типы: algorithm, translation, diagram, block_reorder.</p>
+      <div class="screen">
+        <div class="screen-meta"><span class="role teacher">Teacher</span><span class="nm">Редактор задачи</span><span class="url">/teacher/tasks/:id/edit</span></div>
+        <div class="frame">
+          <div class="frame-bar"><div class="dots"><i></i><i></i><i></i></div><div class="addr">toxicpulse.dev/teacher/tasks/42/edit</div></div>
+          <div class="viewport">
+            <div class="topbar" style="padding:12px 20px"><div class="row"><button class="btn btn-ghost btn-sm">← Назад</button><div class="crumb">Редактор / <b>Двоичный поиск</b></div></div><div class="row"><button class="btn btn-ghost btn-sm">Предпросмотр</button><button class="btn btn-primary btn-sm">Сохранить задачу</button></div></div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;min-height:460px">
+              <!-- config -->
+              <div style="padding:22px 24px;border-right:1px solid var(--border);overflow:auto">
+                <b style="font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--text-3)">Конфигурация</b>
+                <div class="field" style="margin-top:16px"><label class="label">Название</label><input class="input" value="Двоичный поиск"></div>
+                <div class="field"><label class="label">Тип задания</label>
+                  <div class="wrap"><span class="chip on pp">algorithm</span><span class="chip">translation</span><span class="chip">diagram</span><span class="chip">block_reorder</span></div>
+                </div>
+                <div class="row" style="gap:12px">
+                  <div class="field" style="flex:1"><label class="label">Язык</label><select class="select"><option>Python</option></select></div>
+                  <div class="field" style="flex:1"><label class="label">Сложность</label><select class="select"><option>Средняя</option></select></div>
+                </div>
+                <div class="field"><label class="label">Условие</label><textarea class="textarea" style="font-family:var(--font)">Дан отсортированный массив arr и число x. Верните индекс x или −1…</textarea></div>
+                <div class="field" style="margin:0"><label class="label">Тесты (input → expected)</label><textarea class="textarea">[1,3,5,7,9],5 -> 2
+[2,4,6,8],8 -> 3
+[],4 -> -1</textarea></div>
+              </div>
+              <!-- preview / execution -->
+              <div style="padding:22px 24px;background:var(--bg-2)">
+                <div class="between" style="margin-bottom:14px"><b style="font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--text-3)">Превью / прогон</b><span class="badge badge-purple">algorithm</span></div>
+                <div class="card card-pad" style="margin-bottom:14px;background:var(--surface)">
+                  <h3 style="font-size:16px;margin:0 0 8px">Двоичный поиск <span class="badge badge-warn" style="vertical-align:middle">Средняя</span></h3>
+                  <p class="muted" style="font-size:13.5px;margin:0">Дан отсортированный массив arr и число x. Верните индекс x или −1.</p>
+                </div>
+                <div class="editor" style="margin-bottom:14px"><div class="eh"><span class="t">solution.py</span></div><div class="body">
+                  <div class="ln"><span class="n">1</span><span class="kw">def</span>&nbsp;<span class="fn">solve</span>(arr, x):</div>
+                  <div class="ln"><span class="n">2</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="cm"># reference solution</span></div>
+                </div></div>
+                <button class="btn btn-primary btn-sm" style="margin-bottom:14px">▸ Прогнать эталон</button>
+                <div class="card card-pad" style="padding:14px;background:var(--surface)">
+                  <div class="between"><b style="font-size:13.5px">Результат прогона</b><span class="badge badge-lime"><span class="dotb"></span>3 / 3 OK</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Teacher · Каталоги tab -->
+      <div class="screen" id="teacher-catalogs">
+        <div class="screen-meta"><span class="role teacher">Teacher</span><span class="nm">Кабинет · вкладка «Каталоги»</span><span class="url">/teacher/profile · /teacher/catalogs/:id</span></div>
+        <div class="frame">
+          <div class="frame-bar"><div class="dots"><i></i><i></i><i></i></div><div class="addr">toxicpulse.dev/teacher/catalogs</div></div>
+          <div class="viewport" style="padding:24px 26px">
+            <div class="tabbar"><a>Мои задачи</a><a>Решения</a><a>Аналитика</a><a class="on pp">Каталоги</a><a>Группы</a><a>Настройки</a></div>
+            <div class="between" style="margin-bottom:16px">
+              <b style="font-size:15px">Каталоги задач</b>
+              <button class="btn btn-primary btn-sm">+ Создать каталог</button>
+            </div>
+            <div class="cards3">
+              <div class="course-card pp">
+                <div class="between"><div class="ico">АЛ</div><span class="badge badge-purple">12 задач</span></div>
+                <b style="display:block;margin-top:12px;font-size:15px">Алгоритмы · базовый</b>
+                <p class="muted" style="font-size:13px;margin:6px 0 14px">Назначен 2 группам</p>
+                <div class="row" style="gap:8px"><button class="btn btn-ghost btn-sm">Открыть</button><button class="btn btn-secondary btn-sm">Назначить группе</button></div>
+              </div>
+              <div class="course-card pp">
+                <div class="between"><div class="ico">СТ</div><span class="badge badge-purple">9 задач</span></div>
+                <b style="display:block;margin-top:12px;font-size:15px">Строки и массивы</b>
+                <p class="muted" style="font-size:13px;margin:6px 0 14px">Назначен 1 группе</p>
+                <div class="row" style="gap:8px"><button class="btn btn-ghost btn-sm">Открыть</button><button class="btn btn-secondary btn-sm">Назначить группе</button></div>
+              </div>
+              <div class="course-card" style="display:grid;place-items:center;border-style:dashed;min-height:150px;cursor:pointer">
+                <div style="text-align:center"><div style="font-size:28px;color:var(--text-3)">+</div><span class="muted" style="font-size:13.5px">Новый каталог</span></div>
+              </div>
+            </div>
+            <!-- inside-catalog table preview -->
+            <div class="card card-pad" style="margin-top:18px">
+              <div class="between" style="margin-bottom:6px"><b style="font-size:14px">Алгоритмы · базовый — задачи внутри</b><button class="btn btn-ghost btn-sm">+ Добавить задачу</button></div>
+              <table class="table">
+                <thead><tr><th>Задача</th><th>Тип</th><th>Сложность</th><th></th></tr></thead>
+                <tbody>
+                  <tr><td class="t-name">Линейный поиск</td><td class="muted">algorithm</td><td><span class="badge badge-muted">Лёгкая</span></td><td style="text-align:right"><button class="btn btn-danger btn-sm">Убрать</button></td></tr>
+                  <tr><td class="t-name">Двоичный поиск</td><td class="muted">algorithm</td><td><span class="badge badge-warn">Средняя</span></td><td style="text-align:right"><button class="btn btn-danger btn-sm">Убрать</button></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Teacher · Группы tab (TeacherGroupDetailPanel) -->
+      <div class="screen" id="teacher-groups">
+        <div class="screen-meta"><span class="role teacher">Teacher</span><span class="nm">Кабинет · вкладка «Группы» (TeacherGroupDetailPanel)</span><span class="url">/teacher/profile</span></div>
+        <div class="frame">
+          <div class="frame-bar"><div class="dots"><i></i><i></i><i></i></div><div class="addr">toxicpulse.dev/teacher/profile · tab=groups</div></div>
+          <div class="viewport" style="padding:24px 26px">
+            <div class="tabbar"><a>Мои задачи</a><a>Решения</a><a>Аналитика</a><a>Каталоги</a><a class="on pp">Группы</a><a>Настройки</a></div>
+            <div style="display:grid;grid-template-columns:230px 1fr;gap:18px;align-items:start">
+              <!-- group list -->
+              <aside class="card card-pad">
+                <div class="between" style="margin-bottom:12px"><b style="font-size:14px">Группы</b><button class="btn btn-ghost btn-icon btn-sm">+</button></div>
+                <div class="grid" style="gap:8px">
+                  <div style="border:1px solid rgba(139,83,254,.4);background:var(--purple-soft);border-radius:10px;padding:11px"><b style="font-size:13.5px;color:#b89bff">ИВТ-301</b><div class="mut3" style="font-size:12px;margin-top:2px">24 студента</div></div>
+                  <div style="border:1px solid var(--border);border-radius:10px;padding:11px"><b style="font-size:13.5px">Спецкурс</b><div class="mut3" style="font-size:12px;margin-top:2px">12 студентов</div></div>
+                </div>
+              </aside>
+              <!-- group detail -->
+              <div>
+                <div class="card card-pad" style="margin-bottom:16px">
+                  <div class="between">
+                    <div><b style="font-size:16px">Группа ИВТ-301</b><p class="mut3" style="font-size:12.5px;margin:4px 0 0">Инвайт-код: <span class="mono" style="color:var(--lime)">GRP-7K2A</span></p></div>
+                    <div class="row"><button class="btn btn-ghost btn-sm">Копировать код</button><span class="badge badge-lime">Средний прогресс 61%</span></div>
+                  </div>
+                </div>
+                <div class="card card-pad">
+                  <b style="font-size:14px;display:block;margin-bottom:6px">Прогресс студентов</b>
+                  <table class="table">
+                    <thead><tr><th>Студент</th><th>Решено</th><th>Прогресс</th><th>Активность</th></tr></thead>
+                    <tbody>
+                      <tr><td><div class="row" style="gap:9px"><span class="avatar" style="width:28px;height:28px;font-size:12px">В</span><span class="t-name">Влада М.</span></div></td><td class="mono">23 / 48</td><td style="min-width:140px"><div class="progress"><i style="width:48%"></i></div></td><td class="muted">сегодня</td></tr>
+                      <tr><td><div class="row" style="gap:9px"><span class="avatar" style="width:28px;height:28px;font-size:12px">Н</span><span class="t-name">Никита П.</span></div></td><td class="mono">41 / 48</td><td style="min-width:140px"><div class="progress"><i style="width:85%"></i></div></td><td class="muted">вчера</td></tr>
+                      <tr><td><div class="row" style="gap:9px"><span class="avatar" style="width:28px;height:28px;font-size:12px">О</span><span class="t-name">Ольга С.</span></div></td><td class="mono">7 / 48</td><td style="min-width:140px"><div class="progress pp"><i style="width:15%"></i></div></td><td class="muted">5 дней назад</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Teacher · Code-assembly editor -->
+      <div class="screen" id="code-assembly">
+        <div class="screen-meta"><span class="role teacher">Teacher</span><span class="nm">Редактор задачи «сборка из блоков»</span><span class="url">/teacher/code-assembly/:taskId/edit</span></div>
+        <div class="frame">
+          <div class="frame-bar"><div class="dots"><i></i><i></i><i></i></div><div class="addr">toxicpulse.dev/teacher/code-assembly/42/edit</div></div>
+          <div class="viewport">
+            <div class="topbar" style="padding:12px 20px"><div class="row"><button class="btn btn-ghost btn-sm">← Назад</button><div class="crumb">Code-assembly / <b>Факториал</b></div><span class="badge badge-purple">block_reorder</span></div><button class="btn btn-primary btn-sm">Сохранить</button></div>
+            <div style="display:grid;grid-template-columns:1fr 1.1fr;min-height:440px">
+              <!-- config -->
+              <div style="padding:22px 24px;border-right:1px solid var(--border)">
+                <b style="font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--text-3)">Параметры сборки</b>
+                <div class="field" style="margin-top:16px"><label class="label">Название</label><input class="input" value="Факториал через рекурсию"></div>
+                <div class="field"><label class="label">Условие</label><textarea class="textarea" style="font-family:var(--font)">Соберите функцию factorial(n) из блоков в правильном порядке.</textarea></div>
+                <div class="field" style="margin:0"><label class="label">Блоки-дистракторы (лишние)</label><div class="wrap"><span class="badge badge-muted">return n + 1</span><span class="badge badge-muted">n = n - 1</span></div></div>
+                <div class="note" style="margin-top:16px">Студент видит блоки в перемешанном порядке и собирает решение перетаскиванием. Правильный порядок — справа.</div>
+              </div>
+              <!-- assembly preview -->
+              <div style="padding:22px 24px;background:var(--bg-2)">
+                <div class="between" style="margin-bottom:14px"><b style="font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--text-3)">Правильная сборка</b><span class="muted" style="font-size:12px">перетаскивание ↕</span></div>
+                <div class="grid" style="gap:8px">
+                  <div class="row mono" style="gap:10px;background:var(--surface);border:1px solid var(--border-2);border-radius:10px;padding:11px 14px;font-size:13px"><span style="color:var(--text-3);cursor:grab">⠿</span><span class="badge badge-lime" style="height:20px">1</span><span><span class="kw">def</span> <span class="fn">factorial</span>(n):</span></div>
+                  <div class="row mono" style="gap:10px;background:var(--surface);border:1px solid var(--border-2);border-radius:10px;padding:11px 14px;font-size:13px;margin-left:18px"><span style="color:var(--text-3);cursor:grab">⠿</span><span class="badge badge-lime" style="height:20px">2</span><span><span class="kw">if</span> n &lt;= <span class="nm2">1</span>: <span class="kw">return</span> <span class="nm2">1</span></span></div>
+                  <div class="row mono" style="gap:10px;background:var(--surface);border:1px solid var(--border-2);border-radius:10px;padding:11px 14px;font-size:13px;margin-left:18px"><span style="color:var(--text-3);cursor:grab">⠿</span><span class="badge badge-lime" style="height:20px">3</span><span><span class="kw">return</span> n * <span class="fn">factorial</span>(n - <span class="nm2">1</span>)</span></div>
+                </div>
+                <div style="margin-top:18px;padding-top:16px;border-top:1px dashed var(--border-2)">
+                  <span class="muted" style="font-size:12.5px;display:block;margin-bottom:8px">Так увидит студент (перемешано):</span>
+                  <div class="grid" style="gap:6px">
+                    <div class="mono" style="background:var(--surface-2);border:1px dashed var(--border-2);border-radius:9px;padding:9px 13px;font-size:12.5px;opacity:.85">return n * factorial(n - 1)</div>
+                    <div class="mono" style="background:var(--surface-2);border:1px dashed var(--border-2);border-radius:9px;padding:9px 13px;font-size:12.5px;opacity:.85">def factorial(n):</div>
+                    <div class="mono" style="background:var(--surface-2);border:1px dashed var(--border-2);border-radius:9px;padding:9px 13px;font-size:12.5px;opacity:.85">if n &lt;= 1: return 1</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ADMIN ============ -->
+    <section class="section" id="admin">
+      <h2>13 · Администратор</h2>
+      <p class="s-desc">AdminShell → AdminLayout: боковое меню (Обзор, Пользователи, Заявки преподавателей, Задания, Статистика, Создать преподавателя) + контент. Акцент роли — фиолетовый.</p>
+      <div class="screen">
+        <div class="screen-meta"><span class="role admin">Admin</span><span class="nm">Обзор / дашборд</span><span class="url">/admin</span></div>
+        <div class="frame">
+          <div class="frame-bar"><div class="dots"><i></i><i></i><i></i></div><div class="addr">toxicpulse.dev/admin</div></div>
+          <div class="viewport">
+            <div class="app">
+              <nav class="sb">
+                <div class="b"><span class="dot" style="background:var(--purple)"></span>Admin</div>
+                <a class="active pp"><span class="ic"></span>Обзор</a>
+                <a><span class="ic"></span>Пользователи</a>
+                <a><span class="ic"></span>Заявки преподавателей</a>
+                <a><span class="ic"></span>Задания</a>
+                <a><span class="ic"></span>Статистика</a>
+                <a><span class="ic"></span>Создать преподавателя</a>
+              </nav>
+              <div>
+                <div class="topbar"><div class="crumb">Админка / <b>Обзор</b></div><div class="right"><span class="badge badge-purple">Admin</span><span class="avatar pp" style="width:36px;height:36px;font-size:14px">S</span></div></div>
+                <div class="content">
+                  <div class="page-h"><div><h1>Обзор платформы</h1><p>Сводка по пользователям, задачам и активности</p></div></div>
+                  <div class="cards3" style="margin-bottom:16px">
+                    <div class="card card-pad"><div class="mut3" style="font-size:12px;text-transform:uppercase;letter-spacing:.06em">Пользователей</div><div class="stat" style="margin-top:6px">1 248</div><span class="badge badge-lime" style="margin-top:8px">+62 за неделю</span></div>
+                    <div class="card card-pad"><div class="mut3" style="font-size:12px;text-transform:uppercase;letter-spacing:.06em">Преподавателей</div><div class="stat" style="margin-top:6px">37</div><span class="badge badge-purple" style="margin-top:8px">5 заявок</span></div>
+                    <div class="card card-pad"><div class="mut3" style="font-size:12px;text-transform:uppercase;letter-spacing:.06em">Задач в базе</div><div class="stat" style="margin-top:6px">612</div><span class="badge badge-muted" style="margin-top:8px">+18 за месяц</span></div>
+                  </div>
+                  <div style="display:grid;grid-template-columns:1.4fr 1fr;gap:16px;align-items:start">
+                    <div class="card card-pad">
+                      <b style="font-size:15px">Регистрации за 30 дней</b>
+                      <div style="display:flex;align-items:flex-end;gap:4px;height:120px;margin-top:16px">
+                        <div style="flex:1;background:var(--purple);height:40%;border-radius:4px"></div><div style="flex:1;background:var(--purple);height:55%;border-radius:4px"></div><div style="flex:1;background:var(--purple);height:48%;border-radius:4px"></div><div style="flex:1;background:var(--lime);height:80%;border-radius:4px"></div><div style="flex:1;background:var(--purple);height:62%;border-radius:4px"></div><div style="flex:1;background:var(--purple);height:70%;border-radius:4px"></div><div style="flex:1;background:var(--lime);height:100%;border-radius:4px"></div><div style="flex:1;background:var(--purple);height:58%;border-radius:4px"></div><div style="flex:1;background:var(--purple);height:66%;border-radius:4px"></div><div style="flex:1;background:var(--surface-3);height:30%;border-radius:4px"></div>
+                      </div>
+                    </div>
+                    <div class="card card-pad">
+                      <b style="font-size:15px">Заявки преподавателей</b>
+                      <div class="grid" style="gap:10px;margin-top:14px">
+                        <div class="between"><div class="row" style="gap:10px"><span class="avatar pp" style="width:32px;height:32px;font-size:13px">М</span><div><div style="font-size:13.5px;font-weight:600">Мария К.</div><div class="mut3" style="font-size:12px">мат-фак</div></div></div><div class="row"><button class="btn btn-primary btn-sm">✓</button><button class="btn btn-danger btn-sm">✕</button></div></div>
+                        <div class="between"><div class="row" style="gap:10px"><span class="avatar pp" style="width:32px;height:32px;font-size:13px">Д</span><div><div style="font-size:13.5px;font-weight:600">Денис Р.</div><div class="mut3" style="font-size:12px">CS</div></div></div><div class="row"><button class="btn btn-primary btn-sm">✓</button><button class="btn btn-danger btn-sm">✕</button></div></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="screen" id="admin-users">
+        <div class="screen-meta"><span class="role admin">Admin</span><span class="nm">Пользователи</span><span class="url">/admin/users</span></div>
+        <div class="frame">
+          <div class="frame-bar"><div class="dots"><i></i><i></i><i></i></div><div class="addr">toxicpulse.dev/admin/users</div></div>
+          <div class="viewport">
+            <div class="app">
+              <nav class="sb">
+                <div class="b"><span class="dot" style="background:var(--purple)"></span>Admin</div>
+                <a><span class="ic"></span>Обзор</a>
+                <a class="active pp"><span class="ic"></span>Пользователи</a>
+                <a><span class="ic"></span>Заявки преподавателей</a>
+                <a><span class="ic"></span>Задания</a>
+                <a><span class="ic"></span>Статистика</a>
+                <a><span class="ic"></span>Создать преподавателя</a>
+              </nav>
+              <div>
+                <div class="topbar"><div class="crumb">Админка / <b>Пользователи</b></div><div class="right"><span class="avatar pp" style="width:36px;height:36px;font-size:14px">S</span></div></div>
+                <div class="content">
+                  <div class="page-h"><div><h1>Пользователи</h1><p>1 248 аккаунтов</p></div><div class="row"><input class="input" style="width:220px;height:38px" placeholder="Поиск…"><select class="select" style="width:140px;height:38px;padding:8px 12px;font-size:13px"><option>Все роли</option></select></div></div>
+                  <div class="card card-pad">
+                    <table class="table">
+                      <thead><tr><th>Пользователь</th><th>Email</th><th>Роль</th><th>Статус</th><th></th></tr></thead>
+                      <tbody>
+                        <tr><td><div class="row" style="gap:10px"><span class="avatar" style="width:30px;height:30px;font-size:12px">В</span><span class="t-name">Влада Максимова</span></div></td><td class="muted mono" style="font-size:12.5px">vlada@code.dev</td><td><span class="badge badge-lime">Студент</span></td><td><span class="badge badge-muted"><span class="dotb"></span>Активен</span></td><td style="text-align:right"><button class="btn btn-ghost btn-sm">Открыть</button></td></tr>
+                        <tr><td><div class="row" style="gap:10px"><span class="avatar pp" style="width:30px;height:30px;font-size:12px">А</span><span class="t-name">Алексей Петров</span></div></td><td class="muted mono" style="font-size:12.5px">a.petrov@uni.ru</td><td><span class="badge badge-purple">Преподаватель</span></td><td><span class="badge badge-muted"><span class="dotb"></span>Активен</span></td><td style="text-align:right"><button class="btn btn-ghost btn-sm">Открыть</button></td></tr>
+                        <tr><td><div class="row" style="gap:10px"><span class="avatar" style="width:30px;height:30px;font-size:12px">И</span><span class="t-name">Иван Соколов</span></div></td><td class="muted mono" style="font-size:12.5px">ivan.s@mail.ru</td><td><span class="badge badge-lime">Студент</span></td><td><span class="badge badge-danger"><span class="dotb"></span>Заблокирован</span></td><td style="text-align:right"><button class="btn btn-ghost btn-sm">Открыть</button></td></tr>
+                      </tbody>
+                    </table>
+                    <div class="between" style="margin-top:16px"><span class="mut3" style="font-size:13px">1–3 из 1 248</span><div class="pagination"><a>‹</a><a class="on">1</a><a>2</a><a>3</a><a>…</a><a>50</a><a>›</a></div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Admin · user detail -->
+      <div class="screen" id="admin-user">
+        <div class="screen-meta"><span class="role admin">Admin</span><span class="nm">Карточка пользователя</span><span class="url">/admin/users/:userId</span></div>
+        <div class="frame">
+          <div class="frame-bar"><div class="dots"><i></i><i></i><i></i></div><div class="addr">toxicpulse.dev/admin/users/812</div></div>
+          <div class="viewport">
+            <div class="app">
+              <nav class="sb">
+                <div class="b"><span class="dot" style="background:var(--purple)"></span>Admin</div>
+                <a><span class="ic"></span>Обзор</a>
+                <a class="active pp"><span class="ic"></span>Пользователи</a>
+                <a><span class="ic"></span>Заявки преподавателей</a>
+                <a><span class="ic"></span>Задания</a>
+                <a><span class="ic"></span>Статистика</a>
+                <a><span class="ic"></span>Создать преподавателя</a>
+              </nav>
+              <div>
+                <div class="topbar"><div class="crumb"><a href="#admin-users" style="color:var(--text-2)">Пользователи</a> / <b>Влада Максимова</b></div><div class="right"><span class="avatar pp" style="width:36px;height:36px;font-size:14px">S</span></div></div>
+                <div class="content">
+                  <button class="btn btn-ghost btn-sm" style="margin-bottom:16px">← Все пользователи</button>
+                  <div style="display:grid;grid-template-columns:280px 1fr;gap:20px;align-items:start">
+                    <!-- left profile card -->
+                    <aside class="card card-pad" style="text-align:center">
+                      <div class="avatar lg" style="margin:0 auto 12px">В</div>
+                      <b style="font-size:17px">Влада Максимова</b>
+                      <p class="mut3 mono" style="font-size:12.5px;margin:4px 0 12px">vlada@code.dev</p>
+                      <div class="wrap" style="justify-content:center;margin-bottom:18px"><span class="badge badge-lime">Студент</span><span class="badge badge-muted"><span class="dotb"></span>Активен</span></div>
+                      <div class="grid" style="gap:0;text-align:left">
+                        <div class="between" style="padding:11px 0;border-top:1px solid var(--border)"><span class="muted" style="font-size:13px">ID</span><b class="mono" style="font-size:13px">#812</b></div>
+                        <div class="between" style="padding:11px 0;border-top:1px solid var(--border)"><span class="muted" style="font-size:13px">Регистрация</span><b style="font-size:13px">12 фев 2026</b></div>
+                        <div class="between" style="padding:11px 0;border-top:1px solid var(--border)"><span class="muted" style="font-size:13px">Последний вход</span><b style="font-size:13px">сегодня, 11:42</b></div>
+                        <div class="between" style="padding:11px 0;border-top:1px solid var(--border)"><span class="muted" style="font-size:13px">Решено задач</span><b style="font-size:13px;color:var(--lime)">128</b></div>
+                      </div>
+                    </aside>
+                    <!-- right: actions + activity + danger -->
+                    <div class="grid" style="gap:16px">
+                      <div class="card card-pad">
+                        <b style="font-size:14px;display:block;margin-bottom:14px">Управление аккаунтом</b>
+                        <div class="row" style="gap:10px;flex-wrap:wrap">
+                          <select class="select" style="width:200px"><option>Роль: Студент</option><option>Преподаватель</option><option>Админ</option></select>
+                          <button class="btn btn-secondary btn-sm">Сохранить роль</button>
+                          <button class="btn btn-ghost btn-sm">Сбросить пароль</button>
+                        </div>
+                      </div>
+                      <div class="card card-pad">
+                        <b style="font-size:14px;display:block;margin-bottom:12px">Группы пользователя</b>
+                        <div class="wrap"><span class="badge badge-purple">ИВТ-301</span><span class="badge badge-purple">Спецкурс</span></div>
+                      </div>
+                      <div class="card card-pad">
+                        <b style="font-size:14px;display:block;margin-bottom:12px">Последняя активность</b>
+                        <div class="grid" style="gap:10px">
+                          <div class="between"><span style="font-size:13.5px">Решена «Двоичный поиск»</span><span class="mut3" style="font-size:12.5px">сегодня 11:42</span></div>
+                          <div class="between"><span style="font-size:13.5px">Попытка «Сумма двух чисел»</span><span class="mut3" style="font-size:12.5px">вчера 18:05</span></div>
+                        </div>
+                      </div>
+                      <div class="card card-pad" style="border-color:rgba(255,77,106,.3)">
+                        <div class="between"><div><b style="font-size:14px;color:#ff8198">Опасная зона</b><p class="muted" style="font-size:13px;margin:4px 0 0">Блокировка ограничит доступ пользователя к платформе.</p></div><div class="row"><button class="btn btn-danger btn-sm">Заблокировать</button><button class="btn btn-danger btn-sm">Удалить</button></div></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ MOBILE ============ -->
+    <section class="section" id="mobile">
+      <h2>14 · Мобильный адаптив</h2>
+      <p class="s-desc">Сайдбар сворачивается в нижнюю таб-панель, split-view задачи становится вертикальным стеком, фильтры — в выезжающий лист. Те же токены и палитра.</p>
+      <div style="display:flex;gap:24px;flex-wrap:wrap;align-items:flex-start">
+
+        <!-- mobile tasks -->
+        <div>
+          <div class="screen-meta"><span class="role student">Student</span><span class="nm">Список задач</span></div>
+          <div class="frame mobile">
+            <div class="frame-bar"><div class="dots"><i></i><i></i><i></i></div><div class="addr">/ </div></div>
+            <div class="viewport" style="display:flex;flex-direction:column">
+              <div class="topbar" style="padding:12px 16px"><div class="row" style="gap:10px"><span class="icon-btn" style="width:32px;height:32px">☰</span><b style="font-size:15px">Задачи</b></div><span class="avatar" style="width:30px;height:30px;font-size:12px">В</span></div>
+              <div style="padding:14px 16px;flex:1">
+                <input class="input" style="margin-bottom:12px" placeholder="Поиск задачи…">
+                <div class="wrap" style="gap:7px;margin-bottom:14px"><span class="chip on" style="height:30px">Все</span><span class="chip on pp" style="height:30px">Python</span><span class="chip" style="height:30px">Средняя</span></div>
+                <div class="grid" style="gap:10px">
+                  <div class="card card-pad" style="padding:14px"><div class="between"><b style="font-size:14px">Двоичный поиск</b><span class="badge badge-lime"><span class="dotb"></span></span></div><div class="wrap" style="margin-top:8px"><span class="badge badge-muted">Лёгкая</span><span class="badge badge-purple">Python</span></div></div>
+                  <div class="card card-pad" style="padding:14px"><div class="between"><b style="font-size:14px">Сумма двух чисел</b><span class="badge badge-purple"><span class="dotb"></span></span></div><div class="wrap" style="margin-top:8px"><span class="badge badge-warn">Средняя</span><span class="badge badge-purple">JS</span></div></div>
+                  <div class="card card-pad" style="padding:14px"><div class="between"><b style="font-size:14px">Сортировка слиянием</b><span class="badge badge-muted"><span class="dotb"></span></span></div><div class="wrap" style="margin-top:8px"><span class="badge badge-danger">Сложная</span><span class="badge badge-purple">C++</span></div></div>
+                </div>
+              </div>
+              <!-- bottom tab bar -->
+              <div class="row" style="justify-content:space-around;padding:10px 0;border-top:1px solid var(--border);background:#0c111a">
+                <div style="text-align:center;color:var(--lime)"><div style="width:20px;height:20px;border:2px solid currentColor;border-radius:6px;margin:0 auto"></div><div style="font-size:10px;margin-top:3px">Задачи</div></div>
+                <div style="text-align:center;color:var(--text-3)"><div style="width:20px;height:20px;border:2px solid currentColor;border-radius:6px;margin:0 auto"></div><div style="font-size:10px;margin-top:3px">Группы</div></div>
+                <div style="text-align:center;color:var(--text-3)"><div style="width:20px;height:20px;border:2px solid currentColor;border-radius:50%;margin:0 auto"></div><div style="font-size:10px;margin-top:3px">Профиль</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- mobile task -->
+        <div>
+          <div class="screen-meta"><span class="role student">Student</span><span class="nm">Задача (стек)</span></div>
+          <div class="frame mobile">
+            <div class="frame-bar"><div class="dots"><i></i><i></i><i></i></div><div class="addr">/tasks/42</div></div>
+            <div class="viewport">
+              <div class="topbar" style="padding:11px 16px"><div class="row" style="gap:8px"><span class="icon-btn" style="width:30px;height:30px">←</span><b style="font-size:14px">Двоичный поиск</b></div><span class="badge badge-warn">Ср.</span></div>
+              <div style="padding:14px 16px">
+                <p class="muted" style="font-size:13px;margin:0 0 14px">Дан отсортированный массив <span class="mono" style="color:var(--lime)">arr</span> и число <span class="mono" style="color:var(--lime)">x</span>. Верните индекс или −1.</p>
+                <div class="row" style="gap:6px;margin-bottom:10px"><span class="chip on" style="height:28px">Код</span><span class="chip" style="height:28px">Блоки</span></div>
+                <div class="editor" style="margin-bottom:12px"><div class="body" style="padding:10px 0">
+                  <div class="ln"><span class="n">1</span><span class="kw">def</span>&nbsp;<span class="fn">search</span>(arr,x):</div>
+                  <div class="ln"><span class="n">2</span>&nbsp;&nbsp;lo,hi=<span class="nm2">0</span>,<span class="fn">len</span>(arr)-<span class="nm2">1</span></div>
+                  <div class="ln"><span class="n">3</span>&nbsp;&nbsp;<span class="kw">while</span>&nbsp;lo&lt;=hi:</div>
+                </div></div>
+                <button class="btn btn-primary" style="width:100%;justify-content:center;margin-bottom:12px">▸ Запуск</button>
+                <div class="card card-pad" style="padding:12px"><div class="between"><b style="font-size:13px">Тесты</b><span class="badge badge-lime"><span class="dotb"></span>11/12</span></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- mobile login -->
+        <div>
+          <div class="screen-meta"><span class="role public">Public</span><span class="nm">Вход</span></div>
+          <div class="frame mobile">
+            <div class="frame-bar"><div class="dots"><i></i><i></i><i></i></div><div class="addr">/login</div></div>
+            <div class="viewport" style="display:grid;place-items:center;padding:28px 20px">
+              <div style="width:100%">
+                <div class="brand" style="justify-content:center;margin-bottom:22px"><span class="dot"></span><b>Toxic<span class="pulse"> Pulse</span></b></div>
+                <h1 style="font-size:21px;font-weight:800;text-align:center;margin:0 0 18px">С возвращением</h1>
+                <div class="field"><label class="label">Email</label><input class="input" placeholder="you@example.com"></div>
+                <div class="field"><label class="label">Пароль</label><input class="input" type="password" placeholder="••••••••"></div>
+                <button class="btn btn-primary" style="width:100%;justify-content:center;margin-top:6px">Войти</button>
+                <p class="muted" style="text-align:center;font-size:13px;margin-top:16px">Нет аккаунта? <b style="color:#b89bff">Регистрация</b></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============ SYSTEM ============ -->
+    <section class="section" id="system">
+      <h2>15 · Системные экраны</h2>
+
+      <div class="cards2">
+        <div>
+          <h3 class="s-title">404 — страница не найдена</h3>
+          <div class="frame">
+            <div class="frame-bar"><div class="dots"><i></i><i></i><i></i></div><div class="addr">toxicpulse.dev/unknown</div></div>
+            <div class="viewport" style="display:grid;place-items:center;text-align:center;padding:54px 24px;min-height:300px;
+              background:radial-gradient(400px 240px at 50% 30%,rgba(142,255,1,.07),transparent 60%)">
+              <div>
+                <div style="font-size:74px;font-weight:800;letter-spacing:-3px;line-height:1"><span style="color:var(--lime)">4</span><span style="font-family:var(--serif);font-style:italic;color:var(--purple)">0</span><span style="color:var(--lime)">4</span></div>
+                <h2 style="font-size:20px;margin:14px 0 6px">Страница потерялась</h2>
+                <p class="muted" style="font-size:14px;margin:0 0 22px">Возможно, ссылка устарела или задача была удалена.</p>
+                <div class="wrap" style="justify-content:center"><button class="btn btn-ghost">← Назад</button><button class="btn btn-primary">На главную</button></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h3 class="s-title">Ошибка загрузки (error state)</h3>
+          <div class="frame">
+            <div class="frame-bar"><div class="dots"><i></i><i></i><i></i></div><div class="addr">toxicpulse.dev/tasks</div></div>
+            <div class="viewport" style="display:grid;place-items:center;text-align:center;padding:54px 24px;min-height:300px">
+              <div>
+                <div class="ill" style="width:72px;height:72px;border-radius:20px;margin:0 auto 16px;background:var(--danger-soft);border:1px solid rgba(255,77,106,.3);color:var(--danger);display:grid;place-items:center;font-size:30px">!</div>
+                <h2 style="font-size:18px;margin:0 0 6px">Не удалось загрузить задачи</h2>
+                <p class="muted" style="font-size:14px;margin:0 0 22px">Проверьте соединение и попробуйте снова.</p>
+                <button class="btn btn-primary">↻ Повторить</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="note" style="margin-top:22px"><b>Принцип системных экранов:</b> один и тот же паттерн (иконка-иллюстрация → заголовок → пояснение → одно primary-действие) для 404, пустых состояний и ошибок. Лайм — для нейтральных/успешных, фиолетовый — для информационных, красный (#ff4d6a) — только для ошибок и деструктива.</div>
+    </section>
+
+    <footer style="margin-top:72px;padding-top:24px;border-top:1px solid var(--border);color:var(--text-3);font-size:13px">
+      Toxic Pulse UI Kit · сгенерировано как референс для Cursor AI · палитра #8eff01 / #8b53fe / #1d2331 · React + Vite + Tailwind · тёмная тема
+    </footer>
+  </main>
+</div>
+</body>
+</html>

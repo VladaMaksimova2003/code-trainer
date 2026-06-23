@@ -1,0 +1,675 @@
+"""Tagged diversified test suites for v128 algorithm course (task_001–task_128)."""
+
+from __future__ import annotations
+
+V128_TEST_SUITES: dict[str, list[dict[str, str]]] = {
+    "task_001": [
+        {"tag": 'typical', "inputs": '4\n2\n9\n1\n7\n', "output": '9'},
+        {"tag": 'single', "inputs": '1\n4\n', "output": '4'},
+        {"tag": 'negative', "inputs": '4\n-5\n-1\n-8\n-3\n', "output": '-1'},
+    ],
+    "task_002": [
+        {"tag": 'typical', "inputs": '5 12\n8\n3\n12\n5\n9\n', "output": '3'},
+        {"tag": 'not_found', "inputs": '3 7\n1\n2\n3\n', "output": '0'},
+        {"tag": 'duplicate', "inputs": '4 5\n5\n5\n1\n2\n', "output": '1'},
+        {"tag": 'single', "inputs": '1 9\n9\n', "output": '1'},
+    ],
+    "task_003": [
+        {"tag": 'typical', "inputs": '5\n40\n18\n25\n60\n19\n', "output": '18'},
+        {"tag": 'single', "inputs": '1\n7\n', "output": '7'},
+        {"tag": 'negative', "inputs": '4\n100\n90\n120\n80\n', "output": '80'},
+    ],
+    "task_004": [
+        {"tag": 'typical', "inputs": '5\n100\n-20\n0\n50\n-1\n', "output": '2'},
+        {"tag": 'single', "inputs": '3\n-5\n-1\n0\n', "output": '0'},
+        {"tag": 'negative', "inputs": '4\n1\n2\n3\n4\n', "output": '4'},
+    ],
+    "task_005": [
+        {"tag": 'typical', "inputs": '5\n2\n9\n1\n7\n4\n', "output": '23'},
+        {"tag": 'single', "inputs": '1\n10\n', "output": '10'},
+        {"tag": 'negative', "inputs": '4\n-5\n10\n-2\n1\n', "output": '4'},
+    ],
+    "task_006": [
+        {"tag": 'typical', "inputs": '5\n10\n20\n30\n40\n50\n', "output": '30'},
+        {"tag": 'single', "inputs": '1\n7\n', "output": '7'},
+        {"tag": 'negative', "inputs": '4\n0\n0\n10\n10\n', "output": '5'},
+    ],
+    "task_007": [
+        {"tag": 'typical', "inputs": '5\n40\n50\n60\n10\n70\n', "output": '3'},
+        {"tag": 'single', "inputs": '3\n1\n2\n3\n', "output": '0'},
+        {"tag": 'negative', "inputs": '4\n50\n50\n49\n51\n', "output": '3'},
+    ],
+    "task_008": [
+        {"tag": 'typical', "inputs": '5\n5\n2\n4\n1\n3\n', "output": '5 3 3'},
+        {"tag": 'single', "inputs": '3\n2\n2\n2\n', "output": '2 2 0'},
+        {"tag": 'negative', "inputs": '4\n5\n4\n3\n5\n', "output": '5 4 4'},
+    ],
+    "task_009": [
+        {"tag": 'typical', "inputs": '3 7 2\n', "output": '7'},
+        {"tag": 'single', "inputs": '95\n', "output": 'excellent'},
+        {"tag": 'negative', "inputs": '40\n', "output": 'retry'},
+    ],
+    "task_010": [
+        {"tag": 'typical', "inputs": '3\n', "output": '7'},
+        {"tag": 'single', "inputs": '95\n', "output": 'excellent'},
+        {"tag": 'negative', "inputs": '40\n', "output": 'retry'},
+    ],
+    "task_011": [
+        {"tag": 'typical', "inputs": '3 7 2\n', "output": '7'},
+        {"tag": 'single', "inputs": '95\n', "output": 'excellent'},
+        {"tag": 'negative', "inputs": '40\n', "output": 'retry'},
+    ],
+    "task_012": [
+        {"tag": 'typical', "inputs": '3 7\n2\n', "output": '7'},
+        {"tag": 'single', "inputs": '95\n', "output": 'excellent'},
+        {"tag": 'negative', "inputs": '40\n', "output": 'retry'},
+    ],
+    "task_013": [
+        {"tag": 'typical', "inputs": '3\n', "output": '7'},
+        {"tag": 'single', "inputs": '95\n', "output": 'excellent'},
+        {"tag": 'negative', "inputs": '40\n', "output": 'retry'},
+    ],
+    "task_014": [
+        {"tag": 'typical', "inputs": '3\n', "output": '7'},
+        {"tag": 'single', "inputs": '95\n', "output": 'excellent'},
+        {"tag": 'negative', "inputs": '40\n', "output": 'retry'},
+    ],
+    "task_015": [
+        {"tag": 'typical', "inputs": '3\n', "output": '7'},
+        {"tag": 'single', "inputs": '95\n', "output": 'excellent'},
+        {"tag": 'negative', "inputs": '40\n', "output": 'retry'},
+    ],
+    "task_016": [
+        {"tag": 'typical', "inputs": '3\n', "output": '7'},
+        {"tag": 'single', "inputs": '95\n', "output": 'excellent'},
+        {"tag": 'negative', "inputs": '40\n', "output": 'retry'},
+    ],
+    "task_017": [
+        {"tag": 'typical', "inputs": '5\n2\n9\n1\n7\n', "output": '19'},
+        {"tag": 'single', "inputs": '1\n10\n', "output": '10'},
+        {"tag": 'negative', "inputs": '4\n-5\n-1\n-8\n-2\n', "output": '-16'},
+    ],
+    "task_018": [
+        {"tag": 'typical', "inputs": '5 7\n2\n9\n1\n7\n7\n', "output": '4'},
+        {"tag": 'not_found', "inputs": '3 5\n1\n2\n3\n', "output": '0'},
+        {"tag": 'single', "inputs": '1 12\n12\n', "output": '1'},
+        {"tag": 'duplicate', "inputs": '4 7\n7\n7\n1\n7\n', "output": '1'},
+    ],
+    "task_019": [
+        {"tag": 'typical', "inputs": '7\n', "output": 'yes'},
+        {"tag": 'typical', "inputs": '9\n', "output": 'no'},
+        {"tag": 'single', "inputs": '2\n', "output": 'yes'},
+        {"tag": 'boundary', "inputs": '1\n', "output": 'no'},
+    ],
+    "task_020": [
+        {"tag": 'typical', "inputs": '4\n2\n9\n1\n7\n', "output": '19'},
+        {"tag": 'single', "inputs": '1\n10\n', "output": '10'},
+        {"tag": 'negative', "inputs": '4\n-5\n-1\n-8\n-2\n', "output": '-16'},
+    ],
+    "task_021": [
+        {"tag": 'typical', "inputs": '3\n', "output": '3 6 9'},
+        {"tag": 'single', "inputs": '1\n', "output": '1'},
+        {"tag": 'boundary', "inputs": '2\n', "output": '2 4'},
+        {"tag": 'typical', "inputs": '4\n', "output": '4 8 12 16'},
+    ],
+    "task_022": [
+        {"tag": 'typical', "inputs": '5 7\n2\n9\n1\n7\n7\n', "output": '5'},
+        {"tag": 'not_found', "inputs": '3 5\n1\n2\n3\n', "output": '0'},
+        {"tag": 'duplicate', "inputs": '4 7\n7\n7\n1\n7\n', "output": '4'},
+        {"tag": 'single', "inputs": '1 3\n3\n', "output": '1'},
+    ],
+    "task_023": [
+        {"tag": 'typical', "inputs": '4\n2\n9\n1\n7\n', "output": '19'},
+        {"tag": 'single', "inputs": '1\n10\n', "output": '10'},
+        {"tag": 'negative', "inputs": '4\n-5\n-1\n-8\n-2\n', "output": '-16'},
+    ],
+    "task_024": [
+        {"tag": 'typical', "inputs": '5\n2\n9\n1\n7\n4\n', "output": '1 9 23 4'},
+        {"tag": 'single', "inputs": '1\n10\n', "output": '10 10 10 10'},
+        {"tag": 'negative', "inputs": '4\n-5\n-1\n-8\n-2\n', "output": '-8 -1 -16 -4'},
+        {"tag": 'all_equal', "inputs": '3\n5\n5\n5\n', "output": '5 5 15 5'},
+        {"tag": 'zero_empty', "inputs": '0\n\n', "output": 'invalid'},
+    ],
+    "task_025": [
+        {"tag": 'typical', "inputs": '5\n2\n9\n1\n7\n', "output": '19'},
+        {"tag": 'single', "inputs": '1\n10\n', "output": '10'},
+        {"tag": 'negative', "inputs": '4\n-5\n-1\n-8\n-2\n', "output": '-16'},
+    ],
+    "task_026": [
+        {"tag": 'typical', "inputs": '5 2\n1\n2\n3\n4\n5\n', "output": '4 5 1 2 3'},
+        {"tag": 'single', "inputs": '1 3\n10\n', "output": '10'},
+        {"tag": 'boundary', "inputs": '3 1\n1\n2\n3\n', "output": '1 2 3'},
+        {"tag": 'boundary', "inputs": '4 4\n1\n2\n3\n4\n', "output": '1 2 3 4'},
+    ],
+    "task_027": [
+        {"tag": 'typical', "inputs": '5\n2\n9\n1\n7\n7\n', "output": '19'},
+        {"tag": 'single', "inputs": '1\n10\n10\n', "output": '10'},
+        {"tag": 'negative', "inputs": '4\n-5\n-1\n-8\n-2\n-2\n', "output": '-16'},
+    ],
+    "task_028": [
+        {"tag": 'typical', "inputs": '5\n2\n9\n1\n7\n', "output": '19'},
+        {"tag": 'single', "inputs": '1\n10\n', "output": '10'},
+        {"tag": 'negative', "inputs": '4\n-5\n-1\n-8\n-2\n', "output": '-16'},
+    ],
+    "task_029": [
+        {"tag": 'typical', "inputs": '5\n2\n9\n1\n7\n', "output": '19'},
+        {"tag": 'single', "inputs": '1\n10\n', "output": '10'},
+        {"tag": 'negative', "inputs": '4\n-5\n-1\n-8\n-2\n', "output": '-16'},
+    ],
+    "task_030": [
+        {"tag": 'typical', "inputs": '5\n2\n9\n1\n7\n', "output": '19'},
+        {"tag": 'single', "inputs": '1\n10\n', "output": '10'},
+        {"tag": 'negative', "inputs": '4\n-5\n-1\n-8\n-2\n', "output": '-16'},
+    ],
+    "task_031": [
+        {"tag": 'typical', "inputs": '4 2\n9\n1\n7\n', "output": '19'},
+        {"tag": 'single', "inputs": '1 10\n', "output": '10'},
+        {"tag": 'negative', "inputs": '4 -5\n-1\n-8\n-2\n', "output": '-16'},
+    ],
+    "task_032": [
+        {"tag": 'typical', "inputs": '5\n2\n9\n1\n7\n', "output": '19'},
+        {"tag": 'single', "inputs": '1\n10\n', "output": '10'},
+        {"tag": 'negative', "inputs": '4\n-5\n-1\n-8\n-2\n', "output": '-16'},
+    ],
+    "task_033": [
+        {"tag": 'typical', "inputs": 'hello\n\n', "output": '5'},
+        {"tag": 'single', "inputs": 'a\n\n', "output": '1'},
+        {"tag": 'typical', "inputs": 'abc\ndef\n', "output": '7'},
+        {"tag": 'zero_empty', "inputs": '\n', "output": '0'},
+    ],
+    "task_034": [
+        {"tag": 'typical', "inputs": 'abba\n', "output": 'yes'},
+        {"tag": 'single', "inputs": 'abc\n', "output": 'no'},
+        {"tag": 'negative', "inputs": 'aaabb\n', "output": 'a3b2'},
+    ],
+    "task_035": [
+        {"tag": 'typical', "inputs": 'abba\n', "output": 'yes'},
+        {"tag": 'single', "inputs": 'abc\n', "output": 'no'},
+        {"tag": 'negative', "inputs": 'aaabb\n', "output": 'a3b2'},
+    ],
+    "task_036": [
+        {"tag": 'typical', "inputs": '5\n2\n9\n1\n7\n', "output": '19'},
+        {"tag": 'single', "inputs": '1\n10\n', "output": '10'},
+        {"tag": 'negative', "inputs": '4\n-5\n-1\n-8\n-2\n', "output": '-16'},
+    ],
+    "task_037": [
+        {"tag": 'typical', "inputs": 'abba\n\n', "output": 'yes'},
+        {"tag": 'single', "inputs": 'abc\n\n', "output": 'no'},
+        {"tag": 'negative', "inputs": 'aaabb\n\n', "output": 'a3b2'},
+    ],
+    "task_038": [
+        {"tag": 'typical', "inputs": 'abba\n', "output": 'yes'},
+        {"tag": 'single', "inputs": 'abc\n', "output": 'no'},
+        {"tag": 'negative', "inputs": 'aaabb\n', "output": 'a3b2'},
+    ],
+    "task_039": [
+        {"tag": 'typical', "inputs": 'abba\n', "output": 'yes'},
+        {"tag": 'single', "inputs": 'abc\n', "output": 'no'},
+        {"tag": 'negative', "inputs": 'aaabb\n', "output": 'a3b2'},
+    ],
+    "task_040": [
+        {"tag": 'typical', "inputs": 'abba\n\n', "output": 'yes'},
+        {"tag": 'single', "inputs": 'abc\n\n', "output": 'no'},
+        {"tag": 'negative', "inputs": 'aaabb\n\n', "output": 'a3b2'},
+    ],
+    "task_041": [
+        {"tag": 'typical', "inputs": '5 2\n9\n1\n7\n', "output": '19'},
+        {"tag": 'single', "inputs": '1 10\n', "output": '10'},
+        {"tag": 'negative', "inputs": '4 -5\n-1\n-8\n-2\n', "output": '-16'},
+    ],
+    "task_042": [
+        {"tag": 'typical', "inputs": '5\n', "output": 'yes'},
+        {"tag": 'typical', "inputs": '4\n', "output": 'no'},
+        {"tag": 'boundary', "inputs": '2\n', "output": 'yes'},
+        {"tag": 'boundary', "inputs": '1\n', "output": 'no'},
+    ],
+    "task_043": [
+        {"tag": 'typical', "inputs": '5 2\n9\n1\n7\n', "output": '19'},
+        {"tag": 'single', "inputs": '1 10\n', "output": '10'},
+        {"tag": 'negative', "inputs": '4 -5\n-1\n-8\n-2\n', "output": '-16'},
+    ],
+    "task_044": [
+        {"tag": 'typical', "inputs": '2 3\n', "output": '8'},
+        {"tag": 'boundary', "inputs": '5 0\n', "output": '1'},
+        {"tag": 'single', "inputs": '3 1\n', "output": '3'},
+        {"tag": 'typical', "inputs": '2 10\n', "output": '1024'},
+    ],
+    "task_045": [
+        {"tag": 'typical', "inputs": '12345\n', "output": '5'},
+        {"tag": 'single', "inputs": '7\n', "output": '1'},
+        {"tag": 'boundary', "inputs": '1000\n', "output": '4'},
+        {"tag": 'zero_empty', "inputs": '0\n', "output": '1'},
+    ],
+    "task_046": [
+        {"tag": 'typical', "inputs": '5 2\n9\n1\n7\n', "output": '19'},
+        {"tag": 'single', "inputs": '1 10\n', "output": '10'},
+        {"tag": 'negative', "inputs": '4 -5\n-1\n-8\n-2\n', "output": '-16'},
+    ],
+    "task_047": [
+        {"tag": 'typical', "inputs": '5 2\n9\n1\n7\n', "output": '19'},
+        {"tag": 'single', "inputs": '1 10\n', "output": '10'},
+        {"tag": 'negative', "inputs": '4 -5\n-1\n-8\n-2\n', "output": '-16'},
+    ],
+    "task_048": [
+        {"tag": 'typical', "inputs": '5 2\n9\n1\n7\n', "output": '19'},
+        {"tag": 'single', "inputs": '1 10\n', "output": '10'},
+        {"tag": 'negative', "inputs": '4 -5\n-1\n-8\n-2\n', "output": '-16'},
+    ],
+    "task_049": [
+        {"tag": 'typical', "inputs": '5\n', "output": '19'},
+        {"tag": 'single', "inputs": '1\n', "output": '10'},
+        {"tag": 'negative', "inputs": '4\n', "output": '-16'},
+    ],
+    "task_050": [
+        {"tag": 'typical', "inputs": '5\n', "output": '19'},
+        {"tag": 'single', "inputs": '1\n', "output": '10'},
+        {"tag": 'negative', "inputs": '4\n', "output": '-16'},
+    ],
+    "task_051": [
+        {"tag": 'typical', "inputs": '5\n', "output": '19'},
+        {"tag": 'single', "inputs": '1\n', "output": '10'},
+        {"tag": 'negative', "inputs": '4\n', "output": '-16'},
+    ],
+    "task_052": [
+        {"tag": 'typical', "inputs": '5\n', "output": '19'},
+        {"tag": 'single', "inputs": '1\n', "output": '10'},
+        {"tag": 'negative', "inputs": '4\n', "output": '-16'},
+    ],
+    "task_053": [
+        {"tag": 'typical', "inputs": '5\n', "output": '19'},
+        {"tag": 'single', "inputs": '1\n', "output": '10'},
+        {"tag": 'negative', "inputs": '4\n', "output": '-16'},
+    ],
+    "task_054": [
+        {"tag": 'typical', "inputs": '5\n', "output": '2'},
+        {"tag": 'not_found', "inputs": '5\n', "output": '0'},
+        {"tag": 'single', "inputs": '1\n', "output": '1'},
+        {"tag": 'boundary', "inputs": '5\n', "output": '1'},
+    ],
+    "task_055": [
+        {"tag": 'typical', "inputs": '5\n', "output": '19'},
+        {"tag": 'single', "inputs": '1\n', "output": '10'},
+        {"tag": 'negative', "inputs": '4\n', "output": '-16'},
+    ],
+    "task_056": [
+        {"tag": 'typical', "inputs": '5\n', "output": '1 2 5 7 9'},
+        {"tag": 'single', "inputs": '1\n', "output": '10'},
+        {"tag": 'negative', "inputs": '3\n', "output": '-3 -2 -1'},
+        {"tag": 'edge_order', "inputs": '4\n', "output": '1 2 3 4'},
+        {"tag": 'all_equal', "inputs": '3\n', "output": '4 4 4'},
+    ],
+    "task_057": [
+        {"tag": 'typical', "inputs": '5\n7\n2\n9\n1\n7\n', "output": '4'},
+        {"tag": 'not_found', "inputs": '3\n5\n1\n2\n', "output": '0'},
+        {"tag": 'single', "inputs": '1\n3\n', "output": '1'},
+        {"tag": 'duplicate', "inputs": '4\n2\n2\n2\n1\n', "output": '1'},
+    ],
+    "task_058": [
+        {"tag": 'typical', "inputs": '5\n9\n1\n3\n5\n7\n', "output": '5'},
+        {"tag": 'not_found', "inputs": '5\n4\n1\n3\n5\n7\n', "output": '0'},
+        {"tag": 'single', "inputs": '1\n3\n', "output": '1'},
+        {"tag": 'boundary', "inputs": '5\n1\n1\n3\n5\n7\n', "output": '1'},
+    ],
+    "task_059": [
+        {"tag": 'typical', "inputs": '5\n2\n9\n1\n7\n', "output": '19'},
+        {"tag": 'single', "inputs": '1\n10\n', "output": '10'},
+        {"tag": 'negative', "inputs": '4\n-5\n-1\n-8\n-2\n', "output": '-16'},
+    ],
+    "task_060": [
+        {"tag": 'typical', "inputs": '5\n2\n9\n1\n7\n', "output": '19'},
+        {"tag": 'single', "inputs": '1\n10\n', "output": '10'},
+        {"tag": 'negative', "inputs": '4\n-5\n-1\n-8\n-2\n', "output": '-16'},
+    ],
+    "task_061": [
+        {"tag": 'typical', "inputs": '5\n2\n9\n1\n7\n', "output": '19'},
+        {"tag": 'single', "inputs": '1\n10\n', "output": '10'},
+        {"tag": 'negative', "inputs": '4\n-5\n-1\n-8\n-2\n', "output": '-16'},
+    ],
+    "task_062": [
+        {"tag": 'typical', "inputs": '5\n2\n9\n1\n7\n', "output": '19'},
+        {"tag": 'single', "inputs": '1\n10\n', "output": '10'},
+        {"tag": 'negative', "inputs": '4\n-5\n-1\n-8\n-2\n', "output": '-16'},
+    ],
+    "task_063": [
+        {"tag": 'typical', "inputs": '5\n5\n2\n9\n1\n7\n', "output": '9 7 5 2 1'},
+        {"tag": 'single', "inputs": '1\n10\n', "output": '10'},
+        {"tag": 'negative', "inputs": '3\n-1\n-3\n-2\n', "output": '-1 -2 -3'},
+        {"tag": 'all_equal', "inputs": '3\n4\n4\n4\n', "output": '4 4 4'},
+    ],
+    "task_064": [
+        {"tag": 'typical', "inputs": '5\n2\n5\n2\n9\n1\n', "output": '9'},
+        {"tag": 'single', "inputs": '1\n1\n', "output": '10'},
+        {"tag": 'boundary', "inputs": '5\n1\n5\n2\n9\n1\n', "output": '9'},
+        {"tag": 'typical', "inputs": '4\n3\n1\n3\n5\n', "output": '5'},
+        {"tag": 'not_found', "inputs": '4\n10\n1\n3\n5\n', "output": '0'},
+    ],
+    "task_065": [
+        {"tag": 'typical', "inputs": '4\n2\n9\n1\n7\n', "output": '7'},
+        {"tag": 'duplicate', "inputs": '3\n5\n5\n1\n', "output": '5'},
+        {"tag": 'single', "inputs": '1\n10\n', "output": '10'},
+        {"tag": 'negative', "inputs": '4\n-5\n-1\n-8\n-2\n', "output": '-2'},
+    ],
+    "task_066": [
+        {"tag": 'typical', "inputs": '4\n2\n9\n1\n7\n', "output": '4'},
+        {"tag": 'single', "inputs": '1\n10\n', "output": '10'},
+        {"tag": 'negative', "inputs": '3\n-6\n0\n6\n', "output": '0'},
+        {"tag": 'boundary', "inputs": '2\n3\n7\n', "output": '5'},
+    ],
+    "task_067": [
+        {"tag": 'typical', "inputs": '5\n2\n9\n1\n7\n', "output": '7'},
+        {"tag": 'single', "inputs": '1\n10\n', "output": '10'},
+        {"tag": 'boundary', "inputs": '4\n1\n3\n5\n7\n', "output": '4'},
+        {"tag": 'typical', "inputs": '3\n1\n3\n5\n', "output": '3'},
+    ],
+    "task_068": [
+        {"tag": 'typical', "inputs": '5\n7\n5\n2\n9\n1\n', "output": '2'},
+        {"tag": 'not_found', "inputs": '4\n3\n1\n2\n3\n', "output": '0'},
+        {"tag": 'zero_empty', "inputs": '3\n0\n1\n2\n', "output": '3'},
+        {"tag": 'duplicate', "inputs": '4\n2\n2\n2\n1\n', "output": '3'},
+    ],
+    "task_069": [
+        {"tag": 'typical', "inputs": '4\n2\n9\n1\n7\n', "output": '8'},
+        {"tag": 'single', "inputs": '1\n10\n', "output": '0'},
+        {"tag": 'negative', "inputs": '3\n-5\n-1\n-8\n', "output": '14'},
+        {"tag": 'all_equal', "inputs": '3\n5\n5\n5\n', "output": '0'},
+    ],
+    "task_070": [
+        {"tag": 'typical', "inputs": '5 3\n5\n2\n9\n1\n7\n', "output": '9 7 5'},
+        {"tag": 'single', "inputs": '1 1\n10\n', "output": '10'},
+        {"tag": 'boundary', "inputs": '4 2\n1\n2\n3\n4\n', "output": '4 3'},
+        {"tag": 'duplicate', "inputs": '5 2\n5\n5\n1\n2\n3\n', "output": '5 5'},
+    ],
+    "task_071": [
+        {"tag": 'typical', "inputs": '4\n2\n9\n-1\n7\n', "output": '18 -1'},
+        {"tag": 'negative', "inputs": '3\n-5\n-1\n-8\n', "output": '0 -14'},
+        {"tag": 'zero_empty', "inputs": '3\n0\n0\n0\n', "output": '0 0'},
+        {"tag": 'single', "inputs": '1\n5\n', "output": '5 0'},
+    ],
+    "task_072": [
+        {"tag": 'typical', "inputs": '5\n2\n9\n1\n7\n4\n', "output": '1 9 23 4'},
+        {"tag": 'single', "inputs": '1\n10\n', "output": '10 10 10 10'},
+        {"tag": 'negative', "inputs": '3\n-1\n-3\n-2\n', "output": '-3 -1 -6 -2'},
+        {"tag": 'all_equal', "inputs": '3\n4\n4\n4\n', "output": '4 4 12 4'},
+        {"tag": 'zero_empty', "inputs": '0\n\n', "output": 'invalid'},
+    ],
+    "task_073": [
+        {"tag": 'typical', "inputs": 'red\nblue\nred\n', "output": 'red 2'},
+        {"tag": 'single', "inputs": 'a\nb\nc\n', "output": 'a 1'},
+        {"tag": 'negative', "inputs": 'one\none\ntwo\n', "output": 'one 2'},
+    ],
+    "task_074": [
+        {"tag": 'typical', "inputs": 'red\nblue\nred\n', "output": 'red 2'},
+        {"tag": 'single', "inputs": 'a\nb\nc\n', "output": 'a 1'},
+        {"tag": 'negative', "inputs": 'one\none\ntwo\n', "output": 'one 2'},
+    ],
+    "task_075": [
+        {"tag": 'typical', "inputs": 'red\nblue\nred\n', "output": 'red 2'},
+        {"tag": 'single', "inputs": 'a\nb\nc\n', "output": 'a 1'},
+        {"tag": 'negative', "inputs": 'one\none\ntwo\n', "output": 'one 2'},
+    ],
+    "task_076": [
+        {"tag": 'typical', "inputs": 'red\nblue\nred\n', "output": 'red 2'},
+        {"tag": 'single', "inputs": 'a\nb\nc\n', "output": 'a 1'},
+        {"tag": 'negative', "inputs": 'one\none\ntwo\n', "output": 'one 2'},
+    ],
+    "task_077": [
+        {"tag": 'typical', "inputs": 'red\nblue\nred\n', "output": 'red 2'},
+        {"tag": 'single', "inputs": 'a\nb\nc\n', "output": 'a 1'},
+        {"tag": 'negative', "inputs": 'one\none\ntwo\n', "output": 'one 2'},
+    ],
+    "task_078": [
+        {"tag": 'typical', "inputs": 'red\nblue\nred\n', "output": 'red 2'},
+        {"tag": 'single', "inputs": 'a\nb\nc\n', "output": 'a 1'},
+        {"tag": 'negative', "inputs": 'one\none\ntwo\n', "output": 'one 2'},
+    ],
+    "task_079": [
+        {"tag": 'typical', "inputs": 'red\nblue\nred\n', "output": 'red 2'},
+        {"tag": 'single', "inputs": 'a\nb\nc\n', "output": 'a 1'},
+        {"tag": 'negative', "inputs": 'one\none\ntwo\n', "output": 'one 2'},
+    ],
+    "task_080": [
+        {"tag": 'typical', "inputs": 'red\nblue\nred\n', "output": 'red 2'},
+        {"tag": 'single', "inputs": 'a\nb\nc\n', "output": 'a 1'},
+        {"tag": 'negative', "inputs": 'one\none\ntwo\n', "output": 'one 2'},
+    ],
+    "task_081": [
+        {"tag": 'typical', "inputs": 'demo\n', "output": 'ok'},
+        {"tag": 'single', "inputs": 'empty\n', "output": 'ok'},
+        {"tag": 'negative', "inputs": 'edge\n', "output": 'ok'},
+    ],
+    "task_082": [
+        {"tag": 'typical', "inputs": 'demo\n', "output": 'ok'},
+        {"tag": 'single', "inputs": 'empty\n', "output": 'ok'},
+        {"tag": 'negative', "inputs": 'edge\n', "output": 'ok'},
+    ],
+    "task_083": [
+        {"tag": 'typical', "inputs": 'demo\n', "output": 'ok'},
+        {"tag": 'single', "inputs": 'empty\n', "output": 'ok'},
+        {"tag": 'negative', "inputs": 'edge\n', "output": 'ok'},
+    ],
+    "task_084": [
+        {"tag": 'typical', "inputs": 'demo\n', "output": 'ok'},
+        {"tag": 'single', "inputs": 'empty\n', "output": 'ok'},
+        {"tag": 'negative', "inputs": 'edge\n', "output": 'ok'},
+    ],
+    "task_085": [
+        {"tag": 'typical', "inputs": 'demo\n', "output": 'ok'},
+        {"tag": 'single', "inputs": 'empty\n', "output": 'ok'},
+        {"tag": 'negative', "inputs": 'edge\n', "output": 'ok'},
+    ],
+    "task_086": [
+        {"tag": 'typical', "inputs": 'demo\n', "output": 'ok'},
+        {"tag": 'single', "inputs": 'empty\n', "output": 'ok'},
+        {"tag": 'negative', "inputs": 'edge\n', "output": 'ok'},
+    ],
+    "task_087": [
+        {"tag": 'typical', "inputs": 'demo\n', "output": 'ok'},
+        {"tag": 'single', "inputs": 'empty\n', "output": 'ok'},
+        {"tag": 'negative', "inputs": 'edge\n', "output": 'ok'},
+    ],
+    "task_088": [
+        {"tag": 'typical', "inputs": 'demo\n', "output": 'ok'},
+        {"tag": 'single', "inputs": 'empty\n', "output": 'ok'},
+        {"tag": 'negative', "inputs": 'edge\n', "output": 'ok'},
+    ],
+    "task_089": [
+        {"tag": 'typical', "inputs": 'demo\n', "output": 'ok'},
+        {"tag": 'single', "inputs": 'empty\n', "output": 'ok'},
+        {"tag": 'negative', "inputs": 'edge\n', "output": 'ok'},
+    ],
+    "task_090": [
+        {"tag": 'typical', "inputs": 'demo\n', "output": 'ok'},
+        {"tag": 'single', "inputs": 'empty\n', "output": 'ok'},
+        {"tag": 'negative', "inputs": 'edge\n', "output": 'ok'},
+    ],
+    "task_091": [
+        {"tag": 'typical', "inputs": 'demo\n', "output": 'ok'},
+        {"tag": 'single', "inputs": 'empty\n', "output": 'ok'},
+        {"tag": 'negative', "inputs": 'edge\n', "output": 'ok'},
+    ],
+    "task_092": [
+        {"tag": 'typical', "inputs": 'demo\n', "output": 'ok'},
+        {"tag": 'single', "inputs": 'empty\n', "output": 'ok'},
+        {"tag": 'negative', "inputs": 'edge\n', "output": 'ok'},
+    ],
+    "task_093": [
+        {"tag": 'typical', "inputs": 'demo\n', "output": 'ok'},
+        {"tag": 'single', "inputs": 'empty\n', "output": 'ok'},
+        {"tag": 'negative', "inputs": 'edge\n', "output": 'ok'},
+    ],
+    "task_094": [
+        {"tag": 'typical', "inputs": 'demo\n', "output": 'ok'},
+        {"tag": 'single', "inputs": 'empty\n', "output": 'ok'},
+        {"tag": 'negative', "inputs": 'edge\n', "output": 'ok'},
+    ],
+    "task_095": [
+        {"tag": 'typical', "inputs": 'demo\n', "output": 'ok'},
+        {"tag": 'single', "inputs": 'empty\n', "output": 'ok'},
+        {"tag": 'negative', "inputs": 'edge\n', "output": 'ok'},
+    ],
+    "task_096": [
+        {"tag": 'typical', "inputs": 'demo\n', "output": 'ok'},
+        {"tag": 'single', "inputs": 'empty\n', "output": 'ok'},
+        {"tag": 'negative', "inputs": 'edge\n', "output": 'ok'},
+    ],
+    "task_097": [
+        {"tag": 'typical', "inputs": 'demo\n', "output": 'ok'},
+        {"tag": 'single', "inputs": 'empty\n', "output": 'ok'},
+        {"tag": 'negative', "inputs": 'edge\n', "output": 'ok'},
+    ],
+    "task_098": [
+        {"tag": 'typical', "inputs": 'demo\n', "output": 'ok'},
+        {"tag": 'single', "inputs": 'empty\n', "output": 'ok'},
+        {"tag": 'negative', "inputs": 'edge\n', "output": 'ok'},
+    ],
+    "task_099": [
+        {"tag": 'typical', "inputs": 'demo\n', "output": 'ok'},
+        {"tag": 'single', "inputs": 'empty\n', "output": 'ok'},
+        {"tag": 'negative', "inputs": 'edge\n', "output": 'ok'},
+    ],
+    "task_100": [
+        {"tag": 'typical', "inputs": 'demo\n', "output": 'ok'},
+        {"tag": 'single', "inputs": 'empty\n', "output": 'ok'},
+        {"tag": 'negative', "inputs": 'edge\n', "output": 'ok'},
+    ],
+    "task_101": [
+        {"tag": 'typical', "inputs": 'demo\n', "output": 'ok'},
+        {"tag": 'single', "inputs": 'empty\n', "output": 'ok'},
+        {"tag": 'negative', "inputs": 'edge\n', "output": 'ok'},
+    ],
+    "task_102": [
+        {"tag": 'typical', "inputs": 'demo\n', "output": 'ok'},
+        {"tag": 'single', "inputs": 'empty\n', "output": 'ok'},
+        {"tag": 'negative', "inputs": 'edge\n', "output": 'ok'},
+    ],
+    "task_103": [
+        {"tag": 'typical', "inputs": 'demo\n', "output": 'ok'},
+        {"tag": 'single', "inputs": 'empty\n', "output": 'ok'},
+        {"tag": 'negative', "inputs": 'edge\n', "output": 'ok'},
+    ],
+    "task_104": [
+        {"tag": 'typical', "inputs": 'demo\n', "output": 'ok'},
+        {"tag": 'single', "inputs": 'empty\n', "output": 'ok'},
+        {"tag": 'negative', "inputs": 'edge\n', "output": 'ok'},
+    ],
+    "task_105": [
+        {"tag": 'typical', "inputs": 'demo\n', "output": 'ok'},
+        {"tag": 'single', "inputs": 'empty\n', "output": 'ok'},
+        {"tag": 'negative', "inputs": 'edge\n', "output": 'ok'},
+    ],
+    "task_106": [
+        {"tag": 'typical', "inputs": 'demo\n', "output": 'ok'},
+        {"tag": 'single', "inputs": 'empty\n', "output": 'ok'},
+        {"tag": 'negative', "inputs": 'edge\n', "output": 'ok'},
+    ],
+    "task_107": [
+        {"tag": 'typical', "inputs": 'demo\n', "output": 'ok'},
+        {"tag": 'single', "inputs": 'empty\n', "output": 'ok'},
+        {"tag": 'negative', "inputs": 'edge\n', "output": 'ok'},
+    ],
+    "task_108": [
+        {"tag": 'typical', "inputs": 'demo\n', "output": 'ok'},
+        {"tag": 'single', "inputs": 'empty\n', "output": 'ok'},
+        {"tag": 'negative', "inputs": 'edge\n', "output": 'ok'},
+    ],
+    "task_109": [
+        {"tag": 'typical', "inputs": '5\n2\n9\n1\n7\n', "output": '19'},
+        {"tag": 'single', "inputs": '1\n10\n', "output": '10'},
+        {"tag": 'negative', "inputs": '4\n-5\n-1\n-8\n-2\n', "output": '-16'},
+    ],
+    "task_110": [
+        {"tag": 'typical', "inputs": '5\n2\n9\n1\n7\n', "output": '19'},
+        {"tag": 'single', "inputs": '1\n10\n', "output": '10'},
+        {"tag": 'negative', "inputs": '4\n-5\n-1\n-8\n-2\n', "output": '-16'},
+    ],
+    "task_111": [
+        {"tag": 'typical', "inputs": '5\n2\n9\n1\n7\n', "output": '19'},
+        {"tag": 'single', "inputs": '1\n10\n', "output": '10'},
+        {"tag": 'negative', "inputs": '4\n-5\n-1\n-8\n-2\n', "output": '-16'},
+    ],
+    "task_112": [
+        {"tag": 'typical', "inputs": '5\n2\n9\n1\n7\n', "output": '19'},
+        {"tag": 'single', "inputs": '1\n10\n', "output": '10'},
+        {"tag": 'negative', "inputs": '4\n-5\n-1\n-8\n-2\n', "output": '-16'},
+    ],
+    "task_113": [
+        {"tag": 'typical', "inputs": 'demo\n', "output": 'ok'},
+        {"tag": 'single', "inputs": 'empty\n', "output": 'ok'},
+        {"tag": 'negative', "inputs": 'edge\n', "output": 'ok'},
+    ],
+    "task_114": [
+        {"tag": 'typical', "inputs": 'demo\n', "output": 'ok'},
+        {"tag": 'single', "inputs": 'empty\n', "output": 'ok'},
+        {"tag": 'negative', "inputs": 'edge\n', "output": 'ok'},
+    ],
+    "task_115": [
+        {"tag": 'typical', "inputs": 'demo\n\n', "output": 'ok'},
+        {"tag": 'single', "inputs": 'empty\n\n', "output": 'ok'},
+        {"tag": 'negative', "inputs": 'edge\n\n', "output": 'ok'},
+    ],
+    "task_116": [
+        {"tag": 'typical', "inputs": 'demo\n', "output": 'ok'},
+        {"tag": 'single', "inputs": 'empty\n', "output": 'ok'},
+        {"tag": 'negative', "inputs": 'edge\n', "output": 'ok'},
+    ],
+    "task_117": [
+        {"tag": 'typical', "inputs": 'demo\n', "output": 'ok'},
+        {"tag": 'single', "inputs": 'empty\n', "output": 'ok'},
+        {"tag": 'negative', "inputs": 'edge\n', "output": 'ok'},
+    ],
+    "task_118": [
+        {"tag": 'typical', "inputs": 'demo\n', "output": 'ok'},
+        {"tag": 'single', "inputs": 'empty\n', "output": 'ok'},
+        {"tag": 'negative', "inputs": 'edge\n', "output": 'ok'},
+    ],
+    "task_119": [
+        {"tag": 'typical', "inputs": 'demo\n', "output": 'ok'},
+        {"tag": 'single', "inputs": 'empty\n', "output": 'ok'},
+        {"tag": 'negative', "inputs": 'edge\n', "output": 'ok'},
+    ],
+    "task_120": [
+        {"tag": 'typical', "inputs": 'demo\n', "output": 'ok'},
+        {"tag": 'single', "inputs": 'empty\n', "output": 'ok'},
+        {"tag": 'negative', "inputs": 'edge\n', "output": 'ok'},
+    ],
+    "task_121": [
+        {"tag": 'typical', "inputs": 'demo\n', "output": 'ok'},
+        {"tag": 'single', "inputs": 'empty\n', "output": 'ok'},
+        {"tag": 'negative', "inputs": 'edge\n', "output": 'ok'},
+    ],
+    "task_122": [
+        {"tag": 'typical', "inputs": 'demo\n', "output": 'ok'},
+        {"tag": 'single', "inputs": 'empty\n', "output": 'ok'},
+        {"tag": 'negative', "inputs": 'edge\n', "output": 'ok'},
+    ],
+    "task_123": [
+        {"tag": 'typical', "inputs": 'demo\n', "output": 'ok'},
+        {"tag": 'single', "inputs": 'empty\n', "output": 'ok'},
+        {"tag": 'negative', "inputs": 'edge\n', "output": 'ok'},
+    ],
+    "task_124": [
+        {"tag": 'typical', "inputs": 'demo\n', "output": 'ok'},
+        {"tag": 'single', "inputs": 'empty\n', "output": 'ok'},
+        {"tag": 'negative', "inputs": 'edge\n', "output": 'ok'},
+    ],
+    "task_125": [
+        {"tag": 'typical', "inputs": 'demo\n', "output": 'ok'},
+        {"tag": 'single', "inputs": 'empty\n', "output": 'ok'},
+        {"tag": 'negative', "inputs": 'edge\n', "output": 'ok'},
+    ],
+    "task_126": [
+        {"tag": 'typical', "inputs": 'demo\n', "output": 'ok'},
+        {"tag": 'single', "inputs": 'empty\n', "output": 'ok'},
+        {"tag": 'negative', "inputs": 'edge\n', "output": 'ok'},
+    ],
+    "task_127": [
+        {"tag": 'typical', "inputs": 'demo\n', "output": 'ok'},
+        {"tag": 'single', "inputs": 'empty\n', "output": 'ok'},
+        {"tag": 'negative', "inputs": 'edge\n', "output": 'ok'},
+    ],
+    "task_128": [
+        {"tag": 'typical', "inputs": 'demo\n', "output": 'ok'},
+        {"tag": 'single', "inputs": 'empty\n', "output": 'ok'},
+        {"tag": 'negative', "inputs": 'edge\n', "output": 'ok'},
+    ],
+}

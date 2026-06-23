@@ -1,0 +1,49 @@
+# Manual Tree-sitter node.type → subtype mapping (deterministic, not ML).
+# "default" merges with language-specific overrides.
+default:
+  loop:
+    for_loop: [for_statement, for_loop]
+    while_loop: [while_statement, while_loop]
+    foreach: [for_in_statement, foreach_statement, enhanced_for_statement]
+  function:
+    function: [function_definition, function_declaration, function_item]
+    method: [method_definition, method_declaration]
+    lambda: [lambda, lambda_expression, arrow_function]
+  call:
+    direct_call: [call_expression, call, invocation_expression]
+  condition:
+    if: [if_statement, if_expression, conditional_expression, if]
+  return:
+    return: [return_statement, return]
+  assignment:
+    assignment: [assignment, assignment_expression, augmented_assignment, variable_declarator]
+
+python:
+  loop:
+    foreach: [for_statement]
+    while_loop: [while_statement]
+  function:
+    lambda: [lambda]
+  call:
+    direct_call: [call]
+
+javascript:
+  loop:
+    foreach: [for_in_statement]
+  function:
+    lambda: [arrow_function]
+
+java:
+  loop:
+    foreach: [enhanced_for_statement]
+  function:
+    lambda: [lambda_expression]
+
+csharp:
+  loop:
+    foreach: [for_each_statement]
+
+cpp:
+  loop:
+    for_loop: [for_statement]
+    while_loop: [while_statement]

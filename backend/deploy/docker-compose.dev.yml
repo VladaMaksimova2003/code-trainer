@@ -1,0 +1,283 @@
+services:
+  api:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.api
+      args:
+        PYTHON_IMAGE: ${PYTHON_BASE_IMAGE:-python:3.12-slim}
+    image: code_trainer/api:dev
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    environment:
+      AUTH__SECRET_KEY: ${AUTH__SECRET_KEY:?AUTH__SECRET_KEY is required}
+      DB__DIALECT: postgresql+psycopg2
+      DB__HOST: postgres
+      DB__PORT: 5432
+      DB__NAME: ${DB_NAME:-code_trainer}
+      DB__USER: ${DB_USER:?DB_USER is required}
+      DB__PASSWORD: ${DB_PASSWORD:?DB_PASSWORD is required}
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      REDIS_DB: 0
+      SMTP__HOST: mailpit
+      SMTP__PORT: 1025
+      SMTP__FROM_EMAIL: noreply@code-trainer.local
+      OAUTH__FRONTEND_URL: ${OAUTH__FRONTEND_URL:-http://localhost:5173}
+      OAUTH__REDIRECT_BASE: ${OAUTH__REDIRECT_BASE:-http://127.0.0.1:9000}
+      OAUTH__VK_CLIENT_ID: ${OAUTH__VK_CLIENT_ID:-}
+      OAUTH__GOOGLE_CLIENT_ID: ${OAUTH__GOOGLE_CLIENT_ID:-}
+      OAUTH__GOOGLE_CLIENT_SECRET: ${OAUTH__GOOGLE_CLIENT_SECRET:-}
+      OAUTH__YANDEX_CLIENT_ID: ${OAUTH__YANDEX_CLIENT_ID:-}
+      OAUTH__YANDEX_CLIENT_SECRET: ${OAUTH__YANDEX_CLIENT_SECRET:-}
+      SUBMISSION_QUEUE: "submissions:queue"
+      SUBMISSION_RESULT_PREFIX: "submissions:result:"
+      LINT_QUEUE: "lint:queue"
+      LINT_RESULT_PREFIX: "lint:result:"
+      WORKER_POLL_TIMEOUT_SECONDS: 5
+      EXECUTION_USER_MAX_CONCURRENT: "8"
+      EXECUTION_USER_MAX_PER_MINUTE: "120"
+      RUNNING_IN_DOCKER: "1"
+      CORS_ORIGINS: "${CORS_ORIGINS:-http://localhost:5173,http://127.0.0.1:5173,http://localhost:8080,http://127.0.0.1:8080}"
+      SEED_ADMIN_EMAIL: ${SEED_ADMIN_EMAIL:-admin@test.com}
+      SEED_ADMIN_PASSWORD: ${SEED_ADMIN_PASSWORD:-dev_admin_pass_12}
+      SEED_ADMIN_NAME: ${SEED_ADMIN_NAME:-Admin}
+    ports:
+      - "${API_PORT:-8001}:8000"
+    command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+    volumes:
+      - ..:/app
+      - /app/venv
+      - /app/.pytest_cache
+      - /app/__pycache__
+    networks:
+      - app_net
+
+  worker:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.worker
+      args:
+        PYTHON_IMAGE: ${PYTHON_BASE_IMAGE:-python:3.12-slim}
+    image: code_trainer/worker:dev
+    command: python -m worker.execution_worker
+    restart: unless-stopped
+    depends_on:
+      redis:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+    environment:
+      AUTH__SECRET_KEY: ${AUTH__SECRET_KEY:?AUTH__SECRET_KEY is required}
+      DB__DIALECT: postgresql+psycopg2
+      DB__HOST: postgres
+      DB__PORT: 5432
+      DB__NAME: ${DB_NAME:-code_trainer}
+      DB__USER: ${DB_USER:?DB_USER is required}
+      DB__PASSWORD: ${DB_PASSWORD:?DB_PASSWORD is required}
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      REDIS_DB: 0
+      SUBMISSION_QUEUE: "submissions:queue"
+      SUBMISSION_RESULT_PREFIX: "submissions:result:"
+      LINT_QUEUE: "lint:queue"
+      LINT_RESULT_PREFIX: "lint:result:"
+      WORKER_POLL_TIMEOUT_SECONDS: 5
+      EXECUTION_USER_MAX_CONCURRENT: "8"
+      EXECUTION_USER_MAX_PER_MINUTE: "120"
+      EXECUTION_USE_WARM_RUNNERS: "true"
+      WARM_RUNNER_RECYCLE_AFTER: "500"
+      RUNNING_IN_DOCKER: "1"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ..:/app
+      - /app/venv
+      - /app/__pycache__
+    networks:
+      - app_net
+
+  lint_worker:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.worker
+      args:
+        PYTHON_IMAGE: ${PYTHON_BASE_IMAGE:-python:3.12-slim}
+    image: code_trainer/worker:dev
+    command: python -m worker.lint_main
+    restart: unless-stopped
+    depends_on:
+      redis:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+    environment:
+      AUTH__SECRET_KEY: ${AUTH__SECRET_KEY:?AUTH__SECRET_KEY is required}
+      DB__DIALECT: postgresql+psycopg2
+      DB__HOST: postgres
+      DB__PORT: 5432
+      DB__NAME: ${DB_NAME:-code_trainer}
+      DB__USER: ${DB_USER:?DB_USER is required}
+      DB__PASSWORD: ${DB_PASSWORD:?DB_PASSWORD is required}
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      REDIS_DB: 0
+      LINT_QUEUE: "lint:queue"
+      LINT_RESULT_PREFIX: "lint:result:"
+      WORKER_POLL_TIMEOUT_SECONDS: 5
+      RUNNING_IN_DOCKER: "1"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ..:/app
+      - /app/venv
+      - /app/__pycache__
+    networks:
+      - app_net
+
+  frontend:
+    image: node:20-alpine
+    working_dir: /app
+    depends_on:
+      - api
+    environment:
+      CHOKIDAR_USEPOLLING: "true"
+      VITE_API_BASE_URL: http://127.0.0.1:${API_PORT:-8001}
+      VITE_USE_MOCK_API: "false"
+    command: sh -c "npm install --legacy-peer-deps && npm run dev -- --host 0.0.0.0 --port 5173"
+    ports:
+      - "5173:5173"
+    volumes:
+      - ../../frontend:/app
+      - frontend_node_modules:/app/node_modules
+    networks:
+      - app_net
+
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    ports:
+      - "${REDIS_PORT:-6379}:6379"
+    networks:
+      - app_net
+
+  mailpit:
+    image: axllent/mailpit:latest
+    restart: unless-stopped
+    ports:
+      - "${MAILPIT_SMTP_PORT:-1025}:1025"
+      - "${MAILPIT_UI_PORT:-9025}:8025"
+    networks:
+      - app_net
+
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${DB_NAME:-code_trainer}
+      POSTGRES_USER: ${DB_USER:?DB_USER is required}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:?DB_PASSWORD is required}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:?DB_USER is required} -d ${DB_NAME:-code_trainer}"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+    ports:
+      - "${POSTGRES_PORT:-5433}:5432"
+    networks:
+      - app_net
+
+  db_backup:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      PGHOST: postgres
+      PGPORT: 5432
+      PGUSER: ${DB_USER:?DB_USER is required}
+      PGPASSWORD: ${DB_PASSWORD:?DB_PASSWORD is required}
+      PGDATABASE: ${DB_NAME:-code_trainer}
+      BACKUP_INTERVAL_SECONDS: ${BACKUP_INTERVAL_SECONDS:-86400}
+      BACKUP_RETENTION_DAYS: ${BACKUP_RETENTION_DAYS:-1}
+      BACKUP_RETENTION_MAX_COUNT: ${BACKUP_RETENTION_MAX_COUNT:-7}
+    volumes:
+      - ../../backups/db:/backups
+      - ../../deploy/scripts/db-backup-loop.sh:/usr/local/bin/db-backup-loop.sh:ro
+    entrypoint: ["/bin/sh", "/usr/local/bin/db-backup-loop.sh"]
+    networks:
+      - app_net
+
+  python_runner:
+    profiles: [runners]
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.python
+      args:
+        PYTHON_IMAGE: ${PYTHON_BASE_IMAGE:-python:3.12-slim}
+    image: python_runner
+    restart: unless-stopped
+    command: ["sleep", "infinity"]
+    networks:
+      - app_net
+
+  cpp_runner:
+    profiles: [runners]
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.cpp
+    image: cpp_runner
+    restart: unless-stopped
+    command: ["sleep", "infinity"]
+    networks:
+      - app_net
+
+  java_runner:
+    profiles: [runners]
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.java
+    image: java_runner
+    restart: unless-stopped
+    command: ["sleep", "infinity"]
+    networks:
+      - app_net
+
+  csharp_runner:
+    profiles: [runners]
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.csharp
+    image: csharp_runner
+    restart: unless-stopped
+    command: ["sleep", "infinity"]
+    networks:
+      - app_net
+
+  pascal_runner:
+    profiles: [runners]
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.pascal
+    image: pascal_runner
+    restart: unless-stopped
+    command: ["sleep", "infinity"]
+    networks:
+      - app_net
+
+volumes:
+  postgres_data:
+  frontend_node_modules:
+
+networks:
+  app_net:
+    driver: bridge

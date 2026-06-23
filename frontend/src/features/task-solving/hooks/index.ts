@@ -1,0 +1,11 @@
+/** Re-export task-solving hooks for internal composition (FE-ARCH-6). */
+export { useTaskNavigation } from "./useTaskNavigation"
+export { useTaskLoader } from "./useTaskLoader"
+export { useDraftState } from "./useDraftState"
+export { useLanguageSelection } from "./useLanguageSelection"
+export { useExecutionResultState } from "./useExecutionResultState"
+export { useFlowchartSubmission } from "./useFlowchartSubmission"
+export { useBlockAssemblySubmission } from "./useBlockAssemblySubmission"
+export { useCodeSubmission } from "./useCodeSubmission"
+export { useTaskSolver } from "./useTaskSolver"
+export type { UseTaskSolverReturn } from "./useTaskSolver"

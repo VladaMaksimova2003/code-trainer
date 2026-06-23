@@ -1,0 +1,195 @@
+﻿{
+  "validation": "OK",
+  "stage": "v1.2",
+  "skip_purge": true,
+  "summary": {
+    "total_tasks": 237,
+    "mirror_attach_tasks": 118,
+    "cpp_only_tasks": 119,
+    "chapters": 26
+  },
+  "collections_seeded": 2,
+  "collections": [
+    {
+      "collection_key": "cpp_exceptions",
+      "attached": [
+        "cpex_01",
+        "cpex_02",
+        "cpex_03",
+        "cpex_04",
+        "cpex_05",
+        "cpex_06",
+        "cpex_07"
+      ],
+      "created": [],
+      "skipped": [
+        "attached:cpex_08"
+      ],
+      "errors": [],
+      "totals": {
+        "attached": 7,
+        "created": 0,
+        "skipped": 1,
+        "errors": 0
+      },
+      "tasks": [
+        {
+          "task_id": 646,
+          "slug": "cpex_01",
+          "collection_key": "cpp_exceptions",
+          "language": "cpp"
+        },
+        {
+          "task_id": 647,
+          "slug": "cpex_02",
+          "collection_key": "cpp_exceptions",
+          "language": "cpp"
+        },
+        {
+          "task_id": 653,
+          "slug": "cpex_08",
+          "collection_key": "cpp_exceptions",
+          "language": "cpp"
+        },
+        {
+          "task_id": 948,
+          "slug": "cpex_06",
+          "collection_key": "cpp_exceptions",
+          "language": "cpp"
+        },
+        {
+          "task_id": 1002,
+          "slug": "cpex_02",
+          "collection_key": "cpp_exceptions",
+          "language": "cpp"
+        },
+        {
+          "task_id": 1003,
+          "slug": "cpex_03",
+          "collection_key": "cpp_exceptions",
+          "language": "cpp"
+        },
+        {
+          "task_id": 1005,
+          "slug": "cpex_05",
+          "collection_key": "cpp_exceptions",
+          "language": "cpp"
+        },
+        {
+          "task_id": 1186,
+          "slug": "cpex_01",
+          "collection_key": "cpp_exceptions",
+          "language": "cpp"
+        },
+        {
+          "task_id": 1244,
+          "slug": "cpex_03",
+          "collection_key": "cpp_exceptions",
+          "language": "cpp"
+        },
+        {
+          "task_id": 1245,
+          "slug": "cpex_04",
+          "collection_key": "cpp_exceptions",
+          "language": "cpp"
+        },
+        {
+          "task_id": 1246,
+          "slug": "cpex_05",
+          "collection_key": "cpp_exceptions",
+          "language": "cpp"
+        },
+        {
+          "task_id": 1247,
+          "slug": "cpex_06",
+          "collection_key": "cpp_exceptions",
+          "language": "cpp"
+        },
+        {
+          "task_id": 1248,
+          "slug": "cpex_07",
+          "collection_key": "cpp_exceptions",
+          "language": "cpp"
+        }
+      ]
+    },
+    {
+      "collection_key": "cpp_capstones",
+      "attached": [],
+      "created": [
+        "cpcap_01",
+        "cpcap_02",
+        "cpcap_03",
+        "cpcap_04",
+        "cpcap_05",
+        "cpcap_06",
+        "cpcap_07",
+        "cpcap_08"
+      ],
+      "skipped": [],
+      "errors": [],
+      "totals": {
+        "attached": 0,
+        "created": 8,
+        "skipped": 0,
+        "errors": 0
+      },
+      "tasks": [
+        {
+          "task_id": 1419,
+          "slug": "cpcap_01",
+          "collection_key": "cpp_capstones",
+          "language": "cpp"
+        },
+        {
+          "task_id": 1420,
+          "slug": "cpcap_02",
+          "collection_key": "cpp_capstones",
+          "language": "cpp"
+        },
+        {
+          "task_id": 1421,
+          "slug": "cpcap_03",
+          "collection_key": "cpp_capstones",
+          "language": "cpp"
+        },
+        {
+          "task_id": 1422,
+          "slug": "cpcap_04",
+          "collection_key": "cpp_capstones",
+          "language": "cpp"
+        },
+        {
+          "task_id": 1423,
+          "slug": "cpcap_05",
+          "collection_key": "cpp_capstones",
+          "language": "cpp"
+        },
+        {
+          "task_id": 1424,
+          "slug": "cpcap_06",
+          "collection_key": "cpp_capstones",
+          "language": "cpp"
+        },
+        {
+          "task_id": 1425,
+          "slug": "cpcap_07",
+          "collection_key": "cpp_capstones",
+          "language": "cpp"
+        },
+        {
+          "task_id": 1426,
+          "slug": "cpcap_08",
+          "collection_key": "cpp_capstones",
+          "language": "cpp"
+        }
+      ]
+    }
+  ],
+  "totals": {
+    "attached": 7,
+    "created": 8,
+    "skipped": 1,
+    "errors": 0
+  }
+}

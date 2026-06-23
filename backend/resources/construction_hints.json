@@ -1,0 +1,109 @@
+{
+  "function_definition": {
+    "title": "Функция",
+    "description": "Именованный блок кода с параметрами и возвращаемым значением.",
+    "examples": {
+      "python": "def add(a, b):\n    return a + b",
+      "javascript": "function add(a, b) {\n  return a + b;\n}",
+      "cpp": "int add(int a, int b) {\n    return a + b;\n}"
+    }
+  },
+  "for_loop": {
+    "title": "Цикл",
+    "description": "Повторение блока кода — заданное число раз или по элементам коллекции.",
+    "examples": {
+      "python": "for i in range(5):\n    print(i)",
+      "cpp": "for (int i = 0; i < 5; ++i) {\n    cout << i << endl;\n}"
+    },
+    "variants": {
+      "python": [
+        { "name": "for in range", "code": "for i in range(10):\n    print(i)" },
+        { "name": "for in (по коллекции)", "code": "for item in items:\n    print(item)" }
+      ],
+      "javascript": [
+        { "name": "for (классический)", "code": "for (let i = 0; i < 10; i++) {\n  console.log(i);\n}" },
+        { "name": "for...of", "code": "for (const item of items) {\n  console.log(item);\n}" },
+        { "name": ".forEach()", "code": "items.forEach(item => {\n  console.log(item);\n});" }
+      ]
+    }
+  },
+  "while_loop": {
+    "title": "Цикл",
+    "description": "Повторение блока, пока условие истинно.",
+    "examples": {
+      "python": "i = 0\nwhile i < 5:\n    print(i)\n    i += 1",
+      "javascript": "let i = 0;\nwhile (i < 5) {\n  console.log(i);\n  i += 1;\n}",
+      "cpp": "int i = 0;\nwhile (i < 5) {\n    cout << i << endl;\n    ++i;\n}"
+    },
+    "variants": {
+      "javascript": [
+        { "name": "while", "code": "while (n > 0) {\n  n = Math.floor(n / 10);\n}" }
+      ],
+      "python": [
+        { "name": "while", "code": "while n > 0:\n    n //= 10" }
+      ]
+    }
+  },
+  "if_statement": {
+    "title": "Условие",
+    "description": "Выполняем блок, только если условие истинно. Альтернативная ветка — иначе.",
+    "examples": {
+      "python": "if x > 0:\n    print('positive')\nelse:\n    print('non-positive')",
+      "cpp": "if (x > 0) {\n    cout << \"positive\" << endl;\n} else {\n    cout << \"non-positive\" << endl;\n}"
+    },
+    "variants": {
+      "javascript": [
+        { "name": "if / else", "code": "if (n > 0) {\n  console.log(\"+\");\n} else {\n  console.log(\"−\");\n}" },
+        { "name": "else if", "code": "if (n > 0) {\n  ...\n} else if (n === 0) {\n  ...\n} else {\n  ...\n}" },
+        { "name": "тернарный", "code": "const label = n > 0 ? \"+\" : \"−\";" }
+      ],
+      "python": [
+        { "name": "if / else", "code": "if n > 0:\n    print(\"положительное\")\nelse:\n    print(\"ноль или меньше\")" },
+        { "name": "elif", "code": "if n > 0:\n    ...\nelif n == 0:\n    ...\nelse:\n    ..." }
+      ]
+    }
+  },
+  "return_statement": {
+    "title": "Return",
+    "description": "Завершает функцию и возвращает значение вызывающему коду.",
+    "examples": {
+      "python": "def square(x):\n    return x * x",
+      "javascript": "function square(x) {\n  return x * x;\n}",
+      "cpp": "int square(int x) {\n    return x * x;\n}"
+    }
+  },
+  "binary_expression": {
+    "title": "Арифметика",
+    "description": "Вычисление с операторами +, −, *, /, % и подобными.",
+    "examples": {
+      "python": "result = a + b",
+      "javascript": "const result = a + b;",
+      "cpp": "int result = a + b;"
+    }
+  },
+  "nested_loops": {
+    "title": "Вложенные циклы",
+    "description": "Цикл внутри другого цикла для перебора по двум измерениям.",
+    "examples": {
+      "python": "for i in range(n):\n    for j in range(n):\n        print(i, j)",
+      "cpp": "for (int i = 0; i < n; ++i) {\n    for (int j = 0; j < n; ++j) {\n        cout << i << ' ' << j << endl;\n    }\n}"
+    }
+  },
+  "io": {
+    "title": "Ввод / вывод",
+    "description": "Считать число с клавиатуры и напечатать результат в консоль.",
+    "examples": {
+      "python": "n = int(input())\nprint(total)",
+      "javascript": "const n = parseInt(prompt());\nconsole.log(total);"
+    },
+    "variants": {
+      "python": [
+        { "name": "input + print", "code": "n = int(input())\nprint(total)" }
+      ],
+      "javascript": [
+        { "name": "prompt + console.log", "code": "const n = parseInt(prompt());\nconsole.log(total);" },
+        { "name": "process.stdin (Node.js)", "code": "process.stdin.on(\"data\", buf => {\n  const n = parseInt(buf.toString());\n});" }
+      ]
+    }
+  }
+}

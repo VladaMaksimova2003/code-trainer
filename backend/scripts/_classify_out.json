@@ -1,0 +1,221 @@
+{
+  "pitfall_count": 27,
+  "pitfall_ids": [
+    "and_or_keywords",
+    "assignment_vs_compare",
+    "bool_literals",
+    "branch_logic",
+    "chain_comparison",
+    "exception_model",
+    "file_text_mode",
+    "filter_positive",
+    "float_division_pascal",
+    "for_range_off_by_one",
+    "index_1based",
+    "input_line_model",
+    "integer_division",
+    "list_vs_static_array",
+    "map_key_missing",
+    "mod_negative",
+    "multi_branch_discount",
+    "null_vs_nil",
+    "overflow_fixed_int",
+    "pass_by_value_ref",
+    "round_semantics",
+    "scope_block",
+    "string_immutable",
+    "string_index",
+    "switch_fallthrough",
+    "switch_vs_match",
+    "threshold_count"
+  ],
+  "pair_hint_pitfalls": [
+    "and_or_keywords",
+    "assignment_vs_compare",
+    "chain_comparison",
+    "exception_model",
+    "filter_positive",
+    "float_division_pascal",
+    "for_range_off_by_one",
+    "index_1based",
+    "input_line_model",
+    "integer_division",
+    "list_vs_static_array",
+    "mod_negative",
+    "round_semantics",
+    "threshold_count"
+  ],
+  "chapter_hint_chapters": [
+    "algo_basics",
+    "branches",
+    "arrays_collections"
+  ],
+  "explicit_pattern_bindings": [
+    {
+      "pattern": "task_002",
+      "title": "Линейный поиск элемента",
+      "pitfall_id": "index_1based",
+      "action": "assemble",
+      "chapter": "algo_basics",
+      "catalog_transfer_type": "FCC",
+      "resolved_transfer_type": "FCC",
+      "action_default_tt": "TCC"
+    },
+    {
+      "pattern": "task_003",
+      "title": "Поиск минимума",
+      "pitfall_id": "input_line_model",
+      "action": "implement",
+      "chapter": "algo_basics",
+      "catalog_transfer_type": "AFCC",
+      "resolved_transfer_type": "AFCC",
+      "action_default_tt": "ATCC"
+    },
+    {
+      "pattern": "task_004",
+      "title": "Подсчёт положительных чисел",
+      "pitfall_id": "filter_positive",
+      "action": "debug",
+      "chapter": "algo_basics",
+      "catalog_transfer_type": "FCC",
+      "resolved_transfer_type": "FCC",
+      "action_default_tt": "FCC"
+    },
+    {
+      "pattern": "task_006",
+      "title": "Среднее значение массива",
+      "pitfall_id": "integer_division",
+      "action": "assemble",
+      "chapter": "algo_basics",
+      "catalog_transfer_type": "FCC",
+      "resolved_transfer_type": "FCC",
+      "action_default_tt": "TCC"
+    },
+    {
+      "pattern": "task_007",
+      "title": "Ввод массива и вывод результата",
+      "pitfall_id": "threshold_count",
+      "action": "debug",
+      "chapter": "algo_basics",
+      "catalog_transfer_type": "FCC",
+      "resolved_transfer_type": "FCC",
+      "action_default_tt": "FCC"
+    },
+    {
+      "pattern": "task_008",
+      "title": "Итоговая: анализ оценок студентов",
+      "pitfall_id": "round_semantics",
+      "action": "implement",
+      "chapter": "algo_basics",
+      "catalog_transfer_type": "AFCC",
+      "resolved_transfer_type": "AFCC",
+      "action_default_tt": "ATCC"
+    },
+    {
+      "pattern": "task_012",
+      "title": "Проверка корректности даты",
+      "pitfall_id": "branch_logic",
+      "action": "debug",
+      "chapter": "branches",
+      "catalog_transfer_type": "FCC",
+      "resolved_transfer_type": "FCC",
+      "action_default_tt": "FCC"
+    },
+    {
+      "pattern": "task_015",
+      "title": "Система скидок",
+      "pitfall_id": "multi_branch_discount",
+      "action": "debug",
+      "chapter": "branches",
+      "catalog_transfer_type": "FCC",
+      "resolved_transfer_type": "FCC",
+      "action_default_tt": "FCC"
+    },
+    {
+      "pattern": "task_020",
+      "title": "Пропуск отрицательных значений",
+      "pitfall_id": "for_range_off_by_one",
+      "action": "debug",
+      "chapter": "loops",
+      "catalog_transfer_type": "FCC",
+      "resolved_transfer_type": "FCC",
+      "action_default_tt": "FCC"
+    },
+    {
+      "pattern": "task_027",
+      "title": "Удаление элемента",
+      "pitfall_id": "list_vs_static_array",
+      "action": "implement",
+      "chapter": "arrays_collections",
+      "catalog_transfer_type": "AFCC",
+      "resolved_transfer_type": "AFCC",
+      "action_default_tt": "ATCC"
+    },
+    {
+      "pattern": "task_028",
+      "title": "Вставка элемента",
+      "pitfall_id": "index_1based",
+      "action": "debug",
+      "chapter": "arrays_collections",
+      "catalog_transfer_type": "FCC",
+      "resolved_transfer_type": "FCC",
+      "action_default_tt": "FCC"
+    },
+    {
+      "pattern": "task_036",
+      "title": "Поиск подстроки",
+      "pitfall_id": "string_index",
+      "action": "debug",
+      "chapter": "strings",
+      "catalog_transfer_type": "FCC",
+      "resolved_transfer_type": "FCC",
+      "action_default_tt": "FCC"
+    },
+    {
+      "pattern": "task_187",
+      "title": "BankAccount: withdraw",
+      "pitfall_id": "exception_model",
+      "action": "debug",
+      "chapter": "oop",
+      "catalog_transfer_type": "ATCC",
+      "resolved_transfer_type": "ATCC",
+      "action_default_tt": "FCC"
+    }
+  ],
+  "catalog_by_type": {
+    "TCC": [],
+    "ATCC": [
+      "exception_model",
+      "pass_by_value_ref",
+      "file_text_mode",
+      "switch_vs_match",
+      "scope_block"
+    ],
+    "FCC": [
+      "integer_division",
+      "index_1based",
+      "for_range_off_by_one",
+      "assignment_vs_compare",
+      "filter_positive",
+      "threshold_count",
+      "branch_logic",
+      "multi_branch_discount",
+      "string_index",
+      "float_division_pascal",
+      "mod_negative",
+      "chain_comparison",
+      "and_or_keywords",
+      "bool_literals",
+      "switch_fallthrough",
+      "null_vs_nil",
+      "map_key_missing"
+    ],
+    "AFCC": [
+      "round_semantics",
+      "input_line_model",
+      "string_immutable",
+      "list_vs_static_array",
+      "overflow_fixed_int"
+    ]
+  }
+}

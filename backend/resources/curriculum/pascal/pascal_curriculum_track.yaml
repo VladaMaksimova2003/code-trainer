@@ -1,0 +1,544 @@
+# Полный учебный маршрут Pascal (Python/C++/Java/C# → Pascal)
+# Learning Concept → Technical Concepts (order) → TC×action matrix
+version: 1
+target_language: pascal
+default_known_languages: [python, cpp]
+
+# Стандартные задачи на action (если не переопределено у TC)
+default_tasks_per_action:
+  recognize: 4
+  assemble: 5
+  translate: 6
+  analyze: 4
+  debug: 5
+  implement: 4
+
+# Стандартная матрица patterns для beginner TC (шаблон)
+templates:
+  beginner_tc_matrix: &beginner_tc
+    recognize:
+      patterns: [rec_code_known_to_text, rec_flowchart_to_text, rec_code_pascal_to_text]
+      tasks: 4
+    assemble:
+      patterns: [asm_flowchart_to_blocks, asm_blocks_to_code_pascal]
+      tasks: 5
+    translate:
+      patterns: [tr_python_to_pascal_code, tr_cpp_to_pascal_code, tr_flowchart_to_pascal_code]
+      tasks: 6
+    analyze:
+      patterns: [ana_pascal_code_to_text, ana_pascal_code_predict_output]
+      tasks: 4
+    debug:
+      patterns: [dbg_pascal_code_fix, dbg_transfer_syntax_fix]
+      tasks: 5
+    implement:
+      patterns: [imp_text_spec_to_pascal]
+      tasks: 4
+
+  loop_tc_matrix: &loop_tc
+    recognize:
+      patterns: [rec_code_known_to_text, rec_flowchart_to_text]
+      tasks: 4
+    assemble:
+      patterns: [asm_flowchart_to_blocks, asm_blocks_to_code_pascal]
+      tasks: 5
+    translate:
+      patterns: [tr_python_to_pascal_code, tr_cpp_to_pascal_code, tr_flowchart_to_pascal_code, tr_blocks_to_pascal_code]
+      tasks: 6
+    analyze:
+      patterns: [ana_pascal_code_predict_output, ana_flowchart_to_text]
+      tasks: 4
+    debug:
+      patterns: [dbg_pascal_logic_fix, dbg_transfer_syntax_fix]
+      tasks: 5
+    implement:
+      patterns: [imp_text_spec_to_pascal, imp_io_tests_pascal]
+      tasks: 4
+
+  io_tc_matrix: &io_tc
+    recognize:
+      patterns: [rec_code_pascal_to_text, rec_code_known_to_text]
+      tasks: 3
+    assemble:
+      patterns: [asm_blocks_to_code_pascal]
+      tasks: 4
+    translate:
+      patterns: [tr_python_to_pascal_code, tr_cpp_to_pascal_code]
+      tasks: 5
+    analyze:
+      patterns: [ana_pascal_code_predict_output]
+      tasks: 3
+    debug:
+      patterns: [dbg_pascal_code_fix]
+      tasks: 4
+    implement:
+      patterns: [imp_io_tests_pascal]
+      tasks: 4
+
+  intermediate_tc_matrix: &intermediate_tc
+    recognize:
+      patterns: [rec_code_pascal_to_text, rec_flowchart_to_text]
+      tasks: 3
+    assemble:
+      patterns: [asm_flowchart_to_blocks, asm_blocks_to_code_pascal]
+      tasks: 4
+    translate:
+      patterns: [tr_python_to_pascal_code, tr_flowchart_to_pascal_code]
+      tasks: 5
+    analyze:
+      patterns: [ana_pascal_code_to_text, ana_pascal_code_predict_output]
+      tasks: 4
+    debug:
+      patterns: [dbg_pascal_logic_fix]
+      tasks: 5
+    implement:
+      patterns: [imp_text_spec_to_pascal]
+      tasks: 4
+
+  advanced_tc_matrix: &advanced_tc
+    recognize:
+      patterns: [rec_code_pascal_to_text]
+      tasks: 3
+    assemble:
+      patterns: []
+      tasks: 0
+      optional: true
+    translate:
+      patterns: [tr_python_to_pascal_code, tr_java_to_pascal_code]
+      tasks: 4
+    analyze:
+      patterns: [ana_pascal_code_to_text, ana_pascal_code_predict_output]
+      tasks: 4
+    debug:
+      patterns: [dbg_pascal_logic_fix]
+      tasks: 5
+    implement:
+      patterns: [imp_text_spec_to_pascal]
+      tasks: 4
+
+chapters:
+  # ============================================================
+  # Глава 1: Структура программы
+  # ============================================================
+  - learning_concept_id: program_structure
+    order: 1
+    tier: beginner
+    study_order_tc:
+      - program_entry
+      - sequential_execution
+      - block_scope
+      - statement_group
+    technical_concepts:
+      program_entry:
+        <<: *beginner_tc
+        translate:
+          patterns: [tr_python_to_pascal_code, tr_flowchart_to_pascal_code]
+          tasks: 4
+        implement:
+          patterns: [imp_text_spec_to_pascal]
+          tasks: 3
+      sequential_execution:
+        <<: *beginner_tc
+      block_scope:
+        <<: *beginner_tc
+        translate:
+          patterns: [tr_python_to_pascal_code, tr_cpp_to_pascal_code]
+          tasks: 5
+      statement_group:
+        <<: *beginner_tc
+    chapter_tasks_total: 88
+    mastery: { ref: mastery_rules.yaml#learning_concept_mastered }
+
+  # ============================================================
+  # Глава 2: Данные и переменные
+  # ============================================================
+  - learning_concept_id: data_and_variables
+    order: 2
+    tier: beginner
+    prerequisites: [program_structure]
+    study_order_tc:
+      - literal_value
+      - variable_binding
+      - typed_declaration
+      - constant_binding
+      - assignment
+    technical_concepts:
+      literal_value:
+        <<: *beginner_tc
+      variable_binding:
+        <<: *beginner_tc
+        debug:
+          patterns: [dbg_transfer_syntax_fix, dbg_pascal_code_fix]
+          tasks: 5
+          notes: "var vs Python; := vs ="
+      typed_declaration:
+        <<: *beginner_tc
+        translate:
+          patterns: [tr_python_to_pascal_code, tr_cpp_to_pascal_code, tr_java_to_pascal_code]
+          tasks: 6
+      constant_binding:
+        <<: *beginner_tc
+      assignment:
+        <<: *beginner_tc
+        translate:
+          patterns: [tr_python_to_pascal_code, tr_cpp_to_pascal_code]
+          tasks: 5
+    chapter_tasks_total: 110
+
+  # ============================================================
+  # Глава 3: Операции
+  # ============================================================
+  - learning_concept_id: operators
+    order: 3
+    tier: beginner
+    prerequisites: [data_and_variables]
+    study_order_tc: [arithmetic_ops, comparison_ops, logical_ops, compound_assignment]
+    technical_concepts:
+      arithmetic_ops: { <<: *beginner_tc }
+      comparison_ops: { <<: *beginner_tc }
+      logical_ops:
+        <<: *beginner_tc
+        translate:
+          patterns: [tr_python_to_pascal_code, tr_cpp_to_pascal_code, tr_csharp_to_pascal_code]
+          tasks: 5
+      compound_assignment:
+        <<: *intermediate_tc
+    chapter_tasks_total: 88
+
+  # ============================================================
+  # Глава 4: Условия
+  # ============================================================
+  - learning_concept_id: conditions
+    order: 4
+    tier: beginner
+    prerequisites: [operators]
+    study_order_tc: [simple_branch, multi_branch, switch_selection, conditional_expression]
+    technical_concepts:
+      simple_branch:
+        <<: *beginner_tc
+        translate:
+          patterns: [tr_python_to_pascal_code, tr_cpp_to_pascal_code, tr_flowchart_to_pascal_code]
+          tasks: 6
+      multi_branch:
+        <<: *beginner_tc
+      switch_selection:
+        <<: *intermediate_tc
+        translate:
+          patterns: [tr_python_to_pascal_code, tr_cpp_to_pascal_code, tr_java_to_pascal_code]
+          tasks: 6
+          notes: "case/switch → case of"
+      conditional_expression:
+        <<: *intermediate_tc
+        recognize:
+          patterns: [rec_code_known_to_text]
+          tasks: 3
+    chapter_tasks_total: 92
+
+  # ============================================================
+  # Глава 5: Циклы  ← ключевая глава для примеров
+  # ============================================================
+  - learning_concept_id: loops
+    order: 5
+    tier: beginner
+    prerequisites: [conditions]
+    study_order_tc:
+      - counted_loop
+      - pre_condition_loop
+      - post_condition_loop
+      - collection_iteration
+      - nested_iteration
+      - loop_control
+    technical_concepts:
+      counted_loop:
+        <<: *loop_tc
+        # Эталонная матрица из ТЗ:
+        recognize:
+          patterns: [rec_code_known_to_text, rec_flowchart_to_text]
+          tasks: 4
+        assemble:
+          patterns: [asm_flowchart_to_blocks, asm_blocks_to_code_pascal]
+          tasks: 5
+        translate:
+          patterns: [tr_python_to_pascal_code, tr_cpp_to_pascal_code, tr_flowchart_to_pascal_code, tr_blocks_to_pascal_code]
+          tasks: 6
+        analyze:
+          patterns: [ana_pascal_code_to_text, ana_pascal_code_predict_output]
+          tasks: 4
+        debug:
+          patterns: [dbg_pascal_logic_fix, dbg_transfer_syntax_fix]
+          tasks: 5
+        implement:
+          patterns: [imp_text_spec_to_pascal, imp_io_tests_pascal]
+          tasks: 4
+      pre_condition_loop:
+        <<: *loop_tc
+        translate:
+          patterns: [tr_python_to_pascal_code, tr_cpp_to_pascal_code, tr_java_to_pascal_code]
+          tasks: 6
+          notes: "while — близкий перенос"
+      post_condition_loop:
+        <<: *loop_tc
+        translate:
+          patterns: [tr_python_to_pascal_code, tr_cpp_to_pascal_code]
+          tasks: 6
+          notes: "repeat-until — ключевой transfer trap (do-while / while)"
+        debug:
+          patterns: [dbg_transfer_syntax_fix, dbg_pascal_logic_fix]
+          tasks: 6
+      collection_iteration:
+        <<: *loop_tc
+        translate:
+          patterns: [tr_python_to_pascal_code, tr_java_to_pascal_code, tr_csharp_to_pascal_code]
+          tasks: 6
+          notes: "for-in / foreach → for in Pascal"
+      nested_iteration:
+        <<: *loop_tc
+        implement:
+          patterns: [imp_io_tests_pascal]
+          tasks: 5
+      loop_control:
+        <<: *intermediate_tc
+        translate:
+          patterns: [tr_python_to_pascal_code, tr_cpp_to_pascal_code]
+          tasks: 5
+    chapter_tasks_total: 168
+    review_rotation_example:
+      technical_concept: counted_loop
+      action: translate
+      week_1: tr_python_to_pascal_code
+      week_2: tr_flowchart_to_pascal_code
+      week_3: tr_blocks_to_pascal_code
+
+  # ============================================================
+  # Глава 6: Функции
+  # ============================================================
+  - learning_concept_id: functions
+    order: 6
+    tier: beginner
+    prerequisites: [loops]
+    study_order_tc:
+      - function_definition
+      - function_invocation
+      - return_flow
+      - parameter_passing
+      - recursion
+      - lambda_abstraction
+    technical_concepts:
+      function_definition:
+        <<: *beginner_tc
+        translate:
+          patterns: [tr_python_to_pascal_code, tr_cpp_to_pascal_code, tr_java_to_pascal_code]
+          tasks: 6
+      function_invocation:
+        <<: *beginner_tc
+      return_flow:
+        <<: *beginner_tc
+      parameter_passing:
+        <<: *intermediate_tc
+        translate:
+          patterns: [tr_cpp_to_pascal_code, tr_java_to_pascal_code]
+          tasks: 5
+          notes: "var parameter, value vs reference"
+      recursion:
+        <<: *intermediate_tc
+        implement:
+          patterns: [imp_io_tests_pascal]
+          tasks: 5
+      lambda_abstraction:
+        <<: *advanced_tc
+        optional_in_track: true
+        notes: "Пропускается в базовом Pascal-сертификате."
+    chapter_tasks_total: 140
+
+  # ============================================================
+  # Глава 7: Ввод-вывод и файлы
+  # ============================================================
+  - learning_concept_id: files
+    order: 7
+    tier: beginner
+    prerequisites: [functions]
+    study_order_tc: [stdout_write, stdin_read, file_read, file_write]
+    technical_concepts:
+      stdout_write:
+        <<: *io_tc
+        translate:
+          patterns: [tr_python_to_pascal_code, tr_cpp_to_pascal_code, tr_java_to_pascal_code, tr_csharp_to_pascal_code]
+          tasks: 6
+          notes: "print/cout → Writeln"
+      stdin_read:
+        <<: *io_tc
+        translate:
+          patterns: [tr_python_to_pascal_code, tr_cpp_to_pascal_code, tr_java_to_pascal_code]
+          tasks: 6
+          notes: "input/cin/Scanner → Readln"
+      file_read:
+        <<: *intermediate_tc
+      file_write:
+        <<: *intermediate_tc
+    chapter_tasks_total: 72
+
+  # ============================================================
+  # Глава 8: Коллекции
+  # ============================================================
+  - learning_concept_id: collections
+    order: 8
+    tier: intermediate
+    prerequisites: [files]
+    study_order_tc:
+      - string_sequence
+      - indexed_sequence
+      - dynamic_array
+      - key_value_map
+      - set_collection
+    technical_concepts:
+      string_sequence: { <<: *intermediate_tc }
+      indexed_sequence:
+        <<: *intermediate_tc
+        translate:
+          patterns: [tr_python_to_pascal_code, tr_cpp_to_pascal_code, tr_java_to_pascal_code]
+          tasks: 6
+      dynamic_array: { <<: *intermediate_tc }
+      key_value_map:
+        <<: *intermediate_tc
+        translate:
+          patterns: [tr_python_to_pascal_code, tr_java_to_pascal_code]
+          tasks: 5
+          notes: "dict/record → record"
+      set_collection: { <<: *intermediate_tc }
+    chapter_tasks_total: 110
+
+  # ============================================================
+  # Глава 9: Обработка данных
+  # ============================================================
+  - learning_concept_id: data_processing
+    order: 9
+    tier: intermediate
+    prerequisites: [collections]
+    study_order_tc: [linear_traversal, search_find, filter_select, map_transform, fold_aggregate, sort_order]
+    technical_concepts:
+      linear_traversal:
+        <<: *intermediate_tc
+      search_find: { <<: *intermediate_tc }
+      filter_select: { <<: *intermediate_tc }
+      map_transform: { <<: *intermediate_tc }
+      fold_aggregate: { <<: *intermediate_tc }
+      sort_order: { <<: *intermediate_tc }
+    chapter_tasks_total: 120
+
+  # ============================================================
+  # Глава 10: Модули
+  # ============================================================
+  - learning_concept_id: modules
+    order: 10
+    tier: intermediate
+    prerequisites: [data_processing]
+    study_order_tc: [import_dependency, module_namespace, symbol_visibility]
+    technical_concepts:
+      import_dependency:
+        <<: *intermediate_tc
+        translate:
+          patterns: [tr_python_to_pascal_code, tr_java_to_pascal_code, tr_cpp_to_pascal_code]
+          tasks: 5
+          notes: "import/uses → unit"
+      module_namespace: { <<: *intermediate_tc }
+      symbol_visibility: { <<: *advanced_tc }
+    chapter_tasks_total: 60
+
+  # ============================================================
+  # Глава 11–14: Advanced (сокращённая матрица)
+  # ============================================================
+  - learning_concept_id: oop
+    order: 11
+    tier: advanced
+    prerequisites: [modules]
+    study_order_tc: [class_type, object_instance, method_dispatch, inheritance_hierarchy, field_encapsulation, interface_contract]
+    technical_concepts:
+      class_type: { <<: *advanced_tc }
+      object_instance: { <<: *advanced_tc }
+      method_dispatch: { <<: *advanced_tc }
+      inheritance_hierarchy: { <<: *advanced_tc }
+      field_encapsulation: { <<: *advanced_tc }
+      interface_contract: { <<: *advanced_tc }
+    chapter_tasks_total: 96
+
+  - learning_concept_id: error_handling
+    order: 11.5
+    tier: intermediate
+    prerequisites: [functions]
+    study_order_tc: [exceptions]
+    technical_concepts:
+      exceptions:
+        <<: *intermediate_tc
+        translate:
+          patterns: [tr_python_to_pascal_code, tr_cpp_to_pascal_code]
+          tasks: 4
+        debug:
+          patterns: [dbg_pascal_code_fix, dbg_pascal_logic_fix, dbg_transfer_syntax_fix]
+          tasks: 4
+        assemble:
+          patterns: [asm_blocks_to_code_pascal]
+          tasks: 2
+        implement:
+          patterns: [imp_text_spec_to_pascal]
+          tasks: 2
+    chapter_tasks_total: 48
+
+  - learning_concept_id: memory
+    order: 12
+    tier: advanced
+    prerequisites: [oop]
+    study_order_tc: [value_semantics, reference_semantics, dynamic_allocation]
+    technical_concepts:
+      value_semantics: { <<: *advanced_tc }
+      reference_semantics: { <<: *advanced_tc }
+      dynamic_allocation:
+        <<: *advanced_tc
+        translate:
+          patterns: [tr_cpp_to_pascal_code, tr_java_to_pascal_code]
+          tasks: 5
+    chapter_tasks_total: 48
+
+  - learning_concept_id: algorithms
+    order: 13
+    tier: advanced
+    prerequisites: [memory]
+    study_order_tc: [divide_conquer, greedy_step, memoization, backtrack_search]
+    technical_concepts:
+      divide_conquer: { <<: *advanced_tc }
+      greedy_step: { <<: *advanced_tc }
+      memoization: { <<: *advanced_tc }
+      backtrack_search: { <<: *advanced_tc }
+    chapter_tasks_total: 64
+
+  - learning_concept_id: advanced_structures
+    order: 14
+    tier: advanced
+    prerequisites: [algorithms]
+    study_order_tc: [stack_queue, linked_node, tree_hierarchy, graph_edges]
+    technical_concepts:
+      stack_queue: { <<: *advanced_tc }
+      linked_node: { <<: *advanced_tc }
+      tree_hierarchy: { <<: *advanced_tc }
+      graph_edges: { <<: *advanced_tc }
+    chapter_tasks_total: 64
+
+# --- Сводка курса ---
+track_summary:
+  learning_concepts: 14
+  technical_concepts: 60
+  base_exercise_patterns: 26
+  estimated_tasks_minimum: 1320
+  estimated_tasks_with_variants: 2500
+  note: |
+    60 TC × ~6 actions × ~4 tasks ≈ 1320 минимум (с учётом optional и 0-assemble ≈ 1200+).
+    Варианты known_language (py/cpp/java/csharp) умножают translate-задачи.
+
+learning_path_default_sequence:
+  actions:
+    - recognize
+    - assemble
+    - translate
+    - analyze
+    - debug
+    - implement
+  note: "Рекомендуемый порядок action внутри TC; debug может параллелиться с analyze после translate ≥ 60."

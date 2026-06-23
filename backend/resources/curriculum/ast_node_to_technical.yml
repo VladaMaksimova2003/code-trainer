@@ -1,0 +1,149 @@
+# Tree-sitter AST → canonical technical concept id.
+#
+# nodes:       high-confidence node-type mapping (single node ≈ concept).
+# signal_nodes: coarse AST hint only — may false-positive; not used alone for grading.
+# pascal_tokens: literal substring fallback when grammar lacks a node.
+#
+# Full detection = nodes + signal_nodes + semantic detectors (see technical_semantic_detectors.py).
+
+schema_version: "2.1"
+description: AST layer for curriculum technical concept detection.
+languages:
+  - pascal
+  - python
+  - cpp
+  - csharp
+  - java
+
+nodes:
+  python:
+    assignment: assignment
+    augmented_assignment: assignment
+    annotated_assignment: variable_declaration
+    module: program_root
+    block: block_scope
+    function_definition: function_definition
+    if_statement: conditional
+    elif_clause: conditional
+    for_statement: loop
+    while_statement: loop
+    return_statement: return_flow
+    class_definition: class_type
+    import_statement: import_module
+    import_from_statement: import_module
+    subscript: indexed_access
+    string: string_literal
+
+  cpp:
+    assignment_expression: assignment
+    update_expression: assignment
+    declaration: variable_declaration
+    init_declarator: variable_declaration
+    compound_statement: block_scope
+    translation_unit: program_root
+    function_definition: function_definition
+    if_statement: conditional
+    for_statement: loop
+    while_statement: loop
+    do_statement: loop
+    range_based_for_statement: collection_iteration
+    for_range_loop: collection_iteration
+    switch_statement: switch_selection
+    return_statement: return_flow
+    class_specifier: class_type
+    field_declaration: field_declaration
+    preproc_include: import_module
+    subscript_expression: indexed_access
+
+  csharp:
+    assignment_expression: assignment
+    local_declaration_statement: variable_declaration
+    variable_declaration: variable_declaration
+    block: block_scope
+    compilation_unit: program_root
+    method_declaration: function_definition
+    constructor_declaration: constructor
+    if_statement: conditional
+    for_statement: loop
+    while_statement: loop
+    do_statement: loop
+    foreach_statement: collection_iteration
+    switch_statement: switch_selection
+    return_statement: return_flow
+    class_declaration: class_type
+    field_declaration: field_declaration
+    using_directive: import_module
+    element_access_expression: indexed_access
+
+  java:
+    assignment_expression: assignment
+    update_expression: assignment
+    local_variable_declaration: variable_declaration
+    field_declaration: field_declaration
+    block: block_scope
+    program: program_root
+    method_declaration: function_definition
+    constructor_declaration: constructor
+    if_statement: conditional
+    for_statement: loop
+    while_statement: loop
+    do_statement: loop
+    enhanced_for_statement: collection_iteration
+    switch_statement: switch_selection
+    return_statement: return_flow
+    class_declaration: class_type
+    import_declaration: import_module
+    array_access: indexed_access
+
+  pascal:
+    program: program_root
+    root: program_root
+    block: block_scope
+    assignment: assignment
+    variable_declaration: variable_declaration
+    declVar: variable_declaration
+    declVars: variable_declaration
+    declArray: indexed_access
+    const_declaration: constant_declaration
+    function_declaration: function_definition
+    procedure_declaration: function_definition
+    if: conditional
+    kIf: conditional
+    for: loop
+    kFor: loop
+    while_statement: loop
+    repeat_statement: loop
+    case_statement: switch_selection
+    field_declaration: field_declaration
+    array_type: indexed_access
+    exprSubscript: indexed_access
+    exprCall: function_call
+
+signal_nodes:
+  python:
+    binary_operator: arithmetic
+    unary_operator: arithmetic
+    with_statement: file_io
+  cpp:
+    binary_expression: arithmetic
+    unary_expression: arithmetic
+  csharp:
+    binary_expression: arithmetic
+    prefix_unary_expression: arithmetic
+    postfix_unary_expression: arithmetic
+  java:
+    binary_expression: arithmetic
+    unary_expression: arithmetic
+  pascal:
+    with_statement: block_scope
+
+pascal_tokens:
+  ":=": assignment
+  program: program_root
+  begin: block_scope
+  const: constant_declaration
+  var: variable_declaration
+  readln: console_input
+  read: console_input
+  writeln: console_output
+  write: console_output

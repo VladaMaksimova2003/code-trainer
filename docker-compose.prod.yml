@@ -1,0 +1,87 @@
+# Prod-стек из корня репозитория:
+#   ./deploy/scripts/init-prod.sh
+
+name: code_trainer_prod
+
+include:
+  - path: backend/deploy/docker-compose.prod.yml
+  - path: backend/deploy/docker-compose.runners-build.yml
+
+services:
+  nginx:
+    image: nginx:1.27-alpine
+    restart: unless-stopped
+    depends_on:
+      api:
+        condition: service_healthy
+      frontend:
+        condition: service_started
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./deploy/nginx/generated:/etc/nginx/conf.d:ro
+      - certbot_www:/var/www/certbot:ro
+      - certbot_conf:/etc/letsencrypt:ro
+    networks:
+      - app_net
+
+  certbot:
+    profiles: [init]
+    image: certbot/certbot:latest
+    volumes:
+      - certbot_conf:/etc/letsencrypt
+      - certbot_www:/var/www/certbot
+    networks:
+      - app_net
+    restart: "no"
+
+  migrate:
+    profiles: [init]
+    image: code_trainer/api:latest
+    build:
+      context: backend
+      dockerfile: docker/Dockerfile.api
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      AUTH__SECRET_KEY: ${AUTH__SECRET_KEY:?AUTH__SECRET_KEY is required}
+      DB__DIALECT: postgresql+psycopg2
+      DB__HOST: postgres
+      DB__PORT: 5432
+      DB__NAME: ${DB_NAME:-code_trainer}
+      DB__USER: ${DB_USER:?DB_USER is required}
+      DB__PASSWORD: ${DB_PASSWORD:?DB_PASSWORD is required}
+      RUNNING_IN_DOCKER: "1"
+    command: ["alembic", "upgrade", "head"]
+    networks:
+      - app_net
+    restart: "no"
+
+  seed:
+    profiles: [init]
+    image: code_trainer/api:latest
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      AUTH__SECRET_KEY: ${AUTH__SECRET_KEY:?AUTH__SECRET_KEY is required}
+      DB__DIALECT: postgresql+psycopg2
+      DB__HOST: postgres
+      DB__PORT: 5432
+      DB__NAME: ${DB_NAME:-code_trainer}
+      DB__USER: ${DB_USER:?DB_USER is required}
+      DB__PASSWORD: ${DB_PASSWORD:?DB_PASSWORD is required}
+      RUNNING_IN_DOCKER: "1"
+      SEED_ADMIN_EMAIL: ${SEED_ADMIN_EMAIL:-admin@test.com}
+      SEED_ADMIN_PASSWORD: ${SEED_ADMIN_PASSWORD:?SEED_ADMIN_PASSWORD is required for seed}
+      SEED_ADMIN_NAME: ${SEED_ADMIN_NAME:-Admin}
+    command: ["python", "scripts/seed_admin.py"]
+    networks:
+      - app_net
+    restart: "no"
+
+volumes:
+  certbot_conf:
+  certbot_www:

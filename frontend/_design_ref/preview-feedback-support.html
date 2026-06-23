@@ -1,0 +1,675 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Code Trainer · Превью: Комментарии, Поддержка, Уведомления</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        bg:        '#0a0e15',
+        'bg-2':    '#0e131c',
+        surface:   '#141a24',
+        'surface-2':'#1d2331',
+        'surface-3':'#262e3e',
+        border:    '#262e3c',
+        'border-2':'#333d4f',
+        ink:       '#eef2f7',
+        'ink-muted':'#9aa6b6',
+        'ink-faint':'#626d7e',
+        lime:      '#8eff01',
+        'lime-600':'#7ee000',
+        purple:    '#8b53fe',
+        'purple-300':'#b89bff',
+        danger:    '#ff4d6a',
+        warning:   '#ffb43d',
+      },
+      fontFamily: {
+        sans: ['Inter','system-ui','sans-serif'],
+        mono: ['JetBrains Mono','ui-monospace','monospace'],
+      },
+      borderRadius: { xl2:'18px' },
+    }
+  }
+}
+</script>
+<style>
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',sans-serif}
+  *{scrollbar-color:#1d2331 #0a0e15;scrollbar-width:thin}
+  ::-webkit-scrollbar{width:10px;height:10px}
+  ::-webkit-scrollbar-track{background:#0a0e15}
+  ::-webkit-scrollbar-thumb{background:#1d2331;border-radius:8px;border:2px solid #0a0e15}
+  ::selection{background:#8eff01;color:#0a0e15}
+  /* shared component classes from the brief */
+  .lime-soft{background:rgba(142,255,1,.14)}
+  .lime-soft-20{background:rgba(142,255,1,.07)}
+  .purple-soft{background:rgba(139,83,254,.16)}
+  .danger-soft{background:rgba(255,77,106,.14)}
+  .warning-soft{background:rgba(255,180,61,.14)}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:40px;padding:0 16px;border-radius:10px;font-weight:600;font-size:14px;border:1px solid transparent;cursor:pointer;transition:.16s;white-space:nowrap}
+  .btn-sm{height:34px;padding:0 13px;font-size:13px;border-radius:9px}
+  .btn-primary{background:#8eff01;color:#0a0e15}
+  .btn-primary:hover{background:#7ee000;box-shadow:0 8px 24px -10px rgba(142,255,1,.5)}
+  .btn-purple{background:#8b53fe;color:#fff}
+  .btn-purple:hover{background:#7a3ff0}
+  .btn-ghost{background:transparent;color:#9aa6b6;border-color:#333d4f}
+  .btn-ghost:hover{color:#eef2f7;border-color:#8eff01;background:#141a24}
+  .icon-btn{display:grid;place-items:center;width:38px;height:38px;border-radius:10px;border:1px solid #333d4f;color:#9aa6b6;background:transparent;cursor:pointer;transition:.12s}
+  .icon-btn:hover{border-color:#8eff01;color:#eef2f7}
+  .modalpop{animation:modalpop .18s ease}
+  @keyframes modalpop{from{opacity:0;transform:translateY(8px) scale(.98)}to{opacity:1;transform:none}}
+  .fadein{animation:fadein .15s ease}
+  @keyframes fadein{from{opacity:0}to{opacity:1}}
+  textarea:focus,input:focus{outline:none}
+</style>
+</head>
+<body class="bg-bg text-ink antialiased">
+
+<!-- ============ STICKY NAV ============ -->
+<header class="sticky top-0 z-40 border-b border-border bg-bg/85 backdrop-blur">
+  <div class="mx-auto flex max-w-6xl items-center gap-4 px-5 py-3">
+    <div class="flex items-center gap-2.5 font-bold">
+      <span class="relative h-7 w-7 rounded-lg bg-lime shadow-[0_0_0_1px_rgba(142,255,1,.5),0_8px_30px_-8px_rgba(142,255,1,.45)]">
+        <span class="absolute inset-[7px] rounded bg-bg"></span>
+      </span>
+      <span>Code Trainer</span>
+      <span class="ml-1 rounded-full lime-soft px-2 py-0.5 text-[11px] font-semibold text-lime">UI Preview</span>
+    </div>
+    <nav class="ml-auto hidden flex-wrap gap-1 text-[13px] md:flex">
+      <a href="#s1" class="rounded-lg px-3 py-1.5 text-ink-muted hover:bg-surface hover:text-ink">1 · Комментарии</a>
+      <a href="#s2" class="rounded-lg px-3 py-1.5 text-ink-muted hover:bg-surface hover:text-ink">2 · Ошибка</a>
+      <a href="#s3" class="rounded-lg px-3 py-1.5 text-ink-muted hover:bg-surface hover:text-ink">3 · Обращение</a>
+      <a href="#s4" class="rounded-lg px-3 py-1.5 text-ink-muted hover:bg-surface hover:text-ink">4 · Помощь</a>
+      <a href="#s5" class="rounded-lg px-3 py-1.5 text-ink-muted hover:bg-surface hover:text-ink">5 · Диалог</a>
+      <a href="#s6" class="rounded-lg px-3 py-1.5 text-ink-muted hover:bg-surface hover:text-ink">6 · Уведомления</a>
+      <a href="#s7" class="rounded-lg px-3 py-1.5 text-ink-muted hover:bg-surface hover:text-ink">7 · Teacher inbox</a>
+    </nav>
+  </div>
+</header>
+
+<main class="mx-auto max-w-6xl px-5 py-10">
+
+  <div class="mb-12">
+    <h1 class="text-3xl font-extrabold tracking-tight">Превью UI · Комментарии, Поддержка, Уведомления</h1>
+    <p class="mt-2 max-w-2xl text-[15px] text-ink-muted">Единая страница для согласования. Тёмная тема, lime — основной акцент, purple — режим преподавателя. Каждый блок ниже соответствует пункту брифа. Интерактив: вкладки, модалки, dropdown.</p>
+  </div>
+
+  <!-- ============ SECTION 1 ============ -->
+  <section id="s1" class="scroll-mt-20">
+    <div class="mb-4 flex items-baseline gap-3">
+      <span class="text-[12px] font-bold uppercase tracking-widest text-ink-faint">Секция 1</span>
+      <h2 class="text-xl font-bold">Страница задачи — нижняя панель</h2>
+    </div>
+
+    <div class="grid gap-5 lg:grid-cols-2">
+      <!-- Student view -->
+      <div class="overflow-hidden rounded-xl border border-border bg-surface">
+        <div class="border-b border-border bg-[#0c111a] px-4 py-2 text-[12px] font-semibold uppercase tracking-wide text-ink-faint">Студент (read-only)</div>
+        <!-- tabs -->
+        <div class="flex gap-1 border-b border-border px-3" role="tablist">
+          <button class="tab1 border-b-2 border-transparent px-3.5 py-3 text-[13.5px] font-semibold text-ink-muted hover:text-ink" data-tab1="tests">Тесты</button>
+          <button class="tab1 border-b-2 border-transparent px-3.5 py-3 text-[13.5px] font-semibold text-ink-muted hover:text-ink" data-tab1="errors">Ошибки</button>
+          <button class="tab1 flex items-center gap-2 border-b-2 border-lime px-3.5 py-3 text-[13.5px] font-semibold text-lime" data-tab1="comments">
+            Комментарии
+            <span class="grid h-5 min-w-5 place-items-center rounded-full purple-soft px-1.5 text-[11px] font-bold text-purple-300">2</span>
+          </button>
+        </div>
+        <!-- panes -->
+        <div class="p-4">
+          <div class="tab1-pane hidden" data-pane1="tests">
+            <div class="mb-3 flex items-center justify-between">
+              <b class="text-[13.5px]">Тесты</b>
+              <span class="inline-flex h-6 items-center gap-1.5 rounded-full lime-soft px-2.5 text-[12px] font-semibold text-lime"><i class="h-1.5 w-1.5 rounded-full bg-current"></i>11 / 12 пройдено</span>
+            </div>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="grid h-7 w-7 place-items-center rounded-lg lime-soft text-[12px] font-semibold text-lime">1</span>
+              <span class="grid h-7 w-7 place-items-center rounded-lg lime-soft text-[12px] font-semibold text-lime">2</span>
+              <span class="grid h-7 w-7 place-items-center rounded-lg lime-soft text-[12px] font-semibold text-lime">3</span>
+              <span class="grid h-7 w-7 place-items-center rounded-lg danger-soft text-[12px] font-semibold text-danger">4</span>
+              <span class="grid h-7 w-7 place-items-center rounded-lg lime-soft text-[12px] font-semibold text-lime">5</span>
+            </div>
+          </div>
+          <div class="tab1-pane hidden" data-pane1="errors">
+            <pre class="m-0 whitespace-pre-wrap font-mono text-[12.5px] leading-relaxed text-danger">AssertionError on test #4
+  expected: 3
+  received: -1
+  input: arr=[2,4,6,8], x=8</pre>
+          </div>
+          <div class="tab1-pane" data-pane1="comments">
+            <!-- comment cards -->
+            <div class="space-y-2.5">
+              <div class="rounded-lg border border-border bg-surface-2 px-3.5 py-2.5">
+                <div class="mb-1 flex items-center justify-between gap-2">
+                  <span class="text-[13px] font-semibold text-ink">Петрова А. <span class="ml-2 font-normal text-ink-faint">4 июн, 10:00</span></span>
+                </div>
+                <p class="text-[13px] leading-snug text-ink-muted">Хорошее решение, но добавь проверку на пустой ввод — сейчас при <span class="font-mono text-lime">arr=[]</span> функция падает.</p>
+              </div>
+              <div class="rounded-lg border border-border bg-surface-2 px-3.5 py-2.5">
+                <div class="mb-1 flex items-center justify-between gap-2">
+                  <span class="text-[13px] font-semibold text-ink">Петрова А. <span class="ml-2 font-normal text-ink-faint">4 июн, 14:32 · изменён</span></span>
+                </div>
+                <p class="text-[13px] leading-snug text-ink-muted">Проверь граничный случай <span class="font-mono text-lime">n=0</span>: цикл не обрабатывает пустой массив. В остальном — отлично, сложность O(log n) выдержана.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Teacher review view -->
+      <div class="overflow-hidden rounded-xl border border-purple/40 bg-surface">
+        <div class="border-b border-border bg-[#0c111a] px-4 py-2 text-[12px] font-semibold uppercase tracking-wide text-purple-300">Режим преподавателя · review</div>
+        <div class="flex gap-1 border-b border-border px-3">
+          <span class="px-3.5 py-3 text-[13.5px] font-semibold text-ink-faint">Тесты</span>
+          <span class="px-3.5 py-3 text-[13.5px] font-semibold text-ink-faint">Ошибки</span>
+          <span class="flex items-center gap-2 border-b-2 border-purple px-3.5 py-3 text-[13.5px] font-semibold text-purple-300">Комментарии
+            <span class="grid h-5 min-w-5 place-items-center rounded-full purple-soft px-1.5 text-[11px] font-bold text-purple-300">2</span>
+          </span>
+        </div>
+        <div class="flex h-full flex-col p-4">
+          <!-- existing comment with own-actions -->
+          <div class="relative mb-2.5 rounded-lg border border-border bg-surface-2 px-3.5 py-2.5">
+            <div class="mb-1 flex items-center justify-between gap-2">
+              <span class="text-[13px] font-semibold text-ink">Вы <span class="ml-2 font-normal text-ink-faint">только что</span></span>
+              <button class="icon-btn h-7 w-7 text-ink-faint">⋯</button>
+            </div>
+            <p class="text-[13px] leading-snug text-ink-muted">Посмотри на именование переменных — <span class="font-mono">l</span> и <span class="font-mono">r</span> лучше заменить на <span class="font-mono">lo</span>/<span class="font-mono">hi</span>.</p>
+          </div>
+          <!-- composer -->
+          <div class="mt-1 border-t border-border pt-3">
+            <textarea rows="2" placeholder="Комментарий к решению студента…" class="w-full resize-y rounded-md border border-border bg-bg px-3 py-2 text-[13px] text-ink placeholder:text-ink-faint focus:border-purple focus:ring-2 focus:ring-purple/20"></textarea>
+            <div class="mt-2 flex items-center justify-between">
+              <span class="text-[11px] text-ink-faint">0/4096 · ⌘/Ctrl+Enter</span>
+              <button class="btn btn-sm btn-purple">Отправить</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Empty state -->
+    <div class="mt-5 rounded-xl border border-border bg-surface p-4">
+      <div class="mb-2 text-[12px] font-semibold uppercase tracking-wide text-ink-faint">Empty state (нет комментариев)</div>
+      <div class="flex flex-col items-center justify-center py-10 text-center">
+        <div class="mb-3 grid h-12 w-12 place-items-center rounded-xl border border-border bg-surface-2 text-ink-faint">💬</div>
+        <p class="text-[13px] text-ink-muted">Преподаватель ещё не оставил комментариев к этому решению.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="my-12 h-px bg-border"></div>
+
+  <!-- ============ SECTION 2 ============ -->
+  <section id="s2" class="scroll-mt-20">
+    <div class="mb-4 flex items-baseline gap-3">
+      <span class="text-[12px] font-bold uppercase tracking-widest text-ink-faint">Секция 2</span>
+      <h2 class="text-xl font-bold">Модалка — «Сообщить об ошибке»</h2>
+      <button onclick="openModal('report')" class="btn btn-sm btn-ghost ml-2">Открыть модалку</button>
+    </div>
+
+    <!-- inline static preview of modal over dimmed bg -->
+    <div class="relative overflow-hidden rounded-xl border border-border">
+      <div class="grid place-items-center bg-bg-2 p-8" style="background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.015) 0 12px,transparent 12px 24px)">
+        <div class="w-full max-w-[520px] overflow-hidden rounded-xl border border-border bg-surface shadow-[0_40px_90px_-30px_rgba(0,0,0,.8)]">
+          <div class="flex items-center justify-between border-b border-border px-5 py-4">
+            <h3 class="text-[15px] font-semibold">Сообщить об ошибке</h3>
+            <button class="icon-btn h-8 w-8 text-ink-faint">✕</button>
+          </div>
+          <div class="px-5 py-4">
+            <p class="mb-4 text-[13px] text-ink-muted">Задание: <span class="font-medium text-ink">«Сумма двух чисел»</span></p>
+            <label class="mb-2 block text-[13px] font-medium text-ink-muted">Что не так?</label>
+            <div class="mb-4 flex flex-wrap gap-2">
+              <span class="cursor-pointer rounded-full border border-lime/45 lime-soft px-3 py-1.5 text-[13px] text-lime">Ошибка в условии</span>
+              <span class="cursor-pointer rounded-full border border-border bg-surface-2 px-3 py-1.5 text-[13px] text-ink-muted hover:text-ink">Неверный тест</span>
+              <span class="cursor-pointer rounded-full border border-border bg-surface-2 px-3 py-1.5 text-[13px] text-ink-muted hover:text-ink">Автопроверка</span>
+            </div>
+            <label class="mb-2 block text-[13px] font-medium text-ink-muted">Описание <span class="text-danger">*</span></label>
+            <textarea rows="4" class="w-full resize-y rounded-md border border-border bg-bg px-3 py-2 text-[13px] text-ink placeholder:text-ink-faint focus:border-lime focus:ring-2 focus:ring-lime/20" placeholder="Например: Тест №3 — ожидается 0, но проверка требует -1…">В условии сказано «верните индекс», но автопроверка ждёт само значение элемента.</textarea>
+            <div class="mt-1.5 flex items-center justify-between text-[12px] text-ink-faint"><span>мин. 20 символов</span><span>71</span></div>
+          </div>
+          <div class="flex justify-end gap-2.5 border-t border-border px-5 py-4">
+            <button class="btn btn-ghost btn-sm">Отмена</button>
+            <button class="btn btn-primary btn-sm">Отправить</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="mt-2 text-[12px] text-ink-faint">↑ статичный предпросмотр макета. Кнопка «Открыть модалку» показывает её как настоящий оверлей.</p>
+  </section>
+
+  <div class="my-12 h-px bg-border"></div>
+
+  <!-- ============ SECTION 3 ============ -->
+  <section id="s3" class="scroll-mt-20">
+    <div class="mb-4 flex items-baseline gap-3">
+      <span class="text-[12px] font-bold uppercase tracking-widest text-ink-faint">Секция 3</span>
+      <h2 class="text-xl font-bold">Модалка — «Новое обращение» (Помощь)</h2>
+      <button onclick="openModal('ticket')" class="btn btn-sm btn-ghost ml-2">Открыть модалку</button>
+    </div>
+
+    <div class="relative overflow-hidden rounded-xl border border-border">
+      <div class="grid place-items-center bg-bg-2 p-8" style="background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.015) 0 12px,transparent 12px 24px)">
+        <div class="w-full max-w-[520px] overflow-hidden rounded-xl border border-border bg-surface shadow-[0_40px_90px_-30px_rgba(0,0,0,.8)]">
+          <div class="flex items-center justify-between border-b border-border px-5 py-4">
+            <h3 class="text-[15px] font-semibold">Новое обращение</h3>
+            <button class="icon-btn h-8 w-8 text-ink-faint">✕</button>
+          </div>
+          <div class="px-5 py-4">
+            <label class="mb-2 block text-[13px] font-medium text-ink-muted">Категория</label>
+            <div class="mb-4 flex flex-wrap gap-2">
+              <span class="cursor-pointer rounded-full border border-lime/45 lime-soft px-3 py-1.5 text-[13px] text-lime">Техническая</span>
+              <span class="cursor-pointer rounded-full border border-border bg-surface-2 px-3 py-1.5 text-[13px] text-ink-muted hover:text-ink">Аккаунт</span>
+              <span class="cursor-pointer rounded-full border border-border bg-surface-2 px-3 py-1.5 text-[13px] text-ink-muted hover:text-ink">Другое</span>
+            </div>
+            <label class="mb-2 block text-[13px] font-medium text-ink-muted">Тема <span class="text-ink-faint">(опционально)</span></label>
+            <input class="mb-4 w-full rounded-md border border-border bg-bg px-3 py-2 text-[13px] text-ink placeholder:text-ink-faint focus:border-lime focus:ring-2 focus:ring-lime/20" placeholder="Кратко: в чём проблема" value="Редактор не сохраняет код" />
+            <label class="mb-2 block text-[13px] font-medium text-ink-muted">Описание <span class="text-danger">*</span></label>
+            <textarea rows="4" class="w-full resize-y rounded-md border border-border bg-bg px-3 py-2 text-[13px] text-ink placeholder:text-ink-faint focus:border-lime focus:ring-2 focus:ring-lime/20" placeholder="Опишите, что произошло и как воспроизвести…">После обновления страницы написанный код пропадает, хотя автосохранение показывает «сохранено».</textarea>
+            <div class="mt-1.5 flex items-center justify-between text-[12px] text-ink-faint"><span>мин. 20 символов</span><span>104</span></div>
+          </div>
+          <div class="flex justify-end gap-2.5 border-t border-border px-5 py-4">
+            <button class="btn btn-ghost btn-sm">Отмена</button>
+            <button class="btn btn-primary btn-sm">Создать</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="my-12 h-px bg-border"></div>
+
+  <!-- ============ SECTION 4 ============ -->
+  <section id="s4" class="scroll-mt-20">
+    <div class="mb-4 flex items-baseline gap-3">
+      <span class="text-[12px] font-bold uppercase tracking-widest text-ink-faint">Секция 4</span>
+      <h2 class="text-xl font-bold">Страница «Помощь» — список обращений</h2>
+    </div>
+
+    <div class="max-w-3xl">
+      <div class="mb-4 flex items-center justify-between">
+        <div>
+          <h3 class="text-[22px] font-extrabold tracking-tight">Помощь</h3>
+          <p class="mt-1 text-[13px] text-ink-muted">Обращения в поддержку и к преподавателям по заданиям.</p>
+        </div>
+        <button onclick="openModal('ticket')" class="btn btn-primary btn-sm">+ Новое обращение</button>
+      </div>
+      <div class="overflow-hidden rounded-xl border border-border bg-surface">
+        <!-- row: in_progress -->
+        <button class="flex w-full items-center gap-4 border-b border-border px-5 py-4 text-left hover:bg-surface-2">
+          <div class="min-w-0 flex-1">
+            <div class="flex items-center gap-2">
+              <span class="text-[12px] font-semibold uppercase tracking-wide text-ink-faint">Техническая</span>
+            </div>
+            <div class="mt-1 truncate text-[14px] font-medium text-ink">Редактор не сохраняет код</div>
+            <div class="mt-1 text-[12px] text-ink-faint">обновлено 2 ч назад</div>
+          </div>
+          <span class="inline-flex h-6 items-center gap-1.5 rounded-full purple-soft px-2.5 text-[12px] font-semibold text-purple-300"><i class="h-1.5 w-1.5 rounded-full bg-current"></i>В работе</span>
+          <span class="text-ink-faint">→</span>
+        </button>
+        <!-- row: open + task -->
+        <button class="flex w-full items-center gap-4 border-b border-border px-5 py-4 text-left hover:bg-surface-2">
+          <div class="min-w-0 flex-1">
+            <div class="flex items-center gap-2">
+              <span class="text-[12px] font-semibold uppercase tracking-wide text-ink-faint">Ошибка в условии</span>
+              <span class="rounded bg-surface-2 px-1.5 py-0.5 font-mono text-[11px] text-ink-faint">#12</span>
+            </div>
+            <div class="mt-1 truncate text-[14px] font-medium text-ink">Ошибка в задании: Сумма чисел</div>
+            <div class="mt-1 text-[12px] text-ink-faint">обновлено 3 дн назад</div>
+          </div>
+          <span class="inline-flex h-6 items-center gap-1.5 rounded-full lime-soft px-2.5 text-[12px] font-semibold text-lime"><i class="h-1.5 w-1.5 rounded-full bg-current"></i>Открыто</span>
+          <span class="text-ink-faint">→</span>
+        </button>
+        <!-- row: resolved -->
+        <button class="flex w-full items-center gap-4 px-5 py-4 text-left hover:bg-surface-2">
+          <div class="min-w-0 flex-1">
+            <div class="flex items-center gap-2">
+              <span class="text-[12px] font-semibold uppercase tracking-wide text-ink-faint">Аккаунт</span>
+            </div>
+            <div class="mt-1 truncate text-[14px] font-medium text-ink">Не могу войти в систему</div>
+            <div class="mt-1 text-[12px] text-ink-faint">обновлено 4 июн</div>
+          </div>
+          <span class="inline-flex h-6 items-center gap-1.5 rounded-full border border-border bg-surface-2 px-2.5 text-[12px] font-semibold text-ink-muted"><i class="h-1.5 w-1.5 rounded-full bg-current"></i>Решено</span>
+          <span class="text-ink-faint">→</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <div class="my-12 h-px bg-border"></div>
+
+  <!-- ============ SECTION 5 ============ -->
+  <section id="s5" class="scroll-mt-20">
+    <div class="mb-4 flex items-baseline gap-3">
+      <span class="text-[12px] font-bold uppercase tracking-widest text-ink-faint">Секция 5</span>
+      <h2 class="text-xl font-bold">Диалог тикета (chat)</h2>
+    </div>
+
+    <div class="mx-auto flex h-[560px] max-w-3xl flex-col overflow-hidden rounded-xl border border-border bg-surface">
+      <!-- header -->
+      <div class="flex items-center justify-between gap-3 border-b border-border px-5 py-3">
+        <div class="flex min-w-0 items-center gap-3">
+          <button class="btn btn-ghost btn-sm">←</button>
+          <div class="min-w-0">
+            <div class="truncate text-[15px] font-semibold">#12 · Редактор не сохраняет код</div>
+            <div class="text-[12px] text-ink-faint">Техническая</div>
+          </div>
+        </div>
+        <span class="inline-flex h-6 items-center gap-1.5 rounded-full purple-soft px-2.5 text-[12px] font-semibold text-purple-300"><i class="h-1.5 w-1.5 rounded-full bg-current"></i>В работе</span>
+      </div>
+      <!-- messages -->
+      <div class="flex-1 space-y-3 overflow-y-auto px-5 py-4">
+        <div class="flex justify-center">
+          <span class="rounded-full bg-surface-2 px-3 py-1 text-[12px] text-ink-faint">Статус изменён: Открыто → В работе · 4 июн, 08:30</span>
+        </div>
+        <div class="flex justify-end">
+          <div class="max-w-[80%] rounded-xl border border-lime/30 lime-soft px-3.5 py-2.5">
+            <div class="mb-1 flex items-center gap-2 text-[12px]"><span class="font-semibold text-ink">Вы</span><span class="text-ink-faint">4 июн, 07:00</span></div>
+            <p class="whitespace-pre-wrap text-[13px] leading-snug text-ink">После обновления страницы написанный код пропадает, хотя автосохранение показывает «сохранено».</p>
+          </div>
+        </div>
+        <div class="flex justify-start">
+          <div class="max-w-[80%] rounded-xl border border-border bg-surface-2 px-3.5 py-2.5">
+            <div class="mb-1 flex items-center gap-2 text-[12px]"><span class="font-semibold text-ink">Поддержка</span><span class="text-ink-faint">4 июн, 09:00</span></div>
+            <p class="whitespace-pre-wrap text-[13px] leading-snug text-ink">Уточните, пожалуйста, браузер и ОС. Также — пропадает ли код после ручного сохранения (⌘/Ctrl+S)?</p>
+          </div>
+        </div>
+        <div class="flex justify-end">
+          <div class="max-w-[80%] rounded-xl border border-lime/30 lime-soft px-3.5 py-2.5">
+            <div class="mb-1 flex items-center gap-2 text-[12px]"><span class="font-semibold text-ink">Вы</span><span class="text-ink-faint">4 июн, 09:12</span></div>
+            <p class="whitespace-pre-wrap text-[13px] leading-snug text-ink">Chrome 125, Windows 11. После ручного сохранения код остаётся — пропадает только при F5.</p>
+          </div>
+        </div>
+      </div>
+      <!-- composer -->
+      <div class="border-t border-border p-3">
+        <div class="flex items-end gap-2">
+          <textarea rows="2" placeholder="Напишите ответ…" class="flex-1 resize-y rounded-md border border-border bg-bg px-3 py-2 text-[13px] text-ink placeholder:text-ink-faint focus:border-lime focus:ring-2 focus:ring-lime/20"></textarea>
+          <button class="btn btn-primary">Отправить</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="my-12 h-px bg-border"></div>
+
+  <!-- ============ SECTION 6 ============ -->
+  <section id="s6" class="scroll-mt-20">
+    <div class="mb-4 flex items-baseline gap-3">
+      <span class="text-[12px] font-bold uppercase tracking-widest text-ink-faint">Секция 6</span>
+      <h2 class="text-xl font-bold">Колокольчик уведомлений</h2>
+    </div>
+
+    <!-- mock topbar -->
+    <div class="rounded-xl border border-border bg-surface">
+      <div class="flex items-center justify-between px-5 py-3">
+        <span class="text-[13px] text-ink-muted">Тренажёр / <b class="text-ink">Список задач</b></span>
+        <div class="flex items-center gap-3">
+          <!-- bell + dropdown -->
+          <div class="relative" id="bellWrap">
+            <button onclick="toggleBell()" class="icon-btn relative">🔔
+              <span class="absolute -right-1 -top-1 grid h-4 min-w-4 place-items-center rounded-full bg-lime px-1 text-[10px] font-bold text-bg">2</span>
+            </button>
+            <div id="bellMenu" class="absolute right-0 top-11 z-30 hidden w-[min(360px,calc(100vw-24px))] overflow-hidden rounded-xl border border-border bg-surface shadow-[0_30px_60px_-20px_rgba(0,0,0,.8)]">
+              <div class="flex items-center justify-between border-b border-border px-4 py-2.5">
+                <span class="text-[13px] font-semibold">Уведомления</span>
+                <button class="text-[12px] font-medium text-lime hover:underline">Прочитать все</button>
+              </div>
+              <div class="max-h-[60vh] overflow-y-auto">
+                <!-- unread -->
+                <button class="flex w-full items-start gap-3 border-b border-border px-4 py-3 text-left lime-soft-20 hover:bg-surface-2">
+                  <span class="mt-0.5 grid h-7 w-7 shrink-0 place-items-center rounded-lg border border-border bg-surface-2 text-[13px]">↩</span>
+                  <span class="min-w-0 flex-1">
+                    <span class="block text-[13px] font-medium text-ink">Ответ в обращении #12</span>
+                    <span class="mt-0.5 block truncate text-[12px] text-ink-muted">Поддержка ответила на ваше обращение.</span>
+                    <span class="mt-1 block text-[11px] text-ink-faint">2 ч назад</span>
+                  </span>
+                  <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-lime"></span>
+                </button>
+                <!-- unread -->
+                <button class="flex w-full items-start gap-3 border-b border-border px-4 py-3 text-left lime-soft-20 hover:bg-surface-2">
+                  <span class="mt-0.5 grid h-7 w-7 shrink-0 place-items-center rounded-lg border border-border bg-surface-2 text-[13px]">💬</span>
+                  <span class="min-w-0 flex-1">
+                    <span class="block text-[13px] font-medium text-ink">Комментарий преподавателя</span>
+                    <span class="mt-0.5 block truncate text-[12px] text-ink-muted">Новый комментарий к задаче «Сумма чисел».</span>
+                    <span class="mt-1 block text-[11px] text-ink-faint">3 ч назад</span>
+                  </span>
+                  <span class="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-lime"></span>
+                </button>
+                <!-- read -->
+                <button class="flex w-full items-start gap-3 px-4 py-3 text-left hover:bg-surface-2">
+                  <span class="mt-0.5 grid h-7 w-7 shrink-0 place-items-center rounded-lg border border-border bg-surface-2 text-[13px]">●</span>
+                  <span class="min-w-0 flex-1">
+                    <span class="block text-[13px] font-medium text-ink">Статус обращения изменён</span>
+                    <span class="mt-0.5 block truncate text-[12px] text-ink-muted">Обращение #9 отмечено как решённое.</span>
+                    <span class="mt-1 block text-[11px] text-ink-faint">вчера</span>
+                  </span>
+                </button>
+              </div>
+              <button class="block w-full border-t border-border px-4 py-2.5 text-center text-[12px] font-medium text-ink-muted hover:bg-surface-2 hover:text-ink">Все обращения →</button>
+            </div>
+          </div>
+          <span class="grid h-9 w-9 place-items-center rounded-full bg-lime text-[14px] font-bold text-bg">В</span>
+        </div>
+      </div>
+    </div>
+    <p class="mt-2 text-[12px] text-ink-faint">↑ нажми на 🔔 чтобы раскрыть/свернуть. Непрочитанные — со светло-lime подложкой и точкой.</p>
+  </section>
+
+  <div class="my-12 h-px bg-border"></div>
+
+  <!-- ============ SECTION 7 ============ -->
+  <section id="s7" class="scroll-mt-20">
+    <div class="mb-4 flex items-baseline gap-3">
+      <span class="text-[12px] font-bold uppercase tracking-widest text-ink-faint">Секция 7</span>
+      <h2 class="text-xl font-bold">Teacher inbox — обращения по заданиям</h2>
+    </div>
+
+    <div>
+      <!-- filters -->
+      <div class="mb-4 flex flex-wrap items-center gap-2">
+        <span class="rounded-full border border-purple/45 purple-soft px-3 py-1.5 text-[13px] text-purple-300">Все</span>
+        <span class="cursor-pointer rounded-full border border-border bg-surface-2 px-3 py-1.5 text-[13px] text-ink-muted hover:text-ink">Открытые · 2</span>
+        <span class="cursor-pointer rounded-full border border-border bg-surface-2 px-3 py-1.5 text-[13px] text-ink-muted hover:text-ink">В работе</span>
+        <span class="cursor-pointer rounded-full border border-border bg-surface-2 px-3 py-1.5 text-[13px] text-ink-muted hover:text-ink">Решённые</span>
+      </div>
+      <div class="overflow-hidden rounded-xl border border-border bg-surface">
+        <table class="w-full text-[14px]">
+          <thead>
+            <tr class="text-left text-[11.5px] uppercase tracking-wide text-ink-faint">
+              <th class="px-5 pb-2.5 pt-4 font-semibold">Студент</th>
+              <th class="px-5 pb-2.5 pt-4 font-semibold">Тема</th>
+              <th class="px-5 pb-2.5 pt-4 font-semibold">Задача</th>
+              <th class="px-5 pb-2.5 pt-4 font-semibold">Обновлено</th>
+              <th class="px-5 pb-2.5 pt-4 font-semibold">Статус</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="cursor-pointer border-t border-border hover:bg-surface-2">
+              <td class="px-5 py-3.5"><div class="flex items-center gap-2.5"><span class="grid h-7 w-7 place-items-center rounded-full bg-lime text-[12px] font-bold text-bg">В</span><span class="font-medium">Влада М.</span></div></td>
+              <td class="px-5 py-3.5">Ошибка в условии: Сумма чисел</td>
+              <td class="px-5 py-3.5"><span class="font-mono text-[12px] text-ink-faint">#12</span></td>
+              <td class="px-5 py-3.5 text-ink-muted">5 мин назад</td>
+              <td class="px-5 py-3.5"><span class="inline-flex h-6 items-center gap-1.5 rounded-full lime-soft px-2.5 text-[12px] font-semibold text-lime"><i class="h-1.5 w-1.5 rounded-full bg-current"></i>Открыто</span></td>
+            </tr>
+            <tr class="cursor-pointer border-t border-border hover:bg-surface-2">
+              <td class="px-5 py-3.5"><div class="flex items-center gap-2.5"><span class="grid h-7 w-7 place-items-center rounded-full bg-lime text-[12px] font-bold text-bg">Н</span><span class="font-medium">Никита П.</span></div></td>
+              <td class="px-5 py-3.5">Неверный тест №7 в «Палиндром»</td>
+              <td class="px-5 py-3.5"><span class="font-mono text-[12px] text-ink-faint">#10</span></td>
+              <td class="px-5 py-3.5 text-ink-muted">1 ч назад</td>
+              <td class="px-5 py-3.5"><span class="inline-flex h-6 items-center gap-1.5 rounded-full purple-soft px-2.5 text-[12px] font-semibold text-purple-300"><i class="h-1.5 w-1.5 rounded-full bg-current"></i>В работе</span></td>
+            </tr>
+            <tr class="cursor-pointer border-t border-border hover:bg-surface-2">
+              <td class="px-5 py-3.5"><div class="flex items-center gap-2.5"><span class="grid h-7 w-7 place-items-center rounded-full bg-lime text-[12px] font-bold text-bg">О</span><span class="font-medium">Ольга С.</span></div></td>
+              <td class="px-5 py-3.5">Автопроверка падает на пустом вводе</td>
+              <td class="px-5 py-3.5"><span class="font-mono text-[12px] text-ink-faint">#4</span></td>
+              <td class="px-5 py-3.5 text-ink-muted">вчера</td>
+              <td class="px-5 py-3.5"><span class="inline-flex h-6 items-center gap-1.5 rounded-full border border-border bg-surface-2 px-2.5 text-[12px] font-semibold text-ink-muted"><i class="h-1.5 w-1.5 rounded-full bg-current"></i>Решено</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <footer class="mt-16 border-t border-border pt-6 text-[13px] text-ink-faint">
+    Code Trainer · превью для согласования UI · тёмная тема · lime #8eff01 / purple #8b53fe · 4 июн 2026
+  </footer>
+</main>
+
+<!-- ============ LIVE MODALS (overlay) ============ -->
+<div id="modal-report" class="fixed inset-0 z-[80] hidden items-end justify-center bg-black/70 p-0 backdrop-blur-sm sm:items-center sm:p-6">
+  <div class="modalpop flex max-h-[92vh] w-full flex-col overflow-hidden rounded-t-xl border border-border bg-surface shadow-[0_40px_90px_-30px_rgba(0,0,0,.8)] sm:w-[min(520px,calc(100vw-24px))] sm:rounded-xl">
+    <div class="flex items-center justify-between border-b border-border px-5 py-4">
+      <h3 class="text-[15px] font-semibold">Сообщить об ошибке</h3>
+      <button onclick="closeModal('report')" class="icon-btn h-8 w-8 text-ink-faint">✕</button>
+    </div>
+    <div class="overflow-y-auto px-5 py-4">
+      <p class="mb-4 text-[13px] text-ink-muted">Задание: <span class="font-medium text-ink">«Сумма двух чисел»</span></p>
+      <label class="mb-2 block text-[13px] font-medium text-ink-muted">Что не так?</label>
+      <div class="mb-4 flex flex-wrap gap-2" data-chips>
+        <button class="chip rounded-full border border-lime/45 lime-soft px-3 py-1.5 text-[13px] text-lime" data-on="true">Ошибка в условии</button>
+        <button class="chip rounded-full border border-border bg-surface-2 px-3 py-1.5 text-[13px] text-ink-muted hover:text-ink">Неверный тест</button>
+        <button class="chip rounded-full border border-border bg-surface-2 px-3 py-1.5 text-[13px] text-ink-muted hover:text-ink">Автопроверка</button>
+      </div>
+      <label class="mb-2 block text-[13px] font-medium text-ink-muted">Описание <span class="text-danger">*</span></label>
+      <textarea rows="4" class="w-full resize-y rounded-md border border-border bg-bg px-3 py-2 text-[13px] text-ink placeholder:text-ink-faint focus:border-lime focus:ring-2 focus:ring-lime/20" placeholder="Например: Тест №3 — ожидается 0, но проверка требует -1…"></textarea>
+      <div class="mt-1.5 flex items-center justify-between text-[12px] text-ink-faint"><span>мин. 20 символов</span><span>0</span></div>
+    </div>
+    <div class="flex justify-end gap-2.5 border-t border-border px-5 py-4">
+      <button onclick="closeModal('report')" class="btn btn-ghost btn-sm">Отмена</button>
+      <button onclick="closeModal('report')" class="btn btn-primary btn-sm">Отправить</button>
+    </div>
+  </div>
+</div>
+
+<div id="modal-ticket" class="fixed inset-0 z-[80] hidden items-end justify-center bg-black/70 p-0 backdrop-blur-sm sm:items-center sm:p-6">
+  <div class="modalpop flex max-h-[92vh] w-full flex-col overflow-hidden rounded-t-xl border border-border bg-surface shadow-[0_40px_90px_-30px_rgba(0,0,0,.8)] sm:w-[min(520px,calc(100vw-24px))] sm:rounded-xl">
+    <div class="flex items-center justify-between border-b border-border px-5 py-4">
+      <h3 class="text-[15px] font-semibold">Новое обращение</h3>
+      <button onclick="closeModal('ticket')" class="icon-btn h-8 w-8 text-ink-faint">✕</button>
+    </div>
+    <div class="overflow-y-auto px-5 py-4">
+      <label class="mb-2 block text-[13px] font-medium text-ink-muted">Категория</label>
+      <div class="mb-4 flex flex-wrap gap-2" data-chips>
+        <button class="chip rounded-full border border-lime/45 lime-soft px-3 py-1.5 text-[13px] text-lime" data-on="true">Техническая</button>
+        <button class="chip rounded-full border border-border bg-surface-2 px-3 py-1.5 text-[13px] text-ink-muted hover:text-ink">Аккаунт</button>
+        <button class="chip rounded-full border border-border bg-surface-2 px-3 py-1.5 text-[13px] text-ink-muted hover:text-ink">Другое</button>
+      </div>
+      <label class="mb-2 block text-[13px] font-medium text-ink-muted">Тема <span class="text-ink-faint">(опционально)</span></label>
+      <input class="mb-4 w-full rounded-md border border-border bg-bg px-3 py-2 text-[13px] text-ink placeholder:text-ink-faint focus:border-lime focus:ring-2 focus:ring-lime/20" placeholder="Кратко: в чём проблема" />
+      <label class="mb-2 block text-[13px] font-medium text-ink-muted">Описание <span class="text-danger">*</span></label>
+      <textarea rows="4" class="w-full resize-y rounded-md border border-border bg-bg px-3 py-2 text-[13px] text-ink placeholder:text-ink-faint focus:border-lime focus:ring-2 focus:ring-lime/20" placeholder="Опишите, что произошло и как воспроизвести…"></textarea>
+      <div class="mt-1.5 flex items-center justify-between text-[12px] text-ink-faint"><span>мин. 20 символов</span><span>0</span></div>
+    </div>
+    <div class="flex justify-end gap-2.5 border-t border-border px-5 py-4">
+      <button onclick="closeModal('ticket')" class="btn btn-ghost btn-sm">Отмена</button>
+      <button onclick="closeModal('ticket')" class="btn btn-primary btn-sm">Создать</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // ----- Section 1: tabs -----
+  document.querySelectorAll('.tab1').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const key = btn.dataset.tab1;
+      document.querySelectorAll('.tab1').forEach(b => {
+        const on = b === btn;
+        b.classList.toggle('border-lime', on);
+        b.classList.toggle('text-lime', on);
+        b.classList.toggle('border-transparent', !on);
+        b.classList.toggle('text-ink-muted', !on);
+      });
+      document.querySelectorAll('.tab1-pane').forEach(p => {
+        p.classList.toggle('hidden', p.dataset.pane1 !== key);
+      });
+    });
+  });
+
+  // ----- Modals -----
+  function openModal(id){ const m=document.getElementById('modal-'+id); m.classList.remove('hidden'); m.classList.add('flex'); document.body.style.overflow='hidden'; }
+  function closeModal(id){ const m=document.getElementById('modal-'+id); m.classList.add('hidden'); m.classList.remove('flex'); document.body.style.overflow=''; }
+  // backdrop click + Esc
+  ['report','ticket'].forEach(id => {
+    const m = document.getElementById('modal-'+id);
+    m.addEventListener('mousedown', e => { if(e.target===m) closeModal(id); });
+  });
+  document.addEventListener('keydown', e => { if(e.key==='Escape'){ closeModal('report'); closeModal('ticket'); } });
+
+  // ----- Chips toggle inside modals -----
+  document.querySelectorAll('[data-chips]').forEach(group => {
+    group.querySelectorAll('.chip').forEach(chip => {
+      chip.addEventListener('click', () => {
+        group.querySelectorAll('.chip').forEach(c => {
+          c.className = 'chip rounded-full border border-border bg-surface-2 px-3 py-1.5 text-[13px] text-ink-muted hover:text-ink';
+        });
+        chip.className = 'chip rounded-full border border-lime/45 lime-soft px-3 py-1.5 text-[13px] text-lime';
+      });
+    });
+  });
+
+  // ----- Bell dropdown -----
+  function toggleBell(){ document.getElementById('bellMenu').classList.toggle('hidden'); }
+  document.addEventListener('mousedown', e => {
+    const wrap = document.getElementById('bellWrap');
+    if(wrap && !wrap.contains(e.target)) document.getElementById('bellMenu').classList.add('hidden');
+  });
+</script>
+
+<!--
+CHANGELOG / что и где править по секциям
+================================================================
+Глобально:
+  - Цвета — в tailwind.config (<head>): bg, surface, lime, purple, danger, ink…
+  - Базовые классы кнопок/иконок — в <style>: .btn, .btn-primary, .btn-purple, .btn-ghost, .icon-btn
+  - Шрифт — Inter через Google Fonts (<head>)
+
+Секция 1 «Нижняя панель» (#s1):
+  - Badge числа комментариев — span с "2" в .tab1[data-tab1="comments"]
+  - Карточки комментариев — блок [data-pane1="comments"]; метка "изменён" — внутри .text-ink-faint
+  - Composer препода — purple-акцент: focus:border-purple, btn-purple. Лимит 4096 — в подписи под textarea
+  - Empty state — отдельный блок снизу секции
+
+Секция 2 «Сообщить об ошибке» (#s2 + #modal-report):
+  - Chips: "Ошибка в условии / Неверный тест / Автопроверка" — внутри [data-chips]
+  - Мин. длина (20) — в подписи; задание-контекст — строка "Задание: «…»"
+  - Реальная модалка живёт внизу файла (id=modal-report)
+
+Секция 3 «Новое обращение» (#s3 + #modal-ticket):
+  - Категории: "Техническая / Аккаунт / Другое" — chips в [data-chips]
+  - Поля: Тема (опц.) + Описание (обяз.)
+
+Секция 4 «Помощь — список» (#s4):
+  - Строки тикетов — <button> внутри карточки; статус-pill: lime=open, purple=in_progress, серый=resolved
+  - Кнопка "+ Новое обращение" открывает modal-ticket
+
+Секция 5 «Диалог тикета» (#s5):
+  - System-сообщение — центрированный pill
+  - Свои сообщения (Вы) — справа, lime-soft + border-lime/30
+  - Поддержка/препод — слева, surface-2 + border
+  - Менять автора/время — в .text-ink / .text-ink-faint внутри bubble
+
+Секция 6 «Колокольчик» (#s6):
+  - Бейдж счётчика — span "2" на кнопке 🔔
+  - Непрочитанные items — класс lime-soft-20 + точка bg-lime справа
+  - Иконки по типам: ↩ ticket_reply, 💬 comment, ● ticket_status
+  - JS: toggleBell() + клик-вне закрывает
+
+Секция 7 «Teacher inbox» (#s7):
+  - Фильтр-chips (Все/Открытые/В работе/Решённые) — purple-акцент у активного
+  - Строки таблицы — student avatar + тема + #задача + время + статус-pill
+
+Связь с реальными API (когда утвердим макет):
+  - submissionCommentsApi (list/create/update/delete) → Секция 1
+  - supportApi (createTicket/listMyTickets/getTicket/postMessage/patchTicket) → Секции 2–5,7
+  - notificationsApi (list/unreadCount/markRead/markAllRead) → Секция 6
+================================================================
+-->
+</body>
+</html>

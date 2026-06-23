@@ -1,0 +1,3233 @@
+{
+  "schema_version": "2.0",
+  "description": "Pedagogical TC display bundles (UI only). Detection uses ast_node_to_technical.yml.",
+  "languages": [
+    "pascal",
+    "python",
+    "cpp",
+    "csharp",
+    "java"
+  ],
+  "tc_cards": {
+    "tc_program_structure": {
+      "id": "tc_program_structure",
+      "name_ru": "Структура программы",
+      "description_ru": "Каркас программы: точка входа, основной исполняемый блок и разделение объявлений от действий.",
+      "technical_concept_ids": [
+        "block_scope",
+        "main_entry",
+        "program_root"
+      ],
+      "hints_by_language": {
+        "pascal": [
+          {
+            "title": "Минимальная программа",
+            "illustrates": [
+              "program_root",
+              "program_root"
+            ],
+            "code": "program Hello;\nbegin\n  writeln('Hello');\nend."
+          },
+          {
+            "title": "Секция var перед begin",
+            "illustrates": [
+              "block_scope",
+              "variable_declaration"
+            ],
+            "code": "program Demo;\nvar\n  x: integer;\nbegin\n  x := 10;\nend."
+          },
+          {
+            "title": "Вызов процедуры из main",
+            "illustrates": [
+              "program_root",
+              "function_call"
+            ],
+            "code": "procedure Run;\nbegin\n  writeln('Run');\nend;\nbegin\n  Run;\nend."
+          }
+        ],
+        "python": [
+          {
+            "title": "Скрипт сверху вниз",
+            "illustrates": [
+              "program_root",
+              "program_root"
+            ],
+            "code": "print('Hello')\nx = 10"
+          },
+          {
+            "title": "Функция main",
+            "illustrates": [
+              "main_entry"
+            ],
+            "code": "def main():\n    print('Hello')\n\nmain()"
+          },
+          {
+            "title": "Защита точки входа",
+            "illustrates": [
+              "main_entry"
+            ],
+            "code": "def main():\n    print('Hello')\n\nif __name__ == '__main__':\n    main()"
+          }
+        ],
+        "cpp": [
+          {
+            "title": "Классическая main",
+            "illustrates": [
+              "main_entry",
+              "main_entry"
+            ],
+            "code": "#include <iostream>\n\nint main()\n{\n    std::cout << \"Hello\";\n    return 0;\n}"
+          },
+          {
+            "title": "main вызывает функцию",
+            "illustrates": [
+              "block_scope"
+            ],
+            "code": "void run() { std::cout << \"Run\"; }\n\nint main() { run(); return 0; }"
+          },
+          {
+            "title": "Локальный блок в main",
+            "illustrates": [
+              "block_scope"
+            ],
+            "code": "int main()\n{\n    int x = 10;\n    std::cout << x;\n    return 0;\n}"
+          }
+        ],
+        "csharp": [
+          {
+            "title": "Класс + Main",
+            "illustrates": [
+              "program_root",
+              "main_entry"
+            ],
+            "code": "class Program\n{\n    static void Main()\n    {\n        Console.WriteLine(\"Hello\");\n    }\n}"
+          },
+          {
+            "title": "Top-level statements",
+            "illustrates": [
+              "program_root"
+            ],
+            "code": "using System;\nConsole.WriteLine(\"Hello\");"
+          },
+          {
+            "title": "Main с аргументами",
+            "illustrates": [
+              "parameter_list"
+            ],
+            "code": "static void Main(string[] args)\n{\n    Console.WriteLine(args.Length);\n}"
+          }
+        ],
+        "java": [
+          {
+            "title": "Класс с main",
+            "illustrates": [
+              "main_entry"
+            ],
+            "code": "class Main {\n    public static void main(String[] args) {\n        System.out.println(\"Hello\");\n    }\n}"
+          },
+          {
+            "title": "main вызывает метод",
+            "illustrates": [
+              "block_scope"
+            ],
+            "code": "static void run() { System.out.println(\"Run\"); }\n\npublic static void main(String[] args) { run(); }"
+          },
+          {
+            "title": "Локальные переменные",
+            "illustrates": [
+              "block_scope"
+            ],
+            "code": "public static void main(String[] args) {\n    int x = 10;\n    System.out.println(x);\n}"
+          }
+        ]
+      }
+    },
+    "tc_variables_types": {
+      "id": "tc_variables_types",
+      "name_ru": "Переменные и типы",
+      "description_ru": "Именованные ячейки для данных: объявление имени и типа (явно или неявно), константы.",
+      "technical_concept_ids": [
+        "constant_declaration",
+        "variable_declaration"
+      ],
+      "hints_by_language": {
+        "pascal": [
+          {
+            "title": "Целое число",
+            "illustrates": [
+              "variable_declaration"
+            ],
+            "code": "var age: integer;"
+          },
+          {
+            "title": "Несколько переменных",
+            "illustrates": [
+              "variable_declaration"
+            ],
+            "code": "var a, b, sum: integer;"
+          },
+          {
+            "title": "Константа",
+            "illustrates": [
+              "constant_declaration"
+            ],
+            "code": "const MaxCount = 100;"
+          },
+          {
+            "title": "Разные типы",
+            "illustrates": [
+              "variable_declaration"
+            ],
+            "code": "var\n  count: integer;\n  price: real;\n  name: string;"
+          }
+        ],
+        "python": [
+          {
+            "title": "Первая запись",
+            "illustrates": [
+              "variable_declaration"
+            ],
+            "code": "age = 18\nname = 'Ann'"
+          },
+          {
+            "title": "Аннотация типа",
+            "illustrates": [
+              "variable_declaration"
+            ],
+            "code": "age: int = 18\nprice: float = 12.5"
+          },
+          {
+            "title": "Несколько имён",
+            "illustrates": [
+              "variable_declaration"
+            ],
+            "code": "a, b, total = 1, 2, 0"
+          },
+          {
+            "title": "Распаковка при вводе (map)",
+            "illustrates": [
+              "variable_declaration"
+            ],
+            "code": "n, target = map(int, input().split())"
+          },
+          {
+            "title": "Константа по соглашению",
+            "illustrates": [
+              "constant_declaration"
+            ],
+            "code": "MAX_COUNT = 100"
+          }
+        ],
+        "cpp": [
+          {
+            "title": "Целое и вещественное",
+            "illustrates": [
+              "variable_declaration"
+            ],
+            "code": "int age = 18;\ndouble price = 12.5;"
+          },
+          {
+            "title": "Строка",
+            "illustrates": [
+              "variable_declaration"
+            ],
+            "code": "std::string name = \"Ann\";"
+          },
+          {
+            "title": "Константа",
+            "illustrates": [
+              "constant_declaration"
+            ],
+            "code": "const double PI = 3.14;"
+          },
+          {
+            "title": "Логический тип",
+            "illustrates": [
+              "variable_declaration"
+            ],
+            "code": "bool isReady = true;"
+          }
+        ],
+        "csharp": [
+          {
+            "title": "Явный тип",
+            "illustrates": [
+              "variable_declaration"
+            ],
+            "code": "int age = 18;\ndouble price = 12.5;"
+          },
+          {
+            "title": "Вывод типа var",
+            "illustrates": [
+              "variable_declaration"
+            ],
+            "code": "var count = 10;\nvar name = \"Ann\";"
+          },
+          {
+            "title": "Константа",
+            "illustrates": [
+              "constant_declaration"
+            ],
+            "code": "const double Pi = 3.14;"
+          },
+          {
+            "title": "Несколько переменных",
+            "illustrates": [
+              "variable_declaration"
+            ],
+            "code": "int a = 1, b = 2, sum = 0;"
+          }
+        ],
+        "java": [
+          {
+            "title": "Локальная переменная",
+            "illustrates": [
+              "variable_declaration"
+            ],
+            "code": "int age = 18;\ndouble price = 12.5;"
+          },
+          {
+            "title": "Строка",
+            "illustrates": [
+              "variable_declaration"
+            ],
+            "code": "String name = \"Ann\";"
+          },
+          {
+            "title": "Константа final",
+            "illustrates": [
+              "constant_declaration"
+            ],
+            "code": "final double PI = 3.14;"
+          },
+          {
+            "title": "Логический тип",
+            "illustrates": [
+              "variable_declaration"
+            ],
+            "code": "boolean isReady = true;"
+          }
+        ]
+      }
+    },
+    "tc_assignment": {
+      "id": "tc_assignment",
+      "name_ru": "Присваивание",
+      "description_ru": "Запись нового значения в переменную: инициализация, обновление, накопление, обмен.",
+      "technical_concept_ids": [
+        "assignment",
+        "member_access"
+      ],
+      "hints_by_language": {
+        "pascal": [
+          {
+            "title": "Простое",
+            "illustrates": [
+              "assignment"
+            ],
+            "code": "x := 10;"
+          },
+          {
+            "title": "Выражение",
+            "illustrates": [
+              "assignment"
+            ],
+            "code": "sum := a + b;"
+          },
+          {
+            "title": "Инкремент",
+            "illustrates": [
+              "assignment"
+            ],
+            "code": "x := x + 1;"
+          },
+          {
+            "title": "Обмен",
+            "illustrates": [
+              "assignment"
+            ],
+            "code": "temp := a;\na := b;\nb := temp;"
+          }
+        ],
+        "python": [
+          {
+            "title": "Простое",
+            "illustrates": [
+              "assignment"
+            ],
+            "code": "x = 10"
+          },
+          {
+            "title": "Составное +=",
+            "illustrates": [
+              "assignment"
+            ],
+            "code": "x += 1\ntotal += price"
+          },
+          {
+            "title": "Обмен",
+            "illustrates": [
+              "assignment"
+            ],
+            "code": "a, b = b, a"
+          },
+          {
+            "title": "Атрибут объекта",
+            "illustrates": [
+              "member_access"
+            ],
+            "code": "self.name = name"
+          }
+        ],
+        "cpp": [
+          {
+            "title": "Простое",
+            "illustrates": [
+              "assignment"
+            ],
+            "code": "x = 10;"
+          },
+          {
+            "title": "Составное",
+            "illustrates": [
+              "assignment"
+            ],
+            "code": "x++;\ntotal += price;"
+          },
+          {
+            "title": "Обмен",
+            "illustrates": [
+              "assignment"
+            ],
+            "code": "int temp = a;\na = b;\nb = temp;"
+          },
+          {
+            "title": "Поле структуры",
+            "illustrates": [
+              "member_access"
+            ],
+            "code": "point.x = 10;"
+          }
+        ],
+        "csharp": [
+          {
+            "title": "Простое",
+            "illustrates": [
+              "assignment"
+            ],
+            "code": "x = 10;"
+          },
+          {
+            "title": "Составное",
+            "illustrates": [
+              "assignment"
+            ],
+            "code": "x++;\ntotal += price;"
+          },
+          {
+            "title": "Обмен",
+            "illustrates": [
+              "assignment"
+            ],
+            "code": "int temp = a;\na = b;\nb = temp;"
+          },
+          {
+            "title": "Свойство",
+            "illustrates": [
+              "member_access"
+            ],
+            "code": "person.Name = \"Ann\";"
+          }
+        ],
+        "java": [
+          {
+            "title": "Простое",
+            "illustrates": [
+              "assignment"
+            ],
+            "code": "x = 10;"
+          },
+          {
+            "title": "Составное",
+            "illustrates": [
+              "assignment"
+            ],
+            "code": "x++;\ntotal += price;"
+          },
+          {
+            "title": "Обмен",
+            "illustrates": [
+              "assignment"
+            ],
+            "code": "int temp = a;\na = b;\nb = temp;"
+          },
+          {
+            "title": "Поле объекта",
+            "illustrates": [
+              "member_access"
+            ],
+            "code": "person.name = \"Ann\";"
+          }
+        ]
+      }
+    },
+    "tc_arithmetic": {
+      "id": "tc_arithmetic",
+      "name_ru": "Арифметика и операции",
+      "description_ru": "Числовые вычисления, сравнения, логические операции и тернарный выбор в выражении.",
+      "technical_concept_ids": [
+        "arithmetic",
+        "conditional"
+      ],
+      "hints_by_language": {
+        "pascal": [
+          {
+            "title": "Сумма и произведение",
+            "illustrates": [
+              "arithmetic"
+            ],
+            "code": "result := a + b * c;"
+          },
+          {
+            "title": "div и mod",
+            "illustrates": [
+              "arithmetic"
+            ],
+            "code": "q := a div b;\nr := a mod b;"
+          },
+          {
+            "title": "Сравнение",
+            "illustrates": [
+              "conditional"
+            ],
+            "code": "if x > 0 then writeln('ok');"
+          },
+          {
+            "title": "Тернарный if",
+            "illustrates": [
+              "conditional"
+            ],
+            "code": "sign := 1;\nif x < 0 then sign := -1;"
+          }
+        ],
+        "python": [
+          {
+            "title": "Арифметика",
+            "illustrates": [
+              "arithmetic"
+            ],
+            "code": "result = a + b * c"
+          },
+          {
+            "title": "Целочисленное // и %",
+            "illustrates": [
+              "arithmetic"
+            ],
+            "code": "q = a // b\nr = a % b"
+          },
+          {
+            "title": "Сравнение",
+            "illustrates": [
+              "conditional"
+            ],
+            "code": "if x > 0:\n    print('ok')"
+          },
+          {
+            "title": "Тернарное выражение",
+            "illustrates": [
+              "conditional"
+            ],
+            "code": "sign = 1 if x >= 0 else -1"
+          }
+        ],
+        "cpp": [
+          {
+            "title": "Арифметика",
+            "illustrates": [
+              "arithmetic"
+            ],
+            "code": "int result = a + b * c;"
+          },
+          {
+            "title": "Остаток %",
+            "illustrates": [
+              "arithmetic"
+            ],
+            "code": "int r = a % b;"
+          },
+          {
+            "title": "Логика",
+            "illustrates": [
+              "conditional"
+            ],
+            "code": "if (x > 0 && ready) { }"
+          },
+          {
+            "title": "Тернарный оператор",
+            "illustrates": [
+              "conditional"
+            ],
+            "code": "int sign = (x >= 0) ? 1 : -1;"
+          }
+        ],
+        "csharp": [
+          {
+            "title": "Арифметика",
+            "illustrates": [
+              "arithmetic"
+            ],
+            "code": "int result = a + b * c;"
+          },
+          {
+            "title": "Остаток",
+            "illustrates": [
+              "arithmetic"
+            ],
+            "code": "int r = a % b;"
+          },
+          {
+            "title": "Логика",
+            "illustrates": [
+              "conditional"
+            ],
+            "code": "if (x > 0 && ready) { }"
+          },
+          {
+            "title": "Тернарный ?:",
+            "illustrates": [
+              "conditional"
+            ],
+            "code": "int sign = x >= 0 ? 1 : -1;"
+          }
+        ],
+        "java": [
+          {
+            "title": "Арифметика",
+            "illustrates": [
+              "arithmetic"
+            ],
+            "code": "int result = a + b * c;"
+          },
+          {
+            "title": "Остаток",
+            "illustrates": [
+              "arithmetic"
+            ],
+            "code": "int r = a % b;"
+          },
+          {
+            "title": "Логика",
+            "illustrates": [
+              "conditional"
+            ],
+            "code": "if (x > 0 && ready) { }"
+          },
+          {
+            "title": "Тернарный ?:",
+            "illustrates": [
+              "conditional"
+            ],
+            "code": "int sign = x >= 0 ? 1 : -1;"
+          }
+        ]
+      }
+    },
+    "tc_console_io": {
+      "id": "tc_console_io",
+      "name_ru": "Ввод и вывод (консоль)",
+      "description_ru": "Чтение данных с клавиатуры и вывод результата в консоль.",
+      "technical_concept_ids": [
+        "console_input",
+        "console_output"
+      ],
+      "hints_by_language": {
+        "pascal": [
+          {
+            "title": "Вывод строки",
+            "illustrates": [
+              "console_output",
+              "console_output"
+            ],
+            "code": "writeln('Result = ', x);"
+          },
+          {
+            "title": "Ввод числа",
+            "illustrates": [
+              "console_input"
+            ],
+            "code": "readln(n);"
+          },
+          {
+            "title": "Ввод и вывод",
+            "illustrates": [
+              "console_input",
+              "console_output"
+            ],
+            "code": "readln(a, b);\nwriteln(a + b);"
+          }
+        ],
+        "python": [
+          {
+            "title": "print",
+            "illustrates": [
+              "console_output",
+              "console_output"
+            ],
+            "code": "print('Result =', x)"
+          },
+          {
+            "title": "input",
+            "illustrates": [
+              "console_input"
+            ],
+            "code": "n = int(input())"
+          },
+          {
+            "title": "Ввод и вывод",
+            "illustrates": [
+              "console_input",
+              "console_output"
+            ],
+            "code": "a = int(input())\nb = int(input())\nprint(a + b)"
+          },
+          {
+            "title": "Несколько чисел из строки",
+            "illustrates": [
+              "console_input"
+            ],
+            "code": "n, target = map(int, input().split())"
+          },
+          {
+            "title": "split() строки входа",
+            "illustrates": [
+              "console_input"
+            ],
+            "code": "parts = input().split()\na, b = int(parts[0]), int(parts[1])"
+          }
+        ],
+        "cpp": [
+          {
+            "title": "cout",
+            "illustrates": [
+              "console_output",
+              "console_output"
+            ],
+            "code": "std::cout << \"Result = \" << x;"
+          },
+          {
+            "title": "cin",
+            "illustrates": [
+              "console_input"
+            ],
+            "code": "int n;\nstd::cin >> n;"
+          },
+          {
+            "title": "Ввод и вывод",
+            "illustrates": [
+              "console_input",
+              "console_output"
+            ],
+            "code": "int a, b;\nstd::cin >> a >> b;\nstd::cout << a + b;"
+          }
+        ],
+        "csharp": [
+          {
+            "title": "WriteLine",
+            "illustrates": [
+              "console_output"
+            ],
+            "code": "Console.WriteLine($\"Result = {x}\");"
+          },
+          {
+            "title": "ReadLine",
+            "illustrates": [
+              "console_input"
+            ],
+            "code": "int n = int.Parse(Console.ReadLine());"
+          },
+          {
+            "title": "Ввод и вывод",
+            "illustrates": [
+              "console_input",
+              "console_output"
+            ],
+            "code": "int a = int.Parse(Console.ReadLine());\nint b = int.Parse(Console.ReadLine());\nConsole.WriteLine(a + b);"
+          }
+        ],
+        "java": [
+          {
+            "title": "System.out",
+            "illustrates": [
+              "console_output"
+            ],
+            "code": "System.out.println(\"Result = \" + x);"
+          },
+          {
+            "title": "Scanner",
+            "illustrates": [
+              "console_input"
+            ],
+            "code": "Scanner sc = new Scanner(System.in);\nint n = sc.nextInt();"
+          },
+          {
+            "title": "Ввод и вывод",
+            "illustrates": [
+              "console_input",
+              "console_output"
+            ],
+            "code": "Scanner sc = new Scanner(System.in);\nint a = sc.nextInt(), b = sc.nextInt();\nSystem.out.println(a + b);"
+          }
+        ]
+      }
+    },
+    "tc_loops": {
+      "id": "tc_loops",
+      "name_ru": "Циклы",
+      "description_ru": "Повторение блока кода: счётный цикл, while, do-while, foreach, вложенные циклы, break/continue.",
+      "technical_concept_ids": [
+        "collection_iteration",
+        "loop",
+        "nested_loop"
+      ],
+      "hints_by_language": {
+        "pascal": [
+          {
+            "title": "for to",
+            "illustrates": [
+              "loop",
+              "loop"
+            ],
+            "code": "for i := 1 to n do\n  writeln(i);"
+          },
+          {
+            "title": "while",
+            "illustrates": [
+              "loop"
+            ],
+            "code": "while x > 0 do\nbegin\n  x := x div 2;\nend;"
+          },
+          {
+            "title": "repeat until",
+            "illustrates": [
+              "loop",
+              "loop"
+            ],
+            "code": "repeat\n  readln(x);\nuntil x = 0;"
+          },
+          {
+            "title": "break / exit",
+            "illustrates": [
+              "loop",
+              "loop"
+            ],
+            "code": "for i := 1 to 10 do\n  if i = 5 then break;"
+          }
+        ],
+        "python": [
+          {
+            "title": "for range",
+            "illustrates": [
+              "loop",
+              "loop"
+            ],
+            "code": "for i in range(n):\n    print(i)"
+          },
+          {
+            "title": "for in",
+            "illustrates": [
+              "collection_iteration"
+            ],
+            "code": "for item in items:\n    print(item)"
+          },
+          {
+            "title": "while",
+            "illustrates": [
+              "loop",
+              "loop"
+            ],
+            "code": "while x > 0:\n    x //= 2"
+          },
+          {
+            "title": "break / continue",
+            "illustrates": [
+              "loop"
+            ],
+            "code": "for i in range(10):\n    if i == 5:\n        break"
+          }
+        ],
+        "cpp": [
+          {
+            "title": "for C-style",
+            "illustrates": [
+              "loop",
+              "loop"
+            ],
+            "code": "for (int i = 0; i < n; ++i)\n    std::cout << i;"
+          },
+          {
+            "title": "while",
+            "illustrates": [
+              "loop"
+            ],
+            "code": "while (x > 0) x /= 2;"
+          },
+          {
+            "title": "do-while",
+            "illustrates": [
+              "loop",
+              "loop"
+            ],
+            "code": "do { std::cin >> x; } while (x != 0);"
+          },
+          {
+            "title": "range-for",
+            "illustrates": [
+              "collection_iteration",
+              "collection_iteration"
+            ],
+            "code": "for (int v : arr)\n    sum += v;"
+          }
+        ],
+        "csharp": [
+          {
+            "title": "for",
+            "illustrates": [
+              "loop"
+            ],
+            "code": "for (int i = 0; i < n; i++)\n    Console.WriteLine(i);"
+          },
+          {
+            "title": "while",
+            "illustrates": [
+              "loop"
+            ],
+            "code": "while (x > 0) x /= 2;"
+          },
+          {
+            "title": "foreach",
+            "illustrates": [
+              "collection_iteration",
+              "collection_iteration"
+            ],
+            "code": "foreach (var item in items)\n    Console.WriteLine(item);"
+          },
+          {
+            "title": "break",
+            "illustrates": [
+              "loop"
+            ],
+            "code": "for (int i = 0; i < 10; i++)\n    if (i == 5) break;"
+          }
+        ],
+        "java": [
+          {
+            "title": "for",
+            "illustrates": [
+              "loop"
+            ],
+            "code": "for (int i = 0; i < n; i++)\n    System.out.println(i);"
+          },
+          {
+            "title": "while",
+            "illustrates": [
+              "loop"
+            ],
+            "code": "while (x > 0) x /= 2;"
+          },
+          {
+            "title": "enhanced for",
+            "illustrates": [
+              "collection_iteration"
+            ],
+            "code": "for (int v : arr)\n    sum += v;"
+          },
+          {
+            "title": "break",
+            "illustrates": [
+              "loop"
+            ],
+            "code": "for (int i = 0; i < 10; i++)\n    if (i == 5) break;"
+          }
+        ]
+      }
+    },
+    "tc_conditionals": {
+      "id": "tc_conditionals",
+      "name_ru": "Условия и ветвление",
+      "description_ru": "Выбор действия по условию: if, else if, else.",
+      "technical_concept_ids": [
+        "conditional"
+      ],
+      "hints_by_language": {
+        "pascal": [
+          {
+            "title": "if then",
+            "illustrates": [
+              "conditional"
+            ],
+            "code": "if x > 0 then\n  writeln('positive');"
+          },
+          {
+            "title": "if else",
+            "illustrates": [
+              "conditional"
+            ],
+            "code": "if x > 0 then writeln('+') else writeln('-');"
+          },
+          {
+            "title": "else if",
+            "illustrates": [
+              "conditional"
+            ],
+            "code": "if x > 0 then writeln('+')\nelse if x = 0 then writeln('0')\nelse writeln('-');"
+          }
+        ],
+        "python": [
+          {
+            "title": "if",
+            "illustrates": [
+              "conditional",
+              "conditional"
+            ],
+            "code": "if x > 0:\n    print('positive')"
+          },
+          {
+            "title": "if else",
+            "illustrates": [
+              "conditional"
+            ],
+            "code": "if x > 0:\n    print('+')\nelse:\n    print('-')"
+          },
+          {
+            "title": "elif",
+            "illustrates": [
+              "conditional"
+            ],
+            "code": "if x > 0:\n    print('+')\nelif x == 0:\n    print('0')\nelse:\n    print('-')"
+          }
+        ],
+        "cpp": [
+          {
+            "title": "if",
+            "illustrates": [
+              "conditional"
+            ],
+            "code": "if (x > 0) std::cout << \"+\";"
+          },
+          {
+            "title": "if else",
+            "illustrates": [
+              "conditional"
+            ],
+            "code": "if (x > 0) std::cout << \"+\";\nelse std::cout << \"-\";"
+          },
+          {
+            "title": "else if",
+            "illustrates": [
+              "conditional"
+            ],
+            "code": "if (x > 0) {}\nelse if (x == 0) {}\nelse {}"
+          }
+        ],
+        "csharp": [
+          {
+            "title": "if",
+            "illustrates": [
+              "conditional"
+            ],
+            "code": "if (x > 0) Console.WriteLine(\"+\");"
+          },
+          {
+            "title": "if else",
+            "illustrates": [
+              "conditional"
+            ],
+            "code": "if (x > 0) Console.WriteLine(\"+\");\nelse Console.WriteLine(\"-\");"
+          },
+          {
+            "title": "else if",
+            "illustrates": [
+              "conditional"
+            ],
+            "code": "if (x > 0) { }\nelse if (x == 0) { }\nelse { }"
+          }
+        ],
+        "java": [
+          {
+            "title": "if",
+            "illustrates": [
+              "conditional"
+            ],
+            "code": "if (x > 0) System.out.println(\"+\");"
+          },
+          {
+            "title": "if else",
+            "illustrates": [
+              "conditional"
+            ],
+            "code": "if (x > 0) System.out.println(\"+\");\nelse System.out.println(\"-\");"
+          },
+          {
+            "title": "else if",
+            "illustrates": [
+              "conditional"
+            ],
+            "code": "if (x > 0) { }\nelse if (x == 0) { }\nelse { }"
+          }
+        ]
+      }
+    },
+    "tc_switch_selection": {
+      "id": "tc_switch_selection",
+      "name_ru": "Выбор по значению",
+      "description_ru": "Множественный выбор одного варианта: case, switch, match.",
+      "technical_concept_ids": [
+        "conditional",
+        "switch_selection"
+      ],
+      "hints_by_language": {
+        "pascal": [
+          {
+            "title": "case of",
+            "illustrates": [
+              "switch_selection"
+            ],
+            "code": "case day of\n  1: writeln('Mon');\n  2: writeln('Tue');\nelse writeln('?');\nend;"
+          },
+          {
+            "title": "case с диапазоном",
+            "illustrates": [
+              "switch_selection"
+            ],
+            "code": "case score of\n  90..100: writeln('A');\nelse writeln('B');\nend;"
+          }
+        ],
+        "python": [
+          {
+            "title": "match case",
+            "illustrates": [
+              "switch_selection"
+            ],
+            "code": "match day:\n    case 1: print('Mon')\n    case 2: print('Tue')\n    case _: print('?')"
+          },
+          {
+            "title": "match по строке",
+            "illustrates": [
+              "switch_selection"
+            ],
+            "code": "match cmd:\n    case 'start': run()\n    case 'stop': stop()"
+          }
+        ],
+        "cpp": [
+          {
+            "title": "switch",
+            "illustrates": [
+              "switch_selection"
+            ],
+            "code": "switch (day) {\ncase 1: std::cout << \"Mon\"; break;\ncase 2: std::cout << \"Tue\"; break;\ndefault: break;\n}"
+          },
+          {
+            "title": "if/else chain",
+            "illustrates": [
+              "switch_selection"
+            ],
+            "code": "if (day == 1) std::cout << \"Mon\";\nelse if (day == 2) std::cout << \"Tue\";"
+          }
+        ],
+        "csharp": [
+          {
+            "title": "switch",
+            "illustrates": [
+              "switch_selection"
+            ],
+            "code": "switch (day) {\n    case 1: Console.WriteLine(\"Mon\"); break;\n    case 2: Console.WriteLine(\"Tue\"); break;\n    default: break;\n}"
+          },
+          {
+            "title": "switch expression",
+            "illustrates": [
+              "switch_selection"
+            ],
+            "code": "string label = day switch { 1 => \"Mon\", 2 => \"Tue\", _ => \"?\" };"
+          }
+        ],
+        "java": [
+          {
+            "title": "switch",
+            "illustrates": [
+              "switch_selection"
+            ],
+            "code": "switch (day) {\n    case 1: System.out.println(\"Mon\"); break;\n    case 2: System.out.println(\"Tue\"); break;\n    default: break;\n}"
+          },
+          {
+            "title": "switch arrow",
+            "illustrates": [
+              "switch_selection"
+            ],
+            "code": "switch (day) {\n    case 1 -> System.out.println(\"Mon\");\n    case 2 -> System.out.println(\"Tue\");\n    default -> System.out.println(\"?\");\n}"
+          }
+        ]
+      }
+    },
+    "tc_functions": {
+      "id": "tc_functions",
+      "name_ru": "Функции и процедуры",
+      "description_ru": "Именованный блок кода для повторного использования: объявление и вызов.",
+      "technical_concept_ids": [
+        "function_call",
+        "function_definition"
+      ],
+      "hints_by_language": {
+        "pascal": [
+          {
+            "title": "procedure",
+            "illustrates": [
+              "function_definition"
+            ],
+            "code": "procedure Greet;\nbegin\n  writeln('Hi');\nend;"
+          },
+          {
+            "title": "function",
+            "illustrates": [
+              "function_definition"
+            ],
+            "code": "function Sqr(x: integer): integer;\nbegin\n  Sqr := x * x;\nend;"
+          },
+          {
+            "title": "Вызов",
+            "illustrates": [
+              "function_call"
+            ],
+            "code": "Greet;\ny := Sqr(5);"
+          }
+        ],
+        "python": [
+          {
+            "title": "def",
+            "illustrates": [
+              "function_definition"
+            ],
+            "code": "def greet():\n    print('Hi')"
+          },
+          {
+            "title": "def с return",
+            "illustrates": [
+              "function_definition"
+            ],
+            "code": "def sqr(x):\n    return x * x"
+          },
+          {
+            "title": "Вызов",
+            "illustrates": [
+              "function_call"
+            ],
+            "code": "greet()\ny = sqr(5)"
+          }
+        ],
+        "cpp": [
+          {
+            "title": "void функция",
+            "illustrates": [
+              "function_definition"
+            ],
+            "code": "void greet() { std::cout << \"Hi\"; }"
+          },
+          {
+            "title": "Функция с типом",
+            "illustrates": [
+              "function_definition"
+            ],
+            "code": "int sqr(int x) { return x * x; }"
+          },
+          {
+            "title": "Вызов",
+            "illustrates": [
+              "function_call"
+            ],
+            "code": "greet();\nint y = sqr(5);"
+          }
+        ],
+        "csharp": [
+          {
+            "title": "static void",
+            "illustrates": [
+              "function_definition"
+            ],
+            "code": "static void Greet() { Console.WriteLine(\"Hi\"); }"
+          },
+          {
+            "title": "static int",
+            "illustrates": [
+              "function_definition"
+            ],
+            "code": "static int Sqr(int x) => x * x;"
+          },
+          {
+            "title": "Вызов",
+            "illustrates": [
+              "function_call"
+            ],
+            "code": "Greet();\nint y = Sqr(5);"
+          }
+        ],
+        "java": [
+          {
+            "title": "void метод",
+            "illustrates": [
+              "function_definition"
+            ],
+            "code": "static void greet() { System.out.println(\"Hi\"); }"
+          },
+          {
+            "title": "Метод с return",
+            "illustrates": [
+              "function_definition"
+            ],
+            "code": "static int sqr(int x) { return x * x; }"
+          },
+          {
+            "title": "Вызов",
+            "illustrates": [
+              "function_call"
+            ],
+            "code": "greet();\nint y = sqr(5);"
+          }
+        ]
+      }
+    },
+    "tc_parameters_return": {
+      "id": "tc_parameters_return",
+      "name_ru": "Параметры и возврат",
+      "description_ru": "Передача данных в функцию и возврат результата.",
+      "technical_concept_ids": [
+        "parameter_list",
+        "return_flow"
+      ],
+      "hints_by_language": {
+        "pascal": [
+          {
+            "title": "Параметры procedure",
+            "illustrates": [
+              "parameter_list"
+            ],
+            "code": "procedure Add(a, b: integer; var sum: integer);\nbegin\n  sum := a + b;\nend;"
+          },
+          {
+            "title": "Result",
+            "illustrates": [
+              "return_flow"
+            ],
+            "code": "function Max(a, b: integer): integer;\nbegin\n  if a > b then Max := a else Max := b;\nend;"
+          }
+        ],
+        "python": [
+          {
+            "title": "Параметры",
+            "illustrates": [
+              "parameter_list"
+            ],
+            "code": "def add(a, b):\n    return a + b"
+          },
+          {
+            "title": "Значение по умолчанию",
+            "illustrates": [
+              "parameter_list"
+            ],
+            "code": "def greet(name='Guest'):\n    print(name)"
+          },
+          {
+            "title": "return",
+            "illustrates": [
+              "return_flow"
+            ],
+            "code": "def max2(a, b):\n    return a if a > b else b"
+          }
+        ],
+        "cpp": [
+          {
+            "title": "Параметры по значению",
+            "illustrates": [
+              "parameter_list"
+            ],
+            "code": "int add(int a, int b) { return a + b; }"
+          },
+          {
+            "title": "return",
+            "illustrates": [
+              "return_flow"
+            ],
+            "code": "int max2(int a, int b) { return a > b ? a : b; }"
+          },
+          {
+            "title": "Ссылка",
+            "illustrates": [
+              "parameter_list"
+            ],
+            "code": "void inc(int& x) { ++x; }"
+          }
+        ],
+        "csharp": [
+          {
+            "title": "Параметры",
+            "illustrates": [
+              "parameter_list"
+            ],
+            "code": "static int Add(int a, int b) => a + b;"
+          },
+          {
+            "title": "out",
+            "illustrates": [
+              "parameter_list"
+            ],
+            "code": "static bool TryParse(string s, out int n) => int.TryParse(s, out n);"
+          },
+          {
+            "title": "return",
+            "illustrates": [
+              "return_flow"
+            ],
+            "code": "static int Max2(int a, int b) => a > b ? a : b;"
+          }
+        ],
+        "java": [
+          {
+            "title": "Параметры",
+            "illustrates": [
+              "parameter_list"
+            ],
+            "code": "static int add(int a, int b) { return a + b; }"
+          },
+          {
+            "title": "return",
+            "illustrates": [
+              "return_flow"
+            ],
+            "code": "static int max2(int a, int b) { return a > b ? a : b; }"
+          },
+          {
+            "title": "varargs",
+            "illustrates": [
+              "parameter_list"
+            ],
+            "code": "static int sum(int... nums) { int s = 0; for (int n : nums) s += n; return s; }"
+          }
+        ]
+      }
+    },
+    "tc_recursion": {
+      "id": "tc_recursion",
+      "name_ru": "Рекурсия",
+      "description_ru": "Функция вызывает саму себя; обязательны базовый случай и шаг к нему.",
+      "technical_concept_ids": [
+        "recursion"
+      ],
+      "hints_by_language": {
+        "pascal": [
+          {
+            "title": "Факториал",
+            "illustrates": [
+              "recursion",
+              "recursion"
+            ],
+            "code": "function Fact(n: integer): integer;\nbegin\n  if n <= 1 then Fact := 1\n  else Fact := n * Fact(n - 1);\nend;"
+          },
+          {
+            "title": "Fibonacci",
+            "illustrates": [
+              "recursion"
+            ],
+            "code": "function Fib(n: integer): integer;\nbegin\n  if n <= 1 then Fib := n\n  else Fib := Fib(n-1) + Fib(n-2);\nend;"
+          }
+        ],
+        "python": [
+          {
+            "title": "Факториал",
+            "illustrates": [
+              "recursion"
+            ],
+            "code": "def fact(n):\n    if n <= 1:\n        return 1\n    return n * fact(n - 1)"
+          },
+          {
+            "title": "Обход дерева",
+            "illustrates": [
+              "recursion"
+            ],
+            "code": "def walk(node):\n    if node is None:\n        return\n    walk(node.left)"
+          }
+        ],
+        "cpp": [
+          {
+            "title": "Факториал",
+            "illustrates": [
+              "recursion"
+            ],
+            "code": "int fact(int n) {\n    if (n <= 1) return 1;\n    return n * fact(n - 1);\n}"
+          },
+          {
+            "title": "Fibonacci",
+            "illustrates": [
+              "recursion"
+            ],
+            "code": "int fib(int n) {\n    if (n <= 1) return n;\n    return fib(n - 1) + fib(n - 2);\n}"
+          }
+        ],
+        "csharp": [
+          {
+            "title": "Факториал",
+            "illustrates": [
+              "recursion"
+            ],
+            "code": "static int Fact(int n) => n <= 1 ? 1 : n * Fact(n - 1);"
+          },
+          {
+            "title": "Fibonacci",
+            "illustrates": [
+              "recursion"
+            ],
+            "code": "static int Fib(int n) => n <= 1 ? n : Fib(n - 1) + Fib(n - 2);"
+          }
+        ],
+        "java": [
+          {
+            "title": "Факториал",
+            "illustrates": [
+              "recursion"
+            ],
+            "code": "static int fact(int n) {\n    if (n <= 1) return 1;\n    return n * fact(n - 1);\n}"
+          },
+          {
+            "title": "Fibonacci",
+            "illustrates": [
+              "recursion"
+            ],
+            "code": "static int fib(int n) {\n    if (n <= 1) return n;\n    return fib(n - 1) + fib(n - 2);\n}"
+          }
+        ]
+      }
+    },
+    "tc_arrays": {
+      "id": "tc_arrays",
+      "name_ru": "Массивы и последовательности",
+      "description_ru": "Индексированное хранение элементов одного типа.",
+      "technical_concept_ids": [
+        "indexed_access"
+      ],
+      "hints_by_language": {
+        "pascal": [
+          {
+            "title": "Статический массив",
+            "illustrates": [
+              "indexed_access"
+            ],
+            "code": "var a: array[1..10] of integer;"
+          },
+          {
+            "title": "Доступ по индексу",
+            "illustrates": [
+              "indexed_access"
+            ],
+            "code": "a[i] := a[i] + 1;"
+          },
+          {
+            "title": "Динамический",
+            "illustrates": [
+              "indexed_access"
+            ],
+            "code": "var dyn: array of integer;\nSetLength(dyn, n);"
+          }
+        ],
+        "python": [
+          {
+            "title": "Список",
+            "illustrates": [
+              "indexed_access"
+            ],
+            "code": "a = [0] * 10"
+          },
+          {
+            "title": "Индекс",
+            "illustrates": [
+              "indexed_access"
+            ],
+            "code": "a[i] = a[i] + 1"
+          },
+          {
+            "title": "Литерал",
+            "illustrates": [
+              "indexed_access"
+            ],
+            "code": "nums = [1, 2, 3, 5, 8]"
+          }
+        ],
+        "cpp": [
+          {
+            "title": "C-массив",
+            "illustrates": [
+              "indexed_access"
+            ],
+            "code": "int a[10] = {};"
+          },
+          {
+            "title": "vector",
+            "illustrates": [
+              "indexed_access"
+            ],
+            "code": "std::vector<int> a(n);"
+          },
+          {
+            "title": "Индекс",
+            "illustrates": [
+              "indexed_access"
+            ],
+            "code": "a[i]++;"
+          }
+        ],
+        "csharp": [
+          {
+            "title": "Массив",
+            "illustrates": [
+              "indexed_access"
+            ],
+            "code": "int[] a = new int[10];"
+          },
+          {
+            "title": "List",
+            "illustrates": [
+              "indexed_access"
+            ],
+            "code": "var list = new List<int>();"
+          },
+          {
+            "title": "Индекс",
+            "illustrates": [
+              "indexed_access"
+            ],
+            "code": "a[i]++;"
+          }
+        ],
+        "java": [
+          {
+            "title": "Массив",
+            "illustrates": [
+              "indexed_access"
+            ],
+            "code": "int[] a = new int[10];"
+          },
+          {
+            "title": "ArrayList",
+            "illustrates": [
+              "indexed_access"
+            ],
+            "code": "ArrayList<Integer> list = new ArrayList<>();"
+          },
+          {
+            "title": "Индекс",
+            "illustrates": [
+              "indexed_access"
+            ],
+            "code": "a[i]++;"
+          }
+        ]
+      }
+    },
+    "tc_strings": {
+      "id": "tc_strings",
+      "name_ru": "Строки",
+      "description_ru": "Текстовые данные: литералы, конкатенация, базовые операции.",
+      "technical_concept_ids": [
+        "string_literal"
+      ],
+      "hints_by_language": {
+        "pascal": [
+          {
+            "title": "Литерал",
+            "illustrates": [
+              "string_literal"
+            ],
+            "code": "name := 'Ann';"
+          },
+          {
+            "title": "Конкатенация",
+            "illustrates": [
+              "string_literal"
+            ],
+            "code": "msg := 'Hi, ' + name;"
+          },
+          {
+            "title": "Length / Copy",
+            "illustrates": [
+              "string_literal"
+            ],
+            "code": "n := Length(s);\ns2 := Copy(s, 1, 3);"
+          }
+        ],
+        "python": [
+          {
+            "title": "Литерал",
+            "illustrates": [
+              "string_literal"
+            ],
+            "code": "name = 'Ann'"
+          },
+          {
+            "title": "f-string",
+            "illustrates": [
+              "string_literal"
+            ],
+            "code": "msg = f'Hi, {name}'"
+          },
+          {
+            "title": "Методы",
+            "illustrates": [
+              "string_literal"
+            ],
+            "code": "s = s.strip().lower()"
+          }
+        ],
+        "cpp": [
+          {
+            "title": "std::string",
+            "illustrates": [
+              "string_literal"
+            ],
+            "code": "std::string name = \"Ann\";"
+          },
+          {
+            "title": "Конкатенация",
+            "illustrates": [
+              "string_literal"
+            ],
+            "code": "std::string msg = \"Hi, \" + name;"
+          }
+        ],
+        "csharp": [
+          {
+            "title": "string",
+            "illustrates": [
+              "string_literal"
+            ],
+            "code": "string name = \"Ann\";"
+          },
+          {
+            "title": "Интерполяция",
+            "illustrates": [
+              "string_literal"
+            ],
+            "code": "string msg = $\"Hi, {name}\";"
+          }
+        ],
+        "java": [
+          {
+            "title": "String",
+            "illustrates": [
+              "string_literal"
+            ],
+            "code": "String name = \"Ann\";"
+          },
+          {
+            "title": "Конкатенация",
+            "illustrates": [
+              "string_literal"
+            ],
+            "code": "String msg = \"Hi, \" + name;"
+          }
+        ]
+      }
+    },
+    "tc_collection_traversal": {
+      "id": "tc_collection_traversal",
+      "name_ru": "Обход коллекций",
+      "description_ru": "Последовательный просмотр всех элементов коллекции.",
+      "technical_concept_ids": [
+        "collection_iteration"
+      ],
+      "hints_by_language": {
+        "pascal": [
+          {
+            "title": "for по массиву",
+            "illustrates": [
+              "collection_iteration"
+            ],
+            "code": "for i := 1 to Length(a) do\n  sum := sum + a[i];"
+          },
+          {
+            "title": "for in (Delphi-style)",
+            "illustrates": [
+              "collection_iteration"
+            ],
+            "code": "for item in items do\n  Process(item);"
+          }
+        ],
+        "python": [
+          {
+            "title": "for in",
+            "illustrates": [
+              "collection_iteration"
+            ],
+            "code": "for item in items:\n    print(item)"
+          },
+          {
+            "title": "enumerate",
+            "illustrates": [
+              "collection_iteration"
+            ],
+            "code": "for i, v in enumerate(items):\n    print(i, v)"
+          },
+          {
+            "title": "zip",
+            "illustrates": [
+              "collection_iteration"
+            ],
+            "code": "for a, b in zip(xs, ys):\n    print(a, b)"
+          }
+        ],
+        "cpp": [
+          {
+            "title": "range-for",
+            "illustrates": [
+              "collection_iteration"
+            ],
+            "code": "for (int v : vec)\n    sum += v;"
+          },
+          {
+            "title": "iterator",
+            "illustrates": [
+              "collection_iteration"
+            ],
+            "code": "for (auto it = v.begin(); it != v.end(); ++it)\n    sum += *it;"
+          }
+        ],
+        "csharp": [
+          {
+            "title": "foreach",
+            "illustrates": [
+              "collection_iteration"
+            ],
+            "code": "foreach (var item in items)\n    Console.WriteLine(item);"
+          },
+          {
+            "title": "for index",
+            "illustrates": [
+              "collection_iteration"
+            ],
+            "code": "for (int i = 0; i < items.Count; i++)\n    Console.WriteLine(items[i]);"
+          }
+        ],
+        "java": [
+          {
+            "title": "enhanced for",
+            "illustrates": [
+              "collection_iteration"
+            ],
+            "code": "for (int v : arr)\n    sum += v;"
+          },
+          {
+            "title": "Iterator",
+            "illustrates": [
+              "collection_iteration"
+            ],
+            "code": "for (Iterator<String> it = list.iterator(); it.hasNext();)\n    System.out.println(it.next());"
+          }
+        ]
+      }
+    },
+    "tc_maps_records": {
+      "id": "tc_maps_records",
+      "name_ru": "Словари и записи",
+      "description_ru": "Структуры «ключ → значение» и составные записи с полями.",
+      "technical_concept_ids": [
+        "console_output",
+        "map_type",
+        "member_access"
+      ],
+      "hints_by_language": {
+        "pascal": [
+          {
+            "title": "record",
+            "illustrates": [
+              "map_type"
+            ],
+            "code": "type Point = record\n  x, y: integer;\nend;"
+          },
+          {
+            "title": "Доступ к полю",
+            "illustrates": [
+              "member_access"
+            ],
+            "code": "p.x := 10;"
+          }
+        ],
+        "python": [
+          {
+            "title": "dict",
+            "illustrates": [
+              "map_type"
+            ],
+            "code": "counts = {}\ncounts['a'] = counts.get('a', 0) + 1"
+          },
+          {
+            "title": "dict literal",
+            "illustrates": [
+              "map_type"
+            ],
+            "code": "user = {'name': 'Ann', 'age': 18}"
+          }
+        ],
+        "cpp": [
+          {
+            "title": "struct",
+            "illustrates": [
+              "map_type"
+            ],
+            "code": "struct Point { int x, y; };"
+          },
+          {
+            "title": "unordered_map",
+            "illustrates": [
+              "map_type"
+            ],
+            "code": "std::unordered_map<std::string,int> m;\nm[\"a\"] = 1;"
+          }
+        ],
+        "csharp": [
+          {
+            "title": "record / class",
+            "illustrates": [
+              "map_type"
+            ],
+            "code": "record Point(int X, int Y);"
+          },
+          {
+            "title": "Dictionary",
+            "illustrates": [
+              "console_output"
+            ],
+            "code": "var m = new Dictionary<string,int>();\nm[\"a\"] = 1;"
+          }
+        ],
+        "java": [
+          {
+            "title": "class поля",
+            "illustrates": [
+              "map_type"
+            ],
+            "code": "class Point { int x, y; }"
+          },
+          {
+            "title": "HashMap",
+            "illustrates": [
+              "map_type"
+            ],
+            "code": "Map<String,Integer> m = new HashMap<>();\nm.put(\"a\", 1);"
+          }
+        ]
+      }
+    },
+    "tc_search": {
+      "id": "tc_search",
+      "name_ru": "Линейный поиск",
+      "description_ru": "Линейный поиск, проверка вхождения, поиск по условию.",
+      "technical_concept_ids": [
+        "search_find"
+      ],
+      "hints_by_language": {
+        "pascal": [
+          {
+            "title": "Линейный поиск",
+            "illustrates": [
+              "search_find"
+            ],
+            "code": "found := false;\nfor i := 1 to n do\n  if a[i] = key then found := true;"
+          },
+          {
+            "title": "Pos",
+            "illustrates": [
+              "search_find"
+            ],
+            "code": "p := Pos(key, text);"
+          }
+        ],
+        "python": [
+          {
+            "title": "in",
+            "illustrates": [
+              "search_find"
+            ],
+            "code": "if key in items:\n    print('found')"
+          },
+          {
+            "title": "Линейный цикл",
+            "illustrates": [
+              "search_find"
+            ],
+            "code": "for x in items:\n    if x == key:\n        break"
+          },
+          {
+            "title": "Первое совпадение",
+            "illustrates": [
+              "search_find"
+            ],
+            "code": "for i in range(1, n + 1):\n    if code == target and position == 0:\n        position = i"
+          }
+        ],
+        "cpp": [
+          {
+            "title": "std::find",
+            "illustrates": [
+              "search_find"
+            ],
+            "code": "auto it = std::find(v.begin(), v.end(), key);"
+          },
+          {
+            "title": "Линейный цикл",
+            "illustrates": [
+              "search_find"
+            ],
+            "code": "for (int x : v)\n    if (x == key) { /* found */ break; }"
+          }
+        ],
+        "csharp": [
+          {
+            "title": "Contains / IndexOf",
+            "illustrates": [
+              "search_find"
+            ],
+            "code": "if (items.Contains(key)) { }"
+          },
+          {
+            "title": "First",
+            "illustrates": [
+              "search_find"
+            ],
+            "code": "var x = items.FirstOrDefault(v => v == key);"
+          }
+        ],
+        "java": [
+          {
+            "title": "Первое совпадение",
+            "illustrates": [
+              "search_find"
+            ],
+            "code": "for (int i = 1; i <= n; i++) {\n    int code = sc.nextInt();\n    if (code == target && position == 0)\n        position = i;\n}"
+          },
+          {
+            "title": "indexOf",
+            "illustrates": [
+              "search_find"
+            ],
+            "code": "int idx = list.indexOf(key);"
+          },
+          {
+            "title": "Линейный цикл",
+            "illustrates": [
+              "search_find"
+            ],
+            "code": "for (int x : arr)\n    if (x == key) break;"
+          }
+        ]
+      }
+    },
+    "tc_filter": {
+      "id": "tc_filter",
+      "name_ru": "Фильтрация",
+      "description_ru": "Отбор элементов, удовлетворяющих условию.",
+      "technical_concept_ids": [
+        "conditional",
+        "filter_select"
+      ],
+      "hints_by_language": {
+        "pascal": [
+          {
+            "title": "Цикл с if",
+            "illustrates": [
+              "filter_select"
+            ],
+            "code": "for i := 1 to n do\n  if a[i] mod 2 = 0 then\n    writeln(a[i]);"
+          },
+          {
+            "title": "Временный массив",
+            "illustrates": [
+              "filter_select"
+            ],
+            "code": "k := 0;\nfor i := 1 to n do\n  if a[i] > 0 then\n  begin\n    Inc(k);\n    b[k] := a[i];\n  end;"
+          }
+        ],
+        "python": [
+          {
+            "title": "list comp",
+            "illustrates": [
+              "conditional"
+            ],
+            "code": "evens = [x for x in nums if x % 2 == 0]"
+          },
+          {
+            "title": "filter()",
+            "illustrates": [
+              "filter_select"
+            ],
+            "code": "evens = list(filter(lambda x: x % 2 == 0, nums))"
+          }
+        ],
+        "cpp": [
+          {
+            "title": "copy_if",
+            "illustrates": [
+              "filter_select"
+            ],
+            "code": "std::copy_if(v.begin(), v.end(), std::back_inserter(out),\n    [](int x){ return x % 2 == 0; });"
+          },
+          {
+            "title": "Цикл с if",
+            "illustrates": [
+              "filter_select"
+            ],
+            "code": "for (int x : v)\n    if (x % 2 == 0)\n        out.push_back(x);"
+          }
+        ],
+        "csharp": [
+          {
+            "title": "Where",
+            "illustrates": [
+              "filter_select"
+            ],
+            "code": "var evens = nums.Where(x => x % 2 == 0);"
+          },
+          {
+            "title": "Цикл с if",
+            "illustrates": [
+              "filter_select"
+            ],
+            "code": "foreach (var x in nums)\n    if (x % 2 == 0)\n        evens.Add(x);"
+          }
+        ],
+        "java": [
+          {
+            "title": "stream filter",
+            "illustrates": [
+              "filter_select"
+            ],
+            "code": "List<Integer> evens = nums.stream()\n    .filter(x -> x % 2 == 0)\n    .toList();"
+          },
+          {
+            "title": "Цикл с if",
+            "illustrates": [
+              "filter_select"
+            ],
+            "code": "for (int x : nums)\n    if (x % 2 == 0)\n        evens.add(x);"
+          }
+        ]
+      }
+    },
+    "tc_aggregate": {
+      "id": "tc_aggregate",
+      "name_ru": "Накопление и свёртка",
+      "description_ru": "Суммирование, подсчёт, накопление результата в переменной или reduce.",
+      "technical_concept_ids": [
+        "fold_aggregate"
+      ],
+      "hints_by_language": {
+        "pascal": [
+          {
+            "title": "Сумма в цикле",
+            "illustrates": [
+              "fold_aggregate"
+            ],
+            "code": "sum := 0;\nfor i := 1 to n do\n  sum := sum + a[i];"
+          },
+          {
+            "title": "Счётчик",
+            "illustrates": [
+              "fold_aggregate"
+            ],
+            "code": "cnt := 0;\nfor i := 1 to n do\n  if a[i] > 0 then Inc(cnt);"
+          }
+        ],
+        "python": [
+          {
+            "title": "+= в цикле",
+            "illustrates": [
+              "fold_aggregate"
+            ],
+            "code": "total = 0\nfor x in nums:\n    total += x"
+          },
+          {
+            "title": "sum()",
+            "illustrates": [
+              "fold_aggregate"
+            ],
+            "code": "total = sum(nums)"
+          },
+          {
+            "title": "reduce",
+            "illustrates": [
+              "fold_aggregate"
+            ],
+            "code": "from functools import reduce\ntotal = reduce(lambda a, x: a + x, nums, 0)"
+          }
+        ],
+        "cpp": [
+          {
+            "title": "+= в цикле",
+            "illustrates": [
+              "fold_aggregate"
+            ],
+            "code": "int sum = 0;\nfor (int x : v) sum += x;"
+          },
+          {
+            "title": "accumulate",
+            "illustrates": [
+              "fold_aggregate"
+            ],
+            "code": "int sum = std::accumulate(v.begin(), v.end(), 0);"
+          }
+        ],
+        "csharp": [
+          {
+            "title": "+= в цикле",
+            "illustrates": [
+              "fold_aggregate"
+            ],
+            "code": "int sum = 0;\nforeach (var x in nums) sum += x;"
+          },
+          {
+            "title": "Aggregate",
+            "illustrates": [
+              "fold_aggregate"
+            ],
+            "code": "int sum = nums.Aggregate(0, (a, x) => a + x);"
+          }
+        ],
+        "java": [
+          {
+            "title": "+= в цикле",
+            "illustrates": [
+              "fold_aggregate"
+            ],
+            "code": "int sum = 0;\nfor (int x : arr) sum += x;"
+          },
+          {
+            "title": "stream reduce",
+            "illustrates": [
+              "fold_aggregate"
+            ],
+            "code": "int sum = Arrays.stream(arr).reduce(0, Integer::sum);"
+          }
+        ]
+      }
+    },
+    "tc_sort": {
+      "id": "tc_sort",
+      "name_ru": "Сортировка",
+      "description_ru": "Упорядочивание элементов по возрастанию или убыванию.",
+      "technical_concept_ids": [
+        "console_output",
+        "sort"
+      ],
+      "hints_by_language": {
+        "pascal": [
+          {
+            "title": "Sort массива",
+            "illustrates": [
+              "sort"
+            ],
+            "code": "Sort(a, 0, n - 1);"
+          },
+          {
+            "title": "Пузырёк (учебный)",
+            "illustrates": [
+              "sort"
+            ],
+            "code": "for i := 1 to n - 1 do\n  for j := 1 to n - i do\n    if a[j] > a[j + 1] then\n    begin\n      temp := a[j];\n      a[j] := a[j + 1];\n      a[j + 1] := temp;\n    end;"
+          }
+        ],
+        "python": [
+          {
+            "title": "sorted",
+            "illustrates": [
+              "sort"
+            ],
+            "code": "ordered = sorted(nums)"
+          },
+          {
+            "title": "sort in-place",
+            "illustrates": [
+              "sort"
+            ],
+            "code": "nums.sort()"
+          },
+          {
+            "title": "key=",
+            "illustrates": [
+              "sort"
+            ],
+            "code": "pairs.sort(key=lambda p: p[1])"
+          }
+        ],
+        "cpp": [
+          {
+            "title": "std::sort",
+            "illustrates": [
+              "sort"
+            ],
+            "code": "std::sort(v.begin(), v.end());"
+          },
+          {
+            "title": "greater",
+            "illustrates": [
+              "sort"
+            ],
+            "code": "std::sort(v.begin(), v.end(), std::greater<int>());"
+          }
+        ],
+        "csharp": [
+          {
+            "title": "Sort",
+            "illustrates": [
+              "sort"
+            ],
+            "code": "nums.Sort();"
+          },
+          {
+            "title": "OrderBy",
+            "illustrates": [
+              "sort"
+            ],
+            "code": "var ordered = nums.OrderBy(x => x);"
+          }
+        ],
+        "java": [
+          {
+            "title": "Arrays.sort",
+            "illustrates": [
+              "console_output"
+            ],
+            "code": "Arrays.sort(arr);"
+          },
+          {
+            "title": "Collections.sort",
+            "illustrates": [
+              "sort"
+            ],
+            "code": "Collections.sort(list);"
+          }
+        ]
+      }
+    },
+    "tc_modules": {
+      "id": "tc_modules",
+      "name_ru": "Модули и импорт",
+      "description_ru": "Подключение внешнего кода: библиотеки, модули, namespace.",
+      "technical_concept_ids": [
+        "import_module"
+      ],
+      "hints_by_language": {
+        "pascal": [
+          {
+            "title": "unit + uses",
+            "illustrates": [
+              "import_module"
+            ],
+            "code": "unit MyUtils;\ninterface\nuses SysUtils;\nimplementation\nend."
+          },
+          {
+            "title": "uses в program",
+            "illustrates": [
+              "import_module"
+            ],
+            "code": "program Demo;\nuses SysUtils;\nbegin\nend."
+          }
+        ],
+        "python": [
+          {
+            "title": "import",
+            "illustrates": [
+              "import_module"
+            ],
+            "code": "import math"
+          },
+          {
+            "title": "from import",
+            "illustrates": [
+              "import_module"
+            ],
+            "code": "from datetime import datetime"
+          }
+        ],
+        "cpp": [
+          {
+            "title": "#include",
+            "illustrates": [
+              "import_module"
+            ],
+            "code": "#include <iostream>\n#include <vector>"
+          },
+          {
+            "title": "namespace",
+            "illustrates": [
+              "import_module"
+            ],
+            "code": "namespace utils {\n    int add(int a, int b) { return a + b; }\n}"
+          }
+        ],
+        "csharp": [
+          {
+            "title": "using",
+            "illustrates": [
+              "import_module"
+            ],
+            "code": "using System;\nusing System.Collections.Generic;"
+          },
+          {
+            "title": "namespace",
+            "illustrates": [
+              "import_module"
+            ],
+            "code": "namespace Utils {\n    public static class Math {\n        public static int Add(int a, int b) => a + b;\n    }\n}"
+          }
+        ],
+        "java": [
+          {
+            "title": "import",
+            "illustrates": [
+              "import_module"
+            ],
+            "code": "import java.util.List;\nimport java.util.ArrayList;"
+          },
+          {
+            "title": "package",
+            "illustrates": [
+              "import_module"
+            ],
+            "code": "package demo.utils;\n\npublic class Helper { }"
+          }
+        ]
+      }
+    },
+    "tc_file_io": {
+      "id": "tc_file_io",
+      "name_ru": "Файловый ввод-вывод",
+      "description_ru": "Чтение и запись текстовых файлов.",
+      "technical_concept_ids": [
+        "console_output",
+        "file_io"
+      ],
+      "hints_by_language": {
+        "pascal": [
+          {
+            "title": "Чтение",
+            "illustrates": [
+              "file_io",
+              "file_io"
+            ],
+            "code": "var f: text;\nassign(f, 'in.txt');\nreset(f);\nreadln(f, line);"
+          },
+          {
+            "title": "Запись",
+            "illustrates": [
+              "file_io"
+            ],
+            "code": "rewrite(f);\nwriteln(f, line);"
+          }
+        ],
+        "python": [
+          {
+            "title": "with open read",
+            "illustrates": [
+              "file_io"
+            ],
+            "code": "with open('in.txt') as f:\n    text = f.read()"
+          },
+          {
+            "title": "with open write",
+            "illustrates": [
+              "file_io"
+            ],
+            "code": "with open('out.txt', 'w') as f:\n    f.write(text)"
+          }
+        ],
+        "cpp": [
+          {
+            "title": "ifstream",
+            "illustrates": [
+              "file_io"
+            ],
+            "code": "std::ifstream in(\"in.txt\");\nstd::string line;\nstd::getline(in, line);"
+          },
+          {
+            "title": "ofstream",
+            "illustrates": [
+              "file_io"
+            ],
+            "code": "std::ofstream out(\"out.txt\");\nout << line;"
+          }
+        ],
+        "csharp": [
+          {
+            "title": "ReadAllText",
+            "illustrates": [
+              "console_output"
+            ],
+            "code": "string text = File.ReadAllText(\"in.txt\");"
+          },
+          {
+            "title": "WriteAllText",
+            "illustrates": [
+              "file_io"
+            ],
+            "code": "File.WriteAllText(\"out.txt\", text);"
+          }
+        ],
+        "java": [
+          {
+            "title": "Files.readString",
+            "illustrates": [
+              "console_output"
+            ],
+            "code": "String text = Files.readString(Path.of(\"in.txt\"));"
+          },
+          {
+            "title": "Files.writeString",
+            "illustrates": [
+              "file_io"
+            ],
+            "code": "Files.writeString(Path.of(\"out.txt\"), text);"
+          }
+        ]
+      }
+    },
+    "tc_oop_classes": {
+      "id": "tc_oop_classes",
+      "name_ru": "Классы и объекты",
+      "description_ru": "Объединение данных и поведения в тип; создание экземпляра класса.",
+      "technical_concept_ids": [
+        "class_type"
+      ],
+      "hints_by_language": {
+        "pascal": [
+          {
+            "title": "Объявление class",
+            "illustrates": [
+              "class_type"
+            ],
+            "code": "type\n  TAnimal = class\n  public\n    Name: string;\n  end;"
+          },
+          {
+            "title": "Создание объекта",
+            "illustrates": [
+              "class_type"
+            ],
+            "code": "var pet: TAnimal;\npet := TAnimal.Create;\npet.Name := 'Barsik';"
+          }
+        ],
+        "python": [
+          {
+            "title": "class",
+            "illustrates": [
+              "class_type"
+            ],
+            "code": "class Animal:\n    species = 'unknown'"
+          },
+          {
+            "title": "Экземпляр",
+            "illustrates": [
+              "class_type"
+            ],
+            "code": "pet = Animal()\npet.name = 'Barsik'"
+          }
+        ],
+        "cpp": [
+          {
+            "title": "class",
+            "illustrates": [
+              "class_type"
+            ],
+            "code": "class Animal {\npublic:\n    std::string name;\n};"
+          },
+          {
+            "title": "Объект на стеке",
+            "illustrates": [
+              "class_type"
+            ],
+            "code": "Animal pet;\npet.name = \"Barsik\";"
+          }
+        ],
+        "csharp": [
+          {
+            "title": "class",
+            "illustrates": [
+              "class_type"
+            ],
+            "code": "class Animal {\n    public string Name { get; set; }\n}"
+          },
+          {
+            "title": "new",
+            "illustrates": [
+              "class_type"
+            ],
+            "code": "var pet = new Animal { Name = \"Barsik\" };"
+          }
+        ],
+        "java": [
+          {
+            "title": "class",
+            "illustrates": [
+              "class_type"
+            ],
+            "code": "class Animal {\n    String name;\n}"
+          },
+          {
+            "title": "new",
+            "illustrates": [
+              "class_type"
+            ],
+            "code": "Animal pet = new Animal();\npet.name = \"Barsik\";"
+          }
+        ]
+      }
+    },
+    "tc_oop_methods": {
+      "id": "tc_oop_methods",
+      "name_ru": "Методы",
+      "description_ru": "Функции и процедуры внутри класса; вызов через объект.",
+      "technical_concept_ids": [
+        "function_call",
+        "function_definition",
+        "method_declaration"
+      ],
+      "hints_by_language": {
+        "pascal": [
+          {
+            "title": "Метод класса",
+            "illustrates": [
+              "method_declaration"
+            ],
+            "code": "type TCounter = class\n  value: integer;\n  procedure Inc;\nend;\n\nprocedure TCounter.Inc;\nbegin\n  value := value + 1;\nend;"
+          },
+          {
+            "title": "Вызов метода",
+            "illustrates": [
+              "function_definition"
+            ],
+            "code": "counter.Inc;"
+          }
+        ],
+        "python": [
+          {
+            "title": "Метод экземпляра",
+            "illustrates": [
+              "method_declaration"
+            ],
+            "code": "class Counter:\n    def __init__(self):\n        self.value = 0\n\n    def inc(self):\n        self.value += 1"
+          },
+          {
+            "title": "Вызов",
+            "illustrates": [
+              "function_definition"
+            ],
+            "code": "counter.inc()"
+          }
+        ],
+        "cpp": [
+          {
+            "title": "Метод",
+            "illustrates": [
+              "method_declaration"
+            ],
+            "code": "class Counter {\npublic:\n    int value = 0;\n    void inc() { ++value; }\n};"
+          },
+          {
+            "title": "Вызов",
+            "illustrates": [
+              "function_definition"
+            ],
+            "code": "counter.inc();"
+          }
+        ],
+        "csharp": [
+          {
+            "title": "Метод",
+            "illustrates": [
+              "method_declaration"
+            ],
+            "code": "class Counter {\n    public int Value { get; private set; }\n    public void Inc() => Value++;\n}"
+          },
+          {
+            "title": "Вызов",
+            "illustrates": [
+              "function_definition"
+            ],
+            "code": "counter.Inc();"
+          }
+        ],
+        "java": [
+          {
+            "title": "Метод",
+            "illustrates": [
+              "method_declaration"
+            ],
+            "code": "class Counter {\n    int value = 0;\n    void inc() { value++; }\n}"
+          },
+          {
+            "title": "Вызов",
+            "illustrates": [
+              "function_definition"
+            ],
+            "code": "counter.inc();"
+          }
+        ]
+      }
+    },
+    "tc_oop_constructors": {
+      "id": "tc_oop_constructors",
+      "name_ru": "Конструкторы",
+      "description_ru": "Инициализация объекта при создании: конструктор, Create, __init__.",
+      "technical_concept_ids": [
+        "class_type",
+        "constant_declaration"
+      ],
+      "hints_by_language": {
+        "pascal": [
+          {
+            "title": "Constructor Create",
+            "illustrates": [
+              "constant_declaration"
+            ],
+            "code": "constructor Create(const AName: string);\nbegin\n  Name := AName;\nend;"
+          },
+          {
+            "title": "Вызов Create",
+            "illustrates": [
+              "class_type"
+            ],
+            "code": "pet := TAnimal.Create('Barsik');"
+          }
+        ],
+        "python": [
+          {
+            "title": "__init__",
+            "illustrates": [
+              "constant_declaration"
+            ],
+            "code": "class Animal:\n    def __init__(self, name):\n        self.name = name"
+          },
+          {
+            "title": "Создание",
+            "illustrates": [
+              "class_type"
+            ],
+            "code": "pet = Animal('Barsik')"
+          }
+        ],
+        "cpp": [
+          {
+            "title": "Конструктор",
+            "illustrates": [
+              "constant_declaration"
+            ],
+            "code": "class Animal {\npublic:\n    Animal(std::string name) : name(std::move(name)) {}\n    std::string name;\n};"
+          },
+          {
+            "title": "new",
+            "illustrates": [
+              "class_type"
+            ],
+            "code": "auto pet = new Animal(\"Barsik\");"
+          }
+        ],
+        "csharp": [
+          {
+            "title": "Конструктор",
+            "illustrates": [
+              "constant_declaration"
+            ],
+            "code": "class Animal {\n    public Animal(string name) { Name = name; }\n    public string Name { get; }\n}"
+          },
+          {
+            "title": "new",
+            "illustrates": [
+              "class_type"
+            ],
+            "code": "var pet = new Animal(\"Barsik\");"
+          }
+        ],
+        "java": [
+          {
+            "title": "Конструктор",
+            "illustrates": [
+              "constant_declaration"
+            ],
+            "code": "class Animal {\n    String name;\n    Animal(String name) { this.name = name; }\n}"
+          },
+          {
+            "title": "new",
+            "illustrates": [
+              "class_type"
+            ],
+            "code": "Animal pet = new Animal(\"Barsik\");"
+          }
+        ]
+      }
+    },
+    "tc_oop_inheritance": {
+      "id": "tc_oop_inheritance",
+      "name_ru": "Наследование",
+      "description_ru": "Производный класс расширяет или переопределяет базовый тип.",
+      "technical_concept_ids": [
+        "inheritance"
+      ],
+      "hints_by_language": {
+        "pascal": [
+          {
+            "title": "Наследник",
+            "illustrates": [
+              "inheritance"
+            ],
+            "code": "type TDog = class(TAnimal)\npublic\n  procedure Speak; override;\nend;"
+          },
+          {
+            "title": "virtual",
+            "illustrates": [
+              "inheritance"
+            ],
+            "code": "type TAnimal = class\n  procedure Speak; virtual; abstract;\nend;"
+          }
+        ],
+        "python": [
+          {
+            "title": "class Dog(Animal)",
+            "illustrates": [
+              "inheritance"
+            ],
+            "code": "class Dog(Animal):\n    def speak(self):\n        print('woof')"
+          },
+          {
+            "title": "super()",
+            "illustrates": [
+              "inheritance"
+            ],
+            "code": "class Dog(Animal):\n    def speak(self):\n        super().speak()"
+          }
+        ],
+        "cpp": [
+          {
+            "title": "public inheritance",
+            "illustrates": [
+              "inheritance"
+            ],
+            "code": "class Dog : public Animal {\npublic:\n    void speak() override;\n};"
+          },
+          {
+            "title": "virtual base",
+            "illustrates": [
+              "inheritance"
+            ],
+            "code": "class Animal {\npublic:\n    virtual void speak() = 0;\n};"
+          }
+        ],
+        "csharp": [
+          {
+            "title": ": Animal",
+            "illustrates": [
+              "inheritance"
+            ],
+            "code": "class Dog : Animal {\n    public override void Speak() => Console.WriteLine(\"woof\");\n}"
+          },
+          {
+            "title": "abstract",
+            "illustrates": [
+              "inheritance"
+            ],
+            "code": "abstract class Animal {\n    public abstract void Speak();\n}"
+          }
+        ],
+        "java": [
+          {
+            "title": "extends",
+            "illustrates": [
+              "inheritance"
+            ],
+            "code": "class Dog extends Animal {\n    void speak() { System.out.println(\"woof\"); }\n}"
+          },
+          {
+            "title": "abstract",
+            "illustrates": [
+              "inheritance"
+            ],
+            "code": "abstract class Animal {\n    abstract void speak();\n}"
+          }
+        ]
+      }
+    },
+    "tc_oop_polymorphism": {
+      "id": "tc_oop_polymorphism",
+      "name_ru": "Полиморфизм",
+      "description_ru": "Один интерфейс — разное поведение: virtual/override и вызов через базовый тип.",
+      "technical_concept_ids": [
+        "inheritance",
+        "method_declaration"
+      ],
+      "hints_by_language": {
+        "pascal": [
+          {
+            "title": "virtual + override",
+            "illustrates": [
+              "inheritance"
+            ],
+            "code": "type TAnimal = class\n  procedure Speak; virtual;\nend;\n\ntype TDog = class(TAnimal)\n  procedure Speak; override;\nend;"
+          },
+          {
+            "title": "Вызов через базовый тип",
+            "illustrates": [
+              "inheritance"
+            ],
+            "code": "var a: TAnimal;\na := TDog.Create;\na.Speak;"
+          }
+        ],
+        "python": [
+          {
+            "title": "Переопределение",
+            "illustrates": [
+              "inheritance"
+            ],
+            "code": "class Animal:\n    def speak(self):\n        print('...')\n\nclass Dog(Animal):\n    def speak(self):\n        print('woof')"
+          },
+          {
+            "title": "Полиморный вызов",
+            "illustrates": [
+              "inheritance"
+            ],
+            "code": "def make_sound(animal: Animal):\n    animal.speak()"
+          }
+        ],
+        "cpp": [
+          {
+            "title": "virtual / override",
+            "illustrates": [
+              "inheritance"
+            ],
+            "code": "class Animal {\npublic:\n    virtual void speak() {}\n};\n\nclass Dog : public Animal {\npublic:\n    void speak() override { std::cout << \"woof\"; }\n};"
+          },
+          {
+            "title": "Указатель на базовый класс",
+            "illustrates": [
+              "inheritance"
+            ],
+            "code": "Animal* a = new Dog();\na->speak();"
+          }
+        ],
+        "csharp": [
+          {
+            "title": "virtual / override",
+            "illustrates": [
+              "inheritance"
+            ],
+            "code": "class Animal { public virtual void Speak() { } }\nclass Dog : Animal { public override void Speak() => Console.WriteLine(\"woof\"); }"
+          },
+          {
+            "title": "Базовая ссылка",
+            "illustrates": [
+              "inheritance"
+            ],
+            "code": "Animal pet = new Dog();\npet.Speak();"
+          }
+        ],
+        "java": [
+          {
+            "title": "@Override",
+            "illustrates": [
+              "inheritance"
+            ],
+            "code": "class Animal { void speak() { } }\nclass Dog extends Animal { @Override void speak() { System.out.println(\"woof\"); } }"
+          },
+          {
+            "title": "Базовая ссылка",
+            "illustrates": [
+              "inheritance"
+            ],
+            "code": "Animal pet = new Dog();\npet.speak();"
+          }
+        ]
+      }
+    },
+    "tc_linear_structures": {
+      "id": "tc_linear_structures",
+      "name_ru": "Стек, очередь, связный список",
+      "description_ru": "Линейные структуры данных с операциями добавления и извлечения.",
+      "technical_concept_ids": [
+        "linear_structure",
+        "push_pop"
+      ],
+      "hints_by_language": {
+        "pascal": [
+          {
+            "title": "Стек (массив)",
+            "illustrates": [
+              "linear_structure"
+            ],
+            "code": "var st: array[1 .. 100] of integer;\n  top: integer;\nbegin\n  top := 0;\n  Inc(top);\n  st[top] := x;\nend;"
+          },
+          {
+            "title": "Указательный узел",
+            "illustrates": [
+              "linear_structure"
+            ],
+            "code": "type PNode = ^TNode;\n  TNode = record\n    val: integer;\n    next: PNode;\n  end;"
+          }
+        ],
+        "python": [
+          {
+            "title": "list как стек",
+            "illustrates": [
+              "linear_structure"
+            ],
+            "code": "stack = []\nstack.append(x)\nx = stack.pop()"
+          },
+          {
+            "title": "deque",
+            "illustrates": [
+              "linear_structure"
+            ],
+            "code": "from collections import deque\nq = deque()\nq.append(x)"
+          }
+        ],
+        "cpp": [
+          {
+            "title": "stack",
+            "illustrates": [
+              "linear_structure"
+            ],
+            "code": "std::stack<int> st;\nst.push(x);\nx = st.top(); st.pop();"
+          },
+          {
+            "title": "queue",
+            "illustrates": [
+              "linear_structure"
+            ],
+            "code": "std::queue<int> q;\nq.push(x);"
+          }
+        ],
+        "csharp": [
+          {
+            "title": "Stack",
+            "illustrates": [
+              "linear_structure"
+            ],
+            "code": "var st = new Stack<int>();\nst.Push(x);"
+          },
+          {
+            "title": "Queue",
+            "illustrates": [
+              "linear_structure"
+            ],
+            "code": "var q = new Queue<int>();\nq.Enqueue(x);"
+          }
+        ],
+        "java": [
+          {
+            "title": "Deque",
+            "illustrates": [
+              "linear_structure"
+            ],
+            "code": "import java.util.ArrayDeque;\nimport java.util.Deque;\n\nDeque<Integer> st = new ArrayDeque<>();\nst.push(x);"
+          },
+          {
+            "title": "LinkedList",
+            "illustrates": [
+              "linear_structure"
+            ],
+            "code": "LinkedList<Integer> list = new LinkedList<>();"
+          }
+        ]
+      }
+    },
+    "tc_trees": {
+      "id": "tc_trees",
+      "name_ru": "Деревья",
+      "description_ru": "Иерархическая структура: узлы, потомки, обход.",
+      "technical_concept_ids": [
+        "tree_structure"
+      ],
+      "hints_by_language": {
+        "pascal": [
+          {
+            "title": "Узел дерева",
+            "illustrates": [
+              "tree_structure"
+            ],
+            "code": "type PNode = ^TNode;\n  TNode = record\n    val: integer;\n    left, right: PNode;\n  end;"
+          },
+          {
+            "title": "Рекурсивный обход",
+            "illustrates": [
+              "tree_structure"
+            ],
+            "code": "procedure Walk(p: PNode);\nbegin\n  if p = nil then exit;\n  Walk(p.left);\n  Process(p.val);\n  Walk(p.right);\nend;"
+          }
+        ],
+        "python": [
+          {
+            "title": "Класс узла",
+            "illustrates": [
+              "tree_structure"
+            ],
+            "code": "class Node:\n    def __init__(self, val, left=None, right=None):\n        self.val = val\n        self.left = left\n        self.right = right"
+          },
+          {
+            "title": "In-order",
+            "illustrates": [
+              "tree_structure"
+            ],
+            "code": "def walk(node):\n    if not node: return\n    walk(node.left)\n    print(node.val)\n    walk(node.right)"
+          }
+        ],
+        "cpp": [
+          {
+            "title": "struct Node",
+            "illustrates": [
+              "tree_structure"
+            ],
+            "code": "struct Node {\n    int val;\n    Node* left = nullptr;\n    Node* right = nullptr;\n};"
+          },
+          {
+            "title": "In-order walk",
+            "illustrates": [
+              "tree_structure"
+            ],
+            "code": "void walk(Node* p) {\n    if (!p) return;\n    walk(p->left);\n    process(p->val);\n    walk(p->right);\n}"
+          }
+        ],
+        "csharp": [
+          {
+            "title": "class Node",
+            "illustrates": [
+              "tree_structure"
+            ],
+            "code": "class Node {\n    public int Val;\n    public Node? Left, Right;\n}"
+          },
+          {
+            "title": "Recursive walk",
+            "illustrates": [
+              "tree_structure"
+            ],
+            "code": "void Walk(Node? node) {\n    if (node is null) return;\n    Walk(node.Left);\n    Console.WriteLine(node.Val);\n    Walk(node.Right);\n}"
+          }
+        ],
+        "java": [
+          {
+            "title": "class Node",
+            "illustrates": [
+              "tree_structure"
+            ],
+            "code": "class Node {\n    int val;\n    Node left, right;\n    Node(int v) { val = v; }\n}"
+          },
+          {
+            "title": "In-order walk",
+            "illustrates": [
+              "tree_structure"
+            ],
+            "code": "void walk(Node node) {\n    if (node == null) return;\n    walk(node.left);\n    System.out.println(node.val);\n    walk(node.right);\n}"
+          }
+        ]
+      }
+    },
+    "tc_graphs": {
+      "id": "tc_graphs",
+      "name_ru": "Графы",
+      "description_ru": "Вершины и рёбра; представление списком смежности или матрицей.",
+      "technical_concept_ids": [
+        "graph_structure"
+      ],
+      "hints_by_language": {
+        "pascal": [
+          {
+            "title": "Матрица смежности",
+            "illustrates": [
+              "graph_structure"
+            ],
+            "code": "var g: array[1..N,1..N] of boolean;"
+          },
+          {
+            "title": "BFS (очередь)",
+            "illustrates": [
+              "graph_structure"
+            ],
+            "code": "while not QueueEmpty do begin\n  v := Dequeue;\n  { relax edges from v }\nend;"
+          }
+        ],
+        "python": [
+          {
+            "title": "Список смежности",
+            "illustrates": [
+              "graph_structure"
+            ],
+            "code": "graph = {1: [2,3], 2: [4], 3: [], 4: []}"
+          },
+          {
+            "title": "BFS",
+            "illustrates": [
+              "graph_structure"
+            ],
+            "code": "from collections import deque\nq = deque([start])\nseen = {start}"
+          }
+        ],
+        "cpp": [
+          {
+            "title": "vector<vector>",
+            "illustrates": [
+              "graph_structure"
+            ],
+            "code": "std::vector<std::vector<int>> g(n);"
+          },
+          {
+            "title": "visited",
+            "illustrates": [
+              "graph_structure"
+            ],
+            "code": "std::vector<bool> seen(n, false);"
+          }
+        ],
+        "csharp": [
+          {
+            "title": "Dictionary adjacency",
+            "illustrates": [
+              "graph_structure"
+            ],
+            "code": "var g = new Dictionary<int, List<int>>();"
+          },
+          {
+            "title": "HashSet visited",
+            "illustrates": [
+              "graph_structure"
+            ],
+            "code": "var seen = new HashSet<int>();"
+          }
+        ],
+        "java": [
+          {
+            "title": "List<List>",
+            "illustrates": [
+              "graph_structure"
+            ],
+            "code": "List<List<Integer>> g = new ArrayList<>();"
+          },
+          {
+            "title": "HashSet visited",
+            "illustrates": [
+              "graph_structure"
+            ],
+            "code": "Set<Integer> seen = new HashSet<>();"
+          }
+        ]
+      }
+    }
+  },
+  "changelog": {
+    "2.0": [
+      "Renamed hint field covers -> illustrates (documentation only, not detection).",
+      "technical_concept_ids and illustrates use canonical ids (assignment, program_root, …)."
+    ],
+    "1.1": [
+      "Split tc_oop into five OOP cards.",
+      "Fixed Pascal stack array bounds and bubble-sort example."
+    ]
+  }
+}

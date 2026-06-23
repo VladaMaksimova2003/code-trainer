@@ -1,0 +1,40 @@
+﻿id=213 ped='lop_11' slug=lop_11 tracks=['pascal'] pas=lop_11 py=
+id=265 ped='pit_01' slug=pit_01 tracks=['pascal', 'python'] pas=pit_01 py=pypit_01
+id=268 ped='pit_04' slug=pit_04 tracks=['pascal', 'python'] pas=pit_04 py=pypit_04
+id=275 ped='pit_12' slug=pit_12 tracks=['pascal'] pas=pit_12 py=
+id=276 ped='pit_13' slug=pit_13 tracks=['pascal'] pas=pit_13 py=
+id=617 ped='pypit_12' slug=pypit_12 tracks=['python'] pas= py=pypit_12
+id=640 ped='lop_11' slug=pys_06 tracks=['python'] pas= py=pys_06
+id=644 ped='pit_01' slug=pypit_20 tracks=['python'] pas= py=pypit_20
+id=645 ped='pit_04' slug=pyl_14 tracks=['python'] pas= py=pyl_14
+
+--- duplicates ---
+DUPLICATE ped=lop_11 ids=[213, 640]
+DUPLICATE ped=pit_01 ids=[265, 644]
+DUPLICATE ped=pit_04 ids=[268, 645]
+
+--- validation ---
+duplicate_pedagogical_slot_ids: 3
+  duplicate pedagogical_slot_id=lop_11 task_ids=[213, 640]
+  duplicate pedagogical_slot_id=pit_01 task_ids=[265, 644]
+  duplicate pedagogical_slot_id=pit_04 task_ids=[268, 645]
+mirror_pairs_not_merged: 11
+  pair pit_01<->pypit_01 missing tracks: ['python']
+  pit_01: expected pascal slug pit_01, got None
+  pit_01: expected python slug pypit_01, got None
+  pair pit_04<->pypit_04 missing tracks: ['python']
+  pit_04: expected pascal slug pit_04, got None
+  pit_04: expected python slug pypit_04, got None
+  pair pit_12<->pypit_12 missing tracks: ['pascal']
+  pit_12: expected pascal slug pit_12, got None
+  pit_12: expected python slug pypit_12, got None
+  pair pit_13<->pypit_13 missing tracks: ['pascal']
+  pit_13: expected python slug pypit_13, got None
+semantic_pairs_merged_as_strict: 0
+group_c_incorrectly_merged: 0
+forbidden_formats: 0
+non_neutral_titles: 0
+
+--- strict unmerged ---
+unmerged: pit_12<->pypit_12
+unmerged: pit_13<->pypit_13

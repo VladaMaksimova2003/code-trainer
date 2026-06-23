@@ -1,0 +1,47 @@
+# Canonical technical concept → pedagogical display TC card (tc_display_registry.json).
+# UI hints/examples live in JSON; this file is the detection rollup only.
+
+schema_version: "2.0"
+description: Map language-agnostic technical concepts to display TC bundle ids.
+
+mappings:
+  assignment: tc_arithmetic
+  variable_declaration: tc_variables_types
+  constant_declaration: tc_variables_types
+  block_scope: tc_program_structure
+  program_root: tc_program_structure
+  main_entry: tc_program_structure
+  compound_statement: tc_program_structure
+
+  arithmetic: tc_arithmetic
+  console_input: tc_console_io
+  console_output: tc_console_io
+  loop: tc_loops
+  nested_loop: tc_loops
+  conditional: tc_conditionals
+  switch_selection: tc_switch_selection
+  function_definition: tc_functions
+  parameter_list: tc_parameters_return
+  return_flow: tc_parameters_return
+  recursion: tc_recursion
+  indexed_access: tc_arrays
+  string_literal: tc_strings
+  collection_iteration: tc_collection_traversal
+  map_type: tc_maps_records
+  record_type: tc_maps_records
+  import_module: tc_modules
+  file_io: tc_file_io
+  class_type: tc_oop_classes
+  method_declaration: tc_oop_methods
+  constructor: tc_oop_constructors
+  field_declaration: tc_oop_methods
+  inheritance: tc_oop_inheritance
+  member_access: tc_oop_methods
+  function_call: tc_functions
+  search_find: tc_search
+  filter_select: tc_filter
+  fold_aggregate: tc_aggregate
+  sort: tc_sort
+  linear_structure: tc_linear_structures
+  tree_structure: tc_trees
+  graph_structure: tc_graphs

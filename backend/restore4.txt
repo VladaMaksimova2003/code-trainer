@@ -1,0 +1,315 @@
+﻿strip-bogus-tracks:task-1291:slug-pyt_05:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1292:slug-pyt_06:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1293:slug-pyt_09:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1294:slug-pyi_05:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1295:slug-pyi_09:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1296:slug-pye_02:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1297:slug-pye_03:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1298:slug-pye_04:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1299:slug-pye_05:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1300:slug-pye_07:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1301:slug-pyc_04:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1302:slug-pyc_15:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1303:slug-pyl_06:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1304:slug-pyl_07:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1305:slug-pyl_09:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1306:slug-pyl_10:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1307:slug-pyl_14:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1308:slug-pyl_15:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1309:slug-pyf_04:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1310:slug-pyf_05:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1311:slug-pyf_06:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1312:slug-pyf_07:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1313:slug-pyf_09:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1314:slug-pyf_10:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1315:slug-pypr_14:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1316:slug-pya_11:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1317:slug-pycmp_01:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1318:slug-pycmp_02:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1319:slug-pycmp_03:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1320:slug-pycmp_04:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1321:slug-pycmp_05:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1322:slug-pycmp_06:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1323:slug-pycmp_07:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1324:slug-pycmp_08:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1325:slug-pycmp_09:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1326:slug-pycmp_10:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1327:slug-pycmp_11:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1328:slug-pyd_09:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1329:slug-pyd_10:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1330:slug-pyd_12:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1331:slug-pyd_13:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1332:slug-pys_03:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1333:slug-pys_06:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1334:slug-pys_08:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1335:slug-pyr_04:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1336:slug-pyr_06:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1337:slug-pyfl_09:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1338:slug-pym_02:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1339:slug-pym_03:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1340:slug-pym_05:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1341:slug-pym_07:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1342:slug-pym_08:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1343:slug-pym_10:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1344:slug-pym_11:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1345:slug-pym_12:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1346:slug-pym_14:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1347:slug-pyrc_08:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1348:slug-pyo_15:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1349:slug-pyo_16:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1350:slug-pyo_17:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1351:slug-pyo_18:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1352:slug-pyx_03:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1353:slug-pyx_06:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1354:slug-pyx_08:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1355:slug-pyx_10:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1356:slug-pyx_11:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1357:slug-pyx_13:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1358:slug-pyx_14:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1359:slug-pyx_15:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1360:slug-pyp_01:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1361:slug-pyp_02:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1362:slug-pyp_03:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1363:slug-pyp_04:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1364:slug-pyp_05:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1365:slug-pyp_06:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1366:slug-pyp_07:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1367:slug-pyp_08:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1368:slug-pyp_09:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1369:slug-pyp_10:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1370:slug-pyp_11:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1371:slug-pyp_12:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1372:slug-pyp_13:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1373:slug-pyp_14:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1374:slug-pyp_15:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1375:slug-pyp_16:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1376:slug-pyp_17:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1377:slug-pypit_05:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1378:slug-pypit_09:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1379:slug-pypit_11:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1380:slug-pypit_20:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1381:slug-pypit_23:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1382:slug-pypit_24:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1383:slug-pydg_10:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1384:slug-pydg_13:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1385:slug-pyadv_01:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1386:slug-pyadv_02:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1387:slug-pyadv_03:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1388:slug-pyadv_04:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1389:slug-pyadv_05:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1390:slug-pyadv_06:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1391:slug-pyadv_07:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1392:slug-pyadv_08:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1393:slug-pyadv_09:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1394:slug-pyadv_10:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1395:slug-pyadv_11:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1396:slug-pyadv_12:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1397:slug-pyadv_13:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1398:slug-pyadv_14:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1399:slug-pyadv_15:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1400:slug-pyadv_16:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1401:slug-pyadv_17:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1402:slug-pyadv_18:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1403:slug-pyadv_19:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1404:slug-pyadv_20:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1405:slug-pyadv_21:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1406:slug-pyadv_22:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1407:slug-pytd_01:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1408:slug-pytd_02:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1409:slug-pytd_03:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1410:slug-pycap_01:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1411:slug-pycap_02:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1412:slug-pycap_03:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1413:slug-pycap_04:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1414:slug-pycap_05:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1415:slug-pycap_06:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1416:slug-pycap_07:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1417:slug-pycap_08:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1418:slug-pycap_09:['pascal', 'python']->['python']
+strip-bogus-tracks:task-1419:slug-cpcap_01:['cpp', 'pascal']->['cpp']
+strip-bogus-tracks:task-1420:slug-cpcap_02:['cpp', 'pascal']->['cpp']
+strip-bogus-tracks:task-1421:slug-cpcap_03:['cpp', 'pascal']->['cpp']
+strip-bogus-tracks:task-1422:slug-cpcap_04:['cpp', 'pascal']->['cpp']
+strip-bogus-tracks:task-1423:slug-cpcap_05:['cpp', 'pascal']->['cpp']
+strip-bogus-tracks:task-1424:slug-cpcap_06:['cpp', 'pascal']->['cpp']
+strip-bogus-tracks:task-1425:slug-cpcap_07:['cpp', 'pascal']->['cpp']
+strip-bogus-tracks:task-1426:slug-cpcap_08:['cpp', 'pascal']->['cpp']
+fix-ped:pyx_01->exc_01:task-646:slug-exc_01
+fix-ped:pyx_02->exc_02:task-647:slug-exc_02
+fix-ped:pyx_05->exc_06:task-948:slug-exc_06
+fix-ped:pyx_04->exc_03:task-1003:slug-exc_03
+fix-ped:pyx_09->exc_04:task-1004:slug-exc_04
+fix-ped:pyx_07->exc_05:task-1005:slug-exc_05
+fix-ped:pyx_04->exc_03:task-1188:slug-exc_03
+fix-ped:pyx_05->exc_06:task-1191:slug-exc_06
+fix-ped:pyx_12->exc_07:task-1192:slug-exc_07
+soft-delete-duplicate:ped-lop_07:keep-158:drop-1235:slug-lop_07
+soft-delete-duplicate:ped-lop_08:keep-159:drop-1236:slug-lop_08
+soft-delete-duplicate:ped-lop_14:keep-163:drop-1237:slug-lop_14
+soft-delete-duplicate:ped-dyn_09:keep-205:drop-1238:slug-dyn_09
+soft-delete-duplicate:ped-dyn_10:keep-206:drop-1239:slug-dyn_10
+soft-delete-duplicate:ped-str_03:keep-210:drop-1240:slug-str_03
+soft-delete-duplicate:ped-rec_06:keep-222:drop-1241:slug-rec_06
+soft-delete-duplicate:ped-unt_06:keep-237:drop-1242:slug-unt_06
+soft-delete-duplicate:ped-unt_13:keep-242:drop-1243:slug-unt_13
+soft-delete-duplicate:ped-pit_13:keep-276:drop-1257:slug-pit_13
+soft-delete-duplicate:ped-pit_18:keep-281:drop-1262:slug-pit_18
+soft-delete-duplicate:ped-pit_19:keep-282:drop-1263:slug-pit_19
+soft-delete-duplicate:ped-pit_23:keep-285:drop-1266:slug-pit_23
+soft-delete-duplicate:ped-pit_24:keep-286:drop-1267:slug-pit_24
+soft-delete-duplicate:ped-cdg_03:keep-289:drop-1276:slug-cdg_03
+soft-delete-duplicate:ped-cdg_05:keep-291:drop-1278:slug-cdg_05
+soft-delete-duplicate:ped-cdg_07:keep-293:drop-1280:slug-cdg_07
+soft-delete-duplicate:ped-cdg_11:keep-297:drop-1282:slug-cdg_11
+soft-delete-duplicate:ped-cdg_12:keep-298:drop-1283:slug-cdg_12
+soft-delete-duplicate:ped-cdg_13:keep-299:drop-1284:slug-cdg_13
+soft-delete-duplicate:ped-cdg_14:keep-300:drop-1285:slug-cdg_14
+soft-delete-duplicate:ped-cdg_15:keep-301:drop-1286:slug-cdg_15
+soft-delete-duplicate:ped-pit_cap01:keep-367:drop-1270:slug-pit_cap01
+soft-delete-duplicate:ped-pit_cap02:keep-368:drop-1271:slug-pit_cap02
+soft-delete-duplicate:ped-pit_cap03:keep-369:drop-1272:slug-pit_cap03
+soft-delete-duplicate:ped-pit_cap04:keep-370:drop-1273:slug-pit_cap04
+soft-delete-duplicate:ped-cdg_cap01:keep-371:drop-1287:slug-cdg_cap01
+soft-delete-duplicate:ped-cdg_cap02:keep-372:drop-1288:slug-cdg_cap02
+soft-delete-duplicate:ped-cdg_cap03:keep-373:drop-1289:slug-cdg_cap03
+soft-delete-duplicate:ped-cdg_cap04:keep-374:drop-1290:slug-cdg_cap04
+soft-delete-duplicate:ped-pit_03:keep-639:drop-1251:slug-pit_03
+soft-delete-duplicate:ped-exc_01:keep-646:drop-1186:slug-exc_01
+soft-delete-duplicate:ped-exc_02:keep-647:drop-1002:slug-exc_02
+soft-delete-duplicate:ped-pit_01:keep-661:drop-1249:slug-pit_01
+soft-delete-duplicate:ped-pit_02:keep-662:drop-1250:slug-pit_02
+soft-delete-duplicate:ped-pit_04:keep-664:drop-1252:slug-pit_04
+soft-delete-duplicate:ped-pit_07:keep-665:drop-1253:slug-pit_07
+soft-delete-duplicate:ped-pit_08:keep-666:drop-1254:slug-pit_08
+soft-delete-duplicate:ped-pit_10:keep-667:drop-1255:slug-pit_10
+soft-delete-duplicate:ped-pit_14:keep-670:drop-1258:slug-pit_14
+soft-delete-duplicate:ped-pit_15:keep-671:drop-1259:slug-pit_15
+soft-delete-duplicate:ped-pit_16:keep-672:drop-1260:slug-pit_16
+soft-delete-duplicate:ped-pit_17:keep-673:drop-1261:slug-pit_17
+soft-delete-duplicate:ped-pit_21:keep-676:drop-1264:slug-pit_21
+soft-delete-duplicate:ped-pit_22:keep-677:drop-1265:slug-pit_22
+soft-delete-duplicate:ped-pit_05:keep-680:drop-1268:slug-pit_05
+soft-delete-duplicate:ped-pit_06:keep-681:drop-1269:slug-pit_06
+soft-delete-duplicate:ped-cdg_01:keep-687:drop-1274:slug-cdg_01
+soft-delete-duplicate:ped-cdg_02:keep-688:drop-1275:slug-cdg_02
+soft-delete-duplicate:ped-cdg_04:keep-690:drop-1277:slug-cdg_04
+soft-delete-duplicate:ped-cdg_06:keep-692:drop-1279:slug-cdg_06
+soft-delete-duplicate:ped-cdg_09:keep-694:drop-1281:slug-cdg_09
+soft-delete-duplicate:ped-exc_06:keep-1191:drop-948:slug-exc_06
+soft-delete-duplicate:ped-exc_06:keep-1191:drop-1247:slug-exc_06
+soft-delete-duplicate:ped-exc_03:keep-1188:drop-1003:slug-exc_03
+soft-delete-duplicate:ped-exc_03:keep-1188:drop-1244:slug-exc_03
+soft-delete-duplicate:ped-exc_04:keep-1004:drop-1245:slug-exc_04
+soft-delete-duplicate:ped-exc_05:keep-1005:drop-1246:slug-exc_05
+soft-delete-duplicate:ped-pit_12:keep-1014:drop-1256:slug-pit_12
+soft-delete-duplicate:ped-exc_07:keep-1192:drop-1248:slug-exc_07
+restore-for-merge:exc_01:task-1001
+restore-for-merge:pyx_01:task-752
+skip:exc_01:ped-id-owned-by-646
+restore-for-merge:exc_02:task-1187
+merged:exc_02:1187<-647
+
+--- validation ---
+  duplicate_pedagogical_slot_ids: FAIL (1)
+    - duplicate pedagogical_slot_id=exc_01 task_ids=[646, 1001]
+  mirror_pairs_not_merged: FAIL (3)
+    - pair exc_01<->pyx_01 missing tracks: ['pascal']
+    - exc_01: expected python slug pyx_01, got None
+    - missing unified task for pair exc_02<->pyx_02
+  semantic_pairs_merged_as_strict: OK
+  group_c_incorrectly_merged: OK
+  forbidden_formats: OK
+  non_neutral_titles: OK
+
+--- final report ---
+active_showcase_tasks: 421
+unified_tasks: 89
+pascal_only_tasks: 112
+python_only_tasks: 129
+semantic_related_pairs_count: 8
+strict_mirror_pairs_count: 154
+unmerged_strict_pairs: 84
+  unmerged: {'pascal': 'psk_09', 'python': 'pyk_08'}
+  unmerged: {'pascal': 'psk_12', 'python': 'pyk_10'}
+  unmerged: {'pascal': 'typ_06', 'python': 'pyt_08'}
+  unmerged: {'pascal': 'typ_09', 'python': 'pyt_10'}
+  unmerged: {'pascal': 'typ_10', 'python': 'pyt_11'}
+  unmerged: {'pascal': 'io_04', 'python': 'pyi_03'}
+  unmerged: {'pascal': 'io_05', 'python': 'pyi_04'}
+  unmerged: {'pascal': 'exp_02', 'python': 'pye_01'}
+  unmerged: {'pascal': 'exp_06', 'python': 'pye_06'}
+  unmerged: {'pascal': 'exp_08', 'python': 'pye_08'}
+  unmerged: {'pascal': 'lop_09', 'python': 'pyl_08'}
+  unmerged: {'pascal': 'fn_06', 'python': 'pyf_08'}
+  unmerged: {'pascal': 'exc_01', 'python': 'pyx_01'}
+  unmerged: {'pascal': 'exc_02', 'python': 'pyx_02'}
+  unmerged: {'pascal': 'exc_05', 'python': 'pyx_07'}
+  unmerged: {'pascal': 'arr_01', 'python': 'pya_01'}
+  unmerged: {'pascal': 'arr_03', 'python': 'pya_03'}
+  unmerged: {'pascal': 'arr_04', 'python': 'pya_04'}
+  unmerged: {'pascal': 'arr_05', 'python': 'pya_05'}
+  unmerged: {'pascal': 'arr_06', 'python': 'pya_06'}
+  unmerged: {'pascal': 'arr_09', 'python': 'pya_09'}
+  unmerged: {'pascal': 'cnd_01', 'python': 'pyc_01'}
+  unmerged: {'pascal': 'cnd_02', 'python': 'pyc_02'}
+  unmerged: {'pascal': 'cnd_03', 'python': 'pyc_03'}
+  unmerged: {'pascal': 'cnd_05', 'python': 'pyc_05'}
+  unmerged: {'pascal': 'cnd_08', 'python': 'pyc_08'}
+  unmerged: {'pascal': 'dyn_01', 'python': 'pyd_01'}
+  unmerged: {'pascal': 'dyn_02', 'python': 'pyd_02'}
+  unmerged: {'pascal': 'dyn_04', 'python': 'pyd_04'}
+  unmerged: {'pascal': 'dyn_05', 'python': 'pyd_05'}
+  unmerged: {'pascal': 'dyn_06', 'python': 'pyd_06'}
+  unmerged: {'pascal': 'fil_01', 'python': 'pyfl_01'}
+  unmerged: {'pascal': 'fil_02', 'python': 'pyfl_02'}
+  unmerged: {'pascal': 'fil_03', 'python': 'pyfl_03'}
+  unmerged: {'pascal': 'fil_04', 'python': 'pyfl_04'}
+  unmerged: {'pascal': 'fil_07', 'python': 'pyfl_07'}
+  unmerged: {'pascal': 'fil_08', 'python': 'pyfl_08'}
+  unmerged: {'pascal': 'fn_01', 'python': 'pyf_01'}
+  unmerged: {'pascal': 'fn_02', 'python': 'pyf_02'}
+  unmerged: {'pascal': 'fn_03', 'python': 'pyf_03'}
+  unmerged: {'pascal': 'io_01', 'python': 'pyi_01'}
+  unmerged: {'pascal': 'io_02', 'python': 'pyi_02'}
+  unmerged: {'pascal': 'io_06', 'python': 'pyi_06'}
+  unmerged: {'pascal': 'io_07', 'python': 'pyi_07'}
+  unmerged: {'pascal': 'lop_01', 'python': 'pyl_01'}
+  unmerged: {'pascal': 'lop_02', 'python': 'pyl_02'}
+  unmerged: {'pascal': 'lop_04', 'python': 'pyl_04'}
+  unmerged: {'pascal': 'lop_12', 'python': 'pyl_12'}
+  unmerged: {'pascal': 'oop_01', 'python': 'pyo_01'}
+  unmerged: {'pascal': 'oop_02', 'python': 'pyo_02'}
+  unmerged: {'pascal': 'oop_03', 'python': 'pyo_03'}
+  unmerged: {'pascal': 'oop_05', 'python': 'pyo_05'}
+  unmerged: {'pascal': 'oop_06', 'python': 'pyo_06'}
+  unmerged: {'pascal': 'oop_09', 'python': 'pyo_09'}
+  unmerged: {'pascal': 'oop_13', 'python': 'pyo_13'}
+  unmerged: {'pascal': 'pit_18', 'python': 'pypit_18'}
+  unmerged: {'pascal': 'prc_01', 'python': 'pypr_01'}
+  unmerged: {'pascal': 'prc_02', 'python': 'pypr_02'}
+  unmerged: {'pascal': 'prc_03', 'python': 'pypr_03'}
+  unmerged: {'pascal': 'prc_06', 'python': 'pypr_06'}
+  unmerged: {'pascal': 'prc_07', 'python': 'pypr_07'}
+  unmerged: {'pascal': 'prc_10', 'python': 'pypr_10'}
+  unmerged: {'pascal': 'prc_12', 'python': 'pypr_12'}
+  unmerged: {'pascal': 'psk_01', 'python': 'pyk_01'}
+  unmerged: {'pascal': 'psk_02', 'python': 'pyk_02'}
+  unmerged: {'pascal': 'psk_03', 'python': 'pyk_03'}
+  unmerged: {'pascal': 'psk_04', 'python': 'pyk_04'}
+  unmerged: {'pascal': 'psk_05', 'python': 'pyk_05'}
+  unmerged: {'pascal': 'psk_06', 'python': 'pyk_06'}
+  unmerged: {'pascal': 'psk_11', 'python': 'pyk_11'}
+  unmerged: {'pascal': 'rcu_01', 'python': 'pyrc_01'}
+  unmerged: {'pascal': 'rcu_02', 'python': 'pyrc_02'}
+  unmerged: {'pascal': 'rcu_04', 'python': 'pyrc_04'}
+  unmerged: {'pascal': 'rcu_07', 'python': 'pyrc_07'}
+  unmerged: {'pascal': 'str_01', 'python': 'pys_01'}
+  unmerged: {'pascal': 'str_04', 'python': 'pys_04'}
+  unmerged: {'pascal': 'str_05', 'python': 'pys_05'}
+  unmerged: {'pascal': 'str_09', 'python': 'pys_09'}
+  unmerged: {'pascal': 'typ_01', 'python': 'pyt_01'}
+  unmerged: {'pascal': 'typ_02', 'python': 'pyt_02'}
+  unmerged: {'pascal': 'typ_03', 'python': 'pyt_03'}
+  unmerged: {'pascal': 'typ_04', 'python': 'pyt_04'}
+  unmerged: {'pascal': 'unt_01', 'python': 'pym_01'}
+  unmerged: {'pascal': 'unt_04', 'python': 'pym_04'}

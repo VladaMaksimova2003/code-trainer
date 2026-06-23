@@ -1,0 +1,171 @@
+﻿strip-bogus-tracks:task-752:slug-pyx_01:['pascal', 'python']->['python']
+fix-ped:pyx_02->exc_02:task-1187:slug-exc_02
+soft-delete-duplicate:ped-lop_07:keep-158:drop-1427:slug-lop_07
+soft-delete-duplicate:ped-lop_08:keep-1428:drop-159:slug-lop_08
+soft-delete-duplicate:ped-lop_14:keep-1429:drop-163:slug-lop_14
+soft-delete-duplicate:ped-dyn_09:keep-1430:drop-205:slug-dyn_09
+soft-delete-duplicate:ped-dyn_10:keep-1431:drop-206:slug-dyn_10
+soft-delete-duplicate:ped-str_03:keep-1432:drop-210:slug-str_03
+soft-delete-duplicate:ped-rec_06:keep-1433:drop-222:slug-rec_06
+soft-delete-duplicate:ped-unt_06:keep-237:drop-1434:slug-unt_06
+soft-delete-duplicate:ped-unt_13:keep-242:drop-1435:slug-unt_13
+soft-delete-duplicate:ped-pit_13:keep-276:drop-1450:slug-pit_13
+soft-delete-duplicate:ped-pit_18:keep-1455:drop-281:slug-pit_18
+soft-delete-duplicate:ped-pit_19:keep-282:drop-1456:slug-pit_19
+soft-delete-duplicate:ped-pit_23:keep-1459:drop-285:slug-pit_23
+soft-delete-duplicate:ped-pit_24:keep-1460:drop-286:slug-pit_24
+soft-delete-duplicate:ped-cdg_03:keep-289:drop-1469:slug-cdg_03
+soft-delete-duplicate:ped-cdg_05:keep-291:drop-1471:slug-cdg_05
+soft-delete-duplicate:ped-cdg_07:keep-293:drop-1473:slug-cdg_07
+soft-delete-duplicate:ped-cdg_11:keep-1475:drop-297:slug-cdg_11
+soft-delete-duplicate:ped-cdg_12:keep-1476:drop-298:slug-cdg_12
+soft-delete-duplicate:ped-cdg_13:keep-299:drop-1477:slug-cdg_13
+soft-delete-duplicate:ped-cdg_14:keep-300:drop-1478:slug-cdg_14
+soft-delete-duplicate:ped-cdg_15:keep-301:drop-1479:slug-cdg_15
+soft-delete-duplicate:ped-pit_cap01:keep-1463:drop-367:slug-pit_cap01
+soft-delete-duplicate:ped-pit_cap02:keep-1464:drop-368:slug-pit_cap02
+soft-delete-duplicate:ped-pit_cap03:keep-1465:drop-369:slug-pit_cap03
+soft-delete-duplicate:ped-pit_cap04:keep-1466:drop-370:slug-pit_cap04
+soft-delete-duplicate:ped-cdg_cap01:keep-1480:drop-371:slug-cdg_cap01
+soft-delete-duplicate:ped-cdg_cap02:keep-1481:drop-372:slug-cdg_cap02
+soft-delete-duplicate:ped-cdg_cap03:keep-1482:drop-373:slug-cdg_cap03
+soft-delete-duplicate:ped-cdg_cap04:keep-1483:drop-374:slug-cdg_cap04
+soft-delete-duplicate:ped-pit_03:keep-639:drop-1444:slug-pit_03
+soft-delete-duplicate:ped-exc_01:keep-1001:drop-646:slug-exc_01
+soft-delete-duplicate:ped-pit_01:keep-661:drop-1442:slug-pit_01
+soft-delete-duplicate:ped-pit_02:keep-1443:drop-662:slug-pit_02
+soft-delete-duplicate:ped-pit_04:keep-664:drop-1445:slug-pit_04
+soft-delete-duplicate:ped-pit_07:keep-665:drop-1446:slug-pit_07
+soft-delete-duplicate:ped-pit_08:keep-666:drop-1447:slug-pit_08
+soft-delete-duplicate:ped-pit_10:keep-667:drop-1448:slug-pit_10
+soft-delete-duplicate:ped-pit_14:keep-670:drop-1451:slug-pit_14
+soft-delete-duplicate:ped-pit_15:keep-671:drop-1452:slug-pit_15
+soft-delete-duplicate:ped-pit_16:keep-672:drop-1453:slug-pit_16
+soft-delete-duplicate:ped-pit_17:keep-673:drop-1454:slug-pit_17
+soft-delete-duplicate:ped-pit_21:keep-676:drop-1457:slug-pit_21
+soft-delete-duplicate:ped-pit_22:keep-677:drop-1458:slug-pit_22
+soft-delete-duplicate:ped-pit_05:keep-680:drop-1461:slug-pit_05
+soft-delete-duplicate:ped-pit_06:keep-681:drop-1462:slug-pit_06
+soft-delete-duplicate:ped-cdg_01:keep-687:drop-1467:slug-cdg_01
+soft-delete-duplicate:ped-cdg_02:keep-688:drop-1468:slug-cdg_02
+soft-delete-duplicate:ped-cdg_04:keep-690:drop-1470:slug-cdg_04
+soft-delete-duplicate:ped-cdg_06:keep-692:drop-1472:slug-cdg_06
+soft-delete-duplicate:ped-cdg_09:keep-694:drop-1474:slug-cdg_09
+soft-delete-duplicate:ped-exc_04:keep-1004:drop-1438:slug-exc_04
+soft-delete-duplicate:ped-exc_05:keep-1439:drop-1005:slug-exc_05
+soft-delete-duplicate:ped-pit_12:keep-1014:drop-1449:slug-pit_12
+soft-delete-duplicate:ped-exc_02:keep-1187:drop-1436:slug-exc_02
+soft-delete-duplicate:ped-exc_03:keep-1188:drop-1437:slug-exc_03
+soft-delete-duplicate:ped-exc_06:keep-1191:drop-1440:slug-exc_06
+soft-delete-duplicate:ped-exc_07:keep-1192:drop-1441:slug-exc_07
+merged:exc_01:1001<-752
+restore-for-merge:exc_05:task-1005
+restore-for-merge:pit_18:task-281
+
+--- validation ---
+  duplicate_pedagogical_slot_ids: FAIL (2)
+    - duplicate pedagogical_slot_id=pit_18 task_ids=[281, 1455]
+    - duplicate pedagogical_slot_id=exc_05 task_ids=[1005, 1439]
+  mirror_pairs_not_merged: FAIL (6)
+    - pair exc_01<->pyx_01 missing tracks: ['pascal']
+    - exc_01: expected python slug pyx_01, got None
+    - pair exc_05<->pyx_07 missing tracks: ['pascal']
+    - exc_05: expected python slug pyx_07, got None
+    - pair pit_18<->pypit_18 missing tracks: ['pascal']
+    - pit_18: expected python slug pypit_18, got None
+  semantic_pairs_merged_as_strict: OK
+  group_c_incorrectly_merged: OK
+  forbidden_formats: OK
+  non_neutral_titles: OK
+
+--- final report ---
+active_showcase_tasks: 421
+unified_tasks: 84
+pascal_only_tasks: 119
+python_only_tasks: 128
+semantic_related_pairs_count: 8
+strict_mirror_pairs_count: 154
+unmerged_strict_pairs: 83
+  unmerged: {'pascal': 'psk_09', 'python': 'pyk_08'}
+  unmerged: {'pascal': 'psk_12', 'python': 'pyk_10'}
+  unmerged: {'pascal': 'typ_06', 'python': 'pyt_08'}
+  unmerged: {'pascal': 'typ_09', 'python': 'pyt_10'}
+  unmerged: {'pascal': 'typ_10', 'python': 'pyt_11'}
+  unmerged: {'pascal': 'io_04', 'python': 'pyi_03'}
+  unmerged: {'pascal': 'io_05', 'python': 'pyi_04'}
+  unmerged: {'pascal': 'exp_02', 'python': 'pye_01'}
+  unmerged: {'pascal': 'exp_06', 'python': 'pye_06'}
+  unmerged: {'pascal': 'exp_08', 'python': 'pye_08'}
+  unmerged: {'pascal': 'lop_09', 'python': 'pyl_08'}
+  unmerged: {'pascal': 'fn_06', 'python': 'pyf_08'}
+  unmerged: {'pascal': 'exc_01', 'python': 'pyx_01'}
+  unmerged: {'pascal': 'exc_05', 'python': 'pyx_07'}
+  unmerged: {'pascal': 'arr_01', 'python': 'pya_01'}
+  unmerged: {'pascal': 'arr_03', 'python': 'pya_03'}
+  unmerged: {'pascal': 'arr_04', 'python': 'pya_04'}
+  unmerged: {'pascal': 'arr_05', 'python': 'pya_05'}
+  unmerged: {'pascal': 'arr_06', 'python': 'pya_06'}
+  unmerged: {'pascal': 'arr_09', 'python': 'pya_09'}
+  unmerged: {'pascal': 'cnd_01', 'python': 'pyc_01'}
+  unmerged: {'pascal': 'cnd_02', 'python': 'pyc_02'}
+  unmerged: {'pascal': 'cnd_03', 'python': 'pyc_03'}
+  unmerged: {'pascal': 'cnd_05', 'python': 'pyc_05'}
+  unmerged: {'pascal': 'cnd_08', 'python': 'pyc_08'}
+  unmerged: {'pascal': 'dyn_01', 'python': 'pyd_01'}
+  unmerged: {'pascal': 'dyn_02', 'python': 'pyd_02'}
+  unmerged: {'pascal': 'dyn_04', 'python': 'pyd_04'}
+  unmerged: {'pascal': 'dyn_05', 'python': 'pyd_05'}
+  unmerged: {'pascal': 'dyn_06', 'python': 'pyd_06'}
+  unmerged: {'pascal': 'fil_01', 'python': 'pyfl_01'}
+  unmerged: {'pascal': 'fil_02', 'python': 'pyfl_02'}
+  unmerged: {'pascal': 'fil_03', 'python': 'pyfl_03'}
+  unmerged: {'pascal': 'fil_04', 'python': 'pyfl_04'}
+  unmerged: {'pascal': 'fil_07', 'python': 'pyfl_07'}
+  unmerged: {'pascal': 'fil_08', 'python': 'pyfl_08'}
+  unmerged: {'pascal': 'fn_01', 'python': 'pyf_01'}
+  unmerged: {'pascal': 'fn_02', 'python': 'pyf_02'}
+  unmerged: {'pascal': 'fn_03', 'python': 'pyf_03'}
+  unmerged: {'pascal': 'io_01', 'python': 'pyi_01'}
+  unmerged: {'pascal': 'io_02', 'python': 'pyi_02'}
+  unmerged: {'pascal': 'io_06', 'python': 'pyi_06'}
+  unmerged: {'pascal': 'io_07', 'python': 'pyi_07'}
+  unmerged: {'pascal': 'lop_01', 'python': 'pyl_01'}
+  unmerged: {'pascal': 'lop_02', 'python': 'pyl_02'}
+  unmerged: {'pascal': 'lop_04', 'python': 'pyl_04'}
+  unmerged: {'pascal': 'lop_12', 'python': 'pyl_12'}
+  unmerged: {'pascal': 'oop_01', 'python': 'pyo_01'}
+  unmerged: {'pascal': 'oop_02', 'python': 'pyo_02'}
+  unmerged: {'pascal': 'oop_03', 'python': 'pyo_03'}
+  unmerged: {'pascal': 'oop_05', 'python': 'pyo_05'}
+  unmerged: {'pascal': 'oop_06', 'python': 'pyo_06'}
+  unmerged: {'pascal': 'oop_09', 'python': 'pyo_09'}
+  unmerged: {'pascal': 'oop_13', 'python': 'pyo_13'}
+  unmerged: {'pascal': 'pit_18', 'python': 'pypit_18'}
+  unmerged: {'pascal': 'prc_01', 'python': 'pypr_01'}
+  unmerged: {'pascal': 'prc_02', 'python': 'pypr_02'}
+  unmerged: {'pascal': 'prc_03', 'python': 'pypr_03'}
+  unmerged: {'pascal': 'prc_06', 'python': 'pypr_06'}
+  unmerged: {'pascal': 'prc_07', 'python': 'pypr_07'}
+  unmerged: {'pascal': 'prc_10', 'python': 'pypr_10'}
+  unmerged: {'pascal': 'prc_12', 'python': 'pypr_12'}
+  unmerged: {'pascal': 'psk_01', 'python': 'pyk_01'}
+  unmerged: {'pascal': 'psk_02', 'python': 'pyk_02'}
+  unmerged: {'pascal': 'psk_03', 'python': 'pyk_03'}
+  unmerged: {'pascal': 'psk_04', 'python': 'pyk_04'}
+  unmerged: {'pascal': 'psk_05', 'python': 'pyk_05'}
+  unmerged: {'pascal': 'psk_06', 'python': 'pyk_06'}
+  unmerged: {'pascal': 'psk_11', 'python': 'pyk_11'}
+  unmerged: {'pascal': 'rcu_01', 'python': 'pyrc_01'}
+  unmerged: {'pascal': 'rcu_02', 'python': 'pyrc_02'}
+  unmerged: {'pascal': 'rcu_04', 'python': 'pyrc_04'}
+  unmerged: {'pascal': 'rcu_07', 'python': 'pyrc_07'}
+  unmerged: {'pascal': 'str_01', 'python': 'pys_01'}
+  unmerged: {'pascal': 'str_04', 'python': 'pys_04'}
+  unmerged: {'pascal': 'str_05', 'python': 'pys_05'}
+  unmerged: {'pascal': 'str_09', 'python': 'pys_09'}
+  unmerged: {'pascal': 'typ_01', 'python': 'pyt_01'}
+  unmerged: {'pascal': 'typ_02', 'python': 'pyt_02'}
+  unmerged: {'pascal': 'typ_03', 'python': 'pyt_03'}
+  unmerged: {'pascal': 'typ_04', 'python': 'pyt_04'}
+  unmerged: {'pascal': 'unt_01', 'python': 'pym_01'}
+  unmerged: {'pascal': 'unt_04', 'python': 'pym_04'}

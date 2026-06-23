@@ -1,0 +1,3 @@
+# Устарело: настройки перенесены в docker-compose.dev.yml.
+# Файл оставлен для совместимости со старыми командами из README:
+#   docker compose -f deploy/docker-compose.dev.yml -f deploy/docker-compose.dev.override.yml ...

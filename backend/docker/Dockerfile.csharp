@@ -1,0 +1,18 @@
+FROM mcr.microsoft.com/dotnet/sdk:8.0
+
+COPY docker/csharp-template /runner/template
+
+RUN cd /runner/template \
+    && dotnet restore \
+    && useradd --create-home --uid 1000 runner \
+    && chown -R runner:runner /runner /home/runner \
+    && rm -rf /runner/template/bin
+
+ENV DOTNET_NOLOGO=1
+ENV DOTNET_CLI_TELEMETRY_OPTOUT=1
+ENV HOME=/home/runner
+
+WORKDIR /runner
+
+USER runner
+CMD ["sleep", "infinity"]

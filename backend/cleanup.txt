@@ -1,0 +1,32 @@
+﻿fix-ped:rec_04->rec_06:task-222:slug-rec_06
+fix-ped:pypit_12->pit_12:task-617:slug-pypit_12
+fix-ped:lop_11->pys_06:task-640:slug-pys_06
+fix-ped:pit_01->pypit_20:task-644:slug-pypit_20
+fix-ped:pit_04->pyl_14:task-645:slug-pyl_14
+manual-review:ped-pit_12:ids=[275, 617]
+merged:pit_12:275<-617
+skip:pit_13:missing
+
+--- validation ---
+  duplicate_pedagogical_slot_ids: OK
+  mirror_pairs_not_merged: FAIL (5)
+    - pair pit_12<->pypit_12 missing tracks: ['pascal']
+    - pit_12: expected pascal slug pit_12, got None
+    - pit_12: expected python slug pypit_12, got None
+    - pair pit_13<->pypit_13 missing tracks: ['pascal']
+    - pit_13: expected python slug pypit_13, got None
+  semantic_pairs_merged_as_strict: OK
+  group_c_incorrectly_merged: OK
+  forbidden_formats: OK
+  non_neutral_titles: OK
+
+--- final report ---
+active_showcase_tasks: 355
+unified_tasks: 139
+pascal_only_tasks: 112
+python_only_tasks: 104
+semantic_related_pairs_count: 8
+strict_mirror_pairs_count: 140
+unmerged_strict_pairs: 2
+  unmerged: {'pascal': 'pit_12', 'python': 'pypit_12'}
+  unmerged: {'pascal': 'pit_13', 'python': 'pypit_13'}
