@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-# Import curriculum chapters 1–5 (tasks + tests + assembly/debug codes) into PostgreSQL.
+# Import curriculum chapters 1–5 (40 tasks) into PostgreSQL.
+# Full course (128 tasks): ./deploy/scripts/import-curriculum-128.sh
 # Run on the server after deploy, from repo root:
 #   chmod +x deploy/scripts/import-chapters-1-5.sh
 #   ./deploy/scripts/import-chapters-1-5.sh
