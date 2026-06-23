@@ -8,7 +8,11 @@ import {
 import FormField from "@/features/settings/ui/FormField"
 import EmailVerificationFields from "@/features/auth/ui/EmailVerificationFields"
 import { getErrorMessage, isEmailFormatError } from "@/shared/utils/errors"
-import { emailValidationMessage, isValidEmail } from "@/shared/utils/email"
+import {
+  displayContactEmail,
+  emailValidationMessage,
+  isValidEmail,
+} from "@/shared/utils/email"
 import { toast } from "@/shared/ui/toast"
 
 export default function ProfileTab({ onAccountUpdated }) {
@@ -44,8 +48,9 @@ export default function ProfileTab({ onAccountUpdated }) {
         if (!cancelled) {
           setAccount(data)
           setName(data.name || "")
-          setEmail(data.email || "")
-          setSavedEmail(data.email || "")
+          const visibleEmail = displayContactEmail(data.email)
+          setEmail(visibleEmail)
+          setSavedEmail(visibleEmail)
           setAbout(data.about || "")
         }
       } catch (err) {

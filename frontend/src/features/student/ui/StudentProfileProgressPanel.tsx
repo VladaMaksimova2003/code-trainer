@@ -81,7 +81,11 @@ function SkillProgressRow({ row }: { row: SkillRow }) {
         <div className="mut3" style={{ fontSize: 11.5, marginTop: 5 }}>
           Решено {row.solved ?? 0} из {row.total ?? 0}
         </div>
-      ) : null}
+      ) : (
+        <div className="mut3" style={{ fontSize: 11.5, marginTop: 5 }}>
+          Задания появятся в следующих главах курса
+        </div>
+      )}
     </div>
   )
 }
@@ -197,9 +201,15 @@ function pickSkillRows(
   rows: SkillRow[]
   usingStructureFallback: boolean
 } {
-  const scoped =
+  const groupScoped =
     analytics.tc_skill_groups_by_language?.[language] ||
-    (analytics.tc_skills_default_language === language ? analytics.tc_skill_groups : undefined) ||
+    (analytics.tc_skills_default_language === language ? analytics.tc_skill_groups : undefined)
+
+  if (groupScoped && groupScoped.length > 0) {
+    return { rows: groupScoped, usingStructureFallback: false }
+  }
+
+  const scoped =
     analytics.tc_skills_by_language?.[language] ||
     (analytics.tc_skills_default_language === language ? analytics.tc_skills : undefined)
 

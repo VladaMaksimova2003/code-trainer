@@ -18,6 +18,7 @@ import {
   formatDeltaBadge,
   resolveStreakDays,
 } from "@/shared/utils/activityStats"
+import { displayContactEmail } from "@/shared/utils/email"
 
 const TABS = [
   ["progress", "Прогресс"],
@@ -68,7 +69,7 @@ export default function ProfilePage({ user = null, onSignOut }) {
 
   const displayName = profile?.display_name || user?.name || "Пользователь"
   const profileRole = isTeacher ? "teacher" : "student"
-  const contactEmail = profile?.email || user?.email || ""
+  const contactEmail = displayContactEmail(profile?.email || user?.email)
 
   useEffect(() => {
     const raw = searchParams.get("tab")
@@ -155,9 +156,11 @@ export default function ProfilePage({ user = null, onSignOut }) {
               style={{ margin: "0 auto 12px" }}
             />
             <b style={{ fontSize: 17 }}>{displayName}</b>
-            <p className="mut3" style={{ fontSize: 13, margin: "4px 0 10px" }}>
-              {contactEmail}
-            </p>
+            {contactEmail ? (
+              <p className="mut3" style={{ fontSize: 13, margin: "4px 0 10px" }}>
+                {contactEmail}
+              </p>
+            ) : null}
             {studyIdentity ? (
               <p
                 className="muted"
