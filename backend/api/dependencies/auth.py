@@ -114,8 +114,6 @@ def get_complete_oauth_login_use_case(
         password_hasher=PasswordHasherService(),
         token_provider=_build_token_provider(),
         oauth_settings=settings.oauth,
-        auth_secret_key=settings.auth.secret_key,
-        auth_algorithm=settings.auth.algorithm,
         uow=SimpleUnitOfWork(db),
     )
 

@@ -4,7 +4,7 @@ from starlette.requests import Request
 
 from api.dependencies.auth import get_complete_oauth_login_use_case
 from application.auth.oauth.pkce import generate_pkce_pair
-from application.auth.oauth.state_token import create_oauth_state_token
+from application.auth.oauth.state_store import create_oauth_state
 from application.auth.use_cases.oauth.complete_oauth_login import CompleteOAuthLoginUseCase
 from infrastructure.external.oauth.registry import build_authorize_url, normalize_provider
 from shared.config import get_settings
@@ -30,7 +30,6 @@ async def oauth_providers() -> dict[str, list[str]]:
 async def oauth_start(provider: str) -> RedirectResponse:
     settings = get_settings()
     oauth_settings = settings.oauth
-    auth_settings = settings.auth
 
     try:
         normalized = normalize_provider(provider)
@@ -44,11 +43,9 @@ async def oauth_start(provider: str) -> RedirectResponse:
         return RedirectResponse(url=redirect_url, status_code=302)
 
     code_verifier, code_challenge = generate_pkce_pair()
-    state = create_oauth_state_token(
+    state = create_oauth_state(
         provider=normalized,
         code_verifier=code_verifier,
-        secret_key=auth_settings.secret_key,
-        algorithm=auth_settings.algorithm,
     )
     authorize_url = build_authorize_url(
         normalized,

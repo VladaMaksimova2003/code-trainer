@@ -1,6 +1,6 @@
 import secrets
 
-from application.auth.oauth.state_token import decode_oauth_state_token
+from application.auth.oauth.state_store import consume_oauth_state
 from application.auth.services.token_issuer import issue_token_pair
 from domain.entities.users.user import User
 from domain.value_objects.auth import TokenPair
@@ -31,8 +31,6 @@ class CompleteOAuthLoginUseCase:
         password_hasher: IPasswordHasher,
         token_provider: ITokenProvider,
         oauth_settings: OAuthSettings,
-        auth_secret_key: str,
-        auth_algorithm: str,
         uow: IUnitOfWork,
     ) -> None:
         self._user_repository = user_repository
@@ -41,8 +39,6 @@ class CompleteOAuthLoginUseCase:
         self._password_hasher = password_hasher
         self._token_provider = token_provider
         self._oauth_settings = oauth_settings
-        self._auth_secret_key = auth_secret_key
-        self._auth_algorithm = auth_algorithm
         self._uow = uow
 
     async def execute(
@@ -57,11 +53,7 @@ class CompleteOAuthLoginUseCase:
         if not self._oauth_settings.is_provider_configured(normalized_provider):
             raise AuthError(f"OAuth provider '{normalized_provider}' is not configured.")
 
-        state_payload = decode_oauth_state_token(
-            state,
-            secret_key=self._auth_secret_key,
-            algorithm=self._auth_algorithm,
-        )
+        state_payload = consume_oauth_state(state)
         if state_payload["provider"] != normalized_provider:
             raise AuthError("OAuth provider mismatch.")
 
